@@ -5,6 +5,8 @@
  * Date: 04/02/2016
  * Time: 14:36
  */
+
+//TODO: regarder le todo de Val :)
 require_once __DIR__.'/../vendor/autoload.php';
 
 $app = new Silex\Application();
