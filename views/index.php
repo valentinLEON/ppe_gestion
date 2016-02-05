@@ -7,8 +7,10 @@
  */
 
 //TODO: regarder test d'affichage
-require_once __DIR__.'/../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
-$app = require_once __DIR__.'/../app/app.php';
+$app = new Silex\Application();
+
+require_once __DIR__ . '/../app/app.php';
 
 $app->run();
