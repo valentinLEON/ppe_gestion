@@ -18,11 +18,9 @@ class users
 
     private $email;
 
-    private $atCreate;
+    private $dtCreate;
 
-    private $atUpdate;
-
-    private $id_class;
+    private $dtUpdate;
 
 
     public function getIdUser()
@@ -50,14 +48,14 @@ class users
         return $this->email;
     }
 
-    public function getAtCreate()
+    public function getDtCreate()
     {
-        return $this->atCreate;
+        return $this->dtCreate;
     }
 
-    public function getAtUpdate()
+    public function getDtUpdate()
     {
-        return $this->atUpdate;
+        return $this->dtUpdate;
     }
 
 }
