@@ -15,8 +15,10 @@
         export
         comparatif avec l'ensemble des eleves de la classe
     
-###FONCTIONNALITE DEDIE A L'ADMIN/SUPERVISEUR
+###FONCTIONNALITE DEDIEE A L'ADMIN/SUPERVISEUR
 ####Menu de Configuration a ajouter
         ajout de matière
         ajout d'eleve
         ajout d'utilisateur
+####Commentaire de Val
+    ceci sera quand même à améliorer si possible...
