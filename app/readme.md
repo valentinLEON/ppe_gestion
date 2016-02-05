@@ -5,7 +5,7 @@
     Dossier utilisé par twig pour compiler les templates
 
 ####config
-    Dossier de configuration des donnees db
+    Dossier de configuration des données db
 
 ####views
-    Dossier contenant les templates Twig qu'appel le controller
+    Dossier contenant les templates Twig qu'appelle le controller
