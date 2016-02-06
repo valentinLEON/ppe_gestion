@@ -6,7 +6,7 @@
  * Date: 06/02/2016
  * Time: 00:20
  */
-class studentClass
+class studentToClass
 {
 
     private $id_student;

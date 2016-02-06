@@ -6,13 +6,13 @@
  * Date: 05/02/2016
  * Time: 12:24
  */
-class className
+class classCategory
 {
-    private $id_class;
+    private $id_classCategory;
 
-    private $name_class;
+    private $className;
 
-    private $classroom;
+    private $classRoom;
 
     private $classYears;
 
@@ -20,19 +20,19 @@ class className
 
     private $dtUpdate;
 
-    public function getIdClass()
+    public function getIdClassCategory()
     {
-        return $this->id_class;
+        return $this->id_classCategory;
     }
 
     public function getNameClass()
     {
-        return $this->name_class;
+        return $this->className;
     }
 
     public function getClassRoom()
     {
-        return $this->classroom;
+        return $this->classRoom;
     }
 
     public function getClassYears()
