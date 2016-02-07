@@ -1,3 +1,3 @@
-# docs
+#Application de Gestion de Vie Scolaire
 
-## Dossier contenant le projet
+##Voir La rubrique Wiki pour les ressources documentaires
