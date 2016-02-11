@@ -9,5 +9,5 @@ CREATE TABLE absence(
     late bool, /*Définit le(s) retard(s)*/
     judgmentAbs bool, /*Définit si l'absence est ou a été justifier*/
     dt_Create DATE, /*Date de création*/
-    dt_Update DATE /*Date de modification*/
+    dt_Update DATE, /*Date de modification*/
 )
