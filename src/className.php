@@ -8,7 +8,7 @@
  *
  * Création des getters et setters des classes
  */
-class className
+class ClassName
 {
     private $id_className;
 

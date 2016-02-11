@@ -8,7 +8,7 @@
  *
  * Association des classes Class et Discipline (matières)
  */
-class disciplineToClass
+class DisciplineToClass
 {
     private $id_className;
     private $id_discipline;

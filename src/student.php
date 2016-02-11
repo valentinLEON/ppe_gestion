@@ -8,7 +8,7 @@
  *
  * Getters et setters des étudiants
  */
-class student
+class Student
 {
     private $id_student;
     private $student_name;
@@ -18,7 +18,7 @@ class student
     private $student_address;
     private $student_tel;
 
-    private $id_evaluation;
+    private $id_evaluation; /*clé étrangère*/
 
     private $dt_create;
     private $dt_update;

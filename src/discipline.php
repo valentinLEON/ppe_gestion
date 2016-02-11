@@ -8,7 +8,7 @@
  *
  * Class avec les getters et setters pour les matières
  */
-class discipline
+class Discipline
 {
     private $id_discipline;
     private $name_discipline;

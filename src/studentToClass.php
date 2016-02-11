@@ -8,7 +8,7 @@
  *
  * Association entre les classes Class et Student
  */
-class studentToClass
+class StudentToClass
 {
     private $id_student;
     private $id_className;

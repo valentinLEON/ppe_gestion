@@ -9,7 +9,7 @@
  * Getters et setters des évaluations, regroupant les notes
  * et les appréciations
  */
-class evaluation
+class Evaluation
 {
     private $id_evaluation;
     private $id_student; /*clé étrangère*/
