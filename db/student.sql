@@ -1,11 +1,10 @@
-CREATE TABLE STUDENT(
-        id_student     int (11) Auto_increment PRIMARY KEY NOT NULL ,
-        name           Varchar (25) ,
-        firstname      Varchar (25) ,
-        birthday       Date ,
-        status_student TinyINT ,
-        atCreate       Date ,
-        atUpdate       Date ,
-        email          Varchar (25) ,
-        id_class       Int FOREIGN KEY NOT NULL ,
+CREATE TABLE Student(
+        id_student              int (11) Auto_increment PRIMARY KEY NOT NULL ,
+        student_name            Varchar (25) ,
+        student_firstname       Varchar (50) ,
+        student_birthday        Date ,
+        dt_create               Date ,
+        dt_update               Date ,
+        student_email           Varchar (255) ,
+        FOREIGN KEY (id_class) REFERENCES className(id_class),
 )ENGINE=InnoDB;
