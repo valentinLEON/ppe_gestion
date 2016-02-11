@@ -8,6 +8,6 @@ CREATE TABLE absence(
     dateAbs DATE, /*Définit le jour/heure de(s) absence*/
     late bool, /*Définit le(s) retard(s)*/
     judgmentAbs bool, /*Définit si l'absence est ou a été justifier*/
-    dt_Create DATE, /*Date de création*/
-    dt_Update DATE, /*Date de modification*/
+    dt_create DATE, /*Date de création*/
+    dt_update DATE, /*Date de modification*/
 )

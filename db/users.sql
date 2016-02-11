@@ -6,7 +6,7 @@ CREATE TABLE users(
         name      Varchar (50) NOT NULL ,
         firstname Varchar (50) ,
         email     Varchar (25) ,
-        dt_Create  Date NOT NULL , /*Date de création*/
-        dt_Update  Date NOT NULL , /*Date de modification*/
+        dt_create  Date NOT NULL , /*Date de création*/
+        dt_update  Date NOT NULL , /*Date de modification*/
         id_class  Int NOT NULL ,
 )ENGINE=InnoDB;
