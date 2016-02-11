@@ -5,6 +5,8 @@
  * User: Val
  * Date: 05/02/2016
  * Time: 12:24
+ *
+ * Création des getters et setters des classes
  */
 class classCategory
 {

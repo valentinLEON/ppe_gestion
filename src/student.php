@@ -5,21 +5,21 @@
  * User: Singu_Admin
  * Date: 05/02/2016
  * Time: 23:07
+ *
+ * Getters et setters des étudiants
  */
 class student
 {
     private $id_student;
-    private $name;
-    private $firstname;
-    private $birthday;
-    private $status_student;
-    private $email;
+    private $student_name;
+    private $student_firstname;
+    private $student_birthday;
+    private $student_email;
+    private $student_address;
+    private $student_tel;
 
-    private $dtCreate;
-    private $dtUpdate;
-
-    private $id_class; //foreign key
-
+    private $dt_create;
+    private $dt_update;
 
     public function getIdStudent()
     {
@@ -28,42 +28,82 @@ class student
 
     public function getName()
     {
-        return $this->name;
+        return $this->student_name;
+    }
+
+    public function setName($_student_name)
+    {
+        $this->student_name = $_student_name;
     }
 
     public function getFirstname()
     {
-        return $this->firstname;
+        return $this->student_firstname;
+    }
+
+    public function setFirstname($_student_firstname)
+    {
+        $this->student_firstname = $_student_firstname;
     }
 
     public function getBirthday()
     {
-        return $this->birthday;
+        return $this->student_birthday;
     }
 
-    public function getStatusStudent()
+    public function setBirthday($_student_birthday)
     {
-        return $this->status_student;
+        $this->student_birthday = $_student_birthday;
     }
 
     public function getEmail()
     {
-        return $this->email;
+        return $this->student_email;
+    }
+
+    public function setEmail($_student_email)
+    {
+        $this->student_email = $_student_email;
+    }
+
+    public function getTel()
+    {
+        return $this->student_tel;
+    }
+
+    public function setTel($_student_tel)
+    {
+        $this->student_tel = $_student_tel;
+    }
+
+    public function getAddress()
+    {
+        return $this->student_address;
+    }
+
+    public function setAddress($_student_address)
+    {
+        $this->student_address = $_student_address;
     }
 
     public function getDtCreate()
     {
-        return $this->dtCreate;
+        return $this->dt_create;
+    }
+
+    public function setDtCreate($_dt_create)
+    {
+        $this->dt_create = $_dt_create;
     }
 
     public function getDtUpdate()
     {
-        return $this->dtUpdate;
+        return $this->dt_update;
     }
 
-    public function getIdClass()
+    public function setDtUpdate($_dt_update)
     {
-        return $this->id_class;
+        $this->dt_update = $_dt_update;
     }
 
 }

@@ -6,45 +6,53 @@
  * Date: 05/02/2016
  * Time: 23:14
  *
- * TODO: Peut-être à modifier si le MCD n'est pas bon
+ * Class avec les getters et setters pour les matières
  */
 class discipline
 {
     private $id_discipline;
-    private $discipline_name;
-    private $id_grade;
-    private $id_class;
+    private $name_discipline;
+    private $id_evaluation;
 
-    private $dtCreate;
-    private $dtUpdate;
+    private $dt_create;
+    private $dt_update;
 
     public function getIdDiscipline()
     {
         return $this->id_discipline;
     }
-    public function getDisciplineName()
+    public function getNameDiscipline()
     {
-        return $this->discipline_name;
+        return $this->name_discipline;
     }
-    public function getIdGrade()
+
+    public function setNameDiscipline($_name_discipline)
     {
-        return $this->id_grade;
+        $this->name_discipline = $_name_discipline;
     }
-    public function getIdClass()
+
+    public function getIdEvaluation()
     {
-        return $this->id_class;
+        return $this->id_evaluation;
     }
+
     public function getDtCreate()
     {
-        return $this->dtCreate;
+        return $this->dt_create;
     }
+
+    public function setDtCreate($_dt_create)
+    {
+        $this->dt_create = $_dt_create;
+    }
+
     public function getDtUpdate()
     {
-        return $this->dtUpdate;
+        return $this->dt_update;
     }
 
-
-
-
-
+    public function setDtUpdate($_dt_update)
+    {
+        $this->dt_update = $_dt_update;
+    }
 }
