@@ -1,4 +1,4 @@
-CREATE TABLE GRADE(
+CREATE TABLE evaluation(
         id_grade      int (11) Auto_increment  NOT NULL ,
         id_student    Int NOT NULL ,
         id_user       Int NOT NULL ,
