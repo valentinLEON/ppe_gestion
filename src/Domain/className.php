@@ -1,5 +1,6 @@
 <?php
 
+namespace ppe_project_gestion\Domain\Student;
 /**
  * Created by PhpStorm.
  * User: Val
