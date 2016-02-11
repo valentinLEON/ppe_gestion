@@ -1,7 +1,6 @@
 /*Création de la table className*/
 
-CREATE TABLE className
-(
+CREATE TABLE className(
     id_class INT(11) PRIMARY KEY NOT NULL,
     class_name VARCHAR(10),
     class_option VARCHAR(10), /*Définit l'option de l'élève*/

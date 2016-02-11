@@ -1,6 +1,6 @@
 /*Création de la table discipline*/
 
-CREATE TABLE DISCIPLINE(
+CREATE TABLE discipline(
         id_discipline   int (11) Auto_increment  NOT NULL ,
         name_discipline Varchar (25) NOT NULL ,
         dt_Create        Date NOT NULL , /*Date de création*/
