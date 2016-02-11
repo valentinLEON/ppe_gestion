@@ -1,5 +1,5 @@
 <?php
-/**/
+
 namespace ppe_project_gestion\Domain\discipline;
 /**
  * Created by PhpStorm.
