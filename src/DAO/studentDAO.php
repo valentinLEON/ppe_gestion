@@ -38,13 +38,13 @@ class studentDAO
 
     private function buildStudent(array $row)
     {
-        $student = new
+        $student = new Student();
         $student->setName($row['student_name']);
         $student->setFirstname($row['student_firstname']);
         $student->setEmail($row['student_email']);
-        $student->setBirthday()
+        $student->setBirthday($row['student_birthday']);
+
+        return $student;
     }
-
-
 
 }
