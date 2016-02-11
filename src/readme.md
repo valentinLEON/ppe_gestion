@@ -6,4 +6,5 @@
     
 ####routes.php
     Fichier appelé par l'index. Permet la liaison entre controller et les classes afin de generer les vues
+    TODO: A changer
   
