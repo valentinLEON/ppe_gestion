@@ -18,6 +18,8 @@ class student
     private $student_address;
     private $student_tel;
 
+    private $id_evaluation;
+
     private $dt_create;
     private $dt_update;
 
@@ -104,6 +106,16 @@ class student
     public function setDtUpdate($_dt_update)
     {
         $this->dt_update = $_dt_update;
+    }
+
+    public function getIdEvaluation()
+    {
+        return $this->id_evaluation;
+    }
+
+    public function setIdEvaluation($_id_evaluation)
+    {
+        $this->id_evaluation = $_id_evaluation;
     }
 
 }
