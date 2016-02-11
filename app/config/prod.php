@@ -9,8 +9,6 @@ $app['db.options'] = array(
 
     'charset'  => 'utf8',
 
-    'host'     => '162.243.111.161',
-
     'port'     => '8082',
 
     'dbname'   => 'classmanager',
