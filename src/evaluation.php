@@ -9,10 +9,10 @@
  * Getters et setters des évaluations, regroupant les notes
  * et les appréciations
  */
-class grade
+class evaluation
 {
     private $id_evaluation;
-    private $id_student;
+    private $id_student; /*clé étrangère*/
 
     private $grade_student;
     private $judgement;
@@ -27,6 +27,11 @@ class grade
 
     public function getIdStudent(){
         return $this->id_student;
+    }
+
+    public function setIdStudent($_id_student)
+    {
+        $this->id_student = $_id_student;
     }
 
     public function getGradeStudent(){

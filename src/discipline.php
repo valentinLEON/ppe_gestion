@@ -12,7 +12,7 @@ class discipline
 {
     private $id_discipline;
     private $name_discipline;
-    private $id_evaluation;
+    private $id_evaluation; /*clé étrangère*/
 
     private $dt_create;
     private $dt_update;
@@ -34,6 +34,11 @@ class discipline
     public function getIdEvaluation()
     {
         return $this->id_evaluation;
+    }
+
+    public function setIdEvaluation(_$id_evaluation)
+    {
+        $this->id_evaluation = $_id_evaluation;
     }
 
     public function getDtCreate()

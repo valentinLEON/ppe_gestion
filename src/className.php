@@ -8,7 +8,7 @@
  *
  * Création des getters et setters des classes
  */
-class classCategory
+class className
 {
     private $id_className;
 
@@ -22,7 +22,7 @@ class classCategory
 
     private $dt_update;
 
-    private $id_student;
+    private $id_student; /*clé étrangère*/
 
     public function getIdClassName()
     {
@@ -82,5 +82,10 @@ class classCategory
     public function getIdStudent()
     {
         return $this->id_student;
+    }
+
+    public function setIdStudent($_id_student)
+    {
+        $this->id_student = $_id_student;
     }
 }
