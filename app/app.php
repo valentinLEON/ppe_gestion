@@ -27,12 +27,12 @@ class AppController implements ControllerProviderInterface {
      public function connect(Application $app) {
       $factory=$app['controllers_factory'];
       // Routes are defined here
-      $factory->get('/','App\AppController::home');
+      $factory->get('/','app\AppController::home');
       return $factory;
     }
      
     public function home() {
-      return 'Hello world';
+      return 'Hello world with TWIG !?';
     }
 }
 
