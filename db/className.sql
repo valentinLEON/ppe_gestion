@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS className;
 /*Création de la table className*/
 
 CREATE TABLE className(
