@@ -9,7 +9,7 @@
         "doctrine/dbal": "2.5.*"
     },
        "autoload": {
-        "psr-4": {"ppe_project_gestion\\": "src"}
+        "psr-4": {"ppe_project_gestion\\": "src/app"}
     },
     "authors": [
         {
