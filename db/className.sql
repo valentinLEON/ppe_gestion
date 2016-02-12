@@ -9,4 +9,4 @@ CREATE TABLE className(
     `dt_create`       DATE NOT NULL , /*Date de création*/
     `dt_update`       DATE NOT NULL , /*Date de modification*/
     PRIMARY KEY (id_class)
-)
+)ENGINE=innodb CHARACTER SET utf8 COLLATE utf8_unicode_ci;
