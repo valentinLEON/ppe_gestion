@@ -4,7 +4,7 @@
  * User: Singu_Admin
  * Date: 11/02/2016
  * Time: 20:42
- */
+ k*/
 
 namespace ppe_project_gestion\DAO;
 
@@ -37,7 +37,7 @@ class ClassNameDAO extends DAO
         return $_classNames;
     }
 
-    private function buildClassName(array $row)
+    protected function buildDomainObject($row)
     {
         $class = new ClassName();
         $class->setClassName['class_name'];
