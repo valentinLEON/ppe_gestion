@@ -14,12 +14,6 @@ use ppe_project_gestion\Domain\Discipline;
 
 class DisciplineDAO extends DAO
 {
-    private $db;
-
-    public function __construct(Connection $_db)
-    {
-        $this->db = $_db;
-    }
 
     //affiche toutes les matières.
     public function findAll()
@@ -36,7 +30,7 @@ class DisciplineDAO extends DAO
         return $_matieres;
     }
 
-    private function buildDiscipline(array $row)
+    protected function buildDomainObject($row)
     {
         $discipline = new \ppe_project_gestion\Domain\discipline\Discipline();
         $discipline->setIdEvaluation(['matiere_id']);

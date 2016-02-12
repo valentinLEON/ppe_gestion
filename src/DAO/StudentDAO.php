@@ -28,7 +28,7 @@ class StudentDAO extends DAO
         return $_etudiants;
     }
 
-    private function buildDomainObject($row)
+    protected function buildDomainObject($row)
     {
         $student = new Student();
         $student->setName($row['student_name']);

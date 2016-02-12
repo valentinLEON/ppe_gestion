@@ -8,19 +8,12 @@
 
 namespace ppe_project_gestion\DAO;
 
-use Doctrine\DBAL\Connection;
+
 use ppe_project_gestion\Domain\Evaluation;
 
 
 class EvaluationDAO extends DAO
 {
-
-    private $db;
-
-    public function __construct(Connection $_db)
-    {
-        $this->db = $_db;
-    }
 
     //affiche toutes les évaluations de l'élève.
     public function findAll()
@@ -37,7 +30,7 @@ class EvaluationDAO extends DAO
         return $_notes;
     }
 
-    private function buildEvaluation(array $row)
+    protected function buildDomainObject($row)
     {
         $evaluation = new \ppe_project_gestion\Domain\evaluation\Evaluation();
         $evaluation->setGradeStudent(['grade_student']);

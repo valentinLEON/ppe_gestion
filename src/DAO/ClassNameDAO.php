@@ -13,13 +13,6 @@ use ppe_project_gestion\Domain\ClassName;
 
 class ClassNameDAO extends DAO
 {
-    private $db;
-
-    public function __construct($_db)
-    {
-        $this->db = $_db;
-        parent::__construct($_db);
-    }
 
     //Fonction qui retourne toutes les classes
     public function findAll()
@@ -39,7 +32,7 @@ class ClassNameDAO extends DAO
 
     protected function buildDomainObject($row)
     {
-        $class = new \ppe_project_gestion\Domain\className\ClassName();
+        $class = new ClassName();
         $class->setClassName['class_name'];
 
         return $class;
