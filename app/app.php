@@ -22,15 +22,12 @@ ExceptionHandler::register();
 $app->register(new Silex\Provider\DoctrineServiceProvider());
 
 
-class MyClassController implements ControllerProviderInterface {
+class AppController implements ControllerProviderInterface {
  
-  public function connect(Application $app) {
-    return $app['controllers_factory'];
-  }
      public function connect(Application $app) {
       $factory=$app['controllers_factory'];
       // Routes are defined here
-      $factory->get('/','MyApp\MyClassController::home');
+      $factory->get('/','App\AppController::home');
       return $factory;
     }
      
