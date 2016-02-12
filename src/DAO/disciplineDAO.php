@@ -12,7 +12,7 @@ use Doctrine\DBAL\Connection;
 use ppe_project_gestion\Domain\Discipline;
 
 
-class disciplineDAO
+class DisciplineDAO extends DAO
 {
     private $db;
 
@@ -25,12 +25,12 @@ class disciplineDAO
     public function findAll()
     {
         $_sql = "SELECT * FROM discipline ORDER BY name_discipline";
-        $_res = $this->db->fetchAll($_sql);
+        $_res = $this->getDb()->fetchAll($_sql);
 
         $_matieres = array();
         foreach($_res as $row){
             $_matiereId = $row['id_discipline'];
-            $_matieres[$_matiereId] = $this->buildDiscipline($row);
+            $_matieres[$_matiereId] = $this->buildDomainObject($row);
         }
 
         return $_matieres;

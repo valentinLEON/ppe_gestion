@@ -11,7 +11,7 @@ namespace ppe_project_gestion\DAO;
 use ppe_project_gestion\Domain\Student;
 
 
-class studentDAO extends DAO
+class StudentDAO extends DAO
 {
     //affiche tous les étudiants.
     public function findAll()
