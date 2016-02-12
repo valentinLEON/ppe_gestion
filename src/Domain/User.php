@@ -6,6 +6,9 @@
  * Time: 12:30
  */
 
+//TODO: Valentin tu poura regarder le role de salt et a quoi sert eraseCredentials (pour le moment il reste vide).
+//TODO: Valentin je te le dis dans ce dossier regarde users.sql pour commenté salt stp je modifirai MYSQL plus tard.
+
 namespace ppe_project_gestion\Domain;
 
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -13,10 +16,11 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class User implements UserInterface
 {
     public $id_users;
-    public $user_name;
-    public $user_password;
+    public $username;
+    public $password;
     public $user_hash;
-    public $user_role;
+    public $roles;
+    public $salt;
     public $dt_create;
     public $dt_update;
     public $id_discipline; /*clé étrangère*/
@@ -32,24 +36,24 @@ class User implements UserInterface
         $this->id_users = $_id_users;
     }
 
-    public function getUserName()
+    public function getUsername()
     {
-        return $this->user_name;
+        return $this->username;
     }
 
-    public function setUserName($_user_name)
+    public function setUsername($_username)
     {
-        $this->user_name = $_user_name;
+        $this->username = $_username;
     }
 
-    public function getUserPassword()
+    public function getPassword()
     {
-        return $this->user_password;
+        return $this->password;
     }
 
-    public function setUserPassword($_user_password)
+    public function setPassword($_password)
     {
-        $this->user_password = $_user_password;
+        $this->password = $_password;
     }
 
     public function getUserHash()
@@ -62,14 +66,24 @@ class User implements UserInterface
         $this->user_hash = $_user_hash;
     }
 
-    public function getUserRole()
+    public function getRoles()
     {
-        return $this->user_role;
+        return $this->roles;
     }
 
-    public function setUserRole($_user_role)
+    public function setRoles($_roles)
     {
-        $this->user_role = $_user_role;
+        $this->roles = $_roles;
+    }
+
+    public function getSalt()
+    {
+        return $this->salt;
+    }
+
+    public function setSalt($_salt)
+    {
+        $this->salt = $_salt;
     }
 
     public function getDtCreate()
@@ -111,4 +125,10 @@ class User implements UserInterface
     {
         $this->id_class = $_id_class;
     }
+
+    public function eraseCredentials()
+    {
+        // Nothing to do here
+    }
+
 }

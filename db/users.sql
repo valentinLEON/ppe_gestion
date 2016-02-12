@@ -4,10 +4,11 @@ DROP TABLE IF EXISTS users;
 
 CREATE TABLE users(
   `id_users`        INT(11) NOT NULL ,
-  `user_name`       VARCHAR(50) NOT NULL,
-  `user_password`   VARCHAR(50) NOT NULL,
+  `username`        VARCHAR(50) NOT NULL,
+  `password`        VARCHAR(50) NOT NULL,
   `user_hash`       VARCHAR(23) NOT NULL, /* Hashage du mot de passe */
-  `user_role`       VARCHAR(25) NOT NULL, /* Définit le rôle de l'utilisateur */
+  `salt`            VARCHAR(50) NOT NULL, /* Je sais pas a quoi sa sert peux être le retirer */
+  `roles`           VARCHAR(23) NOT NULL, /* Définit le rôle de l'utilisateur */
   `dt_create`       DATE NOT NULL , /*Date de création*/
   `dt_update`       DATE NOT NULL , /*Date de modification*/
   `id_discipline`   INT(11) NOT NULL,
