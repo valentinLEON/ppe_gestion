@@ -36,6 +36,7 @@ class DisciplineDAO extends DAO
         $discipline->setNameDiscipline($row['name_discipline']);
         $discipline->setDtCreate(getdate());
         $discipline->setDtUpdate(getdate());
+        $discipline->setIdEvaluation($row['id_evaluation_discipline']);
 
         return $discipline;
     }

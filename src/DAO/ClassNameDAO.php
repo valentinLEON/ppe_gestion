@@ -39,6 +39,7 @@ class ClassNameDAO extends DAO
         $class->setClassYear($row['class_year']);
         $class->setDtCreate(getdate());
         $class->setDtUpdate(getdate());
+        $class->setIdStudent($row['id_student_className']);
 
         return $class;
     }
