@@ -21,6 +21,7 @@ class Evaluation
     private $dt_update;
 
     private $id_student; /*clé étrangère*/
+    private $id_discipline;
 
     public function getIdEvaluation(){
         return $this->id_evaluation;
@@ -86,6 +87,15 @@ class Evaluation
         $this->dt_update = $_dt_update;
     }
 
+    public function getIdDiscipline()
+    {
+        return $this->id_discipline;
+    }
+
+    public function setIdDiscipline($_id_discipline)
+    {
+        $this->id_discipline = $_id_discipline;
+    }
 
 
 }
