@@ -37,7 +37,7 @@ class ClassNameDAO extends DAO
         return $_classNames;
     }
 
-    private function buildClassName(array $row)
+    protected function buildDomainObject($row)
     {
         $class = new ClassName();
         $class->setClassName['class_name'];
