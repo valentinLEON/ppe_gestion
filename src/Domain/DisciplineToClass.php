@@ -18,9 +18,19 @@ class DisciplineToClass
         return $this->id_className;
     }
 
+    public function setIdClassName($_id_className)
+    {
+        $this->id_className = $_id_className;
+    }
+
     public function getIdDiscipline()
     {
         return $this->id_discipline;
+    }
+
+    public function setIdDiscipline($_id_discipline)
+    {
+        $this->id_discipline = $_id_discipline;
     }
 
 }

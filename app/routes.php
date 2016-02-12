@@ -6,4 +6,4 @@ $app->get('/', function () use ($app) {
 
     //require '../views/students.php';
     return $app['twig']->render('index.html.twig', array());
-});
+});;

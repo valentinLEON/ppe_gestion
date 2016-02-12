@@ -33,13 +33,12 @@ class ClassNameDAO extends DAO
     protected function buildDomainObject($row)
     {
         $class = new \ppe_project_gestion\Domain\className\ClassName();
-        $class->setIdClassName($row['id_className']);
+        $class->setIdClassName($row['id_class']);
         $class->setClassName($row['class_name']);
         $class->setClassOption($row['class_option']);
         $class->setClassYear($row['class_year']);
-        $class->setDtCreate(getdate());
-        $class->setDtUpdate(getdate());
-        $class->setIdStudent($row['id_student_className']);
+        $class->setDtCreate($row['dt_create']);
+        $class->setDtUpdate($row['dt_update']);
 
         return $class;
     }

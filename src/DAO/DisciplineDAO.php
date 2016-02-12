@@ -34,9 +34,9 @@ class DisciplineDAO extends DAO
         $discipline = new \ppe_project_gestion\Domain\discipline\Discipline();
         $discipline->setIdDiscipline($row['id_discipline']);
         $discipline->setNameDiscipline($row['name_discipline']);
-        $discipline->setDtCreate(getdate());
-        $discipline->setDtUpdate(getdate());
-        $discipline->setIdEvaluation($row['id_evaluation_discipline']);
+        $discipline->setDtCreate($row['dt_create']);
+        $discipline->setDtUpdate($row['dt_update']);
+        $discipline->setIdEvaluation($row['id_evaluation']);
 
         return $discipline;
     }

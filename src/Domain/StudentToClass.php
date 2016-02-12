@@ -13,6 +13,22 @@ class StudentToClass
     private $id_student;
     private $id_className;
 
+    /**
+     * @param mixed $id_className
+     */
+    public function setIdClassName($id_className)
+    {
+        $this->id_className = $id_className;
+    }
+
+    /**
+     * @param mixed $id_student
+     */
+    public function setIdStudent($id_student)
+    {
+        $this->id_student = $id_student;
+    }
+
     public function getIdStudent()
     {
         return $this->id_student;

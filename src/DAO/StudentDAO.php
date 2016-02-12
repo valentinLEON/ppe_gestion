@@ -38,7 +38,9 @@ class StudentDAO extends DAO
         $student->setAddress($row['student_address']);
         $student->setEmail($row['student_email']);
         $student->setTel($row['student_tel']);
-        $student->setIdEvaluation($row['id_evaluation_student']);
+        $student->setIdEvaluation($row['id_evaluation']);
+        $student->setDtCreate($row['dt_create']);
+        $student->setDtUpdate($row['dt_update']);
 
         return $student;
     }
