@@ -4,13 +4,13 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< Updated upstream
+
     "hash": "238a3e0ac1b3b4062ad87ff7f6128b41",
     "content-hash": "6761ebfa467f3245e283db2e5fd21034",
-=======
+
     "hash": "059effbc6c783be6ef897ee1c889c44c",
     "content-hash": "e8ad8df772e3b2a4f0c9dae61e695555",
->>>>>>> Stashed changes
+
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
