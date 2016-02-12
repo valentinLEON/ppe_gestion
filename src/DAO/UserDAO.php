@@ -5,7 +5,7 @@
  * Date: 12/02/2016
  * Time: 19:08
  */
-//TODO: Valentin tu veux bien vérifier mais normalement tout est okay.
+
 
 namespace ppe_project_gestion\DAO;
 

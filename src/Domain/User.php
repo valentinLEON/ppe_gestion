@@ -6,8 +6,7 @@
  * Time: 12:30
  */
 
-//TODO: Valentin tu poura regarder le role de salt et a quoi sert eraseCredentials (pour le moment il reste vide).
-//TODO: Valentin je te le dis dans ce dossier regarde users.sql pour commenté salt stp je modifirai MYSQL plus tard.
+
 
 namespace ppe_project_gestion\Domain;
 
