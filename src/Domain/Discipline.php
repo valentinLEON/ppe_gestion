@@ -22,6 +22,12 @@ class Discipline
     {
         return $this->id_discipline;
     }
+
+    public function setIdDiscipline($_id_discipline)
+    {
+        $this->id_discipline = $_id_discipline;
+    }
+
     public function getNameDiscipline()
     {
         return $this->name_discipline;

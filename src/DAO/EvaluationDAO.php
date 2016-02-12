@@ -33,12 +33,13 @@ class EvaluationDAO extends DAO
     protected function buildDomainObject($row)
     {
         $evaluation = new \ppe_project_gestion\Domain\evaluation\Evaluation();
-        $evaluation->setGradeStudent(['grade_student']);
-        $evaluation->setCoefDiscipline(['grade_coef']);
-        $evaluation->setJudgement(['judgment_student']);
+        $evaluation->setIdEvaluation($row['id_evaluation']);
+        $evaluation->setGradeStudent($row['grade_student']);
+        $evaluation->setCoefDiscipline($row['coef_discipline']);
+        $evaluation->setJudgement($row['judgment']);
         $evaluation->setDtCreate(getdate());
         $evaluation->setDtUpdate(getdate());
-        $evaluation->setIdStudent(['student_id']);
+        $evaluation->setIdStudent($row['id_student']);
 
         return $evaluation;
     }

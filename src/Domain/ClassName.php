@@ -12,22 +12,22 @@ namespace ppe_project_gestion\Domain\className;
 class ClassName
 {
     private $id_className;
-
     private $class_name;
-
     private $class_option;
-
     private $class_year;
-
     private $dt_create;
-
     private $dt_update;
-
     private $id_student; /*clé étrangère*/
+
 
     public function getIdClassName()
     {
         return $this->id_className;
+    }
+
+    public function setIdClassName($_id_className)
+    {
+        $this->id_className = $_id_className;
     }
 
     public function getClassName()

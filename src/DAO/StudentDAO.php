@@ -33,8 +33,10 @@ class StudentDAO extends DAO
         $student = new Student();
         $student->setName($row['student_name']);
         $student->setFirstname($row['student_firstname']);
-        $student->setEmail($row['student_email']);
         $student->setBirthday($row['student_birthday']);
+        $student->setAddress($row['student_address']);
+        $student->setEmail($row['student_email']);
+        $student->setTel($row['student_tel']);
 
         return $student;
     }
