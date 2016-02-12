@@ -8,7 +8,6 @@
 
 namespace ppe_project_gestion\DAO;
 
-use Doctrine\DBAL\Connection;
 use ppe_project_gestion\Domain\Discipline;
 
 
@@ -33,10 +32,11 @@ class DisciplineDAO extends DAO
     protected function buildDomainObject($row)
     {
         $discipline = new \ppe_project_gestion\Domain\discipline\Discipline();
-        $discipline->setIdEvaluation(['matiere_id']);
-        $discipline->setNameDiscipline(['matiere_name']);
+        $discipline->setIdDiscipline($row['id_discipline']);
+        $discipline->setNameDiscipline($row['name_discipline']);
         $discipline->setDtCreate(getdate());
         $discipline->setDtUpdate(getdate());
+        $discipline->setIdEvaluation($row['id_evaluation_discipline']);
 
         return $discipline;
     }

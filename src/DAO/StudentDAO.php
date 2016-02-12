@@ -31,10 +31,14 @@ class StudentDAO extends DAO
     protected function buildDomainObject($row)
     {
         $student = new Student();
+        $student->setIdStudent($row['id_student']);
         $student->setName($row['student_name']);
         $student->setFirstname($row['student_firstname']);
-        $student->setEmail($row['student_email']);
         $student->setBirthday($row['student_birthday']);
+        $student->setAddress($row['student_address']);
+        $student->setEmail($row['student_email']);
+        $student->setTel($row['student_tel']);
+        $student->setIdEvaluation($row['id_evaluation_student']);
 
         return $student;
     }

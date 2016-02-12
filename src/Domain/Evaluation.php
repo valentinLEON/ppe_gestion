@@ -13,8 +13,6 @@ namespace ppe_project_gestion\Domain\evaluation;
 class Evaluation
 {
     private $id_evaluation;
-    private $id_student; /*clé étrangère*/
-
     private $grade_student;
     private $judgement;
     private $coef_discipline;
@@ -22,8 +20,15 @@ class Evaluation
     private $dt_create;
     private $dt_update;
 
+    private $id_student; /*clé étrangère*/
+
     public function getIdEvaluation(){
         return $this->id_evaluation;
+    }
+
+    public function setIdEvaluation($_id_evaluation)
+    {
+        $this->id_evaluation = $_id_evaluation;
     }
 
     public function getIdStudent(){

@@ -19,14 +19,20 @@ class Student
     private $student_address;
     private $student_tel;
 
-    private $id_evaluation; /*clé étrangère*/
-
     private $dt_create;
     private $dt_update;
+
+    private $id_evaluation; /*clé étrangère*/
+
 
     public function getIdStudent()
     {
         return $this->id_student;
+    }
+
+    public function setIdStudent($_id_student)
+    {
+        $this->id_student = $_id_student;
     }
 
     public function getName()
