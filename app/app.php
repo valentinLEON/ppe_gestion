@@ -33,7 +33,7 @@ class AppController implements ControllerProviderInterface {
     }
      
     public function home() {
-      return 'Hello world with TWIG !?';
+      return 'Coucou les copains !?';
     }
 }
 
