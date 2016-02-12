@@ -12,7 +12,7 @@ use Doctrine\DBAL\Connection;
 use ppe_project_gestion\Domain\ClassName;
 
 
-class classNameDAO
+class ClassNameDAO extends DAO
 {
     private $db;
 
@@ -26,12 +26,12 @@ class classNameDAO
     {
         $_sql = "SELECT * FROM className ORDER BY class_name";
 
-        $_res = $this->db->fetchAll($_sql);
+        $_res = $this->getDb()->fetchAll($_sql);
 
         $_classNames = array();
         foreach($_res as $row){
             $_classNameId = $row['id_className'];
-            $_className[$_classNameId] = $this->buildClassName($row);
+            $_className[$_classNameId] = $this->buildDomainObject($row);
         }
 
         return $_classNames;

@@ -12,7 +12,7 @@ use Doctrine\DBAL\Connection;
 use ppe_project_gestion\Domain\Evaluation;
 
 
-class evaluationDAO
+class EvaluationDAO extends DAO
 {
 
     private $db;
@@ -26,12 +26,12 @@ class evaluationDAO
     public function findAll()
     {
         $_sql = "SELECT * FROM evaluation ORDER BY id_evaluation";
-        $_res = $this->db->fetchAll($_sql);
+        $_res = $this->getDb()->fetchAll($_sql);
 
         $_notes = array();
         foreach($_res as $row){
             $_noteId = $row['id_evaluation'];
-            $_note[$_noteId] = $this->buildEvaluation($row);
+            $_note[$_noteId] = $this->buildDomainObject($row);
         }
 
         return $_notes;

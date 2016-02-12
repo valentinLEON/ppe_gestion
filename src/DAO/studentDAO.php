@@ -8,35 +8,27 @@
 
 namespace ppe_project_gestion\DAO;
 
-use Doctrine\DBAL\Connection;
 use ppe_project_gestion\Domain\Student;
 
 
-class studentDAO
+class StudentDAO extends DAO
 {
-    private $db;
-
-    public function __construct(Connection $_db)
-    {
-        $this->db = $_db;
-    }
-
     //affiche tous les étudiants.
     public function findAll()
     {
         $_sql = "SELECT * FROM student ORDER BY student_name";
-        $_res = $this->db->fetchAll($_sql);
+        $_res = $this->getDb()->fetchAll($_sql);
 
         $_etudiants = array();
         foreach($_res as $row){
             $_etudiantId = $row['id_student'];
-            $_etudiant[$_etudiantId] = $this->buildStudent($row);
+            $_etudiant[$_etudiantId] = $this->buildDomainObject($row);
         }
 
         return $_etudiants;
     }
 
-    private function buildStudent(array $row)
+    private function buildDomainObject($row)
     {
         $student = new Student();
         $student->setName($row['student_name']);
