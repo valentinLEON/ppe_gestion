@@ -1,10 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Singu_Admin
- * Date: 11/02/2016
- * Time: 21:11
- */
+
+//namespace  ppe_project_gestion;
 
 require __DIR__.'/prod.php';
 
