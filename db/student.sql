@@ -1,5 +1,7 @@
-/*Création de la table student*/
+/*Supression de la table student si elle existe*/
+DROP TABLE IF EXISTS student;
 
+/*Création de la table student*/
 CREATE TABLE student(
         `id_student`              INT (11) Auto_increment NOT NULL ,
         `student_name`            VARCHAR (25) ,
@@ -12,4 +14,4 @@ CREATE TABLE student(
         `id_evaluation`           INT NOT NULL ,
         PRIMARY KEY (id_student) ,
         FOREIGN KEY (id_evaluation) REFERENCES evaluation(id_evaluation)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;

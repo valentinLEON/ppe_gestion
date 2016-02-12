@@ -1,3 +1,6 @@
+/*Supression de la table discipline si elle existe*/
+DROP TABLE IF EXISTS discipline;
+
 /*Création de la table discipline*/
 
 CREATE TABLE discipline(
@@ -7,4 +10,4 @@ CREATE TABLE discipline(
         `dt_update`         DATE NOT NULL , /*Date de modification*/
         `id_evaluation`     INT NOT NULL ,
         FOREIGN KEY (id_evaluation) REFERENCES evaluation (id_evaluation)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;

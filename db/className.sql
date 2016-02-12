@@ -1,6 +1,7 @@
+/*Supression de la table className si elle existe*/
 DROP TABLE IF EXISTS className;
-/*Création de la table className*/
 
+/*Création de la table className*/
 CREATE TABLE className(
     `id_class`        INT(11) NOT NULL ,
     `class_name`      VARCHAR(50) ,

@@ -1,5 +1,7 @@
-/*Création de la table evaluation*/
+/*Supression de la table evaluation si elle existe*/
+DROP TABLE IF EXISTS evaluation;
 
+/*Création de la table evaluation*/
 CREATE TABLE evaluation(
         `id_evaluation`     INT (11) Auto_increment NOT NULL ,
         `grade_student`     INT NOT NULL ,
@@ -10,4 +12,4 @@ CREATE TABLE evaluation(
         `id_student`        INT NOT NULL ,
         PRIMARY KEY (id_evaluation),
         FOREIGN KEY (id_student) REFERENCES student(id_student)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
