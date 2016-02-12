@@ -23,24 +23,11 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../views',
 ));
 
-class AppController implements ControllerProviderInterface {
- 
-     public function connect(Application $app) {
-      $factory=$app['controllers_factory'];
-      // Routes are defined here
-      $factory->get('/','ppe_project_gestion\AppController::home');
-      return $factory;
-    }
-     
-    public function home() {
-      return 'Coucou les copains !?';
-    }
-}
 
 // Register services.
-$app['dao.student'] = $app->share(function ($app) {
+/*$app['dao.student'] = $app->share(function ($app) {
     return new ppe_project_gestion\DAO\studentDAO($app['db']);
-});
+});*/
 
 return $app;
 
