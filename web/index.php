@@ -16,7 +16,7 @@ require __DIR__.'/../app/routes.php';
 
  
 // Controller
-$app->mount('/', new app\AppController());
+$app->mount('/', new ppe_project_gestion\AppController());
  
 $app->run();
 

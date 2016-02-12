@@ -1,6 +1,4 @@
 <?php
-namespace ppe_project_gestion;
-
 /**
  * Created by PhpStorm.
  * User: Val
@@ -13,6 +11,7 @@ use Symfony\Component\Debug\ExceptionHandler;
 use Symfony\Component\HttpFoundation\Request;
 use Silex\Application;
 use Silex\ControllerProviderInterface;
+//use Silex\Provider;
 
 // Register global error and exception handlers
 ErrorHandler::register();
@@ -29,7 +28,7 @@ class AppController implements ControllerProviderInterface {
      public function connect(Application $app) {
       $factory=$app['controllers_factory'];
       // Routes are defined here
-      $factory->get('/','app\AppController::home');
+      $factory->get('/','ppe_project_gestion\AppController::home');
       return $factory;
     }
      
