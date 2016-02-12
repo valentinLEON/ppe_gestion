@@ -16,7 +16,7 @@ require __DIR__.'/../app/routes.php';
 
  
 // Controller
-$app->mount('/', new App\App());
+$app->mount('/', new app\AppController());
  
 $app->run();
 
