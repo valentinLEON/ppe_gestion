@@ -8,7 +8,6 @@
 
 namespace ppe_project_gestion\DAO;
 
-use Doctrine\DBAL\Connection;
 use ppe_project_gestion\Domain\ClassName;
 
 
@@ -19,6 +18,7 @@ class ClassNameDAO extends DAO
     public function __construct($_db)
     {
         $this->db = $_db;
+        parent::__construct($_db);
     }
 
     //Fonction qui retourne toutes les classes
@@ -39,7 +39,7 @@ class ClassNameDAO extends DAO
 
     protected function buildDomainObject($row)
     {
-        $class = new ClassName();
+        $class = new \ppe_project_gestion\Domain\className\ClassName();
         $class->setClassName['class_name'];
 
         return $class;
