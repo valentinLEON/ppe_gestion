@@ -19,7 +19,6 @@ class User implements UserInterface
     public $password;
     public $user_hash;
     public $roles;
-    public $salt;
     public $dt_create;
     public $dt_update;
     public $id_discipline; /*clé étrangère*/
@@ -73,16 +72,6 @@ class User implements UserInterface
     public function setRoles($_roles)
     {
         $this->roles = $_roles;
-    }
-
-    public function getSalt()
-    {
-        return $this->salt;
-    }
-
-    public function setSalt($_salt)
-    {
-        $this->salt = $_salt;
     }
 
     public function getDtCreate()

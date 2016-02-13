@@ -13,10 +13,5 @@ require __DIR__.'/../app/config/dev.php';
 require __DIR__.'/../app/app.php';
 
 require __DIR__.'/../app/routes.php';
-
- 
-// Controller
-$app->mount('/', new ppe_project_gestion\AppController());
  
 $app->run();
-
