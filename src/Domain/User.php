@@ -17,8 +17,8 @@ class User implements UserInterface
     public $id_users;
     public $username;
     public $password;
-    public $user_hash;
-    public $roles;
+    public $salt;
+    public $role;
     public $dt_create;
     public $dt_update;
     public $id_discipline; /*clé étrangère*/
@@ -54,24 +54,33 @@ class User implements UserInterface
         $this->password = $_password;
     }
 
-    public function getUserHash()
+    public function getSalt()
     {
-        return $this->user_hash;
+        return $this->salt;
     }
 
-    public function setUserHash($_user_hash)
+    public function setSalt($_salt)
     {
-        $this->user_hash = $_user_hash;
+        $this->salt = $_salt;
     }
 
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    public function setRole($_role)
+    {
+        $this->role = $_role;
+    }
+
+    /**
+     * @return array
+     * Retourne une liste des rôles des utilisateurs
+     */
     public function getRoles()
     {
-        return $this->roles;
-    }
-
-    public function setRoles($_roles)
-    {
-        $this->roles = $_roles;
+        return array($this->getRole());
     }
 
     public function getDtCreate()
