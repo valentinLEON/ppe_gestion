@@ -12,6 +12,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Silex\Application;
 use Silex\Provider\TwigServiceProvider;
 use Silex\ControllerProviderInterface;
+
+use ppe_project_gestion\DAO\ClassNameDAO;
+
 // Register global error and exception handlers
 ErrorHandler::register();
 ExceptionHandler::register();
@@ -24,7 +27,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 ));
 
 $app['dao.class'] = $app->share(function($app){
-    return new ppe_project_gestion\DAO\ClassNameDAO($app['db']);
+    return new ClassNameDAO($app['db']);
 });
 
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
