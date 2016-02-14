@@ -8,12 +8,10 @@
 
 use Symfony\Component\Debug\ErrorHandler;
 use Symfony\Component\Debug\ExceptionHandler;
-use Symfony\Component\HttpFoundation\Request;
-use Silex\Application;
-use Silex\ControllerProviderInterface;
-//use Silex\Provider;
+//use Symfony\Component\HttpFoundation\Request;
+//use Silex\Application;
+//use Silex\ControllerProviderInterface;
 
-// Register global error and exception handlers
 ErrorHandler::register();
 ExceptionHandler::register();
 
@@ -25,8 +23,8 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 
 
 // Register services.
-/*$app['dao.student'] = $app->share(function ($app) {
-    return new ppe_project_gestion\DAO\studentDAO($app['db']);
+/*$app['dao.className'] = $app->share(function ($app) {
+    return new ppe_project_gestion\DAO\ClassNameDAO($app['db']);
 });*/
 
 return $app;
