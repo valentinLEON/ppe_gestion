@@ -1,34 +1,4 @@
 
-Skip to content
-This repository
-
-    Pull requests
-    Issues
-    Gist
-
-    @PlanesZwalker
-
-2
-0
-
-    0
-
-PPEagvn/docs
-Code
-Issues 1
-Pull requests 0
-Wiki
-Pulse
-Graphs
-Settings
-docs/composer.json
-6b1df1e 2 hours ago
-@PlanesZwalker PlanesZwalker "doctrine/orm": "~2.3"
-3 contributors
-@valentinLEON
-@PlanesZwalker
-@gcoutard
-22 lines (21 sloc) 522 Bytes
 {
     "name": "vleon/project",
     "description": "projet application gestion note",
