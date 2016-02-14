@@ -9,6 +9,7 @@
 namespace ppe_project_gestion\DAO;
 
 use ppe_project_gestion\Domain\ClassName;
+use ppe_project_gestion\DAO\DAO;
 
 
 class ClassNameDAO extends DAO
@@ -23,7 +24,7 @@ class ClassNameDAO extends DAO
 
         $_classNames = array();
         foreach($_res as $row){
-            $_classNameId = $row['id_className'];
+            $_classNameId = $row['id_class'];
             $_className[$_classNameId] = $this->buildDomainObject($row);
         }
 

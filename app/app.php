@@ -22,5 +22,10 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.class_path' => __DIR__.'/../vendor/twig/twig/lib',
     'twig.options' => array(),
 ));
+
+$app['dao.class'] = $app->share(function($app){
+    return new ppe_project_gestion\DAO\ClassNameDAO($app['db']);
+});
+
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 return $app;
