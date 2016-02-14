@@ -1,2 +1,0 @@
-$request->getBasePath().'/css/styles.css';
-var_dump($request);
