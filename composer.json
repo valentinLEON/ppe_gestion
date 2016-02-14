@@ -1,3 +1,34 @@
+
+Skip to content
+This repository
+
+    Pull requests
+    Issues
+    Gist
+
+    @PlanesZwalker
+
+2
+0
+
+    0
+
+PPEagvn/docs
+Code
+Issues 1
+Pull requests 0
+Wiki
+Pulse
+Graphs
+Settings
+docs/composer.json
+6b1df1e 2 hours ago
+@PlanesZwalker PlanesZwalker "doctrine/orm": "~2.3"
+3 contributors
+@valentinLEON
+@PlanesZwalker
+@gcoutard
+22 lines (21 sloc) 522 Bytes
 {
     "name": "vleon/project",
     "description": "projet application gestion note",
@@ -6,7 +37,7 @@
         "twbs/bootstrap": "^3.3",
         "almasaeed2010/adminlte": "~2.0",
         "twig/twig": "^1.24",
-        "doctrine/dbal": "2.5.*",
+        "doctrine/orm": "~2.3"
         "symfony/security": "^3.0"
     },
        "autoload": {
@@ -19,3 +50,8 @@
         }
     ]
 }
+
+    Status API Training Shop Blog About Pricing 
+
+    © 2016 GitHub, Inc. Terms Privacy Security Contact Help 
+
