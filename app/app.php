@@ -8,16 +8,17 @@
  */
 use Symfony\Component\Debug\ErrorHandler;
 use Symfony\Component\Debug\ExceptionHandler;
-use Symfony\Component\HttpFoundation\Request;
-use Silex\Application;
-use Silex\Provider\TwigServiceProvider;
-use Silex\ControllerProviderInterface;
 
+use Silex\Application;
+
+use ppe_project_gestion\DAO;
+use ppe_project_gestion\Domain\className;
 use ppe_project_gestion\DAO\ClassNameDAO;
 
 // Register global error and exception handlers
 ErrorHandler::register();
 ExceptionHandler::register();
+
 // Register service providers.
 $app->register(new Silex\Provider\DoctrineServiceProvider());
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
