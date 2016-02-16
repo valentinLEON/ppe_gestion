@@ -50,7 +50,7 @@ class UserDAO extends DAO implements UserProviderInterface
         $user->setUsername($row['username']);
         $user->setPassword($row['password']);
         $user->setSalt($row['user_salt']);
-        $user->setRoles($row['user_roles']);
+        $user->setRole($row['user_role']);
         $user->setDtCreate($row['dt_create']);
         $user->setDtUpdate($row['dt_update']);
         $user->setIdDiscipline($row['id_discipline']);
