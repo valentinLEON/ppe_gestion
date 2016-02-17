@@ -9,11 +9,11 @@
 use Symfony\Component\Debug\ErrorHandler;
 use Symfony\Component\Debug\ExceptionHandler;
 
-use Silex\Application;
+/*use Silex\Application;
 
 use ppe_project_gestion\DAO;
 use ppe_project_gestion\Domain\className;
-use ppe_project_gestion\DAO\ClassNameDAO;
+use ppe_project_gestion\DAO\ClassNameDAO;*/
 
 // Register global error and exception handlers
 ErrorHandler::register();
@@ -21,15 +21,15 @@ ExceptionHandler::register();
 
 // Register service providers.
 $app->register(new Silex\Provider\DoctrineServiceProvider());
-$app->register(new Silex\Provider\TwigServiceProvider(), array(
+/*$app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../views',
     'twig.class_path' => __DIR__.'/../vendor/twig/twig/lib',
     'twig.options' => array(),
-));
+));*/
 
-$app['dao.class'] = $app->share(function($app){
-    return new ClassNameDAO($app['db']);
+$app['dao.discipline'] = $app->share(function($app){
+    return new ppe_project_gestion\DAO\DisciplineDAO($app['db']);
 });
 
-$app->register(new Silex\Provider\UrlGeneratorServiceProvider());
-return $app;
+/*$app->register(new Silex\Provider\UrlGeneratorServiceProvider());
+return $app;*/

@@ -17,7 +17,7 @@ class DisciplineDAO extends DAO
     //affiche toutes les matières.
     public function findAll()
     {
-        $_sql = "SELECT * FROM discipline ORDER BY name_discipline";
+        $_sql = "SELECT * FROM discipline ORDER BY name_discipline ASC";
         $_res = $this->getDb()->fetchAll($_sql);
 
         $_matieres = array();
