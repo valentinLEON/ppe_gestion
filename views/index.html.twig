@@ -214,9 +214,9 @@ desired effect
                             <div class="form-group" style="width: 15%; display:inline-block;margin:10px;">
                                 <label>Choisir une classe</label>
                                 <select class="form-control select2" >
-                                   {% for classname in classnames %}
+                                   {% for name in classnames %}
                                     <option>
-                                       {{ classname.class_name }}
+                                       {{ name.class_name }}
                                    </option>
                                     {% endfor %}
                                 </select>
