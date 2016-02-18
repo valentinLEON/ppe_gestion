@@ -31,7 +31,7 @@ class DisciplineDAO extends DAO
 
     protected function buildDomainObject($row)
     {
-        $discipline = new \ppe_gestion\Domain\discipline\Discipline();
+        $discipline = new Discipline();
         $discipline->setIdDiscipline($row['id_discipline']);
         $discipline->setNameDiscipline($row['name_discipline']);
         $discipline->setDtCreate($row['dt_create']);
