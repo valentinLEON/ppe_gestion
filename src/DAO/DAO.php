@@ -6,7 +6,7 @@
  * Time: 21:19
  */
 
-namespace ppe_project_gestion\DAO;
+namespace ppe_gestion\DAO;
 
 use Doctrine\DBAL\Connection;
 
