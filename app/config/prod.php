@@ -7,7 +7,6 @@
  */
 
 //paramétrage de la connexion à la base de données avec l'orm DBAL
-$app->register(new Silex\Provider\DoctrineServiceProvider(), array(
 $app['db.options'] = array(
     'driver' => 'pdo_mysql',
     'charset' => 'utf8',
@@ -16,5 +15,4 @@ $app['db.options'] = array(
     'dbname' => 'groupe_sio2',
     'user' => 'groupe_sio2',
     'password' => 'groupe_sio2', //ce qui n'est pas forcément sécurisé !
-    ),
-));
+);

@@ -40,7 +40,7 @@ class UserDAO extends DAO implements UserProviderInterface
 
     public function supportsClass($class)
     {
-        return 'ppe_project_gestion\Domain\User' === $class;
+        return 'ppe_gestion\Domain\User' === $class;
     }
 
     protected function buildDomainObject($row)

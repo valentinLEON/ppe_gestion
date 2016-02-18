@@ -12,7 +12,6 @@ use Symfony\Component\Debug\ExceptionHandler;
 use Silex\Application;
 
 use ppe_gestion\DAO;
-use ppe_gestion\Domain\className;
 
 // Register global error and exception handlers
 ErrorHandler::register();
