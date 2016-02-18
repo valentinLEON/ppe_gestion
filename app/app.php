@@ -27,9 +27,9 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 ));
 
 //Controller que la route appellera pour afficher les matières à Twig
-$app['dao.discipline'] = $app->share(function($app){
+/*$app['dao.discipline'] = $app->share(function($app){
     return new ppe_gestion\DAO\DisciplineDAO($app['db']);
-});
+});*/
 
 $app['dao.className'] = $app->share(function($app){
     return new ppe_gestion\DAO\ClassNameDAO($app['db']);
