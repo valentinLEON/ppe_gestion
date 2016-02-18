@@ -1,6 +1,6 @@
 <?php
 
-namespace ppe_project_gestion\Domain\Discipline;
+namespace ppe_gestion\Domain\Discipline;
 /**
  * Created by PhpStorm.
  * User: Singu_Admin

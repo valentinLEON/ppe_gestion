@@ -8,7 +8,7 @@
 
 
 
-namespace ppe_project_gestion\Domain;
+namespace ppe_gestion\Domain;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 
