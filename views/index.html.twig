@@ -216,7 +216,7 @@ desired effect
                                 <select class="form-control select2" >
                                    {% for name in classNames %}
                                     <option>
-                                       {{ name.class_name }}
+                                       {{ name.dt_start }}
                                    </option>
                                     {% endfor %}
                                 </select>
@@ -229,12 +229,6 @@ desired effect
                                         {{ disc.name_discipline }}
                                     </option>
                                     {% endfor %}
-                                    <option>
-                                        Français
-                                    </option>
-                                    <option>
-                                        Mathématiques
-                                    </option>
                                 </select>
                             </div>
                         </div>
