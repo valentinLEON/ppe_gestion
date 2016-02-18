@@ -2,4 +2,3 @@
 
 
 ####UserDAO.php
-//TODO: Valentin tu veux bien vérifier mais normalement tout est okay.
