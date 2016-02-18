@@ -8,5 +8,5 @@ $app->get('/', function () use ($app) {
 
 $app->get('/', function () use ($app) {
     $classes = $app['dao.class']->findAll();
-    return $app['twig']->render('index.html.twig', array('classNames' => $classes)); //
+    return $app['twig']->render('index.html.twig', array('classnames' => $classes)); //
 });
