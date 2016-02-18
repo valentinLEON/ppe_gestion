@@ -32,7 +32,7 @@ class ClassNameDAO extends DAO
 
     /**
      * @param $row
-     * @return \ppe_project_gestion\Domain\className\ClassName
+     * @return \ppe_gestion\Domain\ClassName
      */
     protected function buildDomainObject($row)
     {
