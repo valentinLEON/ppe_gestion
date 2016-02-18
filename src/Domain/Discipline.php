@@ -1,6 +1,6 @@
 <?php
 
-namespace ppe_gestion\Domain\Discipline;
+namespace ppe_gestion\Domain;
 /**
  * Created by PhpStorm.
  * User: Singu_Admin
@@ -43,7 +43,7 @@ class Discipline
         return $this->id_evaluation;
     }
 
-    public function setIdEvaluation(_$id_evaluation)
+    public function setIdEvaluation($_id_evaluation)
     {
         $this->id_evaluation = $_id_evaluation;
     }
