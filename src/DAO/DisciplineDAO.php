@@ -21,13 +21,13 @@ class DisciplineDAO extends DAO
         $_sql = "SELECT * FROM discipline ORDER BY name_discipline ASC";
         $_res = $this->getDb()->fetchAll($_sql);
 
-        $_matieres = array();
+        $matieres = array();
         foreach($_res as $row){
-            $_matiereId = $row['id_discipline'];
-            $_matieres[$_matiereId] = $this->buildDomainObject($row);
+            $matiereId = $row['id_discipline'];
+            $matieres[$matiereId] = $this->buildDomainObject($row);
         }
 
-        return $_matieres;
+        return $matieres;
     }
 
     protected function buildDomainObject($row)
