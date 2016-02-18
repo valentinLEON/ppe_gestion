@@ -17,6 +17,16 @@ use ppe_gestion\Domain\User;
 
 class UserDAO extends DAO implements UserProviderInterface
 {
+    public function find($id)
+    {
+        $sql = "SELECT * FROM users";
+        $row = $this->getDb()->fetchAssoc($sql, array($id));
+
+        if($row)
+            return $this->buildDomainObject($row);
+        else
+            throw new \Exception("No user matching id " . $id);
+    }
 
     public function loadUserByUsername($username)
     {
