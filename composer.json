@@ -7,7 +7,7 @@
         "twbs/bootstrap": "^3.3",
         "almasaeed2010/adminlte": "~2.0",
         "twig/twig": "^1.24",
-        "doctrine/orm": "~2.3",
+        "doctrine/DBAL": "2.5.*",
         "symfony/security": "^3.0"
     },
        "autoload": {
