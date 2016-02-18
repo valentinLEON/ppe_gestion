@@ -216,9 +216,9 @@ desired effect
                             <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
                                 <label>Choisir une matière</label>
                                 <select class="form-control select2">
-                                    {% for matieres in discipline %}
+                                    {% for disc in matieres %}
                                     <option>
-                                        {{ discipline.name_discipline }}
+                                        {{ disc.name_discipline }}
                                     </option>
                                     {% endfor %}
                                 </select>
