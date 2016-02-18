@@ -31,7 +31,7 @@ $app['dao.discipline'] = $app->share(function($app){
     return new ppe_gestion\DAO\DisciplineDAO($app['db']);
 });
 
-$app['dao.classNames'] = $app->share(function($app){
+$app['dao.className'] = $app->share(function($app){
     return new ppe_gestion\DAO\ClassNameDAO($app['db']);
 });
 
