@@ -12,7 +12,7 @@ namespace ppe_gestion\Domain;
 class Discipline
 {
     public $id_discipline;
-    protected $name_discipline;
+    private $name_discipline;
 
 
     public $dt_create;
