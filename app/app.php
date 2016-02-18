@@ -12,6 +12,7 @@ use Symfony\Component\Debug\ExceptionHandler;
 use Silex\Application;
 
 use ppe_gestion\DAO;
+use ppe_gestion\Domain;
 
 // Register global error and exception handlers
 ErrorHandler::register();
@@ -25,8 +26,9 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.options' => array(),
 ));
 
+//Controller que la route appellera pour afficher les matières à Twig
 $app['dao.discipline'] = $app->share(function($app){
-    return new ppe_gestion\DAO\DisciplineDAO($app['db']);
+    return new DisciplineDAO($app['db']);
 });
 
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
