@@ -1,7 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.0.10deb1
--- http://www.phpmyadmin.net
---
 -- Client: localhost
 -- Généré le: Jeu 18 Février 2016 à 05:10
 -- Version du serveur: 5.5.46-0ubuntu0.14.04.2
@@ -16,6 +12,8 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
+----------------------------------------------------------
+--
 --
 -- Base de données: `groupe_sio2`
 --
