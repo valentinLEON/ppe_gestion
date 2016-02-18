@@ -31,7 +31,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     return new ppe_gestion\DAO\DisciplineDAO($app['db']);
 });*/
 
-$app['dao.class'] = $app->share(function($app){
+$app['dao.className'] = $app->share(function($app){
     return new ppe_gestion\DAO\ClassNameDAO($app['db']);
 });
 

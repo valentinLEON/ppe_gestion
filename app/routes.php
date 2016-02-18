@@ -7,6 +7,6 @@
 });*/
 
 $app->get('/', function () use ($app) {
-    $classes = $app['dao.class']->findAll();
+    $classes = $app['dao.className']->findAll();
     return $app['twig']->render('index.html.twig', array('classNames' => $classes)); //
 });
