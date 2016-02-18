@@ -6,7 +6,7 @@
  * Time: 20:42
  */
 
-namespace ppe_gestion\DAO;
+namespace ppe_gestion\DAO\DAO;
 
 //use ppe_gestion\Domain\Discipline;
 
