@@ -6,10 +6,10 @@
  * Time: 20:43
  */
 
-namespace ppe_project_gestion\DAO;
+namespace ppe_gestion\DAO;
 
 
-use ppe_project_gestion\Domain\Evaluation;
+use ppe_gestion\Domain\Evaluation;
 
 
 class EvaluationDAO extends DAO

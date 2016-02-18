@@ -6,9 +6,9 @@
  * Time: 11:43
  */
 
-namespace ppe_project_gestion\DAO;
+namespace ppe_gestion\DAO;
 
-use ppe_project_gestion\Domain\StudentToClass;
+use ppe_gestion\Domain\StudentToClass;
 
 class StudentToClassDAO
 {

@@ -6,9 +6,9 @@
  * Time: 20:42
  */
 
-namespace ppe_project_gestion\DAO;
+namespace ppe_gestion\DAO;
 
-use ppe_project_gestion\Domain\Discipline;
+use ppe_gestion\Domain\Discipline;
 
 
 class DisciplineDAO extends DAO

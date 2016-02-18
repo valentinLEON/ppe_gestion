@@ -7,13 +7,13 @@
  */
 
 
-namespace ppe_project_gestion\DAO;
+namespace ppe_gestion\DAO;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
-use ppe_project_gestion\Domain\User;
+use ppe_gestion\Domain\User;
 
 class UserDAO extends DAO implements UserProviderInterface
 {

@@ -6,9 +6,9 @@
  * Time: 15:10
  */
 
-namespace ppe_project_gestion\DAO;
+namespace ppe_gestion\DAO;
 
-use ppe_project_gestion\Domain\Student;
+use ppe_gestion\Domain\Student;
 
 
 class StudentDAO extends DAO

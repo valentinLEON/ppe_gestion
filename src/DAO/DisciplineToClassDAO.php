@@ -6,9 +6,9 @@
  * Time: 11:42
  */
 
-namespace ppe_project_gestion\DAO;
+namespace ppe_gestion\DAO;
 
-use ppe_project_gestion\Domain\DisciplineToClass;
+use ppe_gestion\Domain\DisciplineToClass;
 
 class DisciplineToClassDAO
 {
