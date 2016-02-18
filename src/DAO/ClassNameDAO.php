@@ -6,7 +6,7 @@
  * Time: 20:42
  k*/
 
-namespace ppe_project_gestion\DAO;
+namespace ppe_gestion\DAO;
 
 use ppe_project_gestion\Domain\ClassName;
 use ppe_project_gestion\DAO\DAO;
