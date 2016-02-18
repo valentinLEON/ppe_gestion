@@ -14,9 +14,6 @@ use Silex\Application;
 use ppe_gestion\DAO;
 use ppe_gestion\Domain\className;
 
-use ppe_gestion\Domain\Discipline\Discipline;
-
-
 // Register global error and exception handlers
 ErrorHandler::register();
 ExceptionHandler::register();
