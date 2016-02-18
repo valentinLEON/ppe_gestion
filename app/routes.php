@@ -2,6 +2,11 @@
 
 // Page d'accueil
 $app->get('/', function () use ($app) {
-    $classes = $app['dao.discipline']->findAll();
-    return $app['twig']->render('index.html.twig', array('matieres' => $classes)); //
+    $discipline = $app['dao.discipline']->findAll();
+    return $app['twig']->render('index.html.twig', array('matieres' => $discipline)); //
+});
+
+$app->get('/', function () use ($app) {
+    $classes = $app['dao.className']->findAll();
+    return $app['twig']->render('index.html.twig', array('classNames' => $classes)); //
 });
