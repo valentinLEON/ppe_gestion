@@ -12,7 +12,7 @@ namespace ppe_gestion\Domain;
 class Discipline
 {
     private $id_discipline;
-    private $name_discipline;
+    public $name_discipline;
     private $id_evaluation; /*clé étrangère*/
 
     private $dt_create;
