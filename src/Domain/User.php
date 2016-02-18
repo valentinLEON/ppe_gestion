@@ -19,7 +19,6 @@ class User implements UserInterface
     public $password;
     public $salt;
     public $role;
-    public $description;
 
     public $dt_create;
     public $dt_update;
@@ -84,16 +83,6 @@ class User implements UserInterface
     public function getRoles()
     {
         return array($this->getRole());
-    }
-
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    public function setDescription($_description)
-    {
-        $this->description = $_description;
     }
 
     public function getDtCreate()
