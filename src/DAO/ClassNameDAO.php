@@ -24,7 +24,7 @@ class ClassNameDAO extends DAO
         $classNames = array();
         foreach($_res as $row){
             $_classNameId = $row['id_class'];
-            $_className[$_classNameId] = $this->buildDomainObject($row);
+            $classNames[$_classNameId] = $this->buildDomainObject($row);
         }
 
         return $classNames;
