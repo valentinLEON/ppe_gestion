@@ -8,7 +8,7 @@
 
 namespace ppe_gestion\DAO;
 
-use ppe_gestion\Domain\Discipline;
+//use ppe_gestion\Domain\Discipline;
 
 
 class DisciplineDAO extends DAO
@@ -31,7 +31,7 @@ class DisciplineDAO extends DAO
 
     protected function buildDomainObject($row)
     {
-        $discipline = new Discipline();
+        $discipline = new ppe_gestion\Domain\Discipline();
         $discipline->setIdDiscipline($row['id_discipline']);
         $discipline->setNameDiscipline($row['name_discipline']);
         $discipline->setDtCreate($row['dt_create']);
