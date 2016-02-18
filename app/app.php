@@ -31,5 +31,5 @@ $app['dao.discipline'] = $app->share(function($app){
     return new ppe_project_gestion\DAO\DisciplineDAO($app['db']);
 });
 
-/*$app->register(new Silex\Provider\UrlGeneratorServiceProvider());
-return $app;*/
+$app->register(new Silex\Provider\UrlGeneratorServiceProvider());
+return $app;

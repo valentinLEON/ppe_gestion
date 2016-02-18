@@ -3,5 +3,4 @@
 
 ####config
    Configuration de Controller
-   TotoToto
 
