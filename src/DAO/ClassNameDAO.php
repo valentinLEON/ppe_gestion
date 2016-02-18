@@ -31,6 +31,10 @@ class ClassNameDAO extends DAO
         return $_classNames;
     }
 
+    /**
+     * @param $row
+     * @return \ppe_project_gestion\Domain\className\ClassName
+     */
     protected function buildDomainObject($row)
     {
         $class = new \ppe_project_gestion\Domain\className\ClassName();
