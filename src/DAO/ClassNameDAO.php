@@ -8,8 +8,7 @@
 
 namespace ppe_gestion\DAO;
 
-use ppe_project_gestion\Domain\ClassName;
-use ppe_project_gestion\DAO\DAO;
+use ppe_gestion\Domain\ClassName;
 
 
 class ClassNameDAO extends DAO
@@ -37,7 +36,7 @@ class ClassNameDAO extends DAO
      */
     protected function buildDomainObject($row)
     {
-        $class = new \ppe_project_gestion\Domain\className\ClassName();
+        $class = new ClassName();
         $class->setIdClassName($row['id_class']);
         $class->setClassName($row['class_name']);
         $class->setClassOption($row['class_option']);

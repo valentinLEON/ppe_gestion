@@ -1,6 +1,6 @@
 <?php
 
-namespace ppe_gestion\Domain\className;
+namespace ppe_gestion\Domain\ClassName;
 /**
  * Created by PhpStorm.
  * User: Val

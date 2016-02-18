@@ -33,7 +33,7 @@ class EvaluationDAO extends DAO
     //crée l'objet evaluation représentant la note de l'appréciation de l'élève
     protected function buildDomainObject($row)
     {
-        $evaluation = new \ppe_project_gestion\Domain\evaluation\Evaluation();
+        $evaluation = new \ppe_gestion\Domain\evaluation\Evaluation();
         $evaluation->setIdEvaluation($row['id_evaluation']);
         $evaluation->setGradeStudent($row['grade_student']);
         $evaluation->setCoefDiscipline($row['coef_discipline']);
