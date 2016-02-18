@@ -17,6 +17,24 @@ use ppe_gestion\Domain\User;
 
 class UserDAO extends DAO implements UserProviderInterface
 {
+
+    //Ajout de la fonction findAll, pour rechercher tous les utilisateurs
+    public function findAll()
+    {
+        $sql = "SELECT * FROM users ORDER BY role, username";
+        $res = $this->getDb()->fetchAll($sql);
+
+        $users = array();
+        foreach($res as $row)
+        {
+            $id = $row['id_users'];
+            $users[$id] = $this->buildDomainObject($row);
+        }
+
+        return $users;
+    }
+
+
     public function find($id)
     {
         $sql = "SELECT * FROM users";

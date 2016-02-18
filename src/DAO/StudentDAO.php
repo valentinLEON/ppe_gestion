@@ -28,6 +28,46 @@ class StudentDAO extends DAO
         return $_etudiants;
     }
 
+    /**
+     * @param Student $student
+     * Fonction de sauvegarde d'un étudiant
+     */
+    public function saveStudent(Student $student)
+    {
+        $studentInfo = array(
+            '$student_name' => $student->getName(),
+            '$student_firstname' => $student->getFirstname(),
+            '$student_birthday' => $student->getBirthday(),
+            '$student_email' => $student->getEmail(),
+            '$student_address' => $student->getAddress(),
+            '$student_tel' => $student->getTel()
+        );
+
+        if($student->getIdStudent()){
+            $this->getDb()->update('users', $student, array(
+                'id_users' => $student->getIdStudent()));
+        }
+        else{
+            $this->getDb()->insert('users', $student);
+            $id = $this->getDb()->lastInsertId();
+            $student->setIdStudent($id);
+        }
+    }
+
+    /**
+     * @param $id
+     * @throws \Doctrine\DBAL\Exception\InvalidArgumentException
+     * Fonction de suppression d'un utilisateur
+     */
+    public function deleteStudent($id)
+    {
+        $this->getDb()->delete('users', array(
+            'id_users' => $id
+        ));
+    }
+
+
+
     protected function buildDomainObject($row)
     {
         $student = new Student();
