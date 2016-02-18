@@ -19,8 +19,10 @@ class User implements UserInterface
     public $password;
     public $salt;
     public $role;
+
     public $dt_create;
     public $dt_update;
+
     public $id_discipline; /*clé étrangère*/
     public $id_class; /*clé étrangère*/
 

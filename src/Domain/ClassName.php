@@ -11,13 +11,15 @@ namespace ppe_gestion\Domain;
  */
 class ClassName
 {
-    private $id_className;
-    private $class_name;
-    private $class_option;
-    private $class_year;
-    private $dt_create;
-    private $dt_update;
-    private $id_student; /*clé étrangère*/
+    public $id_className;
+    public $class_name;
+    public $class_option;
+    public $class_year;
+
+    public $dt_create;
+    public $dt_update;
+
+    public $id_student; /*clé étrangère*/
 
 
     public function getIdClassName()

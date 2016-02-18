@@ -12,16 +12,16 @@ namespace ppe_gestion\Domain;
  */
 class Evaluation
 {
-    private $id_evaluation;
-    private $grade_student;
-    private $judgement;
-    private $coef_discipline;
+    public $id_evaluation;
+    public $grade_student;
+    public $judgement;
+    public $coef_discipline;
 
-    private $dt_create;
-    private $dt_update;
+    public $dt_create;
+    public $dt_update;
 
-    private $id_student; /*clé étrangère*/
-    private $id_discipline;
+    public $id_student; /*clé étrangère*/
+    public $id_discipline; /*clé étrangère*/
 
     public function getIdEvaluation(){
         return $this->id_evaluation;

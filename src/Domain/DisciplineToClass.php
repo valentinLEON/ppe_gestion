@@ -10,8 +10,8 @@
  */
 class DisciplineToClass
 {
-    private $id_className;
-    private $id_discipline;
+    public $id_className;
+    public $id_discipline;
 
     public function getIdClassName()
     {

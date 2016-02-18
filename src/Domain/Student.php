@@ -11,18 +11,18 @@ namespace ppe_gestion\Domain;
  */
 class Student
 {
-    private $id_student;
-    private $student_name;
-    private $student_firstname;
-    private $student_birthday;
-    private $student_email;
-    private $student_address;
-    private $student_tel;
+    public $id_student;
+    public $student_name;
+    public $student_firstname;
+    public $student_birthday;
+    public $student_email;
+    public $student_address;
+    public $student_tel;
 
-    private $dt_create;
-    private $dt_update;
+    public $dt_create;
+    public $dt_update;
 
-    private $id_evaluation; /*clé étrangère*/
+    public $id_evaluation; /*clé étrangère*/
 
 
     public function getIdStudent()

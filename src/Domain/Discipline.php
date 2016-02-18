@@ -11,12 +11,14 @@ namespace ppe_gestion\Domain;
  */
 class Discipline
 {
-    private $id_discipline;
+    public $id_discipline;
     public $name_discipline;
-    private $id_evaluation; /*clé étrangère*/
 
-    private $dt_create;
-    private $dt_update;
+
+    public $dt_create;
+    public $dt_update;
+
+    public $id_evaluation; /*clé étrangère*/
 
     public function getIdDiscipline()
     {

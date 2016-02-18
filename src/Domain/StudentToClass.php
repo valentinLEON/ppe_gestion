@@ -10,8 +10,8 @@
  */
 class StudentToClass
 {
-    private $id_student;
-    private $id_className;
+    public $id_student;
+    public $id_className;
 
     /**
      * @param mixed $id_className
