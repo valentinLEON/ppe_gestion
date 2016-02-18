@@ -218,7 +218,7 @@ desired effect
                                 <select class="form-control select2">
                                     {% for disc in matieres %}
                                     <option>
-                                        {{ disc.name_discipline }}
+                                        {{ disc.getNameDiscipline() }}
                                     </option>
                                     {% endfor %}
                                 </select>
