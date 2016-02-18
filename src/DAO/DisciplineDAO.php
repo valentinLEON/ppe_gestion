@@ -9,7 +9,7 @@
 namespace ppe_gestion\DAO;
 
 use Silex\Application;
-use ppe_gestion\Domain\Discipline\Discipline;
+use ppe_gestion\Domain\Discipline;
 
 
 class DisciplineDAO extends DAO
