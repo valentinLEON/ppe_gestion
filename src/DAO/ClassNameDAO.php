@@ -21,13 +21,13 @@ class ClassNameDAO extends DAO
 
         $_res = $this->getDb()->fetchAll($_sql);
 
-        $_classNames = array();
+        $classNames = array();
         foreach($_res as $row){
             $_classNameId = $row['id_class'];
             $_className[$_classNameId] = $this->buildDomainObject($row);
         }
 
-        return $_classNames;
+        return $classNames;
     }
 
     /**
