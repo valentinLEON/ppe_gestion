@@ -6,9 +6,10 @@
  * Time: 20:42
  */
 
-namespace ppe_gestion\DAO\DAO;
+namespace ppe_gestion\DAO;
 
-//use ppe_gestion\Domain\Discipline;
+use Silex\Application;
+use ppe_gestion\Domain\Discipline;
 
 
 class DisciplineDAO extends DAO
@@ -31,7 +32,7 @@ class DisciplineDAO extends DAO
 
     protected function buildDomainObject($row)
     {
-        $discipline = new ppe_gestion\Domain\Discipline();
+        $discipline = new Discipline();
         $discipline->setIdDiscipline($row['id_discipline']);
         $discipline->setNameDiscipline($row['name_discipline']);
         $discipline->setDtCreate($row['dt_create']);
