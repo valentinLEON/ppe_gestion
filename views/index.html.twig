@@ -202,7 +202,7 @@ desired effect
                     <!-- form start -->
                     <form class="form-horizontal">
                         <div class="box-body" style="margin-left:2rem; width: 80%; ">
-                              <div class="form-group" style="width: 5%;  display:inline-block; margin:10px;">
+                              <div class="form-group" style="width: 6%;  display:inline-block; margin:10px;">
                                   <label for="sel1">Note</label>
                                   <select class="form-control" id="sel1" keybord="true">
                                     {% for i in 0..20 %}
@@ -216,7 +216,7 @@ desired effect
                                 <select class="form-control select2" >
                                    {% for name in classNames %}
                                     <option>
-                                       {{ name.dt_update }}
+                                       {{ name.class_name }}
                                    </option>
                                     {% endfor %}
                                 </select>
