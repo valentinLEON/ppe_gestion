@@ -1,11 +1,6 @@
 <?php
 
-// Page d'accueil
-/*$app->get('/', function () use ($app) {
-    $discipline = $app['dao.discipline']->findAll();
-    return $app['twig']->render('index.html.twig', array('matieres' => $discipline)); //
-});*/
-
+//route pour le formulaire d'ajout de note
 $app->get('/', function () use ($app) {
     $classes = $app['dao.className']->findAll();
     $discipline = $app['dao.discipline']->findAll();

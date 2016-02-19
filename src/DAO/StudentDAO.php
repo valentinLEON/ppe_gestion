@@ -22,7 +22,7 @@ class StudentDAO extends DAO
         $etudiants = array();
         foreach($_res as $row){
             $_etudiantId = $row['id_student'];
-            $_etudiant[$_etudiantId] = $this->buildDomainObject($row);
+            $etudiants[$_etudiantId] = $this->buildDomainObject($row);
         }
 
         return $etudiants;
