@@ -1,49 +1,61 @@
-<!-- form start -->
-<form class="form-horizontal">
-    <div class="box-body" style="margin-left:2rem; width: 80%; ">
-        <div class="form-group" style="width: 6%;  display:inline-block; margin:10px;">
-            <label for="sel1">Note</label>
-            <select class="form-control" id="sel1" keybord="true">
-                {% for i in 0..20 %}
-                    <option>{{ i }}</option>
-                {% endfor %}
-            </select>
-        </div>
+{% extends "layout.html.twig" %}
 
-        <div class="form-group" style="width: 15%; display:inline-block;margin:10px;">
-            <label>Choisir une classe</label>
-            <select class="form-control select2" >
-                {% for name in classNames %}
-                    <option>
-                        {{ name.class_name }}
-                    </option>
-                {% endfor %}
-            </select>
+{% block title %}
+    Formulaire d'ajout d'élève
+{% endblock %}
+
+{% block content %}
+
+    <!-- form start -->
+    <form class="form-horizontal">
+        <div class="box-body" style="margin-left:2rem; width: 80%; ">
+            <div class="form-group" style="width: 6%;  display:inline-block; margin:10px;">
+                <label for="sel1">Note</label>
+                <select class="form-control" id="sel1" keybord="true">
+                    {% for i in 0..20 %}
+                        <option>{{ i }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group" style="width: 15%; display:inline-block;margin:10px;">
+                <label>Choisir une classe</label>
+                <select class="form-control select2" >
+                    {% for name in classNames %}
+                        <option>
+                            {{ name.class_name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
+                <label>Choisir une matière</label>
+                <select class="form-control select2">
+                    {% for discipline in matieres %}
+                        <option>
+                            {{ discipline.name_discipline }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
+                <label>Choisir l'élève</label>
+                <select class="form-control select2">
+                    {% for stud in student %}
+                        <option>
+                            {{ stud.student_name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
         </div>
-        <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
-            <label>Choisir une matière</label>
-            <select class="form-control select2">
-                {% for discipline in matieres %}
-                    <option>
-                        {{ discipline.name_discipline }}
-                    </option>
-                {% endfor %}
-            </select>
+        <!-- /.box-body -->
+        <div class="box-footer">
+            <button type="submit" class="btn btn-info pull-right">Ajouter</button>
         </div>
-        <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
-            <label>Choisir l'élève</label>
-            <select class="form-control select2">
-                {% for stud in student %}
-                    <option>
-                        {{ stud.student_name }}
-                    </option>
-                {% endfor %}
-            </select>
-        </div>
-    </div>
-    <!-- /.box-body -->
-    <div class="box-footer">
-        <button type="submit" class="btn btn-info pull-right">Ajouter</button>
-    </div>
-    <!-- /.box-footer -->
-</form>
+        <!-- /.box-footer -->
+    </form>
+
+
+{% endblock %}
+
