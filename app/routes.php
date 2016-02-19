@@ -10,3 +10,7 @@ $app->get('/', function () use ($app) {
         'matieres' => $discipline,
         'student' => $etudiant)); //
 });
+
+$app->get('/addstudent',function() use ($app) {
+    return $app['twig']->render('addstudent.html.twig', array() );
+})->bind('addstudent');
