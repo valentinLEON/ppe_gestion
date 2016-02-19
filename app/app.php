@@ -35,5 +35,9 @@ $app['dao.className'] = $app->share(function($app){
     return new ppe_gestion\DAO\ClassNameDAO($app['db']);
 });
 
+$app['dao.student'] = $app->share(function($app){
+    return new ppe_gestion\DAO\StudentDAO($app['db']);
+});
+
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 return $app;

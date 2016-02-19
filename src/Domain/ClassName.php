@@ -79,7 +79,7 @@ class ClassName
 
     public function setDtUpdate($_dt_update)
     {
-        $this->class_name = $_dt_update;
+        $this->dt_update = $_dt_update;
     }
 
     public function getIdStudent()
