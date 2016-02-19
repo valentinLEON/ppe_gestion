@@ -19,13 +19,13 @@ class StudentDAO extends DAO
         $_sql = "SELECT * FROM student ORDER BY student_name";
         $_res = $this->getDb()->fetchAll($_sql);
 
-        $_etudiants = array();
+        $etudiants = array();
         foreach($_res as $row){
             $_etudiantId = $row['id_student'];
             $_etudiant[$_etudiantId] = $this->buildDomainObject($row);
         }
 
-        return $_etudiants;
+        return $etudiants;
     }
 
     /**
@@ -82,5 +82,4 @@ class StudentDAO extends DAO
 
         return $student;
     }
-
 }

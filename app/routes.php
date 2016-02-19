@@ -9,9 +9,9 @@
 $app->get('/', function () use ($app) {
     $classes = $app['dao.className']->findAll();
     $discipline = $app['dao.discipline']->findAll();
-    $student = $app['dao.student']->findall();
+    $etudiant = $app['dao.student']->findall();
     return $app['twig']->render('index.html.twig', array(
         'classNames' => $classes,
         'matieres' => $discipline,
-        'students' => $student)); //
+        'students' => $etudiant)); //
 });
