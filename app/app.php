@@ -33,10 +33,12 @@ $app['dao.discipline'] = $app->share(function($app){
     return new ppe_gestion\DAO\DisciplineDAO($app['db']);
 });
 
+//Controller pour la route des classes
 $app['dao.className'] = $app->share(function($app){
     return new ppe_gestion\DAO\ClassNameDAO($app['db']);
 });
 
+//Controller pour la route des étudiants
 $app['dao.student'] = $app->share(function($app){
     return new ppe_gestion\DAO\StudentDAO($app['db']);
 });
