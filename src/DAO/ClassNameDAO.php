@@ -17,12 +17,12 @@ class ClassNameDAO extends DAO
     //Fonction qui retourne toutes les classes
     public function findAll()
     {
-        $_sql = "SELECT * FROM className ORDER BY class_name";
+        $sql = "SELECT * FROM className ORDER BY class_name";
 
-        $_res = $this->getDb()->fetchAll($_sql);
+        $res = $this->getDb()->fetchAll($sql);
 
         $classNames = array();
-        foreach($_res as $row){
+        foreach($res as $row){
             $_classNameId = $row['id_class'];
             $classNames[$_classNameId] = $this->buildDomainObject($row);
         }
