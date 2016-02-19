@@ -54,28 +54,38 @@ class EvaluationDAO extends DAO
     }
 
     //ajout note par éleve
-    public function addGrade(Evaluation $_evaluation)
+    public function saveGrade(Evaluation $_evaluation)
     {
         $grade = array(
             'id_student'=> $_evaluation->getStudent()->getIdEvaluation(),
             'id_discipline'=> $_evaluation->getDiscipline()->getIdEvaluation(),
             'grade_student'=> $_evaluation->getGradeStudent(),
             'coef_discipline'=> $_evaluation->getCoefDiscipline(),
-            'judggement'=> $_evaluation->getJudgement()
+            'judgement'=> $_evaluation->getJudgement()
         );
 
-        if($_evaluation->getIdStudent() = )
+        if($_evaluation = getIdEvaluation())
         {
-            $this->getDb()->insert('evaluation', $grade);
+            $this->getDb()->update('evaluation', $grade, array('id_evaluation'=> $_evaluation->getIdEvaluation()));
         }
+        else{
+            $this->getDb()->insert('evaluation', $grade);
+            $_id_evaluation = $this->getDb()->lastInsertId();
+            $_evaluation->setIdEvaluation($_id_evaluation);
+        }
+    }
 
-
+    public function deleteGrade($id)
+    {
+        $this->getDb()->delete('evaluation', array(
+            'id_evaluation' => $id
+        ));
     }
 
     //crée l'objet evaluation représentant la note de l'appréciation de l'élève
     protected function buildDomainObject($row)
     {
-        $evaluation = new \ppe_gestion\Domain\Evaluation();
+        $evaluation = new Evaluation();
 
         $evaluation->setIdEvaluation($row['id_evaluation']);
         $evaluation->setGradeStudent($row['grade_student']);
