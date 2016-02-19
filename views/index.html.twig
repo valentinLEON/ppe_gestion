@@ -231,6 +231,16 @@ desired effect
                                     {% endfor %}
                                 </select>
                             </div>
+                            <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
+                                <label>Choisir l'élève</label>
+                                <select class="form-control select2">
+                                    {% for stud in matieres %}
+                                        <option>
+                                            {{ stud.name_student }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer">

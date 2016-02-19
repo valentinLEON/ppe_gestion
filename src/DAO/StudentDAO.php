@@ -66,8 +66,6 @@ class StudentDAO extends DAO
         ));
     }
 
-
-
     protected function buildDomainObject($row)
     {
         $student = new Student();
