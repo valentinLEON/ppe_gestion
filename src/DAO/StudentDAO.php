@@ -28,6 +28,17 @@ class StudentDAO extends DAO
         return $etudiants;
     }
 
+    public function find($id)
+    {
+        $sql = "SELECT * FROM student WHERE id_student=?";
+        $row = $this->getDb()->fetchAssoc($sql, array($id));
+
+        if($row)
+            return $this->buildDomainObject($row);
+        else
+            throw new \Exception("aucun étudiant pour l'id : ".$id);
+    }
+
     /**
      * @param Student $student
      * Fonction de sauvegarde d'un étudiant

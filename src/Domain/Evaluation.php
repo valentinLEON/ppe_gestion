@@ -16,6 +16,8 @@ class Evaluation
     public $grade_student;
     public $judgement;
     public $coef_discipline;
+    public $student;
+    public $discipline;
 
     public $dt_create;
     public $dt_update;
@@ -67,6 +69,26 @@ class Evaluation
     public function setJudgement($_judgement)
     {
         $this->judgement = $_judgement;
+    }
+
+    public function getStudent()
+    {
+        return $this->student;
+    }
+
+    public function setStudent($_student)
+    {
+        $this->student = $_student;
+    }
+
+    public function getDiscipline()
+    {
+        return $this->discipline;
+    }
+
+    public function setDiscipline($_discipline)
+    {
+        $this->discipline = $_discipline;
     }
 
     public function getDtCreate(){
