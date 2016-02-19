@@ -13,6 +13,6 @@ $app->get('/', function () use ($app) {
         'student' => $etudiant)); //
 });
 
-$app->get('/addstudent',function() use ($app) {
+$app->get('/addstudent',function(Request $request) use ($app) {
     return $app['twig']->render('addstudent.html.twig', array() );
 })->bind('addstudent');
