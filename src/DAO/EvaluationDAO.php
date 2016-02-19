@@ -75,6 +75,12 @@ class EvaluationDAO extends DAO
         }
     }
 
+    /**
+     * @param $id
+     * @throws \Doctrine\DBAL\Exception\InvalidArgumentException
+     *
+     * Suppression d'une note
+     */
     public function deleteGrade($id)
     {
         $this->getDb()->delete('evaluation', array(
