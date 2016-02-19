@@ -15,5 +15,3 @@ $app->get('/', function () use ($app) {
         'matieres' => $discipline,
         'students' => $student)); //
 });
-
-var_dump($student);
