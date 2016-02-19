@@ -11,7 +11,5 @@ CREATE TABLE student(
         `student_email`           VARCHAR (255) ,
         `dt_create`               DATE NOT NULL , /*Date de création*/
         `dt_update`               DATE NOT NULL , /*Date de modification*/
-        `id_evaluation`           INT NOT NULL ,
         PRIMARY KEY (id_student) ,
-        FOREIGN KEY (id_evaluation) REFERENCES evaluation(id_evaluation)
 )ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;

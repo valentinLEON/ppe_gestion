@@ -22,8 +22,6 @@ class Student
     public $dt_create;
     public $dt_update;
 
-    public $id_evaluation; /*clé étrangère*/
-
 
     public function getIdStudent()
     {
@@ -114,15 +112,4 @@ class Student
     {
         $this->dt_update = $_dt_update;
     }
-
-    public function getIdEvaluation()
-    {
-        return $this->id_evaluation;
-    }
-
-    public function setIdEvaluation($_id_evaluation)
-    {
-        $this->id_evaluation = $_id_evaluation;
-    }
-
 }

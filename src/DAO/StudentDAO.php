@@ -44,11 +44,11 @@ class StudentDAO extends DAO
         );
 
         if($student->getIdStudent()){
-            $this->getDb()->update('users', $studentInfo, array(
-                'id_users' => $student->getIdStudent()));
+            $this->getDb()->update('student', $studentInfo, array(
+                'id_student' => $student->getIdStudent()));
         }
         else{
-            $this->getDb()->insert('users', $studentInfo);
+            $this->getDb()->insert('student', $studentInfo);
             $id = $this->getDb()->lastInsertId();
             $student->setIdStudent($id);
         }
@@ -76,7 +76,6 @@ class StudentDAO extends DAO
         $student->setAddress($row['student_address']);
         $student->setEmail($row['student_email']);
         $student->setTel($row['student_tel']);
-        $student->setIdEvaluation($row['id_evaluation']);
         $student->setDtCreate($row['dt_create']);
         $student->setDtUpdate($row['dt_update']);
 
