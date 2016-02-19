@@ -1,5 +1,7 @@
 <?php
 
+use Symfony\Component\HttpFoundation\Request;
+
 //route pour le formulaire d'ajout de note
 $app->get('/', function () use ($app) {
     $classes = $app['dao.className']->findAll();
