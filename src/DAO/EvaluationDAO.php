@@ -12,6 +12,7 @@ namespace ppe_gestion\DAO;
 use ppe_gestion\Domain\Evaluation;
 
 
+
 class EvaluationDAO extends DAO
 {
     public $studentDAO;
@@ -56,9 +57,11 @@ class EvaluationDAO extends DAO
     public function addGrade(Evaluation $_evaluation)
     {
         $grade = array(
-            'id_student'=> $_evaluation->getStudent(),
-            'id_discipline'=> $_evaluation->getDiscipline(),
-
+            'id_student'=> $_evaluation->getStudent()->getIdEvaluation(),
+            'id_discipline'=> $_evaluation->getDiscipline()->getIdEvaluation(),
+            'grade_student'=> $_evaluation->getGradeStudent(),
+            'coef_discipline'=> $_evaluation->getCoefDiscipline(),
+            'judggement'=> $_evaluation->getJudgement()
         );
 
         if($_evaluation->getIdStudent() = )
