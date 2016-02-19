@@ -30,6 +30,17 @@ class DisciplineDAO extends DAO
         return $matieres;
     }
 
+    public function find($id)
+    {
+        $sql = "SELECT * FROM discipline WHERE id_discipline=?";
+        $row = $this->getDb()->fetchAssoc($sql, array($id));
+
+        if($row)
+            return $this->buildDomainObject($row);
+        else
+            throw new \Exception("aucun étudiant pour l'id : ".$id);
+    }
+
     protected function buildDomainObject($row)
     {
         $discipline = new Discipline();

@@ -13,7 +13,7 @@ class Discipline
 {
     public $id_discipline;
     public $name_discipline;
-
+    public $student;
 
     public $dt_create;
     public $dt_update;
@@ -48,6 +48,16 @@ class Discipline
     public function setIdEvaluation($_id_evaluation)
     {
         $this->id_evaluation = $_id_evaluation;
+    }
+
+    public function getStudent()
+    {
+        return $this->student;
+    }
+
+    public function setStudent($_student)
+    {
+        $this->student = $_student;
     }
 
     public function getDtCreate()
