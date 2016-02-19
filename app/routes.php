@@ -13,5 +13,5 @@ $app->get('/', function () use ($app) {
     return $app['twig']->render('index.html.twig', array(
         'classNames' => $classes,
         'matieres' => $discipline,
-        'students' => $etudiant)); //
+        'student' => $etudiant)); //
 });
