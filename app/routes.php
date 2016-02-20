@@ -7,7 +7,7 @@ $app->get('/', function () use ($app) {
     return $app['twig']->render('index.html.twig');
 });
 
-$app->get('/addstudent',function() use ($app) {
+$app->get('/addnote',function() use ($app) {
     $classes = $app['dao.className']->findAll();
     $discipline = $app['dao.discipline']->findAll();
     $etudiant = $app['dao.student']->findall();
@@ -15,4 +15,4 @@ $app->get('/addstudent',function() use ($app) {
         'classNames' => $classes,
         'matieres' => $discipline,
         'student' => $etudiant));
-})->bind('addstudent');
+})->bind('addnote');
