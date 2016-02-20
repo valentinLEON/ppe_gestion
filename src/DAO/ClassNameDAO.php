@@ -14,7 +14,22 @@ use ppe_gestion\Domain\ClassName;
 class ClassNameDAO extends DAO
 {
 
-    //Fonction qui retourne toutes les classes
+    public $studentDAO;
+
+    /**
+     * @param Student $_studentDAO
+     * Dépendance sur les étudiants
+     */
+    public function setStudentDAO(Student $_studentDAO)
+    {
+        $this->studentDAO = $_studentDAO;
+    }
+
+    /**
+     * @return array
+     *
+     * Retourne et affiche toutes les classes
+     */
     public function findAll()
     {
         $sql = "SELECT * FROM className ORDER BY class_name";
@@ -31,8 +46,50 @@ class ClassNameDAO extends DAO
     }
 
     /**
+     * @param ClassName $_className
+     * Fonction de sauvegarde et de modification des classes
+     */
+    public function saveClassName(ClassName $_className)
+    {
+        $class = array(
+            '$class_name' => $_className->getClassName(),
+            '$class_option' => $_className->getClassOption(),
+            '$class_year' => $_className->getClassYear(),
+            '$dt_create' => $_className->getDtCreate(),
+            '$dt_update' => $_className->getDtUpdate(),
+        );
+
+        //on modifie
+        if($_className)
+        {
+            $this->getDb()->update('className', $class, array('id_class'=> $_className->getIdClassName()));
+        }
+        //on sauvegarde
+        else{
+            $this->getDb()->insert('className', $class);
+            $_id_className = $this->getDb()->lastInsertId();
+            $_className->setIdClassName($_id_className);
+        }
+    }
+
+    /**
+     * @param $id
+     * @throws \Doctrine\DBAL\Exception\InvalidArgumentException
+     *
+     * Fonction de suppression d'une classe
+     */
+    public function deleteclassName($id)
+    {
+        $this->getDb()->delete('className', array(
+            'id_class' => $id
+        ));
+    }
+
+    /**
      * @param $row
-     * @return \ppe_gestion\Domain\ClassName
+     * @return ClassName
+     *
+     * construction de l'objet concernant les classes
      */
     protected function buildDomainObject($row)
     {

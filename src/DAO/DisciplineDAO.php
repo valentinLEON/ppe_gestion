@@ -15,7 +15,11 @@ use ppe_gestion\Domain\Discipline;
 class DisciplineDAO extends DAO
 {
 
-    //affiche toutes les matières.
+    /**
+     * @return array
+     *
+     * Recherche et affiche toutes les matières
+     */
     public function findAll()
     {
         $_sql = "SELECT * FROM discipline ORDER BY name_discipline ASC";
@@ -30,6 +34,12 @@ class DisciplineDAO extends DAO
         return $matieres;
     }
 
+    /**
+     * @param $id
+     * @return Discipline
+     * @throws \Exception
+     * fonction de recherche de matière unique par ID
+     */
     public function find($id)
     {
         $sql = "SELECT * FROM discipline WHERE id_discipline=?";
@@ -38,9 +48,15 @@ class DisciplineDAO extends DAO
         if($row)
             return $this->buildDomainObject($row);
         else
-            throw new \Exception("aucun étudiant pour l'id : ".$id);
+            throw new \Exception("Aucune matière pour l'id : ".$id);
     }
 
+    /**
+     * @param $row
+     * @return Discipline
+     *
+     * Construction de l'objet Discipline, la matière
+     */
     protected function buildDomainObject($row)
     {
         $discipline = new Discipline();

@@ -36,7 +36,7 @@ class StudentDAO extends DAO
         if($row)
             return $this->buildDomainObject($row);
         else
-            throw new \Exception("aucun étudiant pour l'id : ".$id);
+            throw new \Exception("Aucun étudiant pour l'id : ".$id);
     }
 
     /**

@@ -61,7 +61,9 @@ class EvaluationDAO extends DAO
             'id_discipline'=> $_evaluation->getDiscipline()->getIdEvaluation(),
             'grade_student'=> $_evaluation->getGradeStudent(),
             'coef_discipline'=> $_evaluation->getCoefDiscipline(),
-            'judgement'=> $_evaluation->getJudgement()
+            'judgement'=> $_evaluation->getJudgement(),
+            '$dt_create' => $_evaluation->getDtCreate(),
+            '$dt_update' => $_evaluation->getDtUpdate()
         );
 
         if($_evaluation = getIdEvaluation())

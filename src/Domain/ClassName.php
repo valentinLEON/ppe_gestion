@@ -16,6 +16,8 @@ class ClassName
     public $class_option;
     public $class_year;
 
+    public $student;
+
     public $dt_create;
     public $dt_update;
 
@@ -90,5 +92,23 @@ class ClassName
     public function setIdStudent($_id_student)
     {
         $this->id_student = $_id_student;
+    }
+
+    /**
+     * @return mixed
+     * Getter sur l'étudiant
+     */
+    public function getStudent()
+    {
+        return $this->student;
+    }
+
+    /**
+     * @param $_student
+     * Setter sur l'étudiant
+     */
+    public function setStudent($_student)
+    {
+        $this->student = $_student;
     }
 }
