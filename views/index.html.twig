@@ -9,6 +9,6 @@
 {% block content %}
 
    COUCOU
-    <a href="{{ path('addstudent') }}">Ajouter un étudiant</a>
+    <a href="{{ path(app.request.attributes.get('addstudent')) }}">Ajouter un étudiant</a>
 
 {% endblock %}
