@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c90b1035ab7079c2b02e548370a1b4f0",
-    "content-hash": "d79c49978469eb96c328d151a7d8d718",
+    "hash": "4beae058636d3965b50af4e96446227b",
+    "content-hash": "0c6e95995ff3fa715bcd98d0ad901752",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -1837,38 +1837,38 @@
         },
         {
             "name": "symfony/twig-bridge",
-            "version": "v3.0.2",
+            "version": "v2.7.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/twig-bridge.git",
-                "reference": "9f25144b9dabd772bede30aaee3a27e52af05784"
+                "reference": "214d4ab818ad5c8153f22a88fc1a15d0e79d0a91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/9f25144b9dabd772bede30aaee3a27e52af05784",
-                "reference": "9f25144b9dabd772bede30aaee3a27e52af05784",
+                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/214d4ab818ad5c8153f22a88fc1a15d0e79d0a91",
+                "reference": "214d4ab818ad5c8153f22a88fc1a15d0e79d0a91",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9",
+                "php": ">=5.3.9",
                 "twig/twig": "~1.23|~2.0"
             },
             "require-dev": {
-                "symfony/asset": "~2.8|~3.0",
-                "symfony/console": "~2.8|~3.0",
-                "symfony/expression-language": "~2.8|~3.0",
-                "symfony/finder": "~2.8|~3.0",
-                "symfony/form": "~2.8|~3.0",
-                "symfony/http-kernel": "~2.8|~3.0",
-                "symfony/polyfill-intl-icu": "~1.0",
-                "symfony/routing": "~2.8|~3.0",
-                "symfony/security": "~2.8|~3.0",
-                "symfony/security-acl": "~2.8|~3.0",
-                "symfony/stopwatch": "~2.8|~3.0",
-                "symfony/templating": "~2.8|~3.0",
-                "symfony/translation": "~2.8|~3.0",
-                "symfony/var-dumper": "~2.8|~3.0",
-                "symfony/yaml": "~2.8|~3.0"
+                "symfony/asset": "~2.7",
+                "symfony/console": "~2.7",
+                "symfony/expression-language": "~2.4",
+                "symfony/finder": "~2.3",
+                "symfony/form": "~2.7,>=2.7.8",
+                "symfony/http-kernel": "~2.3",
+                "symfony/intl": "~2.3",
+                "symfony/routing": "~2.2",
+                "symfony/security": "~2.6",
+                "symfony/security-acl": "~2.6",
+                "symfony/stopwatch": "~2.2",
+                "symfony/templating": "~2.1",
+                "symfony/translation": "~2.7",
+                "symfony/var-dumper": "~2.6",
+                "symfony/yaml": "~2.0,>=2.0.5"
             },
             "suggest": {
                 "symfony/asset": "For using the AssetExtension",
@@ -1887,7 +1887,7 @@
             "type": "symfony-bridge",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "2.7-dev"
                 }
             },
             "autoload": {
@@ -1914,7 +1914,7 @@
             ],
             "description": "Symfony Twig Bridge",
             "homepage": "https://symfony.com",
-            "time": "2016-01-30 16:03:33"
+            "time": "2016-01-07 18:01:12"
         },
         {
             "name": "twbs/bootstrap",
