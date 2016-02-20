@@ -15,6 +15,17 @@ use ppe_gestion\Domain\Discipline;
 class DisciplineDAO extends DAO
 {
 
+    public $evaluationDAO;
+
+    /**
+     * @param EvaluationDAO $_evaluationDAO
+     * Dépendance avec les notes
+     */
+    public function setEvaluationDAO(EvaluationDAO $_evaluationDAO)
+    {
+        $this->evaluationDAO = $_evaluationDAO;
+    }
+
     /**
      * @return array
      *
@@ -52,6 +63,44 @@ class DisciplineDAO extends DAO
     }
 
     /**
+     * @param Discipline $_discipline
+     *
+     * Ajout et modification d'une matière
+     */
+    public function saveDiscipline(Discipline $_discipline)
+    {
+        $discipline = array(
+            '$name_discipline' => $_discipline->getNameDiscipline(),
+            'id_evaluation' => $_discipline->getEvaluation()->getDiscipline(),
+            '$dt_create' => $_discipline->getDtCreate(),
+            '$dt_update' => $_discipline->getDtUpdate(),
+        );
+
+        if($_discipline->getIdDiscipline()){
+            $this->getDb()->update('student', $discipline, array(
+                'id_discipline' => $_discipline->getIdDiscipline()));
+        }
+        else{
+            $this->getDb()->insert('discipline', $discipline);
+            $id = $this->getDb()->lastInsertId();
+            $_discipline->setIdDiscipline($id);
+        }
+    }
+
+    /**
+     * @param $id
+     * @throws \Doctrine\DBAL\Exception\InvalidArgumentException
+     *
+     * Suppression d'une matière par l'id
+     */
+    public function deleteDiscipline($id)
+    {
+        $this->getDb()->delete('discipline', array(
+            'id_discipline' => $id
+        ));
+    }
+
+    /**
      * @param $row
      * @return Discipline
      *
@@ -64,7 +113,13 @@ class DisciplineDAO extends DAO
         $discipline->setNameDiscipline($row['name_discipline']);
         $discipline->setDtCreate($row['dt_create']);
         $discipline->setDtUpdate($row['dt_update']);
-        $discipline->setIdEvaluation($row['id_evaluation']);
+
+        if(array_key_exists('id_evaluation', $row))
+        {
+            $evaluationID = $row['id_evaluation'];
+            $evaluation = $this->evaluationDAO->find($evaluationID);
+            $discipline->setEvaluation($evaluation);
+        }
 
         return $discipline;
     }

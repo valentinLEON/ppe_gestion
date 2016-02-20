@@ -53,7 +53,28 @@ class EvaluationDAO extends DAO
         return $_notes;
     }
 
-    //ajout note par éleve
+    /**
+     * @param $id
+     * @return Evaluation
+     * @throws \Exception
+     *
+     * Recherche d'une note par l'id
+     */
+    public function find($id)
+    {
+        $sql = "SELECT * FROM evaluation WHERE id_evaluation=?";
+        $row = $this->getDb()->fetchAssoc($sql, array($id));
+
+        if($row)
+            return $this->buildDomainObject($row);
+        else
+            throw new \Exception("Aucune matière pour l'id : ".$id);
+    }
+
+    /**
+     * @param Evaluation $_evaluation
+     * Sauvegarde et modification d'une note pour l'élève
+     */
     public function saveGrade(Evaluation $_evaluation)
     {
         $grade = array(
@@ -90,7 +111,11 @@ class EvaluationDAO extends DAO
         ));
     }
 
-    //crée l'objet evaluation représentant la note de l'appréciation de l'élève
+    /**
+     * @param $row
+     * @return Evaluation
+     * création l'objet evaluation représentant la note de l'appréciation de l'élève
+     */
     protected function buildDomainObject($row)
     {
         $evaluation = new Evaluation();
