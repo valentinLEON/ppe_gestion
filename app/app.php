@@ -26,6 +26,11 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.options' => array(),*/
 ));
 
+//controller pour les générations de formulaires
+$app->register(new Silex\Provider\FormServiceProvider());
+$app->register(new Silex\Provider\TranslationServiceProvider());
+
+//register pour la génération des urls.
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 
 //Controller que la route appellera pour afficher les matières à Twig

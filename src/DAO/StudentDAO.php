@@ -51,7 +51,9 @@ class StudentDAO extends DAO
             '$student_birthday' => $student->getBirthday(),
             '$student_email' => $student->getEmail(),
             '$student_address' => $student->getAddress(),
-            '$student_tel' => $student->getTel()
+            '$student_tel' => $student->getTel(),
+            '$dt_create' => $student->getDtCreate(),
+            '$dt_update' => $student->getDtUpdate(),
         );
 
         if($student->getIdStudent()){
