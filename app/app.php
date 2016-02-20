@@ -14,9 +14,13 @@ use Silex\Application;
 use ppe_gestion\DAO;
 use ppe_gestion\Domain;
 
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+
 // Register global error and exception handlers
 ErrorHandler::register();
 ExceptionHandler::register();
+
+$this->generateUrl('addnote', array('slug' => 'add-note'), UrlGeneratorInterface::ABSOLUTE_URL);
 
 // Register service providers.
 $app->register(new Silex\Provider\DoctrineServiceProvider());
