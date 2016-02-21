@@ -8,12 +8,11 @@ $app->get('/', function () use ($app) {
 });
 
 $app->get('/addnote',function() use ($app) {
-    /*$classes = $app['dao.className']->findAll();
+    $classes = $app['dao.className']->findAll();
     $discipline = $app['dao.discipline']->findAll();
     $etudiant = $app['dao.student']->findall();
     return $app['twig']->render('addnote.html.twig', array(
         'classNames' => $classes,
         'matieres' => $discipline,
-        'student' => $etudiant));*/
-    return 'cooucou';
+        'student' => $etudiant));
 })->bind('addnote');
