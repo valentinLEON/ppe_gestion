@@ -9,39 +9,37 @@ $app->get('/', function () use ($app) {
     return $app['twig']->render('index.html.twig');
 });
 
-//route pour le formulaire d'ajout de note
-$app->get('/', function () use ($app) {
-    return $app['twig']->render('addnote.html.twig');
-});
-
 /**
  * route pour l'ajout des étudiants
  */
-$app->get('/', function () use ($app) {
+$app->get('/addstudent', function () use ($app) {
     return $app['twig']->render('addstudent.html.twig');
-});
+})->bind('addstudent');
 
 /**
  * route pour l'ajout des utilisateurs
  */
-$app->get('/', function () use ($app) {
+$app->get('/adduser', function () use ($app) {
     return $app['twig']->render('adduser.html.twig');
-});
+})->bind('adduser');
 
 /**
  * route pour afficher le calendrier
  */
-$app->get('/', function () use ($app) {
+$app->get('/calendar', function () use ($app) {
     return $app['twig']->render('calendar.html.twig');
-});
+})->bind('calendar');
 
 /**
  * route pour afficher le login
  */
-$app->get('/', function () use ($app) {
+$app->get('/login', function () use ($app) {
     return $app['twig']->render('login.html.twig');
-});
+})->bind('login');
 
+/**
+ * Route pour l'ajout des notes
+ */
 $app->get('/addnote',function() use ($app) {
     $classes = $app['dao.className']->findAll();
     $discipline = $app['dao.discipline']->findAll();
