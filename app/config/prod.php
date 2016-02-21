@@ -10,7 +10,7 @@
 $app['db.options'] = array(
     'driver' => 'pdo_mysql',
     'charset' => 'utf8',
-    'host' => 'localhost',
+    'host' => 'localhost/',
     'port' => '3306',
     'dbname' => 'groupe_sio2',
     'user' => 'groupe_sio2',
