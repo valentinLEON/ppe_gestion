@@ -19,3 +19,6 @@
         ajout de matière
         ajout d'eleve
         ajout d'utilisateur
+
+###TODO:
+Sûrement fusionner certaines view pour avoir le moins de fichier possible, et que ça soit optimisé...

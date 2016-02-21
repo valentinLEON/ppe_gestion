@@ -1,6 +1,13 @@
 <?php
 
 use Symfony\Component\HttpFoundation\Request;
+use ppe_gestion\Domain\Student;
+use ppe_gestion\Domain\Discipline;
+use ppe_gestion\Domain\ClassName;
+
+/**
+ * TODO: faire les routes pour afficher les listes des datas
+ */
 
 /**
  * Route pour l'accueil
@@ -33,8 +40,11 @@ $app->get('/calendar', function () use ($app) {
 /**
  * route pour afficher le login
  */
-$app->get('/login', function () use ($app) {
-    return $app['twig']->render('login.html.twig');
+$app->get('/login', function (Request $request) use ($app) {
+    return $app['twig']->render('login.html.twig', array(
+        'error' => $app['security.last.error']($request),
+        'last_username' => $app['session']->get('_security.last_username'),
+    ));
 })->bind('login');
 
 /**
@@ -43,6 +53,13 @@ $app->get('/login', function () use ($app) {
 $app->get('/addclass', function () use ($app) {
     return $app['twig']->render('addclass.html.twig');
 })->bind('addclass');
+
+/**
+ * route pour l'ajout des matières
+ */
+$app->get('/adddiscipline', function () use ($app) {
+    return $app['twig']->render('adddiscipline.html.twig');
+})->bind('adddiscipline');
 
 /**
  * Route pour l'ajout des notes
