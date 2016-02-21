@@ -30,22 +30,48 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 $app->register(new Silex\Provider\FormServiceProvider());
 $app->register(new Silex\Provider\TranslationServiceProvider());
 
-//register pour la génération des urls.
+/**
+ * Provider pour la génération des urls
+ *
+ */
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 
-//Controller que la route appellera pour afficher les matières à Twig
+/**
+ * controller pour la route des matières
+ */
 $app['dao.discipline'] = $app->share(function($app){
     return new ppe_gestion\DAO\DisciplineDAO($app['db']);
 });
 
-//Controller pour la route des classes
+/**
+ * Controller pour la route des classes
+ *
+ */
 $app['dao.className'] = $app->share(function($app){
     return new ppe_gestion\DAO\ClassNameDAO($app['db']);
 });
 
-//Controller pour la route des étudiants
+/**
+ * Controller pour la route des étudiants
+ *
+ */
 $app['dao.student'] = $app->share(function($app){
     return new ppe_gestion\DAO\StudentDAO($app['db']);
+});
+
+/**
+ * Controller pour la route des notes
+ */
+$app['dao.evaluation'] = $app->share(function($app){
+    return new ppe_gestion\DAO\EvaluationDAO($app['db']);
+});
+
+/**
+ * Controller pour la route des utilisateurs
+ * TODO: Peut-être à changer plus tard pour la concordance.
+ */
+$app['dao.users'] = $app->share(function($app){
+    return new ppe_gestion\DAO\UserDAO($app['db']);
 });
 
 return $app;
