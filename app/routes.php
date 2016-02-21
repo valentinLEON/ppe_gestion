@@ -11,7 +11,7 @@ $app->get('/addnote',function() use ($app) {
     $classes = $app['dao.className']->findAll();
     $discipline = $app['dao.discipline']->findAll();
     $etudiant = $app['dao.student']->findall();
-    return $app['twig']->render('addevaluation.html.twig', array(
+    return $app['twig']->render('addnote.html.twig', array(
         'classNames' => $classes,
         'matieres' => $discipline,
         'student' => $etudiant));
