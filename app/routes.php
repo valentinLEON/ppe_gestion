@@ -19,28 +19,28 @@ $app->get('/', function () use ($app) {
 /**
  * route pour l'ajout des étudiants
  */
-$app->get('/addstudent', function () use ($app) {
+$app->get('addstudent', function () use ($app) {
     return $app['twig']->render('addstudent.html.twig');
 })->bind('addstudent');
 
 /**
  * route pour l'ajout des utilisateurs
  */
-$app->get('/adduser', function () use ($app) {
+$app->get('adduser', function () use ($app) {
     return $app['twig']->render('adduser.html.twig');
 })->bind('adduser');
 
 /**
  * route pour afficher le calendrier
  */
-$app->get('/calendar', function () use ($app) {
+$app->get('calendar', function () use ($app) {
     return $app['twig']->render('calendar.html.twig');
 })->bind('calendar');
 
 /**
  * route pour afficher le login
  */
-$app->get('/login', function (Request $request) use ($app) {
+$app->get('login', function (Request $request) use ($app) {
     return $app['twig']->render('login.html.twig', array(
         'error' => $app['security.last.error']($request),
         'last_username' => $app['session']->get('_security.last_username'),
@@ -50,21 +50,21 @@ $app->get('/login', function (Request $request) use ($app) {
 /**
  * route pour l'ajout des classes
  */
-$app->get('/addclass', function () use ($app) {
+$app->get('addclass', function () use ($app) {
     return $app['twig']->render('addclass.html.twig');
 })->bind('addclass');
 
 /**
  * route pour l'ajout des matières
  */
-$app->get('/adddiscipline', function () use ($app) {
+$app->get('adddiscipline', function () use ($app) {
     return $app['twig']->render('adddiscipline.html.twig');
 })->bind('adddiscipline');
 
 /**
  * Route pour l'ajout des notes
  */
-$app->get('/addnote',function() use ($app) {
+$app->get('addnote',function() use ($app) {
     $classes = $app['dao.className']->findAll();
     $discipline = $app['dao.discipline']->findAll();
     $etudiant = $app['dao.student']->findall();
