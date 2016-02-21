@@ -38,6 +38,13 @@ $app->get('/login', function () use ($app) {
 })->bind('login');
 
 /**
+ * route pour l'ajout des classes
+ */
+$app->get('/addclass', function () use ($app) {
+    return $app['twig']->render('addclass.html.twig');
+})->bind('addclass');
+
+/**
  * Route pour l'ajout des notes
  */
 $app->get('/addnote',function() use ($app) {
