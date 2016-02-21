@@ -56,10 +56,12 @@ class StudentDAO extends DAO
             '$dt_update' => $student->getDtUpdate(),
         );
 
+        //on modifie
         if($student->getIdStudent()){
             $this->getDb()->update('student', $studentInfo, array(
                 'id_student' => $student->getIdStudent()));
         }
+        //on sauvegarde
         else{
             $this->getDb()->insert('student', $studentInfo);
             $id = $this->getDb()->lastInsertId();
