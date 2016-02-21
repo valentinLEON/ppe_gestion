@@ -22,8 +22,8 @@ ExceptionHandler::register();
 $app->register(new Silex\Provider\DoctrineServiceProvider());
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../views',
-    /*'twig.class_path' => __DIR__.'/../vendor/twig/twig/lib',
-    'twig.options' => array(),*/
+    'twig.class_path' => __DIR__.'/../vendor/twig/twig/lib',
+    'twig.options' => array(),
 ));
 
 //controller pour les générations de formulaires
