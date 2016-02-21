@@ -4,7 +4,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 //route pour le formulaire d'ajout de note
 $app->get('/', function () use ($app) {
-    return $app['twig']->render('login.html.twig');
+    return $app['twig']->render('index.html.twig');
 });
 
 $app->get('addnote',function() use ($app) {
