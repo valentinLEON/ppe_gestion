@@ -32,6 +32,13 @@ class ClassNameDAO extends DAO
         $this->studentDAO = $_studentDAO;
     }
 
+    /**
+     * @param $id
+     * @return ClassName
+     * @throws \Exception
+     *
+     * Retourne une classe par son id
+     */
     public function find($id)
     {
         $sql = "SELECT * FROM className WHERE id_class=?";

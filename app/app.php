@@ -63,7 +63,10 @@ $app['dao.student'] = $app->share(function($app){
  * Controller pour la route des notes
  */
 $app['dao.evaluation'] = $app->share(function($app){
-    return new ppe_gestion\DAO\EvaluationDAO($app['db']);
+    $evaluationDAO = new ppe_gestion\DAO\EvaluationDAO($app['db']);
+    $evaluationDAO->setStudentDAO($app['dao.student']);
+    $evaluationDAO->setDisciplineDAO($app['dao.discipline']);
+    return $evaluationDAO;
 });
 
 /**

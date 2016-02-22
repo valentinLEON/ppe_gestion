@@ -13,8 +13,9 @@ class Discipline
 {
     public $id_discipline;
     public $name_discipline;
+    public $description;
+
     public $evaluation;
-    public $desciption;
 
     public $dt_create;
     public $dt_update;
@@ -46,7 +47,7 @@ class Discipline
 
     public function setDescription($_description)
     {
-        $this->desciption = $_description;
+        $this->description = $_description;
     }
 
     /**

@@ -16,6 +16,7 @@ class Evaluation
     public $grade_student;
     public $judgement;
     public $coef_discipline;
+
     public $student;
     public $discipline;
 
@@ -76,9 +77,9 @@ class Evaluation
         return $this->student;
     }
 
-    public function setStudent($_student)
+    public function setStudent(Student $student)
     {
-        $this->student = $_student;
+        $this->student = $student;
     }
 
     public function getDiscipline()
@@ -86,9 +87,9 @@ class Evaluation
         return $this->discipline;
     }
 
-    public function setDiscipline($_discipline)
+    public function setDiscipline(Discipline $discipline)
     {
-        $this->discipline = $_discipline;
+        $this->discipline = $discipline;
     }
 
     public function getDtCreate(){
