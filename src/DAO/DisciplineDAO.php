@@ -72,7 +72,7 @@ class DisciplineDAO extends DAO
     {
         $discipline = array(
             '$name_discipline' => $_discipline->getNameDiscipline(),
-            'id_evaluation' => $_discipline->getEvaluation()->getDiscipline(),
+            /*'id_evaluation' => $_discipline->getEvaluation()->getDiscipline(),*/
             '$dt_create' => $_discipline->getDtCreate(),
             '$dt_update' => $_discipline->getDtUpdate(),
         );

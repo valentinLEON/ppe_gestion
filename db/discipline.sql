@@ -8,6 +8,5 @@ CREATE TABLE discipline(
         `name_discipline`   VARCHAR(50) NOT NULL ,
         `dt_create`         DATE NOT NULL , /*Date de création*/
         `dt_update`         DATE NOT NULL , /*Date de modification*/
-        `id_evaluation`     INT NOT NULL ,
-        FOREIGN KEY (id_evaluation) REFERENCES evaluation (id_evaluation)
+        `description`     VARCHAR NOT NULL ,
 )ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;

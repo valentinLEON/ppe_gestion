@@ -13,13 +13,11 @@ class Discipline
 {
     public $id_discipline;
     public $name_discipline;
-
     public $evaluation;
+    public $desciption;
 
     public $dt_create;
     public $dt_update;
-
-    public $id_evaluation; /*clé étrangère*/
 
     public function getIdDiscipline()
     {
@@ -41,14 +39,14 @@ class Discipline
         $this->name_discipline = $_name_discipline;
     }
 
-    public function getIdEvaluation()
+    public function getDescription()
     {
-        return $this->id_evaluation;
+        return $this->getDescription();
     }
 
-    public function setIdEvaluation($_id_evaluation)
+    public function setDescription($_description)
     {
-        $this->id_evaluation = $_id_evaluation;
+        $this->desciption = $_description;
     }
 
     /**
