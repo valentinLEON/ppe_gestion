@@ -20,14 +20,14 @@ $app->get('/', function () use ($app) {
  * route pour l'ajout des étudiants
  */
 $app->get('addstudent', function () use ($app) {
-    return $app['twig']->render('addstudent.html.twig');
+    return $app['twig']->render('Formualires/addstudent.html.twig');
 })->bind('addstudent');
 
 /**
  * route pour l'ajout des utilisateurs
  */
 $app->get('adduser', function () use ($app) {
-    return $app['twig']->render('adduser.html.twig');
+    return $app['twig']->render('Formualires/adduser.html.twig');
 })->bind('adduser');
 
 /**
@@ -51,14 +51,14 @@ $app->get('login', function (Request $request) use ($app) {
  * route pour l'ajout des classes
  */
 $app->get('addclass', function () use ($app) {
-    return $app['twig']->render('addclass.html.twig');
+    return $app['twig']->render('Formulaires/addclass.html.twig');
 })->bind('addclass');
 
 /**
  * route pour l'ajout des matières
  */
 $app->get('adddiscipline', function () use ($app) {
-    return $app['twig']->render('adddiscipline.html.twig');
+    return $app['twig']->render('Formulaires/adddiscipline.html.twig');
 })->bind('adddiscipline');
 
 /**
@@ -68,7 +68,7 @@ $app->get('addnote',function() use ($app) {
     $classes = $app['dao.className']->findAll();
     $discipline = $app['dao.discipline']->findAll();
     $etudiant = $app['dao.student']->findall();
-    return $app['twig']->render('addnote.html.twig', array(
+    return $app['twig']->render('Formulaires/addnote.html.twig', array(
         'classNames' => $classes,
         'matieres' => $discipline,
         'student' => $etudiant));
