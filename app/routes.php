@@ -27,7 +27,7 @@ $app->get('addstudent', function () use ($app) {
  * route pour l'ajout des utilisateurs
  */
 $app->get('adduser', function () use ($app) {
-    return $app['twig']->render('Formualires/adduser.html.twig');
+    return $app['twig']->render('Formulaires/adduser.html.twig');
 })->bind('adduser');
 
 /**
@@ -50,7 +50,7 @@ $app->get('login', function (Request $request) use ($app) {
 /**
  * route pour l'ajout des classes
  */
-$app->get('addclass', function () use ($app) {
+$app->match('addclass', function () use ($app) {
     return $app['twig']->render('Formulaires/addclass.html.twig');
 })->bind('addclass');
 

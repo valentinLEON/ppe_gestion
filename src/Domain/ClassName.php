@@ -15,6 +15,7 @@ class ClassName
     public $class_name;
     public $class_option;
     public $class_year;
+    public $description;
 
     public $student;
 
@@ -52,6 +53,22 @@ class ClassName
     public function setClassOption($_class_option)
     {
         $this->class_option = $_class_option;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
     }
 
     public function getClassYear()
