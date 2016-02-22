@@ -14,7 +14,7 @@ use ppe_gestion\Domain\ClassName;
  */
 $app->get('/', function () use ($app) {
     return $app['twig']->render('index.html.twig');
-});
+})->bind('home');
 
 /**
  * route pour l'ajout des étudiants

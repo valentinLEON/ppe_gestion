@@ -66,8 +66,6 @@ class ClassNameDAO extends DAO
     /**
      * @param ClassName $_className
      * Fonction de sauvegarde et de modification des classes
-     *
-     * TODO: vérifier s'il ne faut pas mettre l'id_student...
      */
     public function saveClassName(ClassName $_className)
     {
