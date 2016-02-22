@@ -115,12 +115,12 @@ class DisciplineDAO extends DAO
         $discipline->setDtCreate($row['dt_create']);
         $discipline->setDtUpdate($row['dt_update']);
 
-        if(array_key_exists('id_evaluation', $row))
+        /*if(array_key_exists('id_evaluation', $row))
         {
             $evaluationID = $row['id_evaluation'];
             $evaluation = $this->evaluationDAO->find($evaluationID);
             $discipline->setEvaluation($evaluation);
-        }
+        }*/
 
         return $discipline;
     }
