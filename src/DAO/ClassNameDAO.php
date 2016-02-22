@@ -15,11 +15,11 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class ClassNameDAO extends DAO
 {
-    public function newAction(Request $request)
+    /*public function newAction(Request $request)
     {
         $add = new AddType();
         $form = $this->createForm(AddType::class, $add);
-    }
+    }*/
 
     public $studentDAO;
 
@@ -75,7 +75,7 @@ class ClassNameDAO extends DAO
             '$class_name'   => $_className->getClassName(),
             '$class_option' => $_className->getClassOption(),
             '$class_year'   => $_className->getClassYear(),
-            '$description'  => $_className->getDescription(),
+            'description'  => $_className->getDescription(),
             '$dt_create'    => $_className->getDtCreate(),
             '$dt_update'    => $_className->getDtUpdate(),
         );
