@@ -20,7 +20,7 @@ $app->get('/', function () use ($app) {
  * route pour l'ajout des étudiants
  */
 $app->get('addstudent', function () use ($app) {
-    return $app['twig']->render('Formualires/addstudent.html.twig');
+    return $app['twig']->render('Formulaires/addstudent.html.twig');
 })->bind('addstudent');
 
 /**
