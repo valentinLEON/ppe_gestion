@@ -52,6 +52,7 @@ class EvaluationDAO extends DAO
         $student = $this->studentDAO->findStudent($studentId);
 
         var_dump($student);
+        die();
 
         $sql = "SELECT id_student, grade_student, judgement FROM evaluation WHERE id_student = ?";
         $res = $this->getDb()->fetchAll($sql, array($studentId));
