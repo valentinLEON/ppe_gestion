@@ -10,5 +10,7 @@ CREATE TABLE className(
     `class_year`      SMALLINT , /*Définit l'année de la classe*/
     `dt_create`       DATE NOT NULL , /*Date de création*/
     `dt_update`       DATE NOT NULL , /*Date de modification*/
+    `id_student`      INT NOT NULL ,
     PRIMARY KEY (id_class)
+    FOREIGN KEY (id_student) REFERENCES student(id_student)
 )ENGINE=innodb CHARACTER SET utf8 COLLATE utf8_unicode_ci;

@@ -66,9 +66,9 @@ class ClassName
     /**
      * @param mixed $description
      */
-    public function setDescription($description)
+    public function setDescription($_description)
     {
-        $this->description = $description;
+        $this->description = $_description;
     }
 
     public function getClassYear()
