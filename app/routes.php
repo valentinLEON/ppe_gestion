@@ -76,8 +76,12 @@ $app->match('/addnote',function(Request $request) use ($app) {
         // $app['dao.evaluation']->save($note);
     // }
     // $noteFormView = $noteForm->createView();
-     return $app['twig']->render('Formulaires/addnote.html.twig', array(
-         'classNames' => $classes,
-         'matieres' => $discipline,
-         'student' => $etudiant));
+     return $app['twig']->render('Formulaires/addnote.html.twig')
+	 
+	 // , array(
+         // 'classNames' => $classes,
+         // 'matieres' => $discipline,
+         // 'student' => $etudiant)
+		 
+		 );
 })->bind('addnote');
