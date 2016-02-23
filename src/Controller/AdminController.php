@@ -1,8 +1,6 @@
 <?php
 
-
 namespace ppe_gestion\Controller;
-
 
 use Silex\Application;
 
@@ -161,10 +159,7 @@ class AdminController {
 
     public function deleteUserAction($id, Application $app) {
 
-        // Delete all associated comments
-
-        $app['dao.comment']->deleteAllByUser($id);
-
+       
         // Delete the user
 
         $app['dao.user']->delete($id);
