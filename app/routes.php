@@ -166,6 +166,21 @@ $app->get('/abscencetab', function () use ($app) {
 
 
 /**
+ * route pour l'ajout de retard
+ */
+$app->get('/addretard', function () use ($app) {
+    return $app['twig']->render('FormTemplate/addretard.html.twig');
+})->bind('addretard');
+
+
+/**
+ * route pour l'ajout d abscence
+ */
+$app->get('/addabscence', function () use ($app) {
+    return $app['twig']->render('FormTemplate/addabscence.html.twig');
+})->bind('addabscence');
+
+/**
  * route pour l'affichage de la liste des  retards
  */
 $app->get('/retardslist', function () use ($app) {
