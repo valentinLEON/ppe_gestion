@@ -78,7 +78,6 @@ class EvaluationDAO extends DAO
         $discipline = $this->disciplineDAO->findDiscipline($disciplineId);
 
         var_dump($discipline);
-        die();
 
         $sql = "SELECT id_discipline, grade_student, judgement FROM evaluation WHERE id_discipline = ?";
         $res = $this->getDb()->fetchAll($sql, array($disciplineId));
