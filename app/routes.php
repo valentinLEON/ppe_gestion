@@ -91,7 +91,6 @@ $app->match('/addclass', function () use ($app) {
 })->bind('addclass');
 
 
-
 /**
  * route pour l'affichage de la liste des disciplines
  */

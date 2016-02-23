@@ -19,8 +19,7 @@ class addNoteForm extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('content', 'textarea')
-        ;
+            ->add('content', 'textarea');
     }
 
     public function getName()
