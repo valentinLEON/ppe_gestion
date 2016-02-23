@@ -29,10 +29,13 @@
                                 'placeholder': 'Entrer classe'
                             }}) }}
                         </div>
+                        <div class="form_group">
+                            <button type="submit" class="btn btn-info pull-right">Ajouter</button>
+                        </div>
                     {{ form_end(noteForm) }}
-                <div class="form_group">
-                    <button type="submit" class="btn btn-info pull-right">Ajouter</button>
-                </div>
+                {% else %}
+                    <a href="#">Connectez-vous</a>
+                {% endif %}
                 {#<select class="form-control select2" >
                     {% for name in classNames %}
                         <option>
