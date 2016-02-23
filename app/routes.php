@@ -64,25 +64,20 @@ $app->get('/adddiscipline', function () use ($app) {
  * Route pour l'ajout des notes
  */
 $app->match('/addnote',function(Request $request) use ($app) {
-    // $classes = $app['dao.className']->findAll();
-    // $discipline = $app['dao.discipline']->findAll();
-    // $etudiant = $app['dao.student']->findall();
-     $noteFormView = null;
-     $note = new \ppe_gestion\Domain\Evaluation();
-     $noteForm = $app['form.factory']->createBuilder('addNoteForm');
-	 
-     $noteForm->handleRequest($request);
-     if($noteForm->isSubmitted() && $noteForm->isValid())
-     {
-         $app['dao.evaluation']->save($note);
-     }
-    // $noteFormView = $noteForm->createView();
-     return $app['twig']->render('Formulaires/addnote.html.twig', array('noteForm' => $noteForm->createView()));
-	 
-	 // , array(
-         // 'classNames' => $classes,
-         // 'matieres' => $discipline,
-         // 'student' => $etudiant)
-		 
-		// );
+    $classes = $app['dao.className']->findAll();
+    $discipline = $app['dao.discipline']->findAll();
+    $etudiant = $app['dao.student']->findall();
+    $noteFormView = null;
+    $note = new \ppe_gestion\Domain\Evaluation();
+    $noteForm = $app['form.factory']->create(new addNoteForm(), $note);
+    $noteForm->handleRequest($request);
+    if($noteForm->isSubmitted() && $noteForm->isValid())
+    {
+        $app['dao.evaluation']->save($note);
+    }
+    $noteFormView = $noteForm->createView();
+    return $app['twig']->render('Formulaires/addnote.html.twig', array(
+        'classNames' => $classes,
+        'matieres' => $discipline,
+        'student' => $etudiant));
 })->bind('addnote');
