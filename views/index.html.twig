@@ -3,16 +3,16 @@
 {% extends "layout.html.twig" %}
 
 {% block title %}
-    <h4>Accueil</h4>
+    <h2>Accueil</h2>
 {% endblock %}
 
 {% block content %}
 
     <!-- Div pour afficher le nombre d'étudiants total -->
-    <div class="small-box bg-aqua">
+    <div class="small-box ">
         <div class="inner">
-            <h3>nombreEtudiants</h3>
-            <p>Etudiants</p>
+            <a href="studentstab"><i class="glyphicon glyphicon-dashboard"></i><h5>Gestion des Etudiants</h5></a>
+            <a href="studentslist"><i class="glyphicon glyphicon-th-list"></i><p>Liste des Etudiants</p></a>
         </div>
         <div class="icon">
             <i class="ion icon-person-add"></i>
@@ -20,9 +20,9 @@
     </div>
 
     <!-- Div pour afficher le nombre total de classe -->
-    <div class="small-box bg-aqua">
+    <div class="small-box ">
         <div class="inner">
-            <a href="classestab"><i class="glyphicon glyphicon-dashboard"></i><h3>Gestion des Classes</h3></a>
+            <a href="classestab"><i class="glyphicon glyphicon-dashboard"></i><h5>Gestion des Classes</h5></a>
             <a href="classeslist"><i class="glyphicon glyphicon-th-list"></i><p>Liste des Classes</p></a>
         </div>
         <div class="icon">
@@ -30,9 +30,9 @@
         </div>
     </div>
 
-    <div class="small-box bg-aqua">
+    <div class="small-box">
         <div class="inner">
-            <a href="abscencetab"><i class="glyphicon glyphicon-dashboard"></i><h3>Gestion des Abscences</h3></a>
+            <a href="abscencetab"><i class="glyphicon glyphicon-dashboard"></i><h5>Gestion des Abscences</h5></a>
             <a href="abscenceslist"><i class="glyphicon glyphicon-th-list"></i><p>Liste des Absences</p></a>
             <a href="retardslist"><i class="glyphicon glyphicon-th-list"></i><p>Liste des retards</p></a>
         </div>
