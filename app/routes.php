@@ -117,6 +117,13 @@ $app->get('/notestats', function () use ($app) {
 /**
  * Route pour l'ajout des notes
  */
+
+$app->get('/addnote', function () use ($app) {
+    return $app['twig']->render('FormTemplate/addnote.html.twig');
+})->bind('addnote');
+
+
+
 $app->match('/addnote',function(Request $request) use ($app) {
     $classes = $app['dao.className']->findAll();
     $discipline = $app['dao.discipline']->findAll();
