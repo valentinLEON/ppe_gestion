@@ -20,7 +20,7 @@
 
             <div class="form-group" style="width: 15%; display:inline-block;margin:10px;">
                 <label>Choisir une classe</label>
-                {% if noteForm %}
+                {#{% if noteForm %}
                     {{ form_start(noteForm) }}
                         <div class="form-group">
                             {{ form_errors(noteForm.grade) }}
@@ -35,9 +35,9 @@
                     {{ form_end(noteForm) }}
                 {% else %}
                     <a href="#">Connectez-vous pour ajouter une note</a>
-                {% endif %}
-                {#<select class="form-control select2" >
-                    {% for name in classNames %}
+                {% endif %}#}
+                <select class="form-control select2" >
+                    {#{% for name in classNames %}
                         <option>
                             {{ name.class_name }}
                         </option>
