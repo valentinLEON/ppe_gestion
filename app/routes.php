@@ -47,6 +47,13 @@ $app->get('/login', function (Request $request) use ($app) {
 })->bind('login');
 
 /**
+ * route pour l'affichage de la liste des classes
+ */
+$app->get('/classeslist', function () use ($app) {
+    return $app['twig']->render('classeslist.twig');
+})->bind('classeslist');
+
+/**
  * route pour l'ajout des classes
  */
 $app->match('/addclass', function () use ($app) {
@@ -75,6 +82,7 @@ $app->match('/addnote',function(Request $request) use ($app) {
     {
         $app['dao.evaluation']->save($note);
     }
+    // noteFormView n'est pas bien utilise
     $noteFormView = $noteForm->createView();
     return $app['twig']->render('Formulaires/addnote.html.twig', array(
         'classNames' => $classes,
