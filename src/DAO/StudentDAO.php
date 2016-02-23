@@ -105,6 +105,7 @@ class StudentDAO extends DAO
         $student->setAddress($row['student_address']);
         $student->setEmail($row['student_email']);
         $student->setTel($row['student_tel']);
+        $student->setStudentStatut($row['student_statut']);
 
         $student->setDtCreate($row['dt_create']);
         $student->setDtUpdate($row['dt_update']);

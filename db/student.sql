@@ -7,8 +7,9 @@ CREATE TABLE student(
         `student_name`            VARCHAR (25) ,
         `student_firstname`       VARCHAR (50) ,
         `student_birthday`        DATE ,
-        `student_address`         VARCHAR(50) ,
+        `student_address`         VARCHAR (50) ,
         `student_email`           VARCHAR (255) ,
+        `student_statut`          VARCHAR (100) , /*Définit le type de contrat*/
         `dt_create`               DATE NOT NULL , /*Date de création*/
         `dt_update`               DATE NOT NULL , /*Date de modification*/
         PRIMARY KEY (id_student) ,

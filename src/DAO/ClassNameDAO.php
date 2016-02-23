@@ -124,6 +124,7 @@ class ClassNameDAO extends DAO
         $class->setClassName($row['class_name']);
         $class->setClassOption($row['class_option']);
         $class->setClassYear($row['class_year']);
+        $class->setNombreEtudiant($row['nombre_etudiant']);
         $class->setDescription($row['description']);
         $class->setDtCreate($row['dt_create']);
         $class->setDtUpdate($row['dt_update']);
