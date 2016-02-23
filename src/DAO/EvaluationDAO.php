@@ -48,14 +48,10 @@ class EvaluationDAO extends DAO
      */
     public function findAllByStudent($studentId)
     {
-        //TODO: Voir pourquoi la fonction ne prend pas
         $student = $this->studentDAO->findStudent($studentId);
 
         $sql = "SELECT id_student, grade_student, judgement FROM evaluation WHERE id_student = ?";
         $res = $this->getDb()->fetchAll($sql, array($studentId));
-
-        var_dump($res);
-        die();
 
 
         $notes = array();
@@ -81,8 +77,14 @@ class EvaluationDAO extends DAO
         //TODO: voir pourquoi cette fonction aussi ne prend pas
         $discipline = $this->disciplineDAO->findDiscipline($disciplineId);
 
+        var_dump($discipline);
+        die();
+
         $sql = "SELECT id_discipline, grade_student, judgement FROM evaluation WHERE id_discipline = ?";
         $res = $this->getDb()->fetchAll($sql, array($disciplineId));
+
+        var_dump($res);
+        die();
 
         $matieres = array();
         foreach($res as $row)
