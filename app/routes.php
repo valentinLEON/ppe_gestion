@@ -111,7 +111,7 @@ $app->get('/adddiscipline', function () use ($app) {
  */
 $app->get('/notestats', function () use ($app) {
     return $app['twig']->render('StatTemplate/notestats.html.twig');
-})->bind('adddiscipline');
+})->bind('notestats');
 
 
 /**
