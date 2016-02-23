@@ -75,8 +75,8 @@ $app->match('/addnote',function(Request $request) use ($app) {
      {
          $app['dao.evaluation']->save($note);
      }
-     $noteFormView = $noteForm->createView();
-     return $app['twig']->render('Formulaires/addnote.html.twig');
+    // $noteFormView = $noteForm->createView();
+     return $app['twig']->render('Formulaires/addnote.html.twig', array('noteForm' => $noteForm->createView());
 	 
 	 // , array(
          // 'classNames' => $classes,
