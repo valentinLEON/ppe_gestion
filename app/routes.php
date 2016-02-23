@@ -23,6 +23,16 @@ $app->get('/admintab', function () use ($app) {
     return $app['twig']->render('TabTemplate/admintab.html.twig');
 })->bind('admintab');
 
+
+/**
+ * route pour l'affichage de la gestion des etudiants
+ */
+$app->get('/studenttab', function () use ($app) {
+    return $app['twig']->render('TabTemplate/studenttab.html.twig');
+})->bind('studenttab');
+
+
+
 /**
  * route pour l'affichage de la liste des etudiants
  */
