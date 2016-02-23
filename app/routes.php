@@ -15,11 +15,26 @@ $app->get('/', function () use ($app) {
 });
 
 /**
+ * route pour l'affichage de la liste des etudiants
+ */
+$app->get('/studentslist', function () use ($app) {
+    return $app['twig']->render('studentslist.html.twig');
+})->bind('studentslist');
+
+/**
  * route pour l'ajout des étudiants
  */
 $app->get('/addstudent', function () use ($app) {
     return $app['twig']->render('Formulaires/addstudent.html.twig');
 })->bind('addstudent');
+
+
+/**
+ * route pour l'affichage de la liste des utilisateurs
+ */
+$app->get('/userslist', function () use ($app) {
+    return $app['twig']->render('userslist.html.twig');
+})->bind('userslist');
 
 /**
  * route pour l'ajout des utilisateurs
@@ -60,11 +75,20 @@ $app->match('/addclass', function () use ($app) {
     return $app['twig']->render('Formulaires/addclass.html.twig');
 })->bind('addclass');
 
+
+
+/**
+ * route pour l'affichage de la liste des disciplines
+ */
+$app->get('/disciplineslist', function () use ($app) {
+    return $app['twig']->render('disciplineslist.html.twig');
+})->bind('disciplineslist');
+
 /**
  * route pour l'ajout des matières
  */
 $app->get('/adddiscipline', function () use ($app) {
-    return $app['twig']->render('Formulaires/adddiscipline.html.twig');
+    return $app['twig']->render('Formulaire/adddiscipline.html.twig');
 })->bind('adddiscipline');
 
 /**
@@ -89,3 +113,6 @@ $app->match('/addnote',function(Request $request) use ($app) {
         'matieres' => $discipline,
         'student' => $etudiant));
 })->bind('addnote');
+
+
+
