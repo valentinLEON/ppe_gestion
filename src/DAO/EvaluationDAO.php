@@ -45,6 +45,7 @@ class EvaluationDAO extends DAO
      * @return array
      *
      * Fonction de recherche par étudiant (Filtre)
+     * On va rechercher toutes les notes d'un étudiant
      * Fonctionne
      */
     public function findAllByStudent($studentId)
@@ -71,7 +72,8 @@ class EvaluationDAO extends DAO
      * @param $disciplineId
      * @return array
      *
-     * Fonction de recherche par matière (Filtre)
+     * Fonction de recherche des notes par matière (Filtre)
+     * On va rechercher toutes les notes qui existent en fonction de la matière
      * Fonctionne
      */
     public function findAllByDiscipline($disciplineId)
