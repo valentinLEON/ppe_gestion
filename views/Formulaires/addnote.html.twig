@@ -43,7 +43,7 @@
                 <select class="form-control select2">
                     {% for stud in student %}
                         <option>
-                            {{ stud.student_name }}
+                            {{ stud.student_name && stud.student_firstname }}
                         </option>
                     {% endfor %}
                 </select>
