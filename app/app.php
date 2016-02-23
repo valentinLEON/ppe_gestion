@@ -34,11 +34,11 @@ $app->register(new Silex\Provider\TranslationServiceProvider());
 
 ...
 //Monolog
-$app->register(new Provider\MonologServiceProvider(), array(
-    'monolog.logfile' => __DIR__ . '/../log/development.log',
-    'monolog.name'    => 'ppe_gestion'
-));
-...
+// $app->register(new Provider\MonologServiceProvider(), array(
+    // 'monolog.logfile' => __DIR__ . '/../log/development.log',
+    // 'monolog.name'    => 'ppe_gestion'
+// ));
+
 // Web Profiler
 // if ($app['debug']) {
     // $app->register(new Provider\WebProfilerServiceProvider(), array(
