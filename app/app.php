@@ -32,7 +32,6 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 $app->register(new Silex\Provider\FormServiceProvider());
 $app->register(new Silex\Provider\TranslationServiceProvider());
 
-...
 //Monolog
 // $app->register(new Provider\MonologServiceProvider(), array(
     // 'monolog.logfile' => __DIR__ . '/../log/development.log',
@@ -103,12 +102,5 @@ $app['dao.evaluation'] = $app->share(function($app){
 $app['dao.users'] = $app->share(function($app){
     return new ppe_gestion\DAO\UserDAO($app['db']);
 });
-
-
-
-
-
-
-
 
 return $app;
