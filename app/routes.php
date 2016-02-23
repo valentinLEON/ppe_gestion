@@ -146,3 +146,20 @@ $app->match('/addnote',function(Request $request) use ($app) {
 $app->get('/abscencetab', function () use ($app) {
     return $app['twig']->render('TabTemplate/abscencetab.html.twig');
 })->bind('abscencetab');
+
+
+/**
+ * route pour l'affichage de la liste des  retards
+ */
+$app->get('/studentslist', function () use ($app) {
+    return $app['twig']->render('ListTemplate/retardslist.html.twig');
+})->bind('studentslist');
+
+
+/**
+ * route pour l'affichage de la liste desabscences
+ */
+$app->get('/abscenceslist', function () use ($app) {
+    return $app['twig']->render('ListTemplate/abscenceslist.html.twig');
+})->bind('abscenceslist');
+
