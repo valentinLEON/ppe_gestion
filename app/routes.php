@@ -28,6 +28,12 @@ $app->get('/addstudent', function () use ($app) {
     return $app['twig']->render('Formulaires/addstudent.html.twig');
 })->bind('addstudent');
 
+/**
+ * route pour l'affichage de la liste des etudiants
+ */
+$app->get('/studentstats', function () use ($app) {
+    return $app['twig']->render('studentstats.html.twig');
+})->bind('studentstats');
 
 /**
  * route pour l'affichage de la liste des utilisateurs
