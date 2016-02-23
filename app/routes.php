@@ -102,7 +102,7 @@ $app->get('/disciplineslist', function () use ($app) {
  * route pour l'ajout des matières
  */
 $app->get('/adddiscipline', function () use ($app) {
-    return $app['twig']->render('Formulaire/adddiscipline.html.twig');
+    return $app['twig']->render('FormTemplate/adddiscipline.html.twig');
 })->bind('adddiscipline');
 
 
