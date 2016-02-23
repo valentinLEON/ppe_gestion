@@ -19,42 +19,42 @@ $app->get('/', function () use ($app) {
  * route pour l'affichage de la liste des etudiants
  */
 $app->get('/admintab', function () use ($app) {
-    return $app['twig']->render('admintab.html.twig');
+    return $app['twig']->render('TabTemplate/admintab.html.twig');
 })->bind('admintab');
 
 /**
  * route pour l'affichage de la liste des etudiants
  */
 $app->get('/studentslist', function () use ($app) {
-    return $app['twig']->render('studentslist.html.twig');
+    return $app['twig']->render('ListTemplate/studentslist.html.twig');
 })->bind('studentslist');
 
 /**
  * route pour l'ajout des étudiants
  */
 $app->get('/addstudent', function () use ($app) {
-    return $app['twig']->render('Formulaires/addstudent.html.twig');
+    return $app['twig']->render('FormTemplate/addstudent.html.twig');
 })->bind('addstudent');
 
 /**
  * route pour l'affichage de la liste des etudiants
  */
 $app->get('/studentstats', function () use ($app) {
-    return $app['twig']->render('studentstats.html.twig');
+    return $app['twig']->render('StatTemplate/studentstats.html.twig');
 })->bind('studentstats');
 
 /**
  * route pour l'affichage de la liste des utilisateurs
  */
 $app->get('/userslist', function () use ($app) {
-    return $app['twig']->render('userslist.html.twig');
+    return $app['twig']->render('ListTemplate/userslist.html.twig');
 })->bind('userslist');
 
 /**
  * route pour l'ajout des utilisateurs
  */
 $app->get('/adduser', function () use ($app) {
-    return $app['twig']->render('Formulaires/adduser.html.twig');
+    return $app['twig']->render('FormTemplate/adduser.html.twig');
 })->bind('adduser');
 
 /**
@@ -79,14 +79,14 @@ $app->get('/login', function (Request $request) use ($app) {
  * route pour l'affichage de la liste des classes
  */
 $app->get('/classeslist', function () use ($app) {
-    return $app['twig']->render('classeslist.html.twig');
+    return $app['twig']->render('ListTemplate/classeslist.html.twig');
 })->bind('classeslist');
 
 /**
  * route pour l'ajout des classes
  */
 $app->match('/addclass', function () use ($app) {
-    return $app['twig']->render('Formulaires/addclass.html.twig');
+    return $app['twig']->render('FormTemplate/addclass.html.twig');
 })->bind('addclass');
 
 
@@ -95,7 +95,7 @@ $app->match('/addclass', function () use ($app) {
  * route pour l'affichage de la liste des disciplines
  */
 $app->get('/disciplineslist', function () use ($app) {
-    return $app['twig']->render('disciplineslist.html.twig');
+    return $app['twig']->render('ListTemplate/disciplineslist.html.twig');
 })->bind('disciplineslist');
 
 /**
@@ -104,6 +104,15 @@ $app->get('/disciplineslist', function () use ($app) {
 $app->get('/adddiscipline', function () use ($app) {
     return $app['twig']->render('Formulaire/adddiscipline.html.twig');
 })->bind('adddiscipline');
+
+
+/**
+ * route pour afficher les stats des notes
+ */
+$app->get('/notestats', function () use ($app) {
+    return $app['twig']->render('StatTemplate/notestats.html.twig');
+})->bind('adddiscipline');
+
 
 /**
  * Route pour l'ajout des notes
@@ -122,7 +131,7 @@ $app->match('/addnote',function(Request $request) use ($app) {
     }
     // noteFormView n'est pas bien utilise
   //  $noteFormView = $noteForm->createView();
-    return $app['twig']->render('Formulaires/addnote.html.twig', array(
+    return $app['twig']->render('FormTemplate/addnote.html.twig', array(
         'classNames' => $classes,
         'matieres' => $discipline,
         'student' => $etudiant));
@@ -135,5 +144,5 @@ $app->match('/addnote',function(Request $request) use ($app) {
  * route pour l'affichage du tableaud de bord des abscences
  */
 $app->get('/abscencetab', function () use ($app) {
-    return $app['twig']->render('abscencetab.html.twig');
+    return $app['twig']->render('TabTemplate/abscencetab.html.twig');
 })->bind('abscencetab');
