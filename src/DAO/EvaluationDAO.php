@@ -45,6 +45,7 @@ class EvaluationDAO extends DAO
      * @return array
      *
      * Fonction de recherche par étudiant (Filtre)
+     * Fonctionne
      */
     public function findAllByStudent($studentId)
     {
@@ -71,19 +72,14 @@ class EvaluationDAO extends DAO
      * @return array
      *
      * Fonction de recherche par matière (Filtre)
+     * Fonctionne
      */
     public function findAllByDiscipline($disciplineId)
     {
-        //TODO: voir pourquoi cette fonction aussi ne prend pas
         $discipline = $this->disciplineDAO->findDiscipline($disciplineId);
-
-        var_dump($discipline);
 
         $sql = "SELECT id_discipline, grade_student, judgement FROM evaluation WHERE id_discipline = ?";
         $res = $this->getDb()->fetchAll($sql, array($disciplineId));
-
-        var_dump($res);
-        die();
 
         $matieres = array();
         foreach($res as $row)
