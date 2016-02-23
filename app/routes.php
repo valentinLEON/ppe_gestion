@@ -104,7 +104,7 @@ $app->match('/addnote',function(Request $request) use ($app) {
     $classes = $app['dao.className']->findAll();
     $discipline = $app['dao.discipline']->findAll();
     $etudiant = $app['dao.student']->findall();
-    $noteFormView = null;
+ //   $noteFormView = null;
     $note = new \ppe_gestion\Domain\Evaluation();
     $noteForm = $app['form.factory']->create(new addNoteForm(), $note);
     $noteForm->handleRequest($request);
@@ -113,7 +113,7 @@ $app->match('/addnote',function(Request $request) use ($app) {
         $app['dao.evaluation']->save($note);
     }
     // noteFormView n'est pas bien utilise
-    $noteFormView = $noteForm->createView();
+  //  $noteFormView = $noteForm->createView();
     return $app['twig']->render('Formulaires/addnote.html.twig', array(
         'classNames' => $classes,
         'matieres' => $discipline,
@@ -122,3 +122,10 @@ $app->match('/addnote',function(Request $request) use ($app) {
 
 
 
+
+/**
+ * route pour l'affichage du tableaud de bord des abscences
+ */
+$app->get('/abscencetab', function () use ($app) {
+    return $app['twig']->render('abscencetab.html.twig');
+})->bind('abscencetab');
