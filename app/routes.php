@@ -80,4 +80,4 @@ $app->match('/addnote',function(Request $request) use ($app) {
         'classNames' => $classes,
         'matieres' => $discipline,
         'student' => $etudiant));
-})->bind('addnote');
+});
