@@ -50,7 +50,7 @@ $app->get('/login', function (Request $request) use ($app) {
  * route pour l'affichage de la liste des classes
  */
 $app->get('/classeslist', function () use ($app) {
-    return $app['twig']->render('classeslist.twig');
+    return $app['twig']->render('classeslist.html.twig');
 })->bind('classeslist');
 
 /**
