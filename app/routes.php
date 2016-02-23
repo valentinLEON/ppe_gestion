@@ -69,7 +69,7 @@ $app->match('/addnote',function(Request $request) use ($app) {
     // $etudiant = $app['dao.student']->findall();
      $noteFormView = null;
      $note = new \ppe_gestion\Domain\Evaluation();
-     $noteForm = $app['form.factory']->createBuilder('addNoteForm', $note);
+     $noteForm = $app['form.factory']->createBuilder('addNoteForm');
 	 
      $noteForm->handleRequest($request);
      if($noteForm->isSubmitted() && $noteForm->isValid())
