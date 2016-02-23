@@ -8,11 +8,13 @@
  */
 use Symfony\Component\Debug\ErrorHandler;
 use Symfony\Component\Debug\ExceptionHandler;
+use Silex\Provider\FormServiceProvider;
 
 use Silex\Application;
 
 use ppe_gestion\DAO;
 use ppe_gestion\Domain;
+
 
 // Register global error and exception handlers
 ErrorHandler::register();
