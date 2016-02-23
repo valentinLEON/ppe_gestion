@@ -14,6 +14,14 @@ $app->get('/', function () use ($app) {
     return $app['twig']->render('index.html.twig');
 });
 
+
+/**
+ * route pour l'affichage de la liste des etudiants
+ */
+$app->get('/admintab', function () use ($app) {
+    return $app['twig']->render('admintab.html.twig');
+})->bind('admintab');
+
 /**
  * route pour l'affichage de la liste des etudiants
  */
