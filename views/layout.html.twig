@@ -154,17 +154,17 @@ desired effect
             <ul class="sidebar-menu">
                 <li class="header">TABLEAU DE BORD</li>
                 <!-- Optionally, you can add icons to the links -->
-                <li class="active"><a href="/"><i class="fa fa-home"></i> <span>Accueil</span></a></li>
+                <li class="active"><a href="./"><i class="fa fa-home"></i> <span>Accueil</span></a></li>
                 <li><a href="calendar"><i class="fa fa-calendar"></i> <span>Calendrier</span></a></li>
                 <li class="treeview">
-                    <a href="classeslist"><i class="fa fa-university"></i><span>Classes</span> <i class="fa fa-angle-left pull-right"></i></a>
+                    <a href=""><i class="fa fa-university"></i><span>Classes</span> <i class="fa fa-angle-left pull-right"></i></a>
                     <ul class="treeview-menu">
                         <li><a href="classeslist">Liste des classes</a></li>
                         <li><a href="addclass"><i class="fa fa-plus"></i>Ajouter une classe</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
-                    <a href="studentslist"><i class="fa fa-mortar-board"></i><span>Etudiants</span> <i class="fa fa-angle-left pull-right"></i></a>
+                    <a href=""><i class="fa fa-mortar-board"></i><span>Etudiants</span> <i class="fa fa-angle-left pull-right"></i></a>
                     <ul class="treeview-menu">
                         <li><a href="studentslist">Liste des étudiants</a></li>
                         <li><a href="addstudent"><i class="fa fa-user-plus"></i>Ajouter un étudiant</a></li>
@@ -186,8 +186,9 @@ desired effect
                     </ul>#}
                 </li>
                 <li class="treeview">
-                    <a href="admintab"><i class="fa fa-wrench"></i>Administration<i class="fa fa-angle-left pull-right"></i></a>
+                    <a href=""><i class="fa fa-wrench"></i>Administration<i class="fa fa-angle-left pull-right"></i></a>
                     <ul class="treeview-menu">
+                        <li><a href="admintab">Tableau de Bord</a></li>
                         <li><a href="adduser"><i class="fa fa-user-plus"></i>Ajouter un utilisateur</a></li>
                         <li><a href="userslist">Liste des utilisateurs</a></li>
                         <li><a href="adddiscipline"><i class="fa fa-plus"></i>Ajouter des matières</a></li>
@@ -206,7 +207,7 @@ desired effect
         <section class="content-header">
             <h1>
                 {% block title %}Titre de la page{% endblock %}
-                <small>{% block titledescription %}Description de la page{% endblock %}</small>
+                <small>{% block titledescription %}{# Description de la page #}{% endblock %}</small>
             </h1>
             <!-- <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
