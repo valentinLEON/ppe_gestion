@@ -19,12 +19,12 @@ class addNoteForm extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('grade', 'number')
+            ->add('content', 'textarea')
         ;
     }
 
     public function getName()
     {
-        return 'note';
+        return 'comment';
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use Symfony\Component\HttpFoundation\Request;
+use ppe_gestion\Domain\Evaluation;
 use ppe_gestion\Form\Type\addNoteForm;
 
 /**
@@ -128,8 +129,10 @@ $app->match('/addnote',function(Request $request) use ($app) {
     $classes = $app['dao.className']->findAll();
     $discipline = $app['dao.discipline']->findAll();
     $etudiant = $app['dao.student']->findall();
+
     $noteFormView = null;
-    $note = new \ppe_gestion\Domain\Evaluation();
+
+    $note = new Evaluation();
     $noteForm = $app['form.factory']->create(new addNoteForm(), $note);
     $noteForm->handleRequest($request);
     if($noteForm->isSubmitted() && $noteForm->isValid())
