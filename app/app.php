@@ -9,7 +9,7 @@
 use Symfony\Component\Debug\ErrorHandler;
 use Symfony\Component\Debug\ExceptionHandler;
 use Silex\Provider\FormServiceProvider;
-use Silex\Provider;
+//use Silex\Provider;
 use Silex\Application;
 
 use ppe_gestion\DAO;
@@ -40,12 +40,12 @@ $app->register(new Provider\MonologServiceProvider(), array(
 ));
 ...
 // Web Profiler
-if ($app['debug']) {
-    $app->register(new Provider\WebProfilerServiceProvider(), array(
-        'profiler.cache_dir' => __DIR__.'/../cache/profiler/',
-        'profiler.mount_prefix' => '/_profiler', // this is the default
-    ));    
-}
+// if ($app['debug']) {
+    // $app->register(new Provider\WebProfilerServiceProvider(), array(
+        // 'profiler.cache_dir' => __DIR__.'/../cache/profiler/',
+        // 'profiler.mount_prefix' => '/_profiler', // this is the default
+    // ));    
+// }
 
 
 // Register JSON data decoder for JSON requests
