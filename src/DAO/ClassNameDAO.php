@@ -15,12 +15,6 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class ClassNameDAO extends DAO
 {
-    /*public function newAction(Request $request)
-    {
-        $add = new AddType();
-        $form = $this->createForm(AddType::class, $add);
-    }*/
-
     public $studentDAO;
 
     /**
@@ -77,12 +71,13 @@ class ClassNameDAO extends DAO
     public function saveClassName(ClassName $_className)
     {
         $class = array(
-            '$class_name'   => $_className->getClassName(),
-            '$class_option' => $_className->getClassOption(),
-            '$class_year'   => $_className->getClassYear(),
-            '$description'  => $_className->getDescription(),
-            '$dt_create'    => $_className->getDtCreate(),
-            '$dt_update'    => $_className->getDtUpdate(),
+            '$class_name'       => $_className->getClassName(),
+            '$class_option'     => $_className->getClassOption(),
+            '$class_year'       => $_className->getClassYear(),
+            '$nombreEtudiant'   => $_className->getNombreEtudiant(),
+            '$description'      => $_className->getDescription(),
+            '$dt_create'        => $_className->getDtCreate(),
+            '$dt_update'        => $_className->getDtUpdate(),
         );
 
         //on modifie
@@ -124,7 +119,7 @@ class ClassNameDAO extends DAO
         $class->setClassName($row['class_name']);
         $class->setClassOption($row['class_option']);
         $class->setClassYear($row['class_year']);
-        $class->setNombreEtudiant($row['nombre_etudiant']);
+        $class->setNombreEtudiant($row['nombreEtudiant']);
         $class->setDescription($row['description']);
         $class->setDtCreate($row['dt_create']);
         $class->setDtUpdate($row['dt_update']);
