@@ -117,20 +117,23 @@ $app->get('/notestats', function () use ($app) {
 /**
  * Route pour l'ajout des notes
  */
-$app->match('/addnote',function(Request $request) use ($app) {
+$app->match('/addnote',function($disciplineId, Request $request) use ($app) {
     $classes = $app['dao.className']->findAll();
     $discipline = $app['dao.discipline']->findAll();
-    $etudiant = $app['dao.student']->findall();
+    $etudiant = $app['dao.student']->findAll();
     $noteFormView = null;
-    $note = new \ppe_gestion\Domain\Evaluation();
-    $noteForm = $app['form.factory']->create(new addNoteForm(), $note);
-    $noteForm->handleRequest($request);
-    if($noteForm->isSubmitted() && $noteForm->isValid())
-    {
-        $app['dao.evaluation']->save($note);
+    if($app['security.authorization_checker']->isGranted('Is_AUTHENTICATED_FULLY')){
+        $note = new \ppe_gestion\Domain\Evaluation();
+        $note->setGradeStudent();
+        $noteForm = $app['form.factory']->create(new addNoteForm(), $note);
+        $noteForm->handleRequest($request);
+        if ($noteForm->isSubmitted() && $noteForm->isValid()) {
+            $app['dao.evaluation']->save($note);
+        }
+        // noteFormView n'est pas bien utilise
+        $noteFormView - $noteForm->createView();
     }
-    // noteFormView n'est pas bien utilise
-    $noteFormView = $noteForm->createView();
+    $notes = $app['dao.evaluation']->findAllByDiscipline($disciplineId);
     return $app['twig']->render('FormTemplate/addnote.html.twig', array(
         'classNames' => $classes,
         'matieres' => $discipline,
