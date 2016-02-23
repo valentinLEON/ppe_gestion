@@ -34,7 +34,7 @@ $app->get('adduser', function () use ($app) {
  * route pour afficher le calendrier
  */
 $app->get('calendar', function () use ($app) {
-    $eval = $app['dao.evaluation']->findAllByStudent(1);
+    $eval = $app['dao.evaluation']->findAllByDiscipline(1);
     return $app['twig']->render('calendar.html.twig', array(
         'evaluation' => $eval
     ));
