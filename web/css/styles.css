@@ -1,11 +1,12 @@
 
 
 .indexDiv{
-    width:420px ; 
+    width:380px ; 
     height:auto;
     background:#F9F9F9; 
     border-radius:8px;  
     padding:50px; 
+    margin:50px; 
     display:inline-block;
-    box-shadow:3px 2px #005384;
+    box-shadow:1px 2px #005384;
 }
