@@ -3,7 +3,7 @@ function bgOpacitymax(){
     
     var btnAdmin=document.getElementById('btnAdmin');
     btnAdmin.style.opacity='1';
-    btnAdmin.style.border='0px solid gray';
+    btnAdmin.style.cursor='pointer';
     btnAdmin.style.padding='0px';
     btnAdmin.style.cursor='pointer';
 }
