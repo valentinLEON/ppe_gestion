@@ -124,7 +124,19 @@ $app->get('/login', function (Request $request) use ($app) {
 
 /**                                                          CLASSES
  * 
- *              LISTE
+ 
+ *                   TABLEAU DE BORD
+ * 
+ * 
+ * route pour l'ajout des classes
+ */
+$app->match('/classetab', function () use ($app) {
+    return $app['twig']->render('FormTemplate/classetab.html.twig');
+})->bind('classetab');
+
+ /**
+ * 
+ *                       LISTE
  * 
  * 
  * route pour l'affichage de la liste des classes
@@ -134,7 +146,7 @@ $app->get('/classeslist', function () use ($app) {
 })->bind('classeslist');
 
 /**
- *              AJOUT
+ *                     AJOUT
  * 
  * 
  * route pour l'ajout des classes
@@ -142,6 +154,7 @@ $app->get('/classeslist', function () use ($app) {
 $app->match('/addclass', function () use ($app) {
     return $app['twig']->render('FormTemplate/addclass.html.twig');
 })->bind('addclass');
+
 
 
 /**                                                         DISCIPLINES

@@ -1,12 +1,12 @@
 
 
 .index{
-    width:300px ; 
+    width:400px ; 
     height:auto;
     background:#E8E8E8; 
     border-radius:8px;  
     padding:10px; 
-    display:inline;
+    display:inline-blcok;
  
     
 }
