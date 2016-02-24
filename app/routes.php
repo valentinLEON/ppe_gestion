@@ -301,13 +301,13 @@ $app->get('/addabscence', function () use ($app) {
 
 /**                                                                      RETARDS
  * 
- *                       TABLEAU DE BORD
+ *                      AJOUT
  * 
  * 
  * route pour l'ajout de retard
  */
 $app->get('/addretard', function () use ($app) {
-    return $app['twig']->render('TabTemplate/addretard.html.twig');
+    return $app['twig']->render('FormTemplate/addretard.html.twig');
 })->bind('addretard');
 
 
@@ -322,12 +322,16 @@ $app->get('/retardslist', function () use ($app) {
     return $app['twig']->render('ListTemplate/retardslist.html.twig');
 })->bind('retardslist');
 
-/**
- *                             AJOUT
- * 
- * route pour l'ajout d abscence
- */
-$app->get('/addretard', function () use ($app) {
-    return $app['twig']->render('FormTemplate/addretard.html.twig');
-})->bind('addretard');
 
+
+
+        /**                                                                   STATISTIQUES
+ * 
+ *                       TABLEAU DE BORD
+ * 
+ * 
+ * route pour afficher un tableau de bord de toutes les statistiques 
+ */
+$app->get('/stattab', function () use ($app) {
+    return $app['twig']->render('TabTemplate/stattab.html.twig');
+})->bind('stattab');
