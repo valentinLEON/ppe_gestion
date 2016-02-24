@@ -78,8 +78,15 @@ $app->get('/studentstats', function () use ($app) {
 
 
 /**                                                           UTILISATEURS
- * 
- *    
+
+ *   
+ *                     TABLEAU DE BORD 
+ */
+$app->get('/usertab', function () use ($app) {
+    return $app['twig']->render('TabTemplate/usertab.html.twig');
+})->bind('usertab');
+
+/*    *
  *                     AJOUT
  * 
  * route pour l'ajout des utilisateurs
@@ -158,6 +165,16 @@ $app->match('/addclass', function () use ($app) {
 
 
 /**                                                         DISCIPLINES
+ * 
+ *  
+ *                   TABLEAU DE BORD
+ * 
+ */
+$app->match('/disciplinetab', function () use ($app) {
+    return $app['twig']->render('FormTemplate/disciplinetab.html.twig');
+})->bind('disciplinetab');
+
+/**   
  * 
  *                       LISTE
  * 
@@ -267,7 +284,7 @@ $app->get('/addabscence', function () use ($app) {
 })->bind('addabscence');
 
 
-/**                                                         RETARDS
+/**                                                                RETARDS
  * 
  *                       TABLEAU DE BORD
  * 
