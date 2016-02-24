@@ -234,7 +234,7 @@ $app->get('/notelist', function () use ($app) {
  */
 
 $app->match('/addnote',function($_id_evaluation, Request $request) use ($app) {
-    $toto = $app['dao.evaluation']->findAll();
+    $toto = $app['dao.evaluation']->findAll($_id_evaluation);
     $classes = $app['dao.className']->findAll();
     $discipline = $app['dao.discipline']->findAll();
     $etudiant = $app['dao.student']->findall();
