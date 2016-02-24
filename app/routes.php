@@ -146,7 +146,7 @@ $app->match('/addclass', function () use ($app) {
 
 /**                                                         DISCIPLINES
  * 
- *              LISTE
+ *                       LISTE
  * 
  * 
  * route pour l'affichage de la liste des disciplines
@@ -167,12 +167,6 @@ $app->get('/adddiscipline', function () use ($app) {
 })->bind('adddiscipline');
 
 
-/**
- * route pour afficher les stats des notes
- */
-$app->get('/notestats', function () use ($app) {
-    return $app['twig']->render('StatTemplate/notestats.html.twig');
-})->bind('notestats');
 
 
 /**                                                        NOTES
@@ -208,6 +202,18 @@ $app->match('/addnote',function(Request $request) use ($app) {
         'matieres' => $discipline,
         'student' => $etudiant));
 });
+
+
+/**
+ * 
+ *          
+ *                         STATISTIQUES
+ * 
+ * route pour afficher les stats des notes
+ */
+$app->get('/notestats', function () use ($app) {
+    return $app['twig']->render('StatTemplate/notestats.html.twig');
+})->bind('notestats');
 
 
 
