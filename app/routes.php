@@ -259,11 +259,11 @@ $app->match('/addnote',function($_id_evaluation, Request $request) use ($app) {
         'classNames' => $classes,
         'matieres' => $discipline,
         'student' => $etudiant));
-});
-
-$app->get('/addnote', function () use ($app) {
-    return $app['twig']->render('FormTemplate/addnote.html.twig');
 })->bind('addnote');
+
+/*$app->get('/addnote', function () use ($app) {
+    return $app['twig']->render('FormTemplate/addnote.html.twig');
+})->bind('addnote');*/
 
 
 /**
