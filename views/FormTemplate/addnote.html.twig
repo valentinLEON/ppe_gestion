@@ -18,7 +18,7 @@
                 </select>
             </div>
 
-            <div class="form-group" style="width: 15%; display:inline-block;margin:10px;">
+            <div class="form-group" style="width: 120px;  display:inline-block;margin:10px;">
                 <label>Choisir une classe</label>
 {#                {% if noteForm %}
                     {{ form_start(noteForm) }}
@@ -29,9 +29,7 @@
                                 'placeholder': 'Entrer une note'
                             }}) }}
                         </div>
-                       #} <div class="form_group">
-                            <button type="submit" class="btn btn-info pull-right">Ajouter</button>
-                        </div>
+                       #}
                    {# {{ form_end(noteForm) }}
                 {% else %}
                     <a href="#">Connectez-vous pour ajouter une note</a>
@@ -44,7 +42,7 @@
                     {% endfor %}#}
                 </select>
             </div>
-            <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
+            <div class="form-group" style="width: 200px;   display:inline-block;margin:10px;">
                 <label>Choisir une matière</label>
                 <select class="form-control select2">
                    {#  {% for discipline in matieres %}
@@ -54,7 +52,7 @@
                     {% endfor %}#}
                 </select>
             </div>
-            <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
+            <div class="form-group" style="width: 200px;  display:inline-block; margin:10px;">
                 <label>Choisir l'élève</label>
                 <select class="form-control select2">
                    {# {% for stud in student %}
@@ -64,6 +62,10 @@
                     {% endfor %}#}
                 </select>
             </div>
+        </div>
+          {# submit avec input si possible #}      
+        <div class="form_group">
+            <button type="submit" class="btn btn-info pull-right">Ajouter</button>
         </div>
         <!-- /.box-body -->
         <!-- mettre le submit ici -->
