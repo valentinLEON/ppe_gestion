@@ -117,6 +117,9 @@ $app->get('/calendar', function () use ($app) {
 })->bind('calendar');
 
 /**
+ * 
+ *  *   
+*                                                                   LOGIN
  * route pour afficher le login
  */
 $app->get('/login', function (Request $request) use ($app) {
