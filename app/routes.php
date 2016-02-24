@@ -138,7 +138,7 @@ $app->get('/login', function (Request $request) use ($app) {
  * route pour l'ajout des classes
  */
 $app->match('/classetab', function () use ($app) {
-    return $app['twig']->render('FormTemplate/classetab.html.twig');
+    return $app['twig']->render('TabTemplate/classetab.html.twig');
 })->bind('classetab');
 
  /**
@@ -171,7 +171,7 @@ $app->match('/addclass', function () use ($app) {
  * 
  */
 $app->match('/disciplinetab', function () use ($app) {
-    return $app['twig']->render('FormTemplate/disciplinetab.html.twig');
+    return $app['twig']->render('TabTemplate/disciplinetab.html.twig');
 })->bind('disciplinetab');
 
 /**   
@@ -292,7 +292,7 @@ $app->get('/addabscence', function () use ($app) {
  * route pour l'ajout de retard
  */
 $app->get('/addretard', function () use ($app) {
-    return $app['twig']->render('FormTemplate/addretard.html.twig');
+    return $app['twig']->render('TabTemplate/addretard.html.twig');
 })->bind('addretard');
 
 
