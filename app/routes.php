@@ -245,7 +245,6 @@ $app->match('/addnote',function($_id_evaluation, Request $request) use ($app) {
     $noteForm->handleRequest($request);
     if($noteForm->isSubmitted() && $noteForm->isValid())
     {
-
         $app['dao.evaluation']->save($note);
     }
 
