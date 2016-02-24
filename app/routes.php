@@ -199,7 +199,19 @@ $app->get('/adddiscipline', function () use ($app) {
 
 
 
+
 /**                                                        NOTES
+ * 
+ *  
+ *                   TABLEAU DE BORD
+ * 
+ */
+$app->match('/notetab', function () use ($app) {
+    return $app['twig']->render('TabTemplate/notetab.html.twig');
+})->bind('notetab');
+
+
+/**   
  * 
  *              AJOUT
  * 
