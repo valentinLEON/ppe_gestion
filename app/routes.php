@@ -8,7 +8,10 @@ use ppe_gestion\Form\Type\addNoteForm;
  * TODO: faire les routes pour afficher les listes des datas
  */
 
-/**
+/**                                                            ACCUEIL
+ * 
+ *                              AFFICHAGE ACCUEIL
+ * 
  * Route pour l'accueil
  */
 $app->get('/', function () use ($app) {
@@ -16,7 +19,13 @@ $app->get('/', function () use ($app) {
 });
 
 
-/**
+
+
+
+/**                                                             ADMIN
+ * 
+ *                        TABLEAU DE BORD 
+ * 
  * route pour l'affichage de la liste des etudiants
  */
 $app->get('/admintab', function () use ($app) {
@@ -24,7 +33,10 @@ $app->get('/admintab', function () use ($app) {
 })->bind('admintab');
 
 
-/**
+/**                                                            ETUDIANTS
+ *   
+ *                     TABLEAU DE BORD 
+ * 
  * route pour l'affichage de la gestion des etudiants
  */
 $app->get('/studenttab', function () use ($app) {
@@ -34,6 +46,9 @@ $app->get('/studenttab', function () use ($app) {
 
 
 /**
+ *  *   
+ *                     LISTE 
+ * 
  * route pour l'affichage de la liste des etudiants
  */
 $app->get('/studentslist', function () use ($app) {
@@ -41,6 +56,9 @@ $app->get('/studentslist', function () use ($app) {
 })->bind('studentslist');
 
 /**
+ *  *   
+ *                     AJOUT
+ * 
  * route pour l'ajout des étudiants
  */
 $app->get('/addstudent', function () use ($app) {
@@ -48,6 +66,9 @@ $app->get('/addstudent', function () use ($app) {
 })->bind('addstudent');
 
 /**
+ *     
+ *                    STATISTIQUES
+ * 
  * route pour l'affichage de la liste des etudiants
  */
 $app->get('/studentstats', function () use ($app) {
@@ -56,7 +77,11 @@ $app->get('/studentstats', function () use ($app) {
 
 
 
-/**
+/**                                                           UTILISATEURS
+ * 
+ *    
+ *                     AJOUT
+ * 
  * route pour l'ajout des utilisateurs
  */
 $app->get('/adduser', function () use ($app) {
@@ -64,6 +89,9 @@ $app->get('/adduser', function () use ($app) {
 })->bind('adduser');
 
 /**
+ *     
+ *                     LISTE 
+ * 
  * route pour l'affichage de la liste des utilisateurs
  */
 $app->get('/userslist', function () use ($app) {
@@ -71,13 +99,9 @@ $app->get('/userslist', function () use ($app) {
 })->bind('userslist');
 
 /**
- * route pour l'ajout des utilisateurs
- */
-$app->get('/adduser', function () use ($app) {
-    return $app['twig']->render('FormTemplate/adduser.html.twig');
-})->bind('adduser');
-
-/**
+ *   
+*                                                            CALENDRIER
+*
  * route pour afficher le calendrier
  */
 $app->get('/calendar', function () use ($app) {
@@ -95,7 +119,14 @@ $app->get('/login', function (Request $request) use ($app) {
     ));
 })->bind('login');
 
-/**
+
+
+
+/**                                                          CLASSES
+ * 
+ *              LISTE
+ * 
+ * 
  * route pour l'affichage de la liste des classes
  */
 $app->get('/classeslist', function () use ($app) {
@@ -103,6 +134,9 @@ $app->get('/classeslist', function () use ($app) {
 })->bind('classeslist');
 
 /**
+ *              AJOUT
+ * 
+ * 
  * route pour l'ajout des classes
  */
 $app->match('/addclass', function () use ($app) {
@@ -110,7 +144,11 @@ $app->match('/addclass', function () use ($app) {
 })->bind('addclass');
 
 
-/**
+/**                                                         DISCIPLINES
+ * 
+ *              LISTE
+ * 
+ * 
  * route pour l'affichage de la liste des disciplines
  */
 $app->get('/disciplineslist', function () use ($app) {
@@ -119,16 +157,10 @@ $app->get('/disciplineslist', function () use ($app) {
 
 
 /**
- * route pour l'ajout de matieres-disciplines
- */
-$app->match('/adddiscipline', function () use ($app) {
-    return $app['twig']->render('FormTemplate/adddiscipline.html.twig');
-})->bind('addclass');
-
-
-
-/**
- * route pour l'ajout des matières
+ * 
+ *                     AJOUT
+ *
+ * route pour l'ajout des matières - disciplines
  */
 $app->get('/adddiscipline', function () use ($app) {
     return $app['twig']->render('FormTemplate/adddiscipline.html.twig');
@@ -143,7 +175,11 @@ $app->get('/notestats', function () use ($app) {
 })->bind('notestats');
 
 
-/**
+/**                                                        NOTES
+ * 
+ *              AJOUT
+ * 
+ * 
  * Route pour l'ajout des notes
  */
 
@@ -176,7 +212,11 @@ $app->match('/addnote',function(Request $request) use ($app) {
 
 
 
-/**
+/**                                                         ABSCENCES
+ * 
+ * 
+ *                      TABLEAU DE BORD
+ * 
  * route pour l'affichage du tableaud de bord des abscences
  */
 $app->get('/abscencetab', function () use ($app) {
@@ -185,6 +225,34 @@ $app->get('/abscencetab', function () use ($app) {
 
 
 /**
+ * 
+ *                             LISTE
+ * 
+ * 
+ * route pour l'affichage de la liste des abscences
+ */
+$app->get('/abscenceslist', function () use ($app) {
+    return $app['twig']->render('ListTemplate/abscenceslist.html.twig');
+})->bind('abscenceslist');
+
+
+
+
+/**
+ *                             AJOUT
+ * 
+ * route pour l'ajout d abscence
+ */
+$app->get('/addabscence', function () use ($app) {
+    return $app['twig']->render('FormTemplate/addabscence.html.twig');
+})->bind('addabscence');
+
+
+/**                                                         RETARDS
+ * 
+ *                       TABLEAU DE BORD
+ * 
+ * 
  * route pour l'ajout de retard
  */
 $app->get('/addretard', function () use ($app) {
@@ -193,24 +261,13 @@ $app->get('/addretard', function () use ($app) {
 
 
 /**
- * route pour l'ajout d abscence
- */
-$app->get('/addabscence', function () use ($app) {
-    return $app['twig']->render('FormTemplate/addabscence.html.twig');
-})->bind('addabscence');
-
-/**
+ * 
+ *                           AJOUT
+ * 
+ * 
  * route pour l'affichage de la liste des retards
  */
 $app->get('/retardslist', function () use ($app) {
     return $app['twig']->render('ListTemplate/retardslist.html.twig');
 })->bind('retardslist');
-
-
-/**
- * route pour l'affichage de la liste des abscences
- */
-$app->get('/abscenceslist', function () use ($app) {
-    return $app['twig']->render('ListTemplate/abscenceslist.html.twig');
-})->bind('abscenceslist');
 
