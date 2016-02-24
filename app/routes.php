@@ -203,7 +203,7 @@ $app->get('/adddiscipline', function () use ($app) {
 
 
 
-/**                                                                NOTES - EVALUATIONS 
+/**                                                                NOTES         - EVALUATIONS 
  * 
  *  
  *                   TABLEAU DE BORD
@@ -212,6 +212,17 @@ $app->get('/adddiscipline', function () use ($app) {
 $app->match('/notetab', function () use ($app) {
     return $app['twig']->render('TabTemplate/notetab.html.twig');
 })->bind('notetab');
+
+/**   
+ * 
+ *                       LISTE
+ * 
+ * 
+ * route pour l'affichage de la liste des notes - evaluations
+ */
+$app->get('/notelist', function () use ($app) {
+    return $app['twig']->render('ListTemplate/notelist.html.twig');
+})->bind('notelist');
 
 
 /**   
