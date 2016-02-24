@@ -241,12 +241,12 @@ $app->match('/addnote',function(Request $request) use ($app) {
     $noteFormView = null;
 
     $note = new Evaluation();
-//    $noteForm = $app['form.factory']->create(new addNoteForm(), $note);
-//    $noteForm->handleRequest($request);
-//    if($noteForm->isSubmitted() && $noteForm->isValid())
-//    {
-//        $app['dao.evaluation']->save($note);
-//    }
+    $noteForm = $app['form.factory']->create(new addNoteForm(), $note);
+    $noteForm->handleRequest($request);
+    if($noteForm->isSubmitted() && $noteForm->isValid())
+    {
+        $app['dao.evaluation']->save($note);
+    }
 
     $noteFormView = $noteForm->createView();
     return $app['twig']->render('FormTemplate/addnote.html.twig', array(
