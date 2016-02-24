@@ -14,6 +14,14 @@ function bgOpacitymin(){
 function showAdminAcces(){
     
    var accesAdmin=document.getElementById('accesAdmin');
+   if (accesAdmin.style.visibility==='hidden') {
+       
        accesAdmin.style.visibility='visible';
        accesAdmin.style.display='block';
+   }else{
+       accesAdmin.style.visibility='hidden';
+       accesAdmin.style.display='none';
+   }
+       
 }
+
