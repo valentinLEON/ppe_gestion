@@ -29,8 +29,12 @@
                                 'placeholder': 'Entrer une note'
                             }}) }}
                         </div>
-
                     {{ form_end(noteForm) }}
+                    {% for flashMessage in app.session.flashbag.get('success')%}
+                    <div class="alert alert-success">
+                        {{ flashMessage }}
+                    </div>
+                    {% endfor %}
                 {% else %}
                     <a href="#">Connectez-vous pour ajouter une note</a>
                 {% endif %}
