@@ -132,7 +132,7 @@ $app->get('/login', function (Request $request) use ($app) {
 
 
 
-/**                                                          CLASSES
+/**                                                              CLASSES
  * 
  
  *                   TABLEAU DE BORD
@@ -167,7 +167,7 @@ $app->match('/addclass', function () use ($app) {
 
 
 
-/**                                                         DISCIPLINES
+/**                                                            DISCIPLINES
  * 
  *  
  *                   TABLEAU DE BORD
@@ -203,7 +203,7 @@ $app->get('/adddiscipline', function () use ($app) {
 
 
 
-/**                                                        NOTES
+/**                                                                NOTES - EVALUATIONS 
  * 
  *  
  *                   TABLEAU DE BORD
@@ -252,7 +252,7 @@ $app->get('/addnote', function () use ($app) {
 /**
  * 
  *          
- *                         STATISTIQUES
+ *                          STATISTIQUES
  * 
  * route pour afficher les stats des notes
  */
@@ -263,7 +263,7 @@ $app->get('/notestats', function () use ($app) {
 
 
 
-/**                                                         ABSCENCES
+/**                                                                  ABSCENCES
  * 
  * 
  *                      TABLEAU DE BORD
@@ -299,7 +299,7 @@ $app->get('/addabscence', function () use ($app) {
 })->bind('addabscence');
 
 
-/**                                                                RETARDS
+/**                                                                      RETARDS
  * 
  *                       TABLEAU DE BORD
  * 
@@ -313,7 +313,7 @@ $app->get('/addretard', function () use ($app) {
 
 /**
  * 
- *                           AJOUT
+ *                           LISTE
  * 
  * 
  * route pour l'affichage de la liste des retards
@@ -321,4 +321,13 @@ $app->get('/addretard', function () use ($app) {
 $app->get('/retardslist', function () use ($app) {
     return $app['twig']->render('ListTemplate/retardslist.html.twig');
 })->bind('retardslist');
+
+/**
+ *                             AJOUT
+ * 
+ * route pour l'ajout d abscence
+ */
+$app->get('/addretard', function () use ($app) {
+    return $app['twig']->render('FormTemplate/addretard.html.twig');
+})->bind('addretard');
 
