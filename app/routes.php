@@ -242,6 +242,7 @@ $app->match('/addnote',function($_id_evaluation, Request $request) use ($app) {
     $noteFormView = null;
 
     $note = new Evaluation();
+    $note->setGradeStudent($toto);
     $noteForm = $app['form.factory']->create(new addNoteForm(), $note);
     $noteForm->handleRequest($request);
     if($noteForm->isSubmitted() && $noteForm->isValid())
