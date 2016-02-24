@@ -233,8 +233,8 @@ $app->get('/notelist', function () use ($app) {
  * Route pour l'ajout des notes
  */
 
-$app->match('/addnote',function($_id_evaluation, Request $request) use ($app) {
-    $toto = $app['dao.evaluation']->find($_id_evaluation);
+$app->match('/addnote',function($id, Request $request) use ($app) {
+    $toto = $app['dao.evaluation']->find($id);
     $classes = $app['dao.className']->findAll();
     $discipline = $app['dao.discipline']->findAll();
     $etudiant = $app['dao.student']->findall();
