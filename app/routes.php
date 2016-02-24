@@ -54,6 +54,15 @@ $app->get('/studentstats', function () use ($app) {
     return $app['twig']->render('StatTemplate/studentstats.html.twig');
 })->bind('studentstats');
 
+
+
+/**
+ * route pour l'ajout des utilisateurs
+ */
+$app->get('/adduser', function () use ($app) {
+    return $app['twig']->render('FormTemplate/adduser.html.twig');
+})->bind('adduser');
+
 /**
  * route pour l'affichage de la liste des utilisateurs
  */
@@ -108,6 +117,16 @@ $app->get('/disciplineslist', function () use ($app) {
     return $app['twig']->render('ListTemplate/disciplineslist.html.twig');
 })->bind('disciplineslist');
 
+
+/**
+ * route pour l'ajout de matieres-disciplines
+ */
+$app->match('/adddiscipline', function () use ($app) {
+    return $app['twig']->render('FormTemplate/adddiscipline.html.twig');
+})->bind('addclass');
+
+
+
 /**
  * route pour l'ajout des matières
  */
@@ -146,7 +165,7 @@ $app->match('/addnote',function(Request $request) use ($app) {
     {
         $app['dao.evaluation']->save($note);
     }
-    // noteFormView n'est pas bien utilise
+
     $noteFormView = $noteForm->createView();
     return $app['twig']->render('FormTemplate/addnote.html.twig', array(
         'classNames' => $classes,
@@ -181,7 +200,7 @@ $app->get('/addabscence', function () use ($app) {
 })->bind('addabscence');
 
 /**
- * route pour l'affichage de la liste des  retards
+ * route pour l'affichage de la liste des retards
  */
 $app->get('/retardslist', function () use ($app) {
     return $app['twig']->render('ListTemplate/retardslist.html.twig');
@@ -189,7 +208,7 @@ $app->get('/retardslist', function () use ($app) {
 
 
 /**
- * route pour l'affichage de la liste desabscences
+ * route pour l'affichage de la liste des abscences
  */
 $app->get('/abscenceslist', function () use ($app) {
     return $app['twig']->render('ListTemplate/abscenceslist.html.twig');
