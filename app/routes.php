@@ -251,7 +251,7 @@ $app->match('/addnote',function($id, Request $request) use ($app) {
     }
 
     $noteFormView = $noteForm->createView();
-    $evaluation = $app['dao.evaluation']->findAllByEvaluation($_id_evaluation);
+    $evaluation = $app['dao.evaluation']->findAllByEvaluation();
     return $app['twig']->render('FormTemplate/addnote.html.twig', array(
         'toto' => $toto,
         'eval' => $evaluation,
