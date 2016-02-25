@@ -252,7 +252,7 @@ $app->get('/addnote',function() use ($app) {
 $app->post('/addnote/', function(Request $request) use ($app){
     var_dump('toto');
     die();
-})->bind('addnote');
+})->bind('noteadd');
 
 /**
  * 
