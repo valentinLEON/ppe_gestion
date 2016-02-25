@@ -76,6 +76,15 @@ $app->get('/testroutes', function () use ($app) {
     return $app['twig']->render('testroutes.html.twig');
 })->bind('testroutes');
 
+/*
+ *                       TESTS POUR LES LOGINS
+ * 
+ * route pour l'affichage de la liste des etudiants
+ */
+$app->get('/testlogin', function () use ($app) {
+    return $app['twig']->render('testlogin.html.twig');
+})->bind('testlogin');
+
 
 /**                                                          
  * 
@@ -86,6 +95,22 @@ $app->get('/testroutes', function () use ($app) {
 $app->get('/admintab', function () use ($app) {
     return $app['twig']->render('TabTemplate/admintab.html.twig');
 })->bind('admintab');
+
+/**
+ * 
+ *  *   
+*                                                                   LOGIN
+ * route pour afficher le login
+ */
+$app->get('/login', function (Request $request) use ($app) {
+    return $app['twig']->render('login.html.twig', array(
+     //   'error' => $app['security.last.error']($request),
+    //    'last_username' => $app['session']->get('_security.last_username'),
+    ));
+})->bind('login');
+
+
+
 
 
 /**                                                            ETUDIANTS
@@ -170,22 +195,6 @@ $app->get('/calendar', function () use ($app) {
     //$eval = $app['dao.evaluation']->findAllByDiscipline(1);
     return $app['twig']->render('calendar.html.twig');
 })->bind('calendar');
-
-/**
- * 
- *  *   
-*                                                                   LOGIN
- * route pour afficher le login
- */
-$app->get('/login', function (Request $request) use ($app) {
-    return $app['twig']->render('login.html.twig', array(
-     //   'error' => $app['security.last.error']($request),
-    //    'last_username' => $app['session']->get('_security.last_username'),
-    ));
-})->bind('login');
-
-
-
 
 /**                                                              CLASSES
  * 
