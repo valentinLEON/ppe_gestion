@@ -3,10 +3,8 @@
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use ppe_gestion\Domain\Evaluation;
-
-use ppe_gestion\DAO\ClassNameDAO;
-use ppe_gestion\DAO\DisciplineDAO;
-use ppe_gestion\DAO\StudentDAO;
+use ppe_gestion\Domain\Discipline;
+use ppe_gestion\Domain\Student;
 
 // PAS TOUCHER use ppe_gestion\Form\Type\addNoteForm;
 
@@ -254,7 +252,7 @@ $app->get('/notelist', function () use ($app) {
 $app->get('/addnote',function() use ($app) {
     $classes = $app['dao.className']->findAll();
     $discipline = $app['dao.discipline']->findAll();
-    $etudiant = $app['dao.student']->findAll(); //on récupère l'étudiant par l'id
+    $etudiant = $app['dao.student']->findAll();
 
     return $app['twig']->render('FormTemplate/addnote.html.twig', array(
         'classNames' => $classes,
@@ -265,18 +263,16 @@ $app->get('/addnote',function() use ($app) {
 $app->post('/addnote', function(Request $request) use ($app){
     $newEvaluation = new Evaluation();
 
-    $discipline = new \ppe_gestion\Domain\Discipline();
-    $student = new \ppe_gestion\Domain\Student();
+    $discipline = new Discipline();
+    $student = new Student();
 
-    $discipline->getIdDiscipline()->request->get('matiere');
-
-    var_dump($discipline);
-    //var_dump($student);
-    die();
+    /*var_dump($discipline);
+    var_dump($student);
+    die();*/
 
     $newEvaluation->setGradeStudent($request->request->get('note'));
-    $newEvaluation->setDiscipline($request->request->get('matiere'));
-    $newEvaluation->setStudent($request->request->get('etudiant'));
+    $newEvaluation->setDiscipline($discipline->setIdDiscipline(1));
+    $newEvaluation->setStudent($student->setIdStudent(1));
     $newEvaluation->setCoefDiscipline(2);
     $newEvaluation->setJudgement('je suis un commentaire');
     $newEvaluation->setDtCreate(getdate());
