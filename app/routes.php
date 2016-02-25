@@ -26,7 +26,22 @@ $app->get('/', function () use ($app) {
 
 $app->get('/login', function(Request $request) use ($app) {
 
- 
+// 
+//
+//    
+//    $username = $app['request']->server->get('PHP_AUTH_USER', false);
+//    $password = $app['request']->server->get('PHP_AUTH_PW');
+//var_dump($username);
+//    if ('igor' === $username && 'password' === $password) {
+//        $app['session']->set('user', array('username' => $username));
+//        return $app->redirect('/account');
+//    }else{
+//
+//    $response = new Response();
+//    $response->headers->set('WWW-Authenticate', sprintf('Basic realm="%s"', 'site_login'));
+//    $response->setStatusCode(401, 'Please sign in.');
+//    return $response;
+//    }
 
     return $app['twig']->render('login.html.twig', array(
 
@@ -34,21 +49,6 @@ $app->get('/login', function(Request $request) use ($app) {
 
         'last_username' => $app['session']->get('_security.last_username'),
     ));    
-    
-    $username = $app['request']->server->get('PHP_AUTH_USER', false);
-    $password = $app['request']->server->get('PHP_AUTH_PW');
-var_dump($username);
-    if ('igor' === $username && 'password' === $password) {
-        $app['session']->set('user', array('username' => $username));
-        return $app->redirect('/account');
-    }else{
-
-    $response = new Response();
-    $response->headers->set('WWW-Authenticate', sprintf('Basic realm="%s"', 'site_login'));
-    $response->setStatusCode(401, 'Please sign in.');
-    return $response;
-    }
-
 })->bind('login');
     
 $app->get('/account', function () use ($app) {
