@@ -10,8 +10,6 @@ namespace ppe_gestion\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Symfony\Component\Form\AbstractType;
 
 class addNoteForm extends AbstractType
 {
