@@ -2,7 +2,7 @@
 
 use Symfony\Component\HttpFoundation\Request;
 use ppe_gestion\Domain\Evaluation;
-use ppe_gestion\Form\Type\addNoteForm;
+// PAS TOUCHER use ppe_gestion\Form\Type\addNoteForm;
 
 /**
  * TODO: faire les routes pour afficher les listes des datas
@@ -233,7 +233,7 @@ $app->get('/notelist', function () use ($app) {
  * Route pour l'ajout des notes
  */
 
-$app->get('/addnote',function(Request $request) use ($app) {
+$app->get('/addnote/{id}',function($id, Request $request) use ($app) {
     var_dump('test');
     die();
     /*$classes = $app['dao.className']->findAll();
@@ -259,7 +259,10 @@ $app->get('/addnote',function(Request $request) use ($app) {
         'noteForm' => $noteFormView));*/
 })->bind('addnote');
 
-
+$app->post('/addnote', function(Request $request) use ($app){
+    var_dump('toto');
+    die();
+})->bind('noteadd');
 /**
  * 
  *          
