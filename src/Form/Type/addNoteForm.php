@@ -20,9 +20,4 @@ class addNoteForm extends AbstractType
         $builder
             ->add('grade_student', NumberType::class);
     }
-
-    public function getName()
-    {
-        return 'note';
-    }
 }
