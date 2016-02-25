@@ -7,6 +7,11 @@
 {% block content %}
 
     <!-- form start -->
+
+
+<div class="box box-primary">
+    <!-- /.box-header -->
+    <!-- form start -->
     <form method="post" action="{{ path('note') }}">
         <div class="box-body" style="margin-left:2rem; width: 80%; ">
             <div class="form-group" style="width: 20%; border-radius: 3px">
@@ -17,7 +22,7 @@
                 <label for="sel1">Etudiant</label>
                 <select class="form-control" id="sel2" name="etudiant">
                     {% for etudiant in student %}
-                    <option value="{{ etudiant.id_student }}">{{ etudiant.student_name~' '~etudiant.student_firstname }}</option>
+                        <option value="{{ etudiant.id_student }}">{{ etudiant.student_name~' '~etudiant.student_firstname }}</option>
                     {% endfor %}
                 </select>
             </div>
@@ -25,12 +30,12 @@
                 <label for="sel1">Matière</label>
                 <select class="form-control" id="sel3" name="matiere">
                     {% for matiere in matieres %}
-                    <option value="{{ matiere.id_discipline }}">{{ matiere.name_discipline }}</option>
+                        <option value="{{ matiere.id_discipline }}">{{ matiere.name_discipline }}</option>
                     {% endfor %}
                 </select>
             </div>
         </div>
-          {# submit avec input si possible #}      
+        {# submit avec input si possible #}
         <div class="form_group">
             <button type="submit" class="btn btn-info pull-right">Ajouter</button>
         </div>
@@ -38,36 +43,7 @@
         <!-- mettre le submit ici -->
         <!-- /.box-footer -->
     </form>
-
-<div class="box box-primary">
-    <!-- /.box-header -->
-    <!-- form start -->
-    <form role="form">
-        <div class="box-body">
-            <div class="form-group">
-                <label for="#">Nom de la classe*</label>
-                <input type="text" class="form-control" style="width: 20%; border-radius: 3px" id="#" placeholder="Ex : SIO 2">
-            </div>
-            <div class="form-group">
-                <label for="#">Année scolaire*</label>
-                <input type="text" class="form-control" style="width: 20%; border-radius: 3px" id="#" placeholder="2015-2016">
-            </div>
-            <div class="form-group">
-                <label for="#">Option</label>
-                <input type="text" class="form-control" style="width: 20%; border-radius: 3px" id="#" placeholder="SLAM">
-            </div>
-            <div class="form-group">
-                <label for="#">Description</label>
-                <textarea class="form-control" rows="3" placeholder="Ex : Le parcours SLAM du BTS SIO vise à former des developpeurs ..." style="width: 40%; border-radius: 3px" id="#"></textarea>
-            </div>
-            <small>*Champs obligatoire</small>
-        </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-            <button type="submit" class="btn btn-info pull-right">Enregistrer</button>
-        </div>
-    </form>
-    <!-- /.box-footer -->
+    </div>
 
 
 {% endblock %}
