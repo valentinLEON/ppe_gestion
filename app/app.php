@@ -22,6 +22,18 @@ ExceptionHandler::register();
 
 // Register service providers.
 $app->register(new Silex\Provider\DoctrineServiceProvider());
+
+// Provider pour générer des sessions
+$app->register(new Silex\Provider\SessionServiceProvider(), array(
+    
+    
+        'error'         => $app['security.last_error']($request),
+
+        'last_username' => $app['session']->get('_security.last_username'),
+    
+));
+
+
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../views',
     'twig.class_path' => __DIR__.'/../vendor/twig/twig/lib',
@@ -39,16 +51,6 @@ $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 
 // Provider pour gérer les differents languages
 $app->register(new Silex\Provider\TranslationServiceProvider());
-
-// Provider pour générer des sessions
-$app->register(new Silex\Provider\SessionServiceProvider(), array(
-    
-    
-        'error'         => $app['security.last_error']($request),
-
-        'last_username' => $app['session']->get('_security.last_username'),
-    
-));
 
 
 // Provider pour gérer le login

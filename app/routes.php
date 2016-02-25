@@ -25,7 +25,6 @@ $app->get('/', function () use ($app) {
 //                                                             Login form
 
 $app->get('/login', function(Request $request) use ($app) {
-
     return $app['twig']->render('login.html.twig', array(
         'error'         => $app['security.last_error']($request),
         'last_username' => $app['session']->get('_security.last_username'),
@@ -57,9 +56,7 @@ $app->get('/login', function(Request $request) use ($app) {
 //        'last_username' => $app['session']->get('_security.last_username'),
 //    ));    
 
-
-
-
+    
 $app->get('/account', function () use ($app) {
     if (null === $user = $app['session']->get('user')) {
      
