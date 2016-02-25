@@ -267,9 +267,9 @@ $app->post('/addnote', function(Request $request) use ($app){
         $newEvaluation->setDtCreate(getdate());
         $newEvaluation->setDtUpdate(getdate());
 
-        var_dump($app['dao.evaluation']->saveGrade($newEvaluation));
+        $app['dao.evaluation']->saveGrade($newEvaluation);
     }
-    return new Response('Et oui mémé, tu es bien mouchée !!!', 201);
+    $app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !');
 })->bind('note');
 
 /**
