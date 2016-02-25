@@ -11,22 +11,34 @@
         <div class="box-body" style="margin-left:2rem; width: 80%; ">
             <div class="form-group" style="width: 6%;  display:inline-block; margin:10px;">
                 <label for="sel1">Note</label>
-                <select class="form-control" id="sel1" keybord="true">-->
-                    {{% for i in 0..20 %}
+                <select class="form-control" id="sel1" keyboard="true">
+                    {% for i in 0..20 %}
                         <option>{{ i }}</option>
                     {% endfor %}
-                {#{% if noteForm %}
-                        {{ form_start(noteForm) }}
-                            <div class="form-group">
-                                {{ form_errors(noteForm.grade_student) }}
-                                {{ form_widget(noteForm.grade_student, { 'attr': {
-                                    'class': 'form-control',
-                                    'placeholder': 'Entrer une note'
-                                }}) }}
-                            </div>
-                        {{ form_end(noteForm) }}
-                    {% endif %}#}
-
+                </select>
+            </div>
+            <div class="form-group" style="width: 6%;  display:inline-block; margin:10px;">
+                <label for="sel1">Etudiant</label>
+                <select class="form-control" id="sel1">
+                    {% for student in etudiants %}
+                    <option>{{ student.student_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group" style="width: 6%;  display:inline-block; margin:10px;">
+                <label for="sel1">Classe</label>
+                <select class="form-control" id="sel1">
+                    {% for classe in classNames %}
+                    <option>{{ classe.class_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group" style="width: 6%;  display:inline-block; margin:10px;">
+                <label for="sel1">Matière</label>
+                <select class="form-control" id="sel1">
+                    {% for matiere in matieres %}
+                    <option>{{ matiere.name_discipline }}</option>
+                    {% endfor %}
                 </select>
             </div>
         </div>
