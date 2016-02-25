@@ -8,11 +8,10 @@
 
 {% block content %}
 
-<h3><span class="label label-default">Accueil</span></h3>
+<h3><span class="label label-default">Accueil</span><a href="testlogin"><span class="label label-default">Accès Utilisateur</span></a></h3>
 
-<a href="testlogin"><span class="label label-default">Accès Utilisateur</span></a>
-
-<h3  id="btnAdmin" onmouseout="bgOpacitymax()" onmouseover="bgOpacitymin()" >
+<h3  id="btnAdmin" style="display:inline-block" onmouseout="bgOpacitymax()" onmouseover="bgOpacitymin()" >
+    
         <span class="label label-default" onclick="showAdminAcces()">
             Login
         </span>
