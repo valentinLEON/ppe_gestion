@@ -1,6 +1,7 @@
 <?php
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use ppe_gestion\Domain\Evaluation;
 
 use ppe_gestion\DAO\ClassNameDAO;
