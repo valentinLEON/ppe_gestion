@@ -28,33 +28,8 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.options' => array(),
 ));
 
-//controller pour les générations de formulaires
+// Provider pour générer des formulaires
 $app->register(new Silex\Provider\FormServiceProvider());
-$app->register(new Silex\Provider\TranslationServiceProvider());
-
-//Monolog
-// $app->register(new Provider\MonologServiceProvider(), array(
-    // 'monolog.logfile' => __DIR__ . '/../log/development.log',
-    // 'monolog.name'    => 'ppe_gestion'
-// ));
-
-// Web Profiler
-// if ($app['debug']) {
-    // $app->register(new Provider\WebProfilerServiceProvider(), array(
-        // 'profiler.cache_dir' => __DIR__.'/../cache/profiler/',
-        // 'profiler.mount_prefix' => '/_profiler', // this is the default
-    // ));    
-// }
-
-
-// Register JSON data decoder for JSON requests
-// $app->before(function (Request $request) {
-    // if (0 === strpos($request->headers->get('Content-Type'), 'application/json')) {
-        // $data = json_decode($request->getContent(), true);
-        // $request->request->replace(is_array($data) ? $data : array());
-    // }
-// });
-
 
 /**
  * Provider pour la génération des urls
@@ -62,6 +37,42 @@ $app->register(new Silex\Provider\TranslationServiceProvider());
  */
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 
+// Provider pour gérer les differents languages
+$app->register(new Silex\Provider\TranslationServiceProvider());
+
+// Provider pour générer des sessions
+$app->register(new Silex\Provider\SessionServiceProvider());
+
+
+// Provider pour gérer le login
+$app->register(new Silex\Provider\SecurityServiceProvider(), array(
+
+    'security.firewalls' => array(
+
+        'secured' => array(
+
+            'pattern' => '^/',
+
+            'anonymous' => true,
+
+            'logout' => true,
+
+            'form' => array('login_path' => '/login', 'check_path' => '/login_check'),
+
+            'users' => $app->share(function () use ($app) {
+
+                return new ppe_gestion\DAO\UserDAO($app['db']);
+
+            }),
+
+        ),
+
+    ),
+
+));
+            
+            
+//                                                        CONTROLLERS
 /**
  * controller pour la route des matières
  */
@@ -104,3 +115,43 @@ $app['dao.users'] = $app->share(function($app){
 });
 
 return $app;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Monolog
+// $app->register(new Provider\MonologServiceProvider(), array(
+    // 'monolog.logfile' => __DIR__ . '/../log/development.log',
+    // 'monolog.name'    => 'ppe_gestion'
+// ));
+
+// Web Profiler
+// if ($app['debug']) {
+    // $app->register(new Provider\WebProfilerServiceProvider(), array(
+        // 'profiler.cache_dir' => __DIR__.'/../cache/profiler/',
+        // 'profiler.mount_prefix' => '/_profiler', // this is the default
+    // ));    
+// }
+
+
+// Register JSON data decoder for JSON requests
+// $app->before(function (Request $request) {
+    // if (0 === strpos($request->headers->get('Content-Type'), 'application/json')) {
+        // $data = json_decode($request->getContent(), true);
+        // $request->request->replace(is_array($data) ? $data : array());
+    // }
+// });
+
