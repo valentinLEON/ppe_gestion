@@ -22,6 +22,7 @@
                 <select class="form-control" id="sel1">
                     {% for student in etudiants %}
                     <option>{{ student.student_name }}</option>
+                    {% endfor %}
                 </select>
             </div>
             <div class="form-group" style="width: 6%;  display:inline-block; margin:10px;">
@@ -29,6 +30,7 @@
                 <select class="form-control" id="sel1">
                     {% for classe in classNames %}
                     <option>{{ classe.class_name }}</option>
+                    {% endfor %}
                 </select>
             </div>
             <div class="form-group" style="width: 6%;  display:inline-block; margin:10px;">
@@ -36,6 +38,7 @@
                 <select class="form-control" id="sel1">
                     {% for matiere in matieres %}
                     <option>{{ matiere.name_discipline }}</option>
+                    {% endfor %}
                 </select>
             </div>
         </div>
