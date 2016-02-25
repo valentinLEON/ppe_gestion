@@ -256,7 +256,7 @@ $app->post('/addnote', function(Request $request) use ($app){
     $discipline = new \ppe_gestion\Domain\Discipline();
     $student = new \ppe_gestion\Domain\Student();
 
-    $etoui = $this->discipline->getIdDiscipline();
+    $etoui = $discipline->getIdDiscipline();
     var_dump($etoui);
     die();
 
