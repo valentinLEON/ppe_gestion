@@ -250,7 +250,7 @@ $app->get('/addnote',function() use ($app) {
 })->bind('addnote');
 
 $app->post('/addnote', function(Request $request) use ($app){
-    var_dump('coucou');
+    var_dump($request);
     die();
 })->bind('note');
 
