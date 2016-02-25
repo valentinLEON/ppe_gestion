@@ -35,9 +35,9 @@ $app->get('/login', function(Request $request) use ($app) {
         'last_username' => $app['session']->get('_security.last_username'),
     ));    
     
-   $username = $app['request']->server->get('PHP_AUTH_USER', false);
+    $username = $app['request']->server->get('PHP_AUTH_USER', false);
     $password = $app['request']->server->get('PHP_AUTH_PW');
-
+var_dump($username);
     if ('igor' === $username && 'password' === $password) {
         $app['session']->set('user', array('username' => $username));
         return $app->redirect('/account');
