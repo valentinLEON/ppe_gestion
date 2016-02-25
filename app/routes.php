@@ -256,6 +256,10 @@ $app->post('/addnote', function(Request $request) use ($app){
     $discipline = new \ppe_gestion\Domain\Discipline();
     $student = new \ppe_gestion\Domain\Student();
 
+    $etoui = $this->discipline->getIdDiscipline();
+    var_dump($etoui);
+    die();
+
     $newEvaluation->setGradeStudent($request->request->get('note'));
     $newEvaluation->setDiscipline($request->request->get('matiere'));
     $newEvaluation->setStudent($request->request->get('etudiant'));
