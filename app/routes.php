@@ -26,17 +26,40 @@ $app->get('/', function () use ($app) {
 
 $app->get('/login', function(Request $request) use ($app) {
 
+ 
+
     return $app['twig']->render('login.html.twig', array(
 
         'error'         => $app['security.last_error']($request),
 
         'last_username' => $app['session']->get('_security.last_username'),
+    ));    
+    
+   $username = $app['request']->server->get('PHP_AUTH_USER', false);
+    $password = $app['request']->server->get('PHP_AUTH_PW');
 
-    ));
+    if ('igor' === $username && 'password' === $password) {
+        $app['session']->set('user', array('username' => $username));
+        return $app->redirect('/account');
+    }else{
+
+    $response = new Response();
+    $response->headers->set('WWW-Authenticate', sprintf('Basic realm="%s"', 'site_login'));
+    $response->setStatusCode(401, 'Please sign in.');
+    return $response;
+    }
 
 })->bind('login');
-
-
+    
+$app->get('/account', function () use ($app) {
+    if (null === $user = $app['session']->get('user')) {
+     
+        
+    return "Welcome {$user['username']}!";
+    
+    
+    }
+});
 
 /**                                                             ADMIN
  * 
