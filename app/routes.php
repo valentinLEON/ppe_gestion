@@ -249,7 +249,7 @@ $app->get('/addnote',function() use ($app) {
         'student' => $etudiant));
 })->bind('addnote');
 
-$app->post('/addnote', function(Request $request) use ($app){
+$app->post('/addnote/', function(Request $request) use ($app){
     var_dump('toto');
     die();
 })->bind('addnote');
