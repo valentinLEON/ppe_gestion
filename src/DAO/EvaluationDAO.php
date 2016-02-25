@@ -122,8 +122,8 @@ class EvaluationDAO extends DAO
             'grade_student'     => $evaluation->getGradeStudent(),
             'coef_discipline'   => $evaluation->getCoefDiscipline(),
             'judgement'         => $evaluation->getJudgement(),
-            '$dt_create'        => $evaluation->getDtCreate(),
-            '$dt_update'        => $evaluation->getDtUpdate()
+            'dt_create'        => $evaluation->getDtCreate(),
+            'dt_update'        => $evaluation->getDtUpdate()
         );
 
         if($evaluation->getIdEvaluation())
