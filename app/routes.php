@@ -22,7 +22,7 @@ $app->get('/', function () use ($app) {
     return $app['twig']->render('index.html.twig');
 });
 
-//                                                             Login form
+//                                                             LOGIN 
 
 $app->get('/login', function(Request $request) use ($app) {
     return $app['twig']->render('login.html.twig', array(
@@ -32,40 +32,7 @@ $app->get('/login', function(Request $request) use ($app) {
 })->bind('login');
 
 
-// 
-//
-//    
-//    $username = $app['request']->server->get('PHP_AUTH_USER', false);
-//    $password = $app['request']->server->get('PHP_AUTH_PW');
-//var_dump($username);
-//    if ('igor' === $username && 'password' === $password) {
-//        $app['session']->set('user', array('username' => $username));
-//        return $app->redirect('/account');
-//    }else{
-//
-//    $response = new Response();
-//    $response->headers->set('WWW-Authenticate', sprintf('Basic realm="%s"', 'site_login'));
-//    $response->setStatusCode(401, 'Please sign in.');
-//    return $response;
-//    }
 
-//    return $app['twig']->render('login.html.twig', array(
-//
-//        'error'         => $app['security.last_error']($request),
-//
-//        'last_username' => $app['session']->get('_security.last_username'),
-//    ));    
-
-    
-$app->get('/account', function () use ($app) {
-    if (null === $user = $app['session']->get('user')) {
-     
-        
-    return "Welcome {$user['username']}!";
-    
-    
-    }
-});
  /*                                                                 ADMIN
 
  *                       TESTS POUR LES ROUTES
