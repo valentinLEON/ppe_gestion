@@ -10,9 +10,6 @@ namespace ppe_gestion\DAO;
 
 
 use ppe_gestion\Domain\Evaluation;
-use ppe_gestion\Domain\Student;
-use ppe_gestion\Domain\Discipline;
-
 
 
 class EvaluationDAO extends DAO
