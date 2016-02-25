@@ -117,8 +117,8 @@ class EvaluationDAO extends DAO
     public function saveGrade(Evaluation $evaluation)
     {
         $grade = array(
-            'id_student'        => $evaluation->getStudent()->getIdEvaluation(),
-            'id_discipline'     => $evaluation->getDiscipline()->getIdEvaluation(),
+            'id_student'        => $evaluation->getStudent()->getIdStudent(),
+            'id_discipline'     => $evaluation->getDiscipline()->getIdDiscipline(),
             'grade_student'     => $evaluation->getGradeStudent(),
             'coef_discipline'   => $evaluation->getCoefDiscipline(),
             'judgement'         => $evaluation->getJudgement(),
