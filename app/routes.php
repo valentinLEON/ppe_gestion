@@ -269,7 +269,7 @@ $app->post('/addnote', function(Request $request) use ($app){
 
         $app['dao.evaluation']->saveGrade($newEvaluation);
     }
-    return new Response('Bien joué !!!', 201);
+    return new Response('Et oui mémé, tu es bien mouchée !!!', 201);
 })->bind('note');
 
 /**
