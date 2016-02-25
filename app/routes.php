@@ -2,6 +2,11 @@
 
 use Symfony\Component\HttpFoundation\Request;
 use ppe_gestion\Domain\Evaluation;
+
+use ppe_gestion\DAO\ClassNameDAO;
+use ppe_gestion\DAO\DisciplineDAO;
+use ppe_gestion\DAO\StudentDAO;
+
 // PAS TOUCHER use ppe_gestion\Form\Type\addNoteForm;
 
 /**
@@ -233,36 +238,22 @@ $app->get('/notelist', function () use ($app) {
  * Route pour l'ajout des notes
  */
 
-$app->get('/addnote/{id}',function($id, Request $request) use ($app) {
-    var_dump('test');
-    die();
-    /*$classes = $app['dao.className']->findAll();
+$app->get('/addnote',function($id, Request $request) use ($app) {
+    $classes = $app['dao.className']->findAll();
     $discipline = $app['dao.discipline']->findAll();
-    $etudiant = $app['dao.student']->findAll();*/
+    $etudiant = $app['dao.student']->findAll(); //on récupère l'étudiant par l'id
 
-   /* $noteFormView = null;
-
-    $note = new Evaluation();
-    $noteForm = $app['form.factory']->create(new addNoteForm(), $note);
-    $noteForm->handleRequest($request);
-    /*if($noteForm->isSubmitted() && $noteForm->isValid())
-    {
-        $app['dao.evaluation']->save($note);
-    }*/
-
-    /*$noteFormView = $noteForm->createView();
-    //$evaluation = $app['dao.evaluation']->findAllByStudent($id);
     return $app['twig']->render('FormTemplate/addnote.html.twig', array(
-        /*'classNames' => $classes,
+        'classNames' => $classes,
         'matieres' => $discipline,
-        'student' => $etudiant,
-        'noteForm' => $noteFormView));*/
-})->bind('addnote');
+        'student' => $etudiant));
+})->bind('noteadd');
 
-$app->post('/addnote', function(Request $request) use ($app){
+/*$app->post('/addnote', function(Request $request) use ($app){
     var_dump('toto');
     die();
-})->bind('noteadd');
+})->bind('noteadd');*/
+
 /**
  * 
  *          
