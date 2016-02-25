@@ -21,7 +21,7 @@
                 <label for="sel1">Etudiant</label>
                 <select class="form-control" id="sel1">
                     {% for etudiant in student %}
-                    <option>{{ etudiant.student_name }}</option>
+                    <option>{{ etudiant.student_name~' '~etudiant.student_firstname }}</option>
                     {% endfor %}
                 </select>
             </div>
