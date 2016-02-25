@@ -233,7 +233,7 @@ $app->get('/notelist', function () use ($app) {
  * Route pour l'ajout des notes
  */
 
-$app->match('/addnote',function($id, Request $request) use ($app) {
+$app->match('/addnote',function(Request $request) use ($app) {
     /*$classes = $app['dao.className']->findAll();
     $discipline = $app['dao.discipline']->findAll();
     $etudiant = $app['dao.student']->findAll();*/
@@ -256,10 +256,6 @@ $app->match('/addnote',function($id, Request $request) use ($app) {
         'student' => $etudiant,*/
         'noteForm' => $noteFormView));
 })->bind('addnote');
-
-/*$app->get('/addnote', function () use ($app) {
-    return $app['twig']->render('FormTemplate/addnote.html.twig');
-})->bind('addnote');*/
 
 
 /**
