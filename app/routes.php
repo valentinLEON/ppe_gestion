@@ -294,8 +294,8 @@ $app->post('/addnote', function(Request $request) use ($app){
     $newEvaluation->setStudent($student);
     $newEvaluation->setCoefDiscipline(2);
     $newEvaluation->setJudgement('je suis un commentaire');
-    $newEvaluation->setDtCreate(date('d-m-Y'));
-    $newEvaluation->setDtUpdate(date('d-m-Y'));
+    $newEvaluation->setDtCreate(date('Y-m-d'));
+    $newEvaluation->setDtUpdate(date('Y-m-d'));
 
     $app['dao.evaluation']->saveGrade($newEvaluation);
     //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
