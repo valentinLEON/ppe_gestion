@@ -203,7 +203,7 @@ $app->get('/adddiscipline', function () use ($app) {
 
 
 
-/**                                                                NOTES         - EVALUATIONS 
+/**             NOTES         - EVALUATIONS
  * 
  *  
  *                   TABLEAU DE BORD
@@ -272,7 +272,7 @@ $app->get('/notestats', function () use ($app) {
 
 
 
-/**                                                                  ABSCENCES
+/**                         ABSCENCES
  * 
  * 
  *                      TABLEAU DE BORD
@@ -308,7 +308,7 @@ $app->get('/addabscence', function () use ($app) {
 })->bind('addabscence');
 
 
-/**                                                                      RETARDS
+/**                      RETARDS
  * 
  *                      AJOUT
  * 
@@ -334,7 +334,7 @@ $app->get('/retardslist', function () use ($app) {
 
 
 
-        /**                                                                   STATISTIQUES
+/**                        STATISTIQUES
  * 
  *                       TABLEAU DE BORD
  * 
