@@ -10,6 +10,7 @@ namespace ppe_gestion\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 
 
 class addNoteForm extends AbstractType
@@ -17,7 +18,7 @@ class addNoteForm extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('grade', 'text');
+            ->add('grade_student', NumberType::class);
     }
 
     public function getName()
