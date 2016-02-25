@@ -75,9 +75,7 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
         ),
 
     ),
-
 ));
-            
             
 //                                                        CONTROLLERS
 /**

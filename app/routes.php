@@ -25,7 +25,14 @@ $app->get('/', function () use ($app) {
 //                                                             Login form
 
 $app->get('/login', function(Request $request) use ($app) {
-var_dump($app['session']);
+
+    return $app['twig']->render('login.html.twig', array(
+        'error'         => $app['security.last_error']($request),
+        'last_username' => $app['session']->get('_security.last_username'),
+    ));
+})->bind('login');
+
+
 // 
 //
 //    
@@ -49,8 +56,10 @@ var_dump($app['session']);
 //
 //        'last_username' => $app['session']->get('_security.last_username'),
 //    ));    
-})->bind('login');
-    
+
+
+
+
 $app->get('/account', function () use ($app) {
     if (null === $user = $app['session']->get('user')) {
      
