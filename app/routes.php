@@ -267,6 +267,7 @@ $app->post('/addnote', function(Request $request) use ($app){
         $newEvaluation->setDtUpdate(getdate());
 
         $app['dao.evaluation']->saveGrade($newEvaluation);
+        return new Response('Bien joué !!!', 201);
     }
 
 
