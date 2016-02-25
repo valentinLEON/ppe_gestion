@@ -12,6 +12,7 @@ namespace ppe_gestion\Domain;
 class Student
 {
     public $id_student;
+
     public $student_name;
     public $student_firstname;
     public $student_birthday;
@@ -104,7 +105,11 @@ class Student
         $this->student_statut = $_student_statut;
     }
 
-
+    /**
+     * @return mixed
+     *
+     * LES DATES D'AJOUT ET DE MISE A JOUR
+     */
 
     public function getDtCreate()
     {
