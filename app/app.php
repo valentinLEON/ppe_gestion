@@ -41,7 +41,14 @@ $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 $app->register(new Silex\Provider\TranslationServiceProvider());
 
 // Provider pour générer des sessions
-$app->register(new Silex\Provider\SessionServiceProvider());
+$app->register(new Silex\Provider\SessionServiceProvider(), array(
+    
+    
+        'error'         => $app['security.last_error']($request),
+
+        'last_username' => $app['session']->get('_security.last_username'),
+    
+));
 
 
 // Provider pour gérer le login
