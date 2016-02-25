@@ -250,8 +250,9 @@ $app->get('/addnote',function() use ($app) {
 })->bind('addnote');
 
 $app->post('/addnote', function(Request $request) use ($app){
-    $evaluation = $app['dao.evaluation']->save($request->request->get('note'));
-});
+    var_dump('coucou');
+    die();
+})->bind('note');
 
 /**
  * 
