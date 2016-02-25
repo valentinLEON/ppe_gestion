@@ -266,13 +266,16 @@ $app->post('/addnote', function(Request $request) use ($app){
     $discipline = new Discipline();
     $student = new Student();
 
+    $discipline->setIdDiscipline(1);
+    $student->setIdStudent(1);
+
     /*var_dump($discipline);
     var_dump($student);
     die();*/
 
     $newEvaluation->setGradeStudent($request->request->get('note'));
-    $newEvaluation->setDiscipline($discipline->setIdDiscipline(1));
-    $newEvaluation->setStudent($student->setIdStudent(1));
+    $newEvaluation->setDiscipline($discipline->getIdDiscipline());
+    $newEvaluation->setStudent($student->getIdStudent());
     $newEvaluation->setCoefDiscipline(2);
     $newEvaluation->setJudgement('je suis un commentaire');
     $newEvaluation->setDtCreate(getdate());
