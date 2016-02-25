@@ -247,12 +247,12 @@ $app->get('/addnote',function() use ($app) {
         'classNames' => $classes,
         'matieres' => $discipline,
         'student' => $etudiant));
-})->bind('noteadd');
+})->bind('addnote');
 
-/*$app->post('/addnote', function(Request $request) use ($app){
+$app->post('/addnote/', function(Request $request) use ($app){
     var_dump('toto');
     die();
-})->bind('noteadd');*/
+})->bind('addnote');
 
 /**
  * 
