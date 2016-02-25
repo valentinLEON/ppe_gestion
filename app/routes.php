@@ -112,7 +112,7 @@ $app->get('/userslist', function () use ($app) {
 
 /**
  *   
-*                                                            CALENDRIER
+*                                                                CALENDRIER
 *
  * route pour afficher le calendrier
  */
@@ -129,8 +129,8 @@ $app->get('/calendar', function () use ($app) {
  */
 $app->get('/login', function (Request $request) use ($app) {
     return $app['twig']->render('login.html.twig', array(
-        'error' => $app['security.last.error']($request),
-        'last_username' => $app['session']->get('_security.last_username'),
+     //   'error' => $app['security.last.error']($request),
+    //    'last_username' => $app['session']->get('_security.last_username'),
     ));
 })->bind('login');
 
@@ -208,7 +208,7 @@ $app->get('/adddiscipline', function () use ($app) {
 
 
 
-/**             NOTES         - EVALUATIONS
+/**                                                 NOTES         - EVALUATIONS
  * 
  *  
  *                   TABLEAU DE BORD
@@ -268,7 +268,7 @@ $app->get('/notestats', function () use ($app) {
 
 
 
-/**                         ABSCENCES
+/**                                                              ABSCENCES
  * 
  * 
  *                      TABLEAU DE BORD
@@ -304,7 +304,7 @@ $app->get('/addabscence', function () use ($app) {
 })->bind('addabscence');
 
 
-/**                      RETARDS
+/**                                                               RETARDS
  * 
  *                      AJOUT
  * 
