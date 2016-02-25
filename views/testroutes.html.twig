@@ -1,0 +1,130 @@
+{# src/ppe_gestion/views/index.html.twig #}
+
+{% extends "layout.html.twig" %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+
+<h3><span class="label label-default">Accueil</span></h3>
+
+<!--                   CALENDRIER                   -->
+<div class="panel panel-info indexDiv" >
+    <div class="inner " >
+        <a href="calendar"><h4 ><i class="fa fa-calendar">  </i>  Calendrier </h4></a>
+    </div>
+</div>
+
+
+<!--                   STATISTIQUES                 -->
+<div class="panel panel-info indexDiv" >
+    <div class="inner " >
+        <a href="stattab"><h4 ><i class="glyphicon glyphicon-stats">  </i>  Statistiques </h4></a>
+    </div>
+</div>
+
+
+<h3  id="btnAdmin" onmouseout="bgOpacitymax()" onmouseover="bgOpacitymin()" >
+        <span class="label label-default" onclick="showAdminAcces()">
+            Accès Admin
+        </span>
+</h3>
+
+
+<div class="accesAdmin" id="accesAdmin">
+
+    <!--                      DISCIPLINES                   -->
+    <div class="panel panel-info indexDiv">
+        <div class="inner" >
+            <a href="disciplinetab"><h4><i class="glyphicon glyphicon-dashboard">  </i>  Gestion des Disciplines</h4></a>
+            <a href="disciplineslist"><p><i class="glyphicon glyphicon-th-list rightDiv">  </i>  Liste des Disciplines</p></a>
+        </div>
+        <div class="icon rightDiv" >
+            <a href="adddiscipline"><p><i class="fa fa-plus">  </i>  Ajouter une Discipline</p></a>
+        </div>
+    </div>
+
+
+    <!--                      UTILISATEURS                   -->
+    <div class="panel panel-info indexDiv ">
+        <div class="inner" >
+            <a href="usertab"><h4><i class="glyphicon glyphicon-dashboard">  </i>  Gestion des Utilisateurs</h4></a>
+            <a href="userslist"><p><i class="glyphicon glyphicon-th-list rightDiv">  </i>  Liste des Utilisateurs</p></a>
+        </div>
+        <div class="icon rightDiv" >
+            <a href="adduser"><p><i class="fa fa-plus">  </i>   Ajouter un Utilisateur</p></a>
+        </div>
+    </div>
+
+
+
+
+    <!--                        CLASSES                    -->
+    <div class="panel panel-info indexDiv ">
+        <div class="inner" >
+            <a href="classetab"><h4><i class="glyphicon glyphicon-dashboard">  </i>  Gestion des Classes</h4></a>
+            <a href="classeslist"><p><i class="glyphicon glyphicon-th-list rightDiv">   </i>  Liste des Classes</p></a>
+        </div>
+        <div class="icon rightDiv" >
+            <a href="addclass"><p><i class="fa fa-plus ">  </i>  Ajouter une classe</p></a>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<h3><span class="label label-default">Accès Utilisateur</span></h3>
+
+<!--                     ABSCENCES                   -->
+<div class="panel panel-info indexDiv" >
+    <div class="inner" >
+        <a href="abscencetab"><h4><i class="glyphicon glyphicon-dashboard">  </i>  Abscences - Retards</h4></a>
+        <a href="abscenceslist"><p><i class="glyphicon glyphicon-th-list rightDiv">  </i>  Liste des Absences</p></a>
+        <a href="retardslist"><p><i class="glyphicon glyphicon-th-list rightDiv">  </i>  Liste des retards</p></a>
+    </div>
+    <div class="icon rightDiv" >
+        <a href="addabscence"><p ><i class="fa fa-plus">  </i>   Ajouter une Abscence</p></a>
+        <a href="addretard"><p><i class="fa fa-plus">  </i>  Ajouter un Retard</p></a>
+    </div>
+</div>
+
+
+<!--                        ETUDIANTS                    -->
+<div class="panel panel-info indexDiv" >
+    <div class="inner " >
+        <a href="studenttab"><h4 ><i class="glyphicon glyphicon-dashboard">  </i>  Gestion des Etudiants</h4></a>
+        <a href="studentslist"><p class="rightDiv"><i class="glyphicon glyphicon-th-list">  </i>  Liste des Etudiants</p></a>
+    </div>
+    <div class="icon rightDiv" >
+        <a href="addstudent"><p><i class="fa fa-plus">  </i>  Ajouter un Etudiant</p></a>
+    </div>
+</div>
+
+
+
+<!--                NOTE   -   EVALUATIONS              -->
+<div class="panel panel-info indexDiv">
+    <div class="inner" >
+        <a href="notetab"><h4><i class="glyphicon glyphicon-dashboard">  </i>  Notes - Evaluations</h4></a>
+        <a href="noteslist"><p><i class="glyphicon glyphicon-th-list rightDiv">  </i>  Liste des Evalutations</p></a>
+    </div>
+    <div class="icon rightDiv" >
+        <a href="addnote"><p><i class="fa fa-plus">  </i>  Ajouter une Evaluation</p></a>
+    </div>
+</div>
+
+
+
+
+</div>
+{% endblock %}
