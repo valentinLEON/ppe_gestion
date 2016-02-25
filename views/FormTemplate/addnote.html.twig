@@ -17,7 +17,7 @@
                 <label for="sel1">Etudiant</label>
                 <select class="form-control" id="sel2" name="etudiant">
                     {% for etudiant in student %}
-                    <option value="{{ etudiant.id }}">{{ etudiant.student_name~' '~etudiant.student_firstname }}</option>
+                    <option value="{{ etudiant.id_student }}">{{ etudiant.student_name~' '~etudiant.student_firstname }}</option>
                     {% endfor %}
                 </select>
             </div>
@@ -33,7 +33,7 @@
                 <label for="sel1">Matière</label>
                 <select class="form-control" id="sel3" name="matiere">
                     {% for matiere in matieres %}
-                    <option>{{ matiere.name_discipline }}</option>
+                    <option value="{{ matiere.id_discipline }}">{{ matiere.name_discipline }}</option>
                     {% endfor %}
                 </select>
             </div>
