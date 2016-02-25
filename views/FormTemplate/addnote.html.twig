@@ -33,7 +33,7 @@
                 <label for="sel1">Matière</label>
                 <select class="form-control" id="sel3" name="matiere">
                     {% for matiere in matieres %}
-                    <option>{{ matiere.name_discipline }}</option>
+                    <option value="{{ matiere.id_discipline }}">{{ matiere.name_discipline }}</option>
                     {% endfor %}
                 </select>
             </div>
