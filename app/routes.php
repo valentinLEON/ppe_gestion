@@ -252,15 +252,24 @@ $app->get('/addnote',function() use ($app) {
 $app->post('/addnote', function(Request $request) use ($app){
     $newEvaluation = new Evaluation();
 
-    $newEvaluation->setGradeStudent($request->request->get('note'));
-    $newEvaluation->setIdDiscipline($request->request->get('matiere'));
-    $newEvaluation->setIdStudent($request->request->get('etudiant'));
-    $newEvaluation->setCoefDiscipline(2);
-    $newEvaluation->setJudgement('je suis un commentaire');
-    $newEvaluation->setDtCreate(getdate());
-    $newEvaluation->setDtUpdate(getdate());
+    $discipline = new \ppe_gestion\Domain\Discipline();
+    $student = new \ppe_gestion\Domain\Student();
 
-    $app['dao.evaluation']->saveGrade($newEvaluation);
+    if($request->request->get('etudiant') == $student->getIdStudent()
+        && $request->request->get('matiere') == $discipline->getIdDiscipline())
+    {
+        $newEvaluation->setGradeStudent($request->request->get('note'));
+        $newEvaluation->setDiscipline($discipline->getIdDiscipline());
+        $newEvaluation->setStudent($student->getIdStudent());
+        $newEvaluation->setCoefDiscipline(2);
+        $newEvaluation->setJudgement('je suis un commentaire');
+        $newEvaluation->setDtCreate(getdate());
+        $newEvaluation->setDtUpdate(getdate());
+
+        $app['dao.evaluation']->saveGrade($newEvaluation);
+    }
+
+
 
 })->bind('note');
 

@@ -23,9 +23,6 @@ class Evaluation
     public $dt_create;
     public $dt_update;
 
-    public $id_student; /*clé étrangère*/
-    public $id_discipline; /*clé étrangère*/
-
     public function getIdEvaluation(){
         return $this->id_evaluation;
     }
@@ -33,15 +30,6 @@ class Evaluation
     public function setIdEvaluation($_id_evaluation)
     {
         $this->id_evaluation = $_id_evaluation;
-    }
-
-    public function getIdStudent(){
-        return $this->id_student;
-    }
-
-    public function setIdStudent($_id_student)
-    {
-        $this->id_student = $_id_student;
     }
 
     public function getGradeStudent(){
@@ -108,16 +96,6 @@ class Evaluation
     public function setDtUpdate($_dt_update)
     {
         $this->dt_update = $_dt_update;
-    }
-
-    public function getIdDiscipline()
-    {
-        return $this->id_discipline;
-    }
-
-    public function setIdDiscipline($_id_discipline)
-    {
-        $this->id_discipline = $_id_discipline;
     }
 
 
