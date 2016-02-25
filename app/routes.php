@@ -66,8 +66,18 @@ $app->get('/account', function () use ($app) {
     
     }
 });
+ /*                                                                 ADMIN
 
-/**                                                             ADMIN
+ *                       TESTS POUR LES ROUTES
+ * 
+ * route pour l'affichage de la liste des etudiants
+ */
+$app->get('/testroutes', function () use ($app) {
+    return $app['twig']->render('testroutes.html.twig');
+})->bind('testroutes');
+
+
+/**                                                          
  * 
  *                        TABLEAU DE BORD 
  * 
