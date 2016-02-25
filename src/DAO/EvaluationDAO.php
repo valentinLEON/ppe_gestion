@@ -126,7 +126,7 @@ class EvaluationDAO extends DAO
             '$dt_update'        => $evaluation->getDtUpdate()
         );
 
-        if($evaluation == getIdEvaluation())
+        if($evaluation->getIdEvaluation())
         {
             $this->getDb()->update('evaluation', $grade, array('id_evaluation'=> $evaluation->getIdEvaluation()));
         }
