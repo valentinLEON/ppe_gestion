@@ -31,6 +31,7 @@ $app->get('/login', function(Request $request) use ($app) {
     ));
 })->bind('login');
 
+
 // 
 //
 //    

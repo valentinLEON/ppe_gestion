@@ -22,13 +22,16 @@ ExceptionHandler::register();
 
 // Register service providers.
 $app->register(new Silex\Provider\DoctrineServiceProvider());
+
 // Provider pour générer des sessions
-$app->register(new Silex\Provider\SessionServiceProvider(), array(
-    
-   'security.firewalls' => array(
-         'secured' => array(
-         'secured' => array(
-));
+//$app->register(new Silex\Provider\SessionServiceProvider(), array(
+//    
+//    
+//        'error'         => $app['security.last_error']($request),
+//
+//        'last_username' => $app['session']->get('_security.last_username'),
+//    
+//));
 
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
