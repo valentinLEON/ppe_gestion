@@ -250,8 +250,18 @@ $app->get('/addnote',function() use ($app) {
 })->bind('addnote');
 
 $app->post('/addnote', function(Request $request) use ($app){
-    var_dump($request);
-    die();
+    $newEvaluation = new Evaluation();
+
+    $newEvaluation->setGradeStudent($request['note']);
+    $newEvaluation->setIdDiscipline($request['matiere']);
+    $newEvaluation->setIdStudent($request['etudiant']);
+    $newEvaluation->setCoefDiscipline(2);
+    $newEvaluation->setJudgement('je suis un commentaire');
+    $newEvaluation->setDtCreate(getdate());
+    $newEvaluation->setDtUpdate(getdate());
+
+    $app['dao.evaluation']->saveGrade($newEvaluation);
+
 })->bind('note');
 
 /**
