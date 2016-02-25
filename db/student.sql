@@ -12,7 +12,5 @@ CREATE TABLE student(
         `student_statut`          VARCHAR (100) , /*Définit le type de contrat*/
         `dt_create`               DATE NOT NULL , /*Date de création*/
         `dt_update`               DATE NOT NULL , /*Date de modification*/
-        `id_class`                INT(11) NOT NULL,
-        PRIMARY KEY (id_student) ,
-        FOREIGN KEY (id_class) REFERENCES className(id_class)
+        PRIMARY KEY (id_student)
 )ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;

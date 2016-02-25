@@ -10,6 +10,8 @@ CREATE TABLE evaluation(
         `dt_create`         DATE NOT NULL , /*Date de création*/
         `dt_update`         DATE NOT NULL , /*Date de modification*/
         `id_student`        INT NOT NULL , /*clé étrangère prend l'id student de la table student*/
+        `id_discipline`     INT NOT NULL ,
         PRIMARY KEY (id_evaluation),
-        FOREIGN KEY (id_student) REFERENCES student(id_student)
+        FOREIGN KEY (id_student) REFERENCES student(id_student),
+        FOREIGN KEY (id_discipline) REFERENCES discipline(id_discipline)
 )ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
