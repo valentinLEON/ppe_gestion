@@ -20,8 +20,8 @@
             <div class="form-group" style="width: 6%;  display:inline-block; margin:10px;">
                 <label for="sel1">Etudiant</label>
                 <select class="form-control" id="sel1">
-                    {% for student in students %}
-                    <option>{{ student.student_name }}</option>
+                    {% for etudiant in student %}
+                    <option>{{ etudiant.student_name }}</option>
                     {% endfor %}
                 </select>
             </div>
