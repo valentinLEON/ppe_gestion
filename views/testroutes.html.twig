@@ -8,17 +8,18 @@
 
 {% block content %}
 
-    <h3 class="label label-default">Accueil</span>
-    <a href="testlogin"><span class="label label-default">Accès Utilisateur</span></a></h3>
+    <h3  style="display:inline-block" class="label label-default">Accueil</span></h3>
+    
+    <h3  style="display:inline-block" ><a href="testlogin"><span class="label label-default">Accès Utilisateur</span></a></h3>
     
     <h3  id="btnAdmin" style="display:inline-block" onmouseout="bgOpacitymax()" onmouseover="bgOpacitymin()" >
             <span class="label label-default" onclick="showAdminAcces()">Login</span>
     </h3>
 
 
-<div class="accesAdmin" id="accesAdmin">
+<div class="accesAdmin" id="accesAdmin"  style="display:block" >
 
-    <!--                      UTILISATEURS                   -->
+                                 <!--                      UTILISATEURS                   -->
     <div class="panel panel-info indexDiv ">
         <div class="inner" >
             <a href="usertab"><h4><i class="glyphicon glyphicon-dashboard">  </i>  Gestion des Utilisateurs</h4></a>
@@ -36,7 +37,7 @@
 
 
 <!--                   CALENDRIER                   -->
-<div class="panel panel-info indexDiv" >
+<div class="panel panel-info indexDiv"  style="display:block" >
     <div class="inner " >
         <a href="calendar"><h4 ><i class="fa fa-calendar">  </i>  Calendrier </h4></a>
     </div>
