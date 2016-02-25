@@ -233,7 +233,7 @@ $app->get('/notelist', function () use ($app) {
  * Route pour l'ajout des notes
  */
 
-$app->get('/addnote',function(Request $request) use ($app) {
+$app->get('/addnote/{id}',function($id, Request $request) use ($app) {
     var_dump('test');
     die();
     /*$classes = $app['dao.className']->findAll();
@@ -259,7 +259,10 @@ $app->get('/addnote',function(Request $request) use ($app) {
         'noteForm' => $noteFormView));*/
 })->bind('addnote');
 
-
+$app->post('/addnote', function(Request $request) use ($app){
+    var_dump('toto');
+    die();
+})->bind('addnote');
 /**
  * 
  *          
