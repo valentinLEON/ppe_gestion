@@ -234,9 +234,9 @@ $app->get('/notelist', function () use ($app) {
  */
 
 $app->match('/addnote/{id}',function($id, Request $request) use ($app) {
-    $classes = $app['dao.className']->findAll();
+    /*$classes = $app['dao.className']->findAll();
     $discipline = $app['dao.discipline']->findAll();
-    $etudiant = $app['dao.student']->findall();
+    $etudiant = $app['dao.student']->findall();*/
 
     $noteFormView = null;
 
@@ -251,9 +251,9 @@ $app->match('/addnote/{id}',function($id, Request $request) use ($app) {
     $noteFormView = $noteForm->createView();
     $evaluation = $app['dao.evaluation']->findAllByStudent($id);
     return $app['twig']->render('FormTemplate/addnote.html.twig', array(
-        'classNames' => $classes,
+        /*'classNames' => $classes,
         'matieres' => $discipline,
-        'student' => $etudiant,
+        'student' => $etudiant,*/
         'noteForm' => $noteFormView));
 })->bind('addnote');
 
