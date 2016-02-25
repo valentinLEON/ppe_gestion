@@ -11,11 +11,11 @@
         <div class="box-body" style="margin-left:2rem; width: 80%; ">
             <div class="form-group" style="width: 6%;  display:inline-block; margin:10px;">
                 <label for="sel1">Note</label>
-                <!--<select class="form-control" id="sel1" keybord="true">-->
-                    {#{% for i in 0..20 %}
+                <select class="form-control" id="sel1" keybord="true">-->
+                    {{% for i in 0..20 %}
                         <option>{{ i }}</option>
-                    {% endfor %}#}
-                    {% if noteForm %}
+                    {% endfor %}
+                {#{% if noteForm %}
                         {{ form_start(noteForm) }}
                             <div class="form-group">
                                 {{ form_errors(noteForm.grade_student) }}
@@ -25,9 +25,9 @@
                                 }}) }}
                             </div>
                         {{ form_end(noteForm) }}
-                    {% endif %}
+                    {% endif %}#}
 
-                <!--</select>-->
+                </select>
             </div>
         </div>
           {# submit avec input si possible #}      

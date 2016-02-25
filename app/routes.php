@@ -233,12 +233,14 @@ $app->get('/notelist', function () use ($app) {
  * Route pour l'ajout des notes
  */
 
-$app->match('/addnote',function(Request $request) use ($app) {
+$app->post('/addnote',function(Request $request) use ($app) {
+    var_dump('test');
+    die();
     /*$classes = $app['dao.className']->findAll();
     $discipline = $app['dao.discipline']->findAll();
     $etudiant = $app['dao.student']->findAll();*/
 
-    $noteFormView = null;
+   /* $noteFormView = null;
 
     $note = new Evaluation();
     $noteForm = $app['form.factory']->create(new addNoteForm(), $note);
@@ -248,13 +250,13 @@ $app->match('/addnote',function(Request $request) use ($app) {
         $app['dao.evaluation']->save($note);
     }*/
 
-    $noteFormView = $noteForm->createView();
+    /*$noteFormView = $noteForm->createView();
     //$evaluation = $app['dao.evaluation']->findAllByStudent($id);
     return $app['twig']->render('FormTemplate/addnote.html.twig', array(
         /*'classNames' => $classes,
         'matieres' => $discipline,
-        'student' => $etudiant,*/
-        'noteForm' => $noteFormView));
+        'student' => $etudiant,
+        'noteForm' => $noteFormView));*/
 })->bind('addnote');
 
 
