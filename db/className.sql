@@ -11,7 +11,5 @@ CREATE TABLE className(
     `description`     MESSAGE_TEXT (100) , /* Description de la classe */
     `dt_create`       DATE NOT NULL , /*Date de création*/
     `dt_update`       DATE NOT NULL , /*Date de modification*/
-    `id_student`      INT(11) NOT NULL,
-    PRIMARY KEY (id_class),
-    FOREIGN KEY (id_student) REFERENCES student(id_student)
+    PRIMARY KEY (id_class)
 )ENGINE=innodb CHARACTER SET utf8 COLLATE utf8_unicode_ci;
