@@ -16,15 +16,16 @@
                         <option>{{ i }}</option>
                     {% endfor %}#}
                     {% if noteForm %}
-                    {{ form_start(noteForm) }}
-                        <div class="form-group">
-                            {{ form_errors(noteForm.grade_student) }}
-                            {{ form_widget(noteForm.grade_student, { 'attr': {
-                                'class': 'form-control',
-                                'placeholder': 'Entrer une note'
-                            }}) }}
-                        </div>
-                    {{ form_end(noteForm) }}
+                        {{ form_start(noteForm) }}
+                            <div class="form-group">
+                                {{ form_errors(noteForm.grade_student) }}
+                                {{ form_widget(noteForm.grade_student, { 'attr': {
+                                    'class': 'form-control',
+                                    'placeholder': 'Entrer une note'
+                                }}) }}
+                            </div>
+                        {{ form_end(noteForm) }}
+                    {% endif %}
 
                 <!--</select>-->
             </div>
