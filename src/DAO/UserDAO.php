@@ -34,7 +34,13 @@ class UserDAO extends DAO implements UserProviderInterface
         return $users;
     }
 
-
+    /**
+     * @param $id
+     * @return User
+     * @throws \Exception
+     *
+     * Retourne un utilisateur via son id
+     */
     public function find($id)
     {
         $sql = "SELECT * FROM users";
@@ -79,8 +85,12 @@ class UserDAO extends DAO implements UserProviderInterface
         $user->setPassword($row['password']);
         $user->setSalt($row['user_salt']);
         $user->setRole($row['user_role']);
+        $user->setUserMail($row['user_mail']);
+        $user->setDescription($row['description']);
+
         $user->setDtCreate($row['dt_create']);
         $user->setDtUpdate($row['dt_update']);
+
         $user->setIdDiscipline($row['id_discipline']);
         $user->setIdClass($row['id_class']);
 

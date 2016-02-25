@@ -15,18 +15,6 @@ use ppe_gestion\DAO\EvaluationDAO;
 
 class DisciplineDAO extends DAO
 {
-
-    public $evaluationDAO;
-
-    /**
-     * @param EvaluationDAO $_evaluationDAO
-     * Dépendance avec les notes
-     */
-    public function setEvaluationDAO(EvaluationDAO $_evaluationDAO)
-    {
-        $this->evaluationDAO = $_evaluationDAO;
-    }
-
     /**
      * @return array
      *
@@ -52,7 +40,7 @@ class DisciplineDAO extends DAO
      * @throws \Exception
      * fonction de recherche de matière unique par ID
      */
-    public function find($id)
+    public function findDiscipline($id)
     {
         $sql = "SELECT * FROM discipline WHERE id_discipline=?";
         $row = $this->getDb()->fetchAssoc($sql, array($id));
@@ -68,25 +56,25 @@ class DisciplineDAO extends DAO
      *
      * Ajout et modification d'une matière
      */
-    public function saveDiscipline(Discipline $_discipline)
+    /*public function saveDiscipline(Discipline $_discipline)
     {
-        $discipline = array(
-            '$name_discipline' => $_discipline->getNameDiscipline(),
-            'id_evaluation' => $_discipline->getEvaluation()->getDiscipline(),
-            '$dt_create' => $_discipline->getDtCreate(),
-            '$dt_update' => $_discipline->getDtUpdate(),
+        $disciplineData = array(
+            '$name_discipline'  => $_discipline->getNameDiscipline(),
+            '$description'      => $_discipline->getDescription(),
+            '$dt_create'        => $_discipline->getDtCreate(),
+            '$dt_update'        => $_discipline->getDtUpdate(),
         );
 
         if($_discipline->getIdDiscipline()){
-            $this->getDb()->update('student', $discipline, array(
+            $this->getDb()->update('discipline', $disciplineData, array(
                 'id_discipline' => $_discipline->getIdDiscipline()));
         }
         else{
-            $this->getDb()->insert('discipline', $discipline);
+            $this->getDb()->insert('discipline', $disciplineData);
             $id = $this->getDb()->lastInsertId();
             $_discipline->setIdDiscipline($id);
         }
-    }
+    }*/
 
     /**
      * @param $id
@@ -94,12 +82,12 @@ class DisciplineDAO extends DAO
      *
      * Suppression d'une matière par l'id
      */
-    public function deleteDiscipline($id)
+    /*public function deleteDiscipline($id)
     {
         $this->getDb()->delete('discipline', array(
             'id_discipline' => $id
         ));
-    }
+    }*/
 
     /**
      * @param $row
@@ -110,17 +98,14 @@ class DisciplineDAO extends DAO
     protected function buildDomainObject($row)
     {
         $discipline = new Discipline();
+
         $discipline->setIdDiscipline($row['id_discipline']);
+
         $discipline->setNameDiscipline($row['name_discipline']);
+        $discipline->setDescription($row['description']);
+
         $discipline->setDtCreate($row['dt_create']);
         $discipline->setDtUpdate($row['dt_update']);
-
-        /*if(array_key_exists('id_evaluation', $row))
-        {
-            $evaluationID = $row['id_evaluation'];
-            $evaluation = $this->evaluationDAO->find($evaluationID);
-            $discipline->setEvaluation($evaluation);
-        }*/
 
         return $discipline;
     }

@@ -11,47 +11,88 @@ namespace ppe_gestion\DAO;
 
 use ppe_gestion\Domain\Evaluation;
 use ppe_gestion\Domain\Student;
+use ppe_gestion\Domain\Discipline;
 
 
 
 class EvaluationDAO extends DAO
 {
-    public $studentDAO;
-    public $disciplineDAO;
+    private $studentDAO;
+    private $disciplineDAO;
 
     /**
-     * @param StudentDAO $_studentDAO
+     * @param StudentDAO $studentDAO
      *
      * Fait une dépendance entre la classe studentDao et evaluation
      */
-    public function setStudentDAO(StudentDAO $_studentDAO)
+    public function setStudentDAO(StudentDAO $studentDAO)
     {
-        $this->studentDAO = $_studentDAO;
+        $this->studentDAO = $studentDAO;
     }
 
     /**
-     * @param DisciplineDAO $_disciplineDAO
+     * @param DisciplineDAO $disciplineDAO
      *
      * Fait une dépendance entre la classe disciplineDAO et evaluation
      */
-    public function setDisciplineDAO(DisciplineDAO $_disciplineDAO)
+    public function setDisciplineDAO(DisciplineDAO $disciplineDAO)
     {
-        $this->disciplineDAO = $_disciplineDAO;
+        $this->disciplineDAO = $disciplineDAO;
     }
 
-    //affiche toutes les évaluations de l'élève.
-    public function findAll()
+    /**
+     * @param $studentId
+     * @return array
+     *
+     * Fonction de recherche par étudiant (Filtre)
+     * On va rechercher toutes les notes d'un étudiant
+     * Fonctionne
+     */
+    public function findAllByStudent($studentId)
     {
-        $_sql = "SELECT * FROM evaluation ORDER BY id_evaluation";
-        $_res = $this->getDb()->fetchAll($_sql);
+        $student = $this->studentDAO->findStudent($studentId);
 
-        $_notes = array();
-        foreach($_res as $row){
-            $_noteId = $row['id_evaluation'];
-            $_note[$_noteId] = $this->buildDomainObject($row);
+        $sql = "SELECT id_student, grade_student, judgement FROM evaluation WHERE id_student = ?";
+        $res = $this->getDb()->fetchAll($sql, array($studentId));
+
+
+        $notes = array();
+        foreach($res as $row)
+        {
+            $noteID = $row['id_evaluation'];
+            $note = $this->buildDomainObject($row);
+
+            $note->setStudent($student);
+            $notes[$noteID] = $note;
         }
+        return $notes;
+    }
 
-        return $_notes;
+    /**
+     * @param $disciplineId
+     * @return array
+     *
+     * Fonction de recherche des notes par matière (Filtre)
+     * On va rechercher toutes les notes qui existent en fonction de la matière
+     * Fonctionne
+     */
+    public function findAllByDiscipline($disciplineId)
+    {
+        $discipline = $this->disciplineDAO->findDiscipline($disciplineId);
+
+        $sql = "SELECT id_discipline, grade_student, judgement FROM evaluation WHERE id_discipline = ?";
+        $res = $this->getDb()->fetchAll($sql, array($disciplineId));
+
+        $matieres = array();
+        foreach($res as $row)
+        {
+            $matiereID = $row['id_evaluation'];
+            $matiere  = $this->buildDomainObject($row);
+
+            $matiere->setStudent($discipline);
+            $matieres[$matiereID] = $matiere;
+        }
+        return $matieres;
     }
 
     /**
@@ -69,33 +110,33 @@ class EvaluationDAO extends DAO
         if($row)
             return $this->buildDomainObject($row);
         else
-            throw new \Exception("Aucune matière pour l'id : ".$id);
+            throw new \Exception("Aucune note pour l'id : ".$id);
     }
 
     /**
-     * @param Evaluation $_evaluation
+     * @param Evaluation $evaluation
      * Sauvegarde et modification d'une note pour l'élève
      */
-    public function saveGrade(Evaluation $_evaluation)
+    public function saveGrade(Evaluation $evaluation)
     {
         $grade = array(
-            'id_student'=> $_evaluation->getStudent()->getIdEvaluation(),
-            'id_discipline'=> $_evaluation->getDiscipline()->getIdEvaluation(),
-            'grade_student'=> $_evaluation->getGradeStudent(),
-            'coef_discipline'=> $_evaluation->getCoefDiscipline(),
-            'judgement'=> $_evaluation->getJudgement(),
-            '$dt_create' => $_evaluation->getDtCreate(),
-            '$dt_update' => $_evaluation->getDtUpdate()
+            'id_student'        => $evaluation->getStudent()->getIdEvaluation(),
+            'id_discipline'     => $evaluation->getDiscipline()->getIdEvaluation(),
+            'grade_student'     => $evaluation->getGradeStudent(),
+            'coef_discipline'   => $evaluation->getCoefDiscipline(),
+            'judgement'         => $evaluation->getJudgement(),
+            '$dt_create'        => $evaluation->getDtCreate(),
+            '$dt_update'        => $evaluation->getDtUpdate()
         );
 
-        if($_evaluation = getIdEvaluation())
+        if($evaluation = getIdEvaluation())
         {
-            $this->getDb()->update('evaluation', $grade, array('id_evaluation'=> $_evaluation->getIdEvaluation()));
+            $this->getDb()->update('evaluation', $grade, array('id_evaluation'=> $evaluation->getIdEvaluation()));
         }
         else{
             $this->getDb()->insert('evaluation', $grade);
             $_id_evaluation = $this->getDb()->lastInsertId();
-            $_evaluation->setIdEvaluation($_id_evaluation);
+            $evaluation->setIdEvaluation($_id_evaluation);
         }
     }
 
@@ -131,14 +172,14 @@ class EvaluationDAO extends DAO
         if(array_key_exists('id_student', $row))
         {
             $studentID = $row['id_student'];
-            $student = $this->studentDAO->find($studentID);
+            $student = $this->studentDAO->findStudent($studentID);
             $evaluation->setStudent($student);
         }
 
         if(array_key_exists('id_discipline', $row))
         {
             $disciplineID = $row['id_discipline'];
-            $discipline = $this->disciplineDAO->find($disciplineID);
+            $discipline = $this->disciplineDAO->findDiscipline($disciplineID);
             $evaluation->setDiscipline($discipline);
         }
 

@@ -18,6 +18,7 @@ class Student
     public $student_email;
     public $student_address;
     public $student_tel;
+    public $student_statut;
 
     public $dt_create;
     public $dt_update;
@@ -73,6 +74,16 @@ class Student
         $this->student_email = $_student_email;
     }
 
+    public function getAddress()
+    {
+        return $this->student_address;
+    }
+
+    public function setAddress($_student_address)
+    {
+        $this->student_address = $_student_address;
+    }
+
     public function getTel()
     {
         return $this->student_tel;
@@ -83,15 +94,17 @@ class Student
         $this->student_tel = $_student_tel;
     }
 
-    public function getAddress()
+    public function getStudentStatut()
     {
-        return $this->student_address;
+        return $this->student_statut;
     }
 
-    public function setAddress($_student_address)
+    public function setStudentStatut($_student_statut)
     {
-        $this->student_address = $_student_address;
+        $this->student_statut = $_student_statut;
     }
+
+
 
     public function getDtCreate()
     {

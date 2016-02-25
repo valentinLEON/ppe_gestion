@@ -19,6 +19,8 @@ class User implements UserInterface
     public $password;
     public $salt;
     public $role;
+    public $user_mail;
+    public $description;
 
     public $dt_create;
     public $dt_update;
@@ -74,6 +76,26 @@ class User implements UserInterface
     public function setRole($_role)
     {
         $this->role = $_role;
+    }
+
+    public function getUserMail()
+    {
+        return $this->user_mail;
+    }
+
+    public function setUserMail($_user_mail)
+    {
+        $this->user_mail = $_user_mail;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    public function setDescription($_description)
+    {
+        $this->description = $_description;
     }
 
     /**
