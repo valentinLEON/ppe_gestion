@@ -256,20 +256,16 @@ $app->post('/addnote', function(Request $request) use ($app){
     $discipline = new \ppe_gestion\Domain\Discipline();
     $student = new \ppe_gestion\Domain\Student();
 
-    if($request->request->get('etudiant') == $student->getIdStudent()
-        && $request->request->get('matiere') == $discipline->getIdDiscipline())
-    {
-        $newEvaluation->setGradeStudent($request->request->get('note'));
-        $newEvaluation->setDiscipline($discipline->getIdDiscipline());
-        $newEvaluation->setStudent($student->getIdStudent());
-        $newEvaluation->setCoefDiscipline(2);
-        $newEvaluation->setJudgement('je suis un commentaire');
-        $newEvaluation->setDtCreate(getdate());
-        $newEvaluation->setDtUpdate(getdate());
+    $newEvaluation->setGradeStudent($request->request->get('note'));
+    $newEvaluation->setDiscipline($request->request->get('matiere'));
+    $newEvaluation->setStudent($request->request->get('etudiant'));
+    $newEvaluation->setCoefDiscipline(2);
+    $newEvaluation->setJudgement('je suis un commentaire');
+    $newEvaluation->setDtCreate(getdate());
+    $newEvaluation->setDtUpdate(getdate());
 
-        $app['dao.evaluation']->saveGrade($newEvaluation);
-    }
-    $app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !');
+    $app['dao.evaluation']->saveGrade($newEvaluation);
+    //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
 })->bind('note');
 
 /**
