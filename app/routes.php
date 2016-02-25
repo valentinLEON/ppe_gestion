@@ -252,9 +252,9 @@ $app->get('/addnote',function() use ($app) {
 $app->post('/addnote', function(Request $request) use ($app){
     $newEvaluation = new Evaluation();
 
-    $newEvaluation->setGradeStudent($request['note']);
-    $newEvaluation->setIdDiscipline($request['matiere']);
-    $newEvaluation->setIdStudent($request['etudiant']);
+    $newEvaluation->setGradeStudent($request->request->get('note'));
+    $newEvaluation->setIdDiscipline($request->request->get('matiere'));
+    $newEvaluation->setIdStudent($request->request->get('etudiant'));
     $newEvaluation->setCoefDiscipline(2);
     $newEvaluation->setJudgement('je suis un commentaire');
     $newEvaluation->setDtCreate(getdate());
