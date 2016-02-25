@@ -17,6 +17,6 @@ class addNoteForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('grade_student', 'number');
+        $builder->add('grade_student', 'number', array('max_length'=>20));
     }
 }
