@@ -148,9 +148,9 @@ $app->post('/addstudent', function(Request $request) use($app){
     $newStudent->setDtUpdate(date('Y-m-d'));
     $newStudent->setClass($class);
 
-    var_dump($newStudent);
+  
     
-   // $app['dao.student']->saveStudent($newStudent);
+    $app['dao.student']->saveStudent($newStudent);
 
 
     return new Response('Bien joué kiki', 201);
