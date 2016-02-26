@@ -14,7 +14,8 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use ppe_gestion\Domain\User;
-use ppe_gestion\Domain\Discipline;
+use ppe_gestion\Domain\UserToClass;
+
 
 class UserDAO extends DAO implements UserProviderInterface
 {
@@ -80,37 +81,35 @@ class UserDAO extends DAO implements UserProviderInterface
     
     
     
-   public function saveUser(User $user)
+   public function saveUser(User $user, UserToClass $_id_class)
     {
    
-         if($user->getIdUsers())
-        {
+    
             $this->getDb()->update('user', $user, array(
                 
-                'id_users'=> $user->getIdUsers(),
-                'username'=> $user->getUsername(), 
-                'name'=> $user->getName(),
-                'firstname'=> $user->getFirstname(),
-                'password'=> $user->getPassword(),
-                'salt'=> $user->getSalt(),
-                'role'=> $user->getRole(), 
-                'status'=> $user->getStatus(), 
-                'user_mail'=> $user->getUserMail(), 
-                'description'=> $user->getDescription(), 
-                'dt_create'=> $user->getDtCreate(), 
-                'dt_update'=> $user->getDtUpdate(), 
-                'id_discipline'=> $user->getIdDiscipline(), 
-                'id_class'=> $user->getIdClass(),
+          
+                'username'      => $user->getUsername(), 
+                'name'          => $user->getName(),
+                'firstname'     => $user->getFirstname(),
+                'password'      => $user->getPassword(),
+                'salt'          => $user->getSalt(),
+                'role'          => $user->getRole(), 
+                'status'        => $user->getStatus(), 
+                'user_mail'     => $user->getUserMail(), 
+                'description'   => $user->getDescription(), 
+                'dt_create'     => $user->getDtCreate(), 
+                'dt_update'     => $user->getDtUpdate(), 
+                'id_discipline' => $user->getIdDiscipline(), 
+                'id_class'      => $user->getIdClass(),
             ));
-        }
-        else{
+    
             $this->getDb()->insert('user', $user);
+            
             $_id_users = $this->getDb()->lastInsertId();
             $user->setIdUser($_id_users);
-            $_id_class = $this->getDb()->lastInsertId();
-            $user->setIdUser($_id_class);
-        }
-        
+            
+            $this->getDb()->insert('id_class', $idclass);
+            $UserToClass->setIdClass($_id_class);
       
     }
 
