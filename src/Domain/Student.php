@@ -107,15 +107,23 @@ class Student
         $this->student_statut = $_student_statut;
     }
 
+    /**
+     * @return mixed
+     */
     public function getClass()
     {
-        $this->class;
+        return $this->class;
     }
 
-    public function setClass(ClassName $_classname)
+    /**
+     * @param mixed $class
+     */
+    public function setClass($class)
     {
-        $this->class = $_classname;
+        $this->class = $class;
     }
+
+
 
     /**
      * @return mixed
