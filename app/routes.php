@@ -157,7 +157,7 @@ $app->get('/adduser', function () use ($app) {
 $app->post('/adduser', function(Request $request) use ($app){
     $newUser = new User();
  
-  //  $user = $app['dao.user']->findUser($request->request->get('user'));
+    $user = $app['dao.user']->findUser($request->request->get('user'));
     
     
     $newUser->setUserName($request->request->get('username'));
@@ -294,7 +294,7 @@ $app->get('/notelist', function () use ($app) {
  *              AJOUT
  * 
  * 
- *                                  Route pour l'ajout des notes
+ *                                  Route pour l'ajout des notes et commentaires
  */
 
 $app->get('/addnote',function() use ($app) {
@@ -335,31 +335,6 @@ $app->post('/addnote', function(Request $request) use ($app){
 })->bind('note');
 
 
-
-                                    /* JUDGMENT - OBSERVATIONS*/
-
-$app->post('/addnote', function(Request $request) use ($app){
-    $newJudgement = new Evaluation();
- 
-    $student = $app['dao.student']->findStudent($request->request->get('etudiant'));
-    $discipline = $app['dao.discipline']->findDiscipline($request->request->get('matiere'));
-    $judgement = $app['dao.evalutation']->findEvaluation($request->request->get('judgement'));
- 
-    $newJudgement->setGradeStudent($request->request->get('note'));
-    $newJudgement->setDiscipline($discipline);
-    $newJudgement->setStudent($student);
-    $newJudgement->setCoefDiscipline(2);
-    $newJudgement->setJudgement($judgement);
-    $newJudgement->setDtCreate(date('Y-m-d'));
-    $newJudgement->setDtUpdate(date('Y-m-d'));
-
-    $app['dao.evaluation']->saveGrade($newJudgement);
-    
-    var_dump($newJudgement);
-   
-    return new Response('ok ', 201);
-    //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
-})->bind('judgement');
 
 
 /**
