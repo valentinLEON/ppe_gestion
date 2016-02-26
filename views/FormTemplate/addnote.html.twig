@@ -20,7 +20,7 @@
                 <input type="text" class="form-control" name="note" placeholder="Ex : 12/20"/>
             </div>
 
-            <div class="form-group" style="margin-left:20px; width: auto; border-radius: 3px;  min-width:250px; max-width:500px; ">
+            <div class="form-group" style="margin-left:20px;  border-radius: 3px;  min-width:250px; max-width:500px; ">
 
 
                 <label for="sel1">Etudiant</label>
@@ -30,7 +30,7 @@
                     {% endfor %}
                 </select>
             </div>
-            <div class="form-group" style="margin-left:20px; width: auto; border-radius: 3px;  min-width:250px; max-width:500px;">
+            <div class="form-group" style="margin-left:20px; border-radius: 3px;  min-width:250px; max-width:500px;">
                 <label for="sel1">Matière</label>
                 <select class="form-control" id="sel3" name="matiere">
                     {% for matiere in matieres %}
@@ -66,39 +66,22 @@
                         
                         
                         
-        <form class="form-horizontal" method="post" action="{{ path('jugdment') }}">
+                    <form class="form-horizontal" method="post" action="{{ path('jugdment') }}">
 
-           <div class="box-body" style="margin-left:20px; width: 80px;  min-width:50px;  ">
+                       <div class="box-body" style="margin-left:20px; width: 80px;  min-width:50px;  ">
 
-               <textarea name="judgment"></textarea>
+                           <textarea name="judgment"></textarea>
 
-               <div class="form_group">
-                   <button type="submit" class="btn btn-info pull-right">Ajouter</button>
-               </div>
-        
-             </div>   
+                           <div class="form_group">
+                               <button type="submit" class="btn btn-info pull-right">Ajouter</button>
+                           </div>
+
+                         </div>   
+
+                    </form>                  
+
                         
-        </form>                  
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+      
                         
                     </div>
                     <!-- /.box-body -->
