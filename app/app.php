@@ -21,9 +21,8 @@ ErrorHandler::register();
 ExceptionHandler::register();
 
 // Register service providers.
-$app->register(new Silex\Provider\DoctrineServiceProvider());
-
-// Provider pour générer des sessions$app->register(new Silex\Provider\SecurityServiceProvider(), array(
+ 
+ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
     'security.firewalls' => array(
         'foo' => array('pattern' => '^/foo'), // Exemple d'une url accessible en mode non connecté
         'default' => array(
