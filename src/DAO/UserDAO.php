@@ -48,10 +48,13 @@ class UserDAO extends DAO implements UserProviderInterface
         $sql = "SELECT * FROM users";
         $row = $this->getDb()->fetchAssoc($sql, array($id));
 
-        if($row)
+        if($row){
             return $this->buildDomainObject($row);
+        }
         else
+        {
             throw new \Exception("No user matching id " . $id);
+        }
     }
 
     public function loadUserByUsername($username)
@@ -95,7 +98,7 @@ class UserDAO extends DAO implements UserProviderInterface
                 'firstname'     => $user->getFirstname(),
                 'password'      => $user->getPassword(),
                 'salt'          => $user->getSalt(),
-                'role'          => $user->getRole(), 
+                'role'          => $user->getRoles(), 
                 'status'        => $user->getStatus(), 
                 'user_mail'     => $user->getUserMail(), 
                 'description'   => $user->getDescription(), 
