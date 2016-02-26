@@ -144,6 +144,7 @@ $app->post('/addstudent', function(Request $request) use($app){
     $newStudent->setBirthday($request->request->get('birthday'));
     $newStudent->setAddress($request->request->get('address'));
     $newStudent->setTel($request->request->get('phone'));
+    $newStudent->setEmail($request->request->get('email'));
     $newStudent->setStudentStatut($request->request->get('statut'));
     $newStudent->setDtCreate(date('Y-m-d'));
     $newStudent->setDtUpdate(date('Y-m-d'));
