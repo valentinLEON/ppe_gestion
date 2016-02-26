@@ -365,7 +365,7 @@ $app->post('/addnote', function(Request $request) use ($app){
     $newEvaluation->setDtCreate(date('Y-m-d'));
     $newEvaluation->setDtUpdate(date('Y-m-d'));
 
-    //$app['dao.evaluation']->saveGrade($newEvaluation);
+    $app['dao.evaluation']->saveGrade($newEvaluation);
     //var_dump(array($this->getDiscipline()));
     /*if($message)
     {
