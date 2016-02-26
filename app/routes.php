@@ -189,7 +189,7 @@ $app->post('/adduser', function(Request $request) use ($app){
     $newUser->setFirstName($request->request->get('firstname'));
     $newUser->setPassword($request->request->get('password'));
     $newUser->setSalt($request->request->get('salt'));
-    $newUser->setUserRole($request->request->get('role'));
+    $newUser->setRole($request->request->get('role'));
     $newUser->setDescription($request->request->get('description'));
     $newUser->setUserMail($request->request->get('user_mail'));
     $newUser->setDtCreate(date('Y-m-d'));
