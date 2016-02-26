@@ -12,26 +12,27 @@
 <div class="box box-primary">
     <!-- /.box-header -->
     <!-- form start -->
-    <form class="form-horizontal" method="post" action="{{ path('note') }}" style="margin-left:20px;">
+    <form class="form-horizontal" method="post" action="{{ path('note') }}">
 
-        <div class="box-body" 
-            <div class="form-group" style=" width: 110px; border-radius: 3px;">
+        <div class="box-body" style="margin-left:20px; width: 110px;  min-width:50px;  ">
+            <div class="form-group" style="width: 6%;  display:inline-block; margin:10px;">
                 <label for="sel1">Note</label>
                 <input type="text" class="form-control" name="note" placeholder="Ex : 12/20"/>
             </div>
 
-            <div class="form-group" style="">
-                
+            <div class="form-group" style="margin-left:20px; border-radius: 3px;  min-width:250px; max-width:500px; ">
+
+
                 <label for="sel1">Etudiant</label>
-                <select class="form-control" id="sel2" name="etudiant" style="min-width:250px; max-width:500px; border-radius: 3px;">
+                <select class="form-control" id="sel2" name="etudiant">
                     {% for etudiant in student %}
                         <option value="{{ etudiant.id_student }}">{{ etudiant.student_name~' '~etudiant.student_firstname }}</option>
                     {% endfor %}
                 </select>
             </div>
-            <div class="form-group"  "  >
+            <div class="form-group" style="margin-left:20px;  border-radius: 3px;  min-width:250px; max-width:500px;">
                 <label for="sel1">Matière</label>
-                <select class="form-control" id="sel3" name="matiere" style="min-width:250px; max-width:500px;border-radius: 3px;">
+                <select class="form-control" id="sel3" name="matiere">
                     {% for matiere in matieres %}
                         <option value="{{ matiere.id_discipline }}">{{ matiere.name_discipline }}</option>
                     {% endfor %}
@@ -65,22 +66,39 @@
                         
                         
                         
-                    <form class="form-horizontal" method="post" action="{{ path('judgement') }}">
+        <form class="form-horizontal" method="post" action="{{ path('judgement') }}">
 
-                       <div class="box-body" style="margin-left:20px; width: 80px;  min-width:50px;">
+           <div class="box-body" style="margin-left:20px; width: 80px;  min-width:50px;  ">
 
-                           <textarea name="judgement"></textarea>
-                        <div>
-                               <button type="submit" class="btn btn-info pull-right">Ajouter</button>
-                        </div>
-                       
+               <textarea name="judgement"></textarea>
 
-                        </div>   
-                     
-                    </form>                  
-
+               <div class="form_group">
+                   <button type="submit" class="btn btn-info pull-right">Ajouter</button>
+               </div>
+        
+             </div>   
                         
-      
+        </form>                  
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                         
                     </div>
                     <!-- /.box-body -->
