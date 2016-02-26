@@ -271,12 +271,12 @@ $app->get('/notelist', function () use ($app) {
  *              AJOUT
  * 
  * 
- * Route pour l'ajout des notes
+ *                                  Route pour l'ajout des notes
  */
 
 $app->get('/addnote',function() use ($app) {
     
-    var_dump($app['dao.className']);
+   // var_dump($app['dao.className']);
     $classes = $app['dao.className']->findAll();
     $discipline = $app['dao.discipline']->findAll();
     $etudiant = $app['dao.student']->findAll();
@@ -285,6 +285,7 @@ $app->get('/addnote',function() use ($app) {
         'classNames' => $classes,
         'matieres' => $discipline,
         'student' => $etudiant));
+    
 })->bind('addnote');
 
 $app->post('/addnote', function(Request $request) use ($app){
