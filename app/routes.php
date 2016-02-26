@@ -186,7 +186,7 @@ $app->get('/usertab', function () use ($app) {
 $app->get('/adduser', function () use ($app) {
      $classes = $app['dao.className']->findAll();
      $discipline = $app['dao.discipline']->findAll();
-     $role = $app['dao.user']->findAll();
+
      
     return $app['twig']->render('FormTemplate/adduser.html.twig', array(
         'classes'=>$classes,
@@ -223,7 +223,7 @@ $app->post('/adduser', function(Request $request) use ($app){
     
  // $newUser->setIdClass($request->request->get('id_class'));
    var_dump($newUser);
- //   $app['dao.users']->saveUser($newUser);
+    $app['dao.users']->saveUser($newUser);
 
     return new Response('Bien joué aussi', 201);
     //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
