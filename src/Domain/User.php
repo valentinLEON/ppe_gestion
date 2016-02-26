@@ -169,15 +169,7 @@ class User implements UserInterface
         $this->id_discipline = $_id_discipline;
     }
 
-    public function getIdClass()
-    {
-        return $this->id_class;
-    }
-
-    public function setIdClass($_id_class)
-    {
-        $this->id_class = $_id_class;
-    }
+  
 
     public function eraseCredentials()
     {

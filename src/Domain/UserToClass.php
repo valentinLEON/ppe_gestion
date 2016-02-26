@@ -6,15 +6,15 @@
  * Date: 06/02/2016
  * Time: 00:20
  *
- * Association entre les classes Class et Student
+ * Association entre les classes Class et User
  */
 
 use ppe_gestion\Domain\ClassName;
-use ppe_gestion\Domain\Student;
+use ppe_gestion\Domain\User;
 
 class UserToClass
 {
-    public $student;
+    public $user;
     public $class;
 
     /**
@@ -26,27 +26,27 @@ class UserToClass
     {
         $this->class = $_classname;
     }
-
-    /**
-     * @param Student $_student
-     *
-     * Set un étudiant
-     */
-    public function setStudent(Student $_student)
-    {
-        $this->student = $_student;
-    }
-
-    /**
+/**
      * @return mixed
      *
      * Récupère l'étudiant
      */
-    public function getStudent()
+    public function getUser()
     {
-        return $this->student;
+        return $this->user;
     }
 
+    /**
+     * @param User $_user
+     *
+     * Set un user
+     */
+    public function setUser(User $_user)
+    {
+        $this->user = $_user;
+    }
+
+    
     /**
      * @return mixed
      *
@@ -55,6 +55,19 @@ class UserToClass
     public function getClassName()
     {
         return $this->class;
+    }
+    
+    
+    
+    
+      public function getIdClass()
+    {
+        return $this->id_class;
+    }
+
+    public function setIdClass($_id_class)
+    {
+        $this->id_class = $_id_class;
     }
 
 }

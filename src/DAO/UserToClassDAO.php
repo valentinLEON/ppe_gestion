@@ -12,37 +12,40 @@ use ppe_gestion\Domain\UserToClass;
 
 class UserToClassDAO extends DAO
 {
-    private $studentToClass;
+    private $userToClass;
 
-    public function saveStudentToClass(StudentToClass $_studentToClass)
+    public function saveUserToClass(UserToClass $_userToClass)
     {
-        $studentInfo = array(
-            '$student_name'     => $_studentToClass->getName(),
-            '$student_firstname'=> $_studentToClass->getFirstname(),
-            '$dt_create'        => $_studentToClass->getDtCreate(),
-            '$dt_update'        => $_studentToClass->getDtUpdate(),
+        
+        
+        $userInfo = array(
+            '$username'     => $User->getUserName(),
+            '$name'         => $User->getName(),
+            '$firstname'    => $User->getFirstname(),
+            '$dt_create'    => $User->getDtCreate(),
+            '$dt_update'    => $User->getDtUpdate(),
         );
 
         //on modifie
-        if($student->getIdStudent()){
-            $this->getDb()->update('student', $studentInfo, array(
-                'id' => $student->getIdStudent()));
+        if($User->getIdUser()){
+            $this->getDb()->update('user', $userInfo, array(
+                'id' => $User->getIdUser()));
         }
         //on sauvegarde
         else{
-            $this->getDb()->insert('student', $studentInfo);
+            $this->getDb()->insert('user', $userInfo);
             $id = $this->getDb()->lastInsertId();
-            $student->setIdStudent($id);
+            $User->setIdUser($id);
         }
     }
 
     protected function buildDomainObject($row)
     {
-        $studentToClass = new StudentToClass();
-        $studentToClass->setIdClassName($row['id_className']);
-        $studentToClass->setIdStudent($row['id_student']);
+        $userToClass = new UserToClass();
+        $userToClass->setIdClassName($row['id_className']);
+        $userToClass->setIdUser($row['id_user']);
 
-        return $studentToClass;
+        return $userToClass;
     }
 
 }
