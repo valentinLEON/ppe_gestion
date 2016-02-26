@@ -320,7 +320,7 @@ $app->post('/addnote', function(Request $request) use ($app){
  
     $student = $app['dao.student']->findStudent($request->request->get('etudiant'));
     $discipline = $app['dao.discipline']->findDiscipline($request->request->get('matiere'));
-    $judgement = $app['dao.evalutation']->findDiscipline($request->request->get('judgement'));
+    $judgement = $app['dao.evalutation']->findEvaluation($request->request->get('judgement'));
  
     $newJudgement->setGradeStudent($request->request->get('note'));
     $newJudgement->setDiscipline($discipline);
