@@ -191,7 +191,7 @@ $app->get('/adduser', function () use ($app) {
 $app->post('/adduser', function(Request $request) use ($app){
    
     $newUser = new User();
- 
+
     $user = $app['dao.users']->findAll($request->request->get('user'));
  
     $newUser->setIdUsers($request->request->get('id_users'));
