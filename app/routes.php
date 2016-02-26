@@ -304,11 +304,11 @@ $app->post('/addnote', function(Request $request) use ($app){
 
     $app['dao.evaluation']->saveGrade($newEvaluation);
     
-   // var_dump($newEvaluation);
+    var_dump($newEvaluation);
    
-   // return new Response('Bien joué kiki', 201);
+    return new Response('Bien joué kiki', 201);
     //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
-})->bind('addnote');
+})->bind('note');
 
 /**
  * 
