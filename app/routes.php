@@ -202,8 +202,8 @@ $app->post('/adduser', function(Request $request) use ($app){
    
    $newUser = new User();
 
-   $classname=$app['dao.className']->$request->request->get('classname');
-   $discipline=$app['dao.discipline']->$request->request->get('discipline');
+ //  $classname=$app['dao.className']->$request->request->get('classname');
+ //  $discipline=$app['dao.discipline']->$request->request->get('discipline');
   // $user = $app['dao.users']->findAll($request->request->get('user'));
 //   $id_class = $app['dao.className']->findClassname($request->request->get('id_class'));
 //   $id_discipline = $app['dao.discipline']->findDiscipline($request->request->get('id_discipline'));
