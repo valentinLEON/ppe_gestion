@@ -152,6 +152,25 @@ $app->get('/adduser', function () use ($app) {
     return $app['twig']->render('FormTemplate/adduser.html.twig');
 })->bind('adduser');
 
+$app->post('/adduser', function(Request $request) use ($app){
+    $newUser = new User();
+ 
+    //$user = $app['dao.user']->findUser($request->request->get('user'));
+    
+    
+    $newUser->setUserName($request->request->get('username'));
+    
+    $newUser->setDtCreate(date('Y-m-d'));
+    $newUser->setDtUpdate(date('Y-m-d'));
+
+    $app['dao.user']->saveGrade($newUser);
+    
+    var_dump($newUser);
+   
+    return new Response('Bien joué aussi', 201);
+    //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
+})->bind('user');
+
 /**
  *     
  *                     LISTE 
@@ -159,7 +178,9 @@ $app->get('/adduser', function () use ($app) {
  * route pour l'affichage de la liste des utilisateurs
  */
 $app->get('/userslist', function () use ($app) {
+    
     return $app['twig']->render('ListTemplate/userslist.html.twig');
+    
 })->bind('userslist');
 
 /**
