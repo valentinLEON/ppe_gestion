@@ -105,7 +105,7 @@ class UserDAO extends DAO implements UserProviderInterface
             $user->setIdUser($_id_users);
         }
         
-        var_dump( $user->getUsername());
+      
     }
 
     
@@ -116,7 +116,7 @@ class UserDAO extends DAO implements UserProviderInterface
         $user->setIdUsers($row['id_users']);
         $user->setUsername($row['username']);
         $user->setPassword($row['password']);
-        $user->setSalt($row['user_salt']);
+        $user->setSalt($row['salt']);
         $user->setRole($row['user_role']);
         $user->setUserMail($row['user_mail']);
         $user->setDescription($row['description']);
