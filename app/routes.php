@@ -237,12 +237,12 @@ $app->get('/adddiscipline', function () use ($app) {
 /**                                                 NOTES         - EVALUATIONS
  * 
  *  
- *                   TABLEAU DE BORD
+ *                   TABLEAU DE BORD STATS DES NOTES
  * 
  */
-$app->match('/notetab', function () use ($app) {
-    return $app['twig']->render('TabTemplate/notetab.html.twig');
-})->bind('notetab');
+$app->get('/notetab', function () use ($app) {
+    return $app['twig']->render('StatTemplate/notestat.html.twig');
+})->bind('notetabstats');
 
 /**   
  * 

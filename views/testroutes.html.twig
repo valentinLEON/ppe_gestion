@@ -8,14 +8,14 @@
 
 {% block content %}
     
-    <h3  style="display:inline-block" ><a href="testlogin"><span class="label label-default">Accès Utilisateur</span></a></h3>
+    <h3  style="display:inline-block; margin-top:-60px;" ><a href="testlogin"><span class="label label-default">Accès Utilisateur</span></a></h3>
     
     <h3  id="btnAdmin" style="display:inline-block" onmouseout="bgOpacitymax()" onmouseover="bgOpacitymin()" >
             <span class="label label-default" onclick="showAdminAcces()">Login</span>
     </h3>
 
 
-<div class="accesAdmin" id="accesAdmin"  style="display:block" >
+<div class="accesAdmin" id="accesAdmin" >
 
                                  <!--                      UTILISATEURS                   -->
     <div class="panel panel-info indexDiv ">
@@ -107,9 +107,8 @@
 <!--                NOTE   -   EVALUATIONS              -->
 <div class="panel panel-info indexDiv">
     <div class="inner" >
-        <a href="notetab"><h4><i class="glyphicon glyphicon-dashboard">  </i>  Notes - Evaluations</h4></a>
-        <a href="noteslist"><p><i class="glyphicon glyphicon-th-list rightDiv">  </i>  Liste des Evalutations</p></a>
-    </div>
+        <a href="notestats"><h4><i class="glyphicon glyphicon-dashboard">  </i> Statistiques Evaluations</h4></a>
+         </div>
     <div class="icon rightDiv" >
         <a href="addnote"><p><i class="fa fa-plus">  </i>  Ajouter une Evaluation</p></a>
     </div>
