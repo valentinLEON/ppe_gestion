@@ -16,12 +16,6 @@ class User implements UserInterface
 {
     public $id_users;
     public $username;
-    public $name;
-    public $firstname;
-    public $password;
-    public $salt;
-    public $role;
-    public $status;
     public $user_mail;
     public $dt_create;
     public $dt_update;
@@ -29,6 +23,12 @@ class User implements UserInterface
     public $id_discipline; /*clé étrangère*/
     public $id_className; /*clé étrangère*/
 
+    public $name;
+    public $firstname;
+    public $password;
+    public $salt;
+    public $role;
+    public $status;
     public function getIdUsers()
     {
         return $this->id_users;
@@ -171,12 +171,12 @@ class User implements UserInterface
         $this->id_discipline = $_id_discipline;
     }
 
-    public function getIdclassName()
+    public function getIdClassName()
     {
         return $this->id_className;
     }
 
-    public function setIdclassName($_id_className)
+    public function setIdClassName($_id_className)
     {
         $this->id_className = $_id_className;
     }
