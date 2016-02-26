@@ -191,8 +191,8 @@ $app->post('/adduser', function(Request $request) use ($app){
     $newUser = new User();
 
   //  $user = $app['dao.users']->findAll($request->request->get('user'));
-    $id_class = $app['dao.className']->findClassName($request->request->get('id_className'));
-    $id_discipline = $app['dao.discipline']->findDiscipline($request->request->get('id_discipline'));
+    //$id_class = $app['dao.className']->findClassName($request->request->get('id_className'));
+    //$id_discipline = $app['dao.discipline']->findDiscipline($request->request->get('id_discipline'));
 
     $newUser->setIdUsers($request->request->get('id_users'));
     
@@ -210,13 +210,9 @@ $app->post('/adduser', function(Request $request) use ($app){
     $newUser->setDtUpdate(date('Y-m-d'));
     
   $newUser->setIdClass($request->request->get('id_class'));
-   
-    var_dump($newUser);
 
     $app['dao.users']->saveUser($newUser);
-    
-      var_dump('dao.users');
-   
+
     return new Response('Bien joué aussi', 201);
     //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
 })->bind('user');
