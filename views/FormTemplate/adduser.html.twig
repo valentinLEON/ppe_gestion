@@ -24,13 +24,17 @@
              <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
                 <label>Disciplines</label>
                 <select name="id_discipline" class="form-control" >
-                  {#  <option value="$id_discipline">{{ id_discipline }}</option> #}
+                      {% for disciplines in Discipline %}
+                          {#  <option value="{{ path disciplines.id_discipline}}">{{disciplines.name_discipline }}</option> #}
+                     {% endfor %}
                 </select>
             </div>
             <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
                 <label>Classes</label>
                 <select name="id_class" class="form-control" multiple>
-                    <option value="$id_discipline" >{{ id_class }}</option> 
+                      {% for classes in className %}
+                         {#  <option value="{{ path classes.id_class}}">{{classes.class_name }}</option> #}
+                      {% endfor %}
                 </select>
             </div>
             <div class="form-group" style="width: 20%; display:inline-block;margin:10px;">
