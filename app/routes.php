@@ -121,7 +121,8 @@ $app->get('/studentslist', function () use ($app) {
  *  *   
  *                     AJOUT
  * 
- * route pour l'ajout des étudiants
+ * route pour l'affichage du template de l'ajout des étudiants
+ * avec l'affichage des classes dans la liste déroulante
  */
 $app->get('/addstudent', function () use ($app) {
     $classes = $app['dao.className']->findAll();
@@ -136,9 +137,6 @@ $app->post('/addstudent', function(Request $request) use($app){
 
     $class = $app['dao.className']->findClassname($request->request->get('classname'));
 
-    var_dump($class);
-    die();
-
     $newStudent->setName($request->request->get('name'));
     $newStudent->setFirstname($request->request->get('firstname'));
     $newStudent->setBirthday($request->request->get('birthday'));
@@ -152,7 +150,6 @@ $app->post('/addstudent', function(Request $request) use($app){
 
     $app['dao.student']->saveStudent($newStudent);
 
-    //   var_dump($newEvaluation);
 
     return new Response('Bien joué kiki', 201);
     //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
