@@ -213,8 +213,8 @@ $app->post('/adduser', function(Request $request) use ($app){
     $newUser->setPassword($request->request->get('password'));
     $newUser->setSalt($request->request->get('salt'));
     $newUser->setRole($request->request->get('role'));
-    $newUser->setIdDiscipline($request->request->get('id_discipline'));
-    $newUser->setIdClassName($request->request->get('id_className'));
+    $newUser->setIdDiscipline($request->request->get('discipline'));
+    $newUser->setIdClassName($request->request->get('className'));
     $newUser->setStatus($request->request->get('status'));   
     $newUser->setDescription($request->request->get('description'));
     $newUser->setUserMail($request->request->get('user_mail'));
