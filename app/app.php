@@ -39,6 +39,8 @@ $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 $app->register(new Silex\Provider\TranslationServiceProvider());
 
 
+
+
 //                                                        CONTROLLERS
 /**
  * controller pour la route des matières
@@ -54,7 +56,7 @@ $app['dao.discipline'] = $app->share(function($app){
 $app['dao.className'] = $app->share(function($app){
     return new ppe_gestion\DAO\ClassNameDAO($app['db']);
 });
-
+  var_dump($app['dao.className']);
 /**
  * Controller pour la route des étudiants
  *

@@ -275,6 +275,8 @@ $app->get('/notelist', function () use ($app) {
  */
 
 $app->get('/addnote',function() use ($app) {
+    
+    var_dump($app['dao.className']);
     $classes = $app['dao.className']->findAll();
     $discipline = $app['dao.discipline']->findAll();
     $etudiant = $app['dao.student']->findAll();
