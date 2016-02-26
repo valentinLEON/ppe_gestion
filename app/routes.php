@@ -315,7 +315,8 @@ $app->get('/addnote',function() use ($app) {
 
 $app->post('/addnote', function(Request $request) use ($app){
     $newEvaluation = new Evaluation();
- 
+    $message = 0; //booléen qui affiche ou non un message de succes
+
     $student = $app['dao.student']->findStudent($request->request->get('etudiant'));
     $discipline = $app['dao.discipline']->findDiscipline($request->request->get('matiere'));
    
@@ -329,10 +330,15 @@ $app->post('/addnote', function(Request $request) use ($app){
     $newEvaluation->setDtUpdate(date('Y-m-d'));
 
     $app['dao.evaluation']->saveGrade($newEvaluation);
-    
- //   var_dump($newEvaluation);
-   
-    return new Response('Bien joué kiki', 201);
+
+    if($message)
+    {
+        $app['session']->getFlashBag()->add('INFORMATION', 'La note a bien été ajouté !');
+    }
+    else{$app['session']->getFlashBag()->add('INFORMATION', 'La note a pas été ajouté !');}
+
+    return ;
+    //return new Response('Bien joué kiki', 201);
     //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
 })->bind('note');
 
