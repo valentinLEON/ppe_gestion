@@ -31,8 +31,12 @@
             </div>
             <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
                 <label>Statuts</label>
-                <input type="text" name="status" class="form-control" placeholder="Statuts ...">
-            </div>
+                      <select name="status"  class="form-control" >
+                    {% for i in 0..5 %}
+                         <option value="{{ i }}">{{ i }}</option> 
+                     {% endfor %}
+                </select>
+             </div>
              <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
                 <label>Disciplines</label>
                 <select name="id_discipline" class="form-control" >  
