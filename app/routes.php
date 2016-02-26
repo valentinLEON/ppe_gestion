@@ -16,7 +16,7 @@ use ppe_gestion\Domain\Student;
  * 
  *                              AFFICHAGE ACCUEIL
  * 
- * Route pour l'accueil
+ * Acces avec SecurityProvider
 
 $app->get('/', function(Request $request) use ($app) {
     

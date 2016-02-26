@@ -6,12 +6,12 @@
 
 {% endblock %}
 
-{% block content %}
+{% block content style="margin-top-120px" %}
     
-    <h3  style="display:inline-block; margin-top:-60px;" ><a href="testlogin"><span class="label label-default">Accès Utilisateur</span></a></h3>
+    <h3  style="display:inline-block; " ><a href="testlogin"><span class="label label-default">Accès Utilisateur</span></a></h3>
     
     <h3  id="btnAdmin" style="display:inline-block" onmouseout="bgOpacitymax()" onmouseover="bgOpacitymin()" >
-            <span class="label label-default" onclick="showAdminAcces()">Login</span>
+            <span class="label label-default" onclick="showAdminAcces()">Admin</span>
     </h3>
 
 
@@ -33,7 +33,7 @@
 
     
 <!--                   CALENDRIER                   -->
-<div class="panel panel-info indexDiv"  style="display:block" >
+<div class="panel panel-info indexDiv"  style="display:inline-block" >
     <div class="inner " >
         <a href="calendar"><h4 ><i class="fa fa-calendar">  </i>  Calendrier </h4></a>
     </div>
@@ -41,7 +41,7 @@
 
 
 <!--                   STATISTIQUES                 -->
-<div class="panel panel-info indexDiv" >
+<div class="panel panel-info indexDiv" style="display:inline-block" >
     <div class="inner " >
         <a href="stattab"><h4 ><i class="glyphicon glyphicon-stats">  </i>  Statistiques </h4></a>
     </div>
