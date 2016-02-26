@@ -254,11 +254,6 @@ $app->get('/classeslist', function () use ($app) {
     return $app['twig']->render('ListTemplate/classeslist.html.twig');
 })->bind('classeslist');
 
-
-$app->post('/addclass', function () use ($app) {
-    var_dump(array($this->getDiscipline()));
-    die();
-})->bind('addclass');
 /**
  *                     AJOUT
  * 
@@ -364,8 +359,8 @@ $app->post('/addnote', function(Request $request) use ($app){
     $newEvaluation->setDtCreate(date('Y-m-d'));
     $newEvaluation->setDtUpdate(date('Y-m-d'));
 
-    $app['dao.evaluation']->saveGrade($newEvaluation);
-
+    //$app['dao.evaluation']->saveGrade($newEvaluation);
+    var_dump(array($this->getDiscipline()));
     /*if($message)
     {
         $app['session']->getFlashBag()->add('INFORMATION', 'La note a bien été ajouté !');
