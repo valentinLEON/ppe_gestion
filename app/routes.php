@@ -325,9 +325,9 @@ $app->get('/notestats', function () use ($app) {
  * 
  * route pour l'affichage du tableaud de bord des abscences
  */
-$app->get('/abscencetab', function () use ($app) {
-    return $app['twig']->render('TabTemplate/abscencetab.html.twig');
-})->bind('abscencetab');
+$app->get('/absencetab', function () use ($app) {
+    return $app['twig']->render('TabTemplate/absencetab.html.twig');
+})->bind('absencetab');
 
 
 /**

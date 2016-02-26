@@ -6,8 +6,8 @@
 
 {% endblock %}
 
-{% block content style="margin-top-120px" %}
-    
+{% block content  %}
+<div style="margin-top-120px"> 
     <h3  style="display:inline-block; " ><a href="testlogin"><span class="label label-default">Accès Utilisateur</span></a></h3>
     
     <h3  id="btnAdmin" style="display:inline-block" onmouseout="bgOpacitymax()" onmouseover="bgOpacitymin()" >
@@ -15,37 +15,37 @@
     </h3>
 
 
-<div class="accesAdmin" id="accesAdmin" >
+    <div class="accesAdmin" id="accesAdmin" >
 
-                                 <!--                      UTILISATEURS                   -->
-    <div class="panel panel-info indexDiv ">
-        <div class="inner" >
-            <a href="usertab"><h4><i class="glyphicon glyphicon-dashboard">  </i>  Gestion des Utilisateurs</h4></a>
-            <a href="userslist"><p><i class="glyphicon glyphicon-th-list rightDiv">  </i>  Liste des Utilisateurs</p></a>
+                                     <!--                      UTILISATEURS                   -->
+        <div class="panel panel-info indexDiv ">
+            <div class="inner" >
+                <a href="usertab"><h4><i class="glyphicon glyphicon-dashboard">  </i>  Gestion des Utilisateurs</h4></a>
+                <a href="userslist"><p><i class="glyphicon glyphicon-th-list rightDiv">  </i>  Liste des Utilisateurs</p></a>
+            </div>
+            <div class="icon rightDiv" >
+                <a href="adduser"><p><i class="fa fa-plus">  </i>   Ajouter un Utilisateur</p></a>
+            </div>
         </div>
-        <div class="icon rightDiv" >
-            <a href="adduser"><p><i class="fa fa-plus">  </i>   Ajouter un Utilisateur</p></a>
+
+    </div>
+
+
+
+    <!--                   CALENDRIER                   -->
+    <div class="panel panel-info indexDiv"  style="display:inline-block" >
+        <div class="inner " >
+            <a href="calendar"><h4 ><i class="fa fa-calendar">  </i>  Calendrier </h4></a>
         </div>
     </div>
 
-</div>
 
-
-    
-<!--                   CALENDRIER                   -->
-<div class="panel panel-info indexDiv"  style="display:inline-block" >
-    <div class="inner " >
-        <a href="calendar"><h4 ><i class="fa fa-calendar">  </i>  Calendrier </h4></a>
+    <!--                   STATISTIQUES                 -->
+    <div class="panel panel-info indexDiv" style="display:inline-block" >
+        <div class="inner " >
+            <a href="stattab"><h4 ><i class="glyphicon glyphicon-stats">  </i>  Statistiques </h4></a>
+        </div>
     </div>
-</div>
-
-
-<!--                   STATISTIQUES                 -->
-<div class="panel panel-info indexDiv" style="display:inline-block" >
-    <div class="inner " >
-        <a href="stattab"><h4 ><i class="glyphicon glyphicon-stats">  </i>  Statistiques </h4></a>
-    </div>
-</div>
 
 
 
@@ -77,42 +77,42 @@
 
 
 
-<!--                     ABSCENCES                   -->
-<div class="panel panel-info indexDiv" >
-    <div class="inner" >
-        <a href="abscencetab"><h4><i class="glyphicon glyphicon-dashboard">  </i>  Abscences - Retards</h4></a>
-        <a href="abscenceslist"><p><i class="glyphicon glyphicon-th-list rightDiv">  </i>  Liste des Absences</p></a>
-        <a href="retardslist"><p><i class="glyphicon glyphicon-th-list rightDiv">  </i>  Liste des retards</p></a>
+    <!--                     ABSCENCES                   -->
+    <div class="panel panel-info indexDiv" >
+        <div class="inner" >
+            <a href="absencetab"><h4><i class="glyphicon glyphicon-dashboard">  </i>  Absences - Retards</h4></a>
+            <a href="absenceslist"><p><i class="glyphicon glyphicon-th-list rightDiv">  </i>  Liste des Absences</p></a>
+            <a href="retardslist"><p><i class="glyphicon glyphicon-th-list rightDiv">  </i>  Liste des retards</p></a>
+        </div>
+        <div class="icon rightDiv" >
+            <a href="addabsence"><p ><i class="fa fa-plus">  </i>   Ajouter une Absence</p></a>
+            <a href="addretard"><p><i class="fa fa-plus">  </i>  Ajouter un Retard</p></a>
+        </div>
     </div>
-    <div class="icon rightDiv" >
-        <a href="addabscence"><p ><i class="fa fa-plus">  </i>   Ajouter une Abscence</p></a>
-        <a href="addretard"><p><i class="fa fa-plus">  </i>  Ajouter un Retard</p></a>
-    </div>
-</div>
 
 
-<!--                        ETUDIANTS                    -->
-<div class="panel panel-info indexDiv" >
-    <div class="inner " >
-        <a href="studenttab"><h4 ><i class="glyphicon glyphicon-dashboard">  </i>  Gestion des Etudiants</h4></a>
-        <a href="studentslist"><p class="rightDiv"><i class="glyphicon glyphicon-th-list">  </i>  Liste des Etudiants</p></a>
+    <!--                        ETUDIANTS                    -->
+    <div class="panel panel-info indexDiv" >
+        <div class="inner " >
+            <a href="studenttab"><h4 ><i class="glyphicon glyphicon-dashboard">  </i>  Gestion des Etudiants</h4></a>
+            <a href="studentslist"><p class="rightDiv"><i class="glyphicon glyphicon-th-list">  </i>  Liste des Etudiants</p></a>
+        </div>
+        <div class="icon rightDiv" >
+            <a href="addstudent"><p><i class="fa fa-plus">  </i>  Ajouter un Etudiant</p></a>
+        </div>
     </div>
-    <div class="icon rightDiv" >
-        <a href="addstudent"><p><i class="fa fa-plus">  </i>  Ajouter un Etudiant</p></a>
-    </div>
-</div>
 
 
 
-<!--                NOTE   -   EVALUATIONS              -->
-<div class="panel panel-info indexDiv">
-    <div class="inner" >
-        <a href="notestats"><h4><i class="glyphicon glyphicon-dashboard">  </i> Statistiques Evaluations</h4></a>
-         </div>
-    <div class="icon rightDiv" >
-        <a href="addnote"><p><i class="fa fa-plus">  </i>  Ajouter une Evaluation</p></a>
+    <!--                NOTE   -   EVALUATIONS              -->
+    <div class="panel panel-info indexDiv">
+        <div class="inner" >
+            <a href="notestats"><h4><i class="glyphicon glyphicon-dashboard">  </i> Statistiques Evaluations</h4></a>
+             </div>
+        <div class="icon rightDiv" >
+            <a href="addnote"><p><i class="fa fa-plus">  </i>  Ajouter une Evaluation</p></a>
+        </div>
     </div>
-</div>
 
 
 
