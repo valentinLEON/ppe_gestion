@@ -17,14 +17,20 @@ use ppe_gestion\Domain\Student;
  *                              AFFICHAGE ACCUEIL
  * 
  * Route pour l'accueil
- */
+
 $app->get('/', function(Request $request) use ($app) {
     
-    return $app['twig']->render('index.html.twig', array(
+    return $app['twig']->render('index.html.twig'), array(
         'error' => $app['security.last_error']($request),
         'last_username' => $app['session']->get('_security.last_username'),
     ));
     
+});
+ */
+$app->get('/', function(Request $request) use ($app) {
+    
+    return $app['twig']->render('index.html.twig'); 
+       
 });
 //                                                             LOGIN 
 
