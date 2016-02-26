@@ -15,7 +15,7 @@ class UserToClassDAO extends DAO
     protected function buildDomainObject($row)
     {
         $userToClass = new UserToClass();
-        $userToClass->setIdClassName($row['id_className']);
+        $userToClass->setIdClassName($row['id_ClassName']);
         $userToClass->setIdUser($row['id_user']);
 
         return $userToClass;
