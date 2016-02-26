@@ -186,12 +186,12 @@ $app->get('/usertab', function () use ($app) {
 $app->get('/adduser', function () use ($app) {
      $classes = $app['dao.className']->findAll();
      $discipline = $app['dao.discipline']->findAll();
-
+     $role = $app['dao.user']->findAll();
      
     return $app['twig']->render('FormTemplate/adduser.html.twig', array(
         'classes'=>$classes,
         'discipline'=>$discipline,
-           
+         'role'=>$role,  
     ));
     
 })->bind('adduser');

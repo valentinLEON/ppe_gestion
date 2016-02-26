@@ -24,8 +24,8 @@
             <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
               <label>Role</label>
                 <select name="role" class="form-control" >
-                    {% for disciplines in discipline %}
-                         <option value="{{ disciplines.id_role }}">{{ disciplines.name_role }}</option> 
+                    {% for roles in role %}
+                         <option value="{{ role.role }}">{{ role.role }}</option> 
                      {% endfor %}
                 </select>
             </div>
