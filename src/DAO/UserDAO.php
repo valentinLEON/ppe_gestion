@@ -88,7 +88,7 @@ class UserDAO extends DAO implements UserProviderInterface
     
    public function saveUser(User $user)
     {
-     $this->getDb()->update('user' , array(
+     $this->getDb()->update( array(
                
                 'username'      => $user->getUsername(), 
                 'name'          => $user->getName(),
@@ -105,13 +105,11 @@ class UserDAO extends DAO implements UserProviderInterface
                 'id_className'  => $user->getIdClassName(),
            )) ;
      
-          var_dump($user);
+            var_dump($user);
             $this->getDb()->insert('user', $user);
             
             $_id_users = $this->getDb()->lastInsertId();
-            $user->setIdUser($_id_users);
-       
-        
+            $user->setIdUser($_id_users);    
             
            // $this->getDb()->insert('id_class', $_id_class);
            // $user->setIdClass($_id_class);
