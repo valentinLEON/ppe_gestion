@@ -168,7 +168,7 @@ $app->post('/adduser', function(Request $request) use ($app){
     
 var_dump( $app['dao.users']);
 
-    $app['dao.users']->saveGrade($newUser);
+    $app['dao.users']->saveUser($newUser);
     
     
    
