@@ -171,6 +171,16 @@ class User implements UserInterface
         $this->id_discipline = $_id_discipline;
     }
 
+    public function getIdclassName()
+    {
+        return $this->id_className;
+    }
+
+    public function setIdclassName($_id_className)
+    {
+        $this->id_className = $_id_className;
+    }
+
   
 
     public function eraseCredentials()
