@@ -119,9 +119,9 @@ class User implements UserInterface
         return $this->status;
     }
 
-    public function setStatus($_role)
+    public function setStatus($_status)
     {
-        $this->role = $_role;
+        $this->status = $_status;
     }
 
     public function getUserMail()
