@@ -290,7 +290,7 @@ $app->get('/addnote',function() use ($app) {
 
 $app->post('/addnote', function(Request $request) use ($app){
     $newEvaluation = new Evaluation();
-  var_dump($newEvaluation);
+ 
     $student = $app['dao.student']->findStudent($request->request->get('etudiant'));
     $discipline = $app['dao.discipline']->findDiscipline($request->request->get('matiere'));
 
@@ -301,7 +301,7 @@ $app->post('/addnote', function(Request $request) use ($app){
     $newEvaluation->setJudgement('je suis un commentaire');
     $newEvaluation->setDtCreate(date('Y-m-d'));
     $newEvaluation->setDtUpdate(date('Y-m-d'));
-
+ var_dump($newEvaluation);
     $app['dao.evaluation']->saveGrade($newEvaluation);
     
   
