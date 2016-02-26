@@ -129,7 +129,7 @@ class User implements UserInterface
         return array($this->getRole());
     }
     
-    public function setRole(_set_role)
+    public function setRole($_set_role)
     {
         return array($this->_set_Role());
     }
