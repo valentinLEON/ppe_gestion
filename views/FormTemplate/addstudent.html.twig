@@ -12,15 +12,15 @@
         <div class="box-body">
             <div class="form-group">
                 <label for="#">Nom *</label>
-                <input type="text" class="form-control" style=" width: 25% ;border-radius: 3px" id="#" placeholder="Ex : Dupont">
+                <input type="text" class="form-control" style=" width: 25% ;border-radius: 3px" id="#" placeholder="Ex : Dupont" required>
             </div>
             <div class="form-group">
                 <label for="#">Prénom *</label>
-                <input type="text" class="form-control" style=" width: 25% ;border-radius: 3px" id="#" placeholder="Ex : Jean-Michel">
+                <input type="text" class="form-control" style=" width: 25% ;border-radius: 3px" id="#" placeholder="Ex : Jean-Michel" required>
             </div>
             <div class="form-group">
                 <label for="#">Classe *</label>
-                <select class="form-control" id="sel2" name="classe" style="border-radius: 3px; width: 30%">
+                <select class="form-control" id="sel2" name="classe" style="border-radius: 3px; width: 30%" required>
                     {% for classroom in classes %}
                         <option value="{{ classroom.id_className }}">
                             {{ classroom.class_name }}
@@ -30,11 +30,11 @@
             </div>
             <div class="form-group">
                 <label for="#">Date de naissance *</label>
-                <input type="date" class="form-control" style=" width: 25% ;border-radius: 3px" id="#" data-inputmask="'alias': 'jj/mm/aaaa'" data-mask>
+                <input type="date" class="form-control" style=" width: 25% ;border-radius: 3px" id="#" data-inputmask="'alias': 'jj/mm/aaaa'" data-mask required>
             </div>
             <div class="form-group">
                 <label for="#">Adresse email *</label>
-                <input type="email" class="form-control" style=" width: 25% ;border-radius: 3px" id="#" placeholder="Ex : jeanmichou@gmail.com">
+                <input type="email" class="form-control" style=" width: 25% ;border-radius: 3px" id="#" placeholder="Ex : jeanmichou@gmail.com" required>
             </div>
             <div class="form-group">
                 <label for="#">N° de téléphone</label>
@@ -42,7 +42,7 @@
             </div>
             <div class="form-group">
                 <label for="#">Adresse *</label>
-                <textarea rows="3" class="form-control" placeholder="Ex : 234, route des pins / Nice / 06200, France" width="35%" style=" width: 35% ;border-radius: 3px" id="#"></textarea>
+                <textarea rows="3" class="form-control" placeholder="Ex : 234, route des pins / Nice / 06200, France" width="35%" style=" width: 35% ;border-radius: 3px" id="#" required></textarea>
             </div>
             <small>* Champs obligatoires</small>
         </div>
