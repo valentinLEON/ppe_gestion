@@ -84,7 +84,7 @@ $app['dao.evaluation'] = $app->share(function($app){
     $evaluationDAO = new ppe_gestion\DAO\EvaluationDAO($app['db']);
     $evaluationDAO->setStudentDAO($app['dao.student']);
     $evaluationDAO->setDisciplineDAO($app['dao.discipline']);
-    $evaluationDAO->setEvalutationDAO($app['dao.judgement']);
+ 
     
     return $evaluationDAO;
 });
