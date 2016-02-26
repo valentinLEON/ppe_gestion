@@ -322,7 +322,7 @@ $app->post('/addjudgement', function(Request $request) use ($app){
     $judgement = $app['dao.evalutation']->findDiscipline($request->request->get('judgement'));
  
     $newJudgement->setGradeStudent($request->request->get('note'));
-    $newJudgment->setDiscipline($discipline);
+    $newJudgement->setDiscipline($discipline);
     $newJudgement->setStudent($student);
     $newJudgement->setCoefDiscipline(2);
     $newJudgement->setJudgement($judgement);
