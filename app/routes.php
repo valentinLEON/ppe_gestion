@@ -293,12 +293,13 @@ $app->post('/addnote', function(Request $request) use ($app){
  
     $student = $app['dao.student']->findStudent($request->request->get('etudiant'));
     $discipline = $app['dao.discipline']->findDiscipline($request->request->get('matiere'));
-
+    $judgement = $app['dao.evalutation']->findDiscipline($request->request->get('judgement'));
+    
     $newEvaluation->setGradeStudent($request->request->get('note'));
     $newEvaluation->setDiscipline($discipline);
     $newEvaluation->setStudent($student);
     $newEvaluation->setCoefDiscipline(2);
-    $newEvaluation->setJudgement('je suis un commentaire');
+    $newEvaluation->setJudgement($judgement);
     $newEvaluation->setDtCreate(date('Y-m-d'));
     $newEvaluation->setDtUpdate(date('Y-m-d'));
 
