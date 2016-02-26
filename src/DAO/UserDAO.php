@@ -112,7 +112,7 @@ class UserDAO extends DAO implements UserProviderInterface
             
             $_id_users = $this->getDb()->lastInsertId();
             $user->setIdUser($_id_users);
-            
+            var_dump($this);
            // $this->getDb()->insert('id_class', $_id_class);
            // $user->setIdClass($_id_class);
       
