@@ -136,6 +136,9 @@ $app->post('/addstudent', function(Request $request) use($app){
 
     $class = $app['dao.className']->findClassname($request->request->get('classname'));
 
+    var_dump($class);
+    die();
+
     $newStudent->setName($request->request->get('name'));
     $newStudent->setFirstname($request->request->get('firstname'));
     $newStudent->setBirthday($request->request->get('birthday'));
@@ -145,9 +148,6 @@ $app->post('/addstudent', function(Request $request) use($app){
     $newStudent->setDtCreate(date('Y-m-d'));
     $newStudent->setDtUpdate(date('Y-m-d'));
     $newStudent->setClass($class);
-
-    var_dump($class);
-    die();
 
     $app['dao.student']->saveStudent($newStudent);
 
