@@ -190,11 +190,11 @@ $app->get('/adduser', function () use ($app) {
 
 $app->post('/adduser', function(Request $request) use ($app){
    
-    $newUser = new User();
+   $newUser = new User();
 
-  //  $user = $app['dao.users']->findAll($request->request->get('user'));
-    //$id_class = $app['dao.className']->findClassName($request->request->get('id_className'));
-    //$id_discipline = $app['dao.discipline']->findDiscipline($request->request->get('id_discipline'));
+  // $user = $app['dao.users']->findAll($request->request->get('user'));
+   $id_class = $app['dao.className']->findClassName($request->request->get('id_class'));
+   $id_discipline = $app['dao.discipline']->findDiscipline($request->request->get('id_discipline'));
 
     $newUser->setIdUsers($request->request->get('id_users'));
     
