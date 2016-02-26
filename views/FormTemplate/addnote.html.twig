@@ -91,12 +91,12 @@
 
               <div class="box-body">
                     <div class="form-group">
-                      <label for="sel1">Note</label>
+                      <label for="#">Note</label>
                       <input style="border-radius: 3px;" type="text" class="form-control" name="note" placeholder="Ex : 12"/>
                     </div>
 
                     <div class="form-group">
-                      <label for="sel1">Etudiant</label>
+                      <label for="#">Etudiant</label>
                       <select class="form-control" id="sel2" name="etudiant" style="border-radius: 3px; width: 30%">
                           {% for etudiant in student %}
                               <option value="{{ etudiant.id_student }}">{{ etudiant.student_name~' '~etudiant.student_firstname }}</option>
@@ -105,7 +105,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="sel1">Matière</label>
+                      <label for="#">Matière</label>
                       <select class="form-control" id="sel3" name="matiere"  style="border-radius: 3px; width: 30%">
                           {% for matiere in matieres %}
                               <option value="{{ matiere.id_discipline }}">{{ matiere.name_discipline }}</option>
@@ -114,11 +114,11 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="sel1">Observations</label>
-                         <textarea  style=" border-radius:3px; width: 30%" name="judgement"></textarea>
+                        <label for="#">Observations</label>
+                         <textarea  style=" border-radius:3px; width: 40%" name="judgement"></textarea>
                     </div>
                     <div class="form_group">
-                      <button type="submit" class="btn btn-info pull-right" style="float:right; margin:5px;">Ajouter</button>
+                      <button type="submit" class="btn btn-info pull-right">Ajouter</button>
                     </div>
               </div>
     </form>
