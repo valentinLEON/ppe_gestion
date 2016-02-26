@@ -39,7 +39,7 @@ $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 // Provider pour gérer les differents languages
 $app->register(new Silex\Provider\TranslationServiceProvider());
  
-
+var_dump($app['db']);
 
 //                                                        CONTROLLERS
 /**
