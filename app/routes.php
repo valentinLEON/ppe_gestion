@@ -362,7 +362,7 @@ $app->post('/addnote', function(Request $request) use ($app){
     else{$app['session']->getFlashBag()->add('INFORMATION', 'La note a pas été ajouté !');}*/
 
     //return $app['twig']->render('/addnote');
-    return new Response('Bien joué kiki', 201);
+    //return new Response('Bien joué kiki', 201);
     //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
 })->bind('note');
 
