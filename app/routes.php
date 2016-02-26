@@ -4,6 +4,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use ppe_gestion\Domain\Evaluation;
 use ppe_gestion\Domain\UserToClass;
+use ppe_gestion\Domain\ClassName;
 use ppe_gestion\Domain\Student;
 use ppe_gestion\Domain\User;
 
