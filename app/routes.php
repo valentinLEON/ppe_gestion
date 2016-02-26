@@ -269,10 +269,13 @@ $app->get('/classeslist', function () use ($app) {
  * 
  * route pour l'ajout des classes
  */
-$app->match('/addclass', function () use ($app) {
+$app->get('/addclass', function () use ($app) {
     return $app['twig']->render('FormTemplate/addclass.html.twig');
 })->bind('addclass');
 
+$app->post('/addclass', function(Request $request) use ($app){
+
+})->bind('class');
 
 
 /**                                                            DISCIPLINES

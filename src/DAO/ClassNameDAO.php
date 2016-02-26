@@ -81,7 +81,7 @@ class ClassNameDAO extends DAO
         );
 
         //on modifie
-        if($_className)
+        if($_className->getIdClassName())
         {
             $this->getDb()->update('className', $class, array('id_class'=> $_className->getIdClassName()));
         }

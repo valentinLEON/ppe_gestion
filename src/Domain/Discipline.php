@@ -15,8 +15,6 @@ class Discipline
     public $name_discipline;
     public $description;
 
-   // public $evaluation;
-
     public $dt_create;
     public $dt_update;
 
