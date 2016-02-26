@@ -121,7 +121,7 @@ class EvaluationDAO extends DAO
             'id_discipline'     => $evaluation->getDiscipline()->getIdDiscipline(),
             'grade_student'     => $evaluation->getGradeStudent(),
             'coef_discipline'   => $evaluation->getCoefDiscipline(),
-            'judgement'         => $evaluation->getJudgement()->getIdJudgement(),
+            'judgement'         => $evaluation->getJudgement(),
             'dt_create'        => $evaluation->getDtCreate(),
             'dt_update'        => $evaluation->getDtUpdate()
         );
@@ -135,6 +135,8 @@ class EvaluationDAO extends DAO
             $_id_evaluation = $this->getDb()->lastInsertId();
             $evaluation->setIdEvaluation($_id_evaluation);
         }
+        
+        var_dump( $evaluation->getJudgement());
     }
 
     /**
