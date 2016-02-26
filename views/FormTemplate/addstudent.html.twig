@@ -20,7 +20,7 @@
             </div>
             <div class="form-group">
                 <label for="#">Classe *</label>
-                <select class="form-control" id="sel2" name="classename" style="border-radius: 3px; width: 30%">
+                <select class="form-control" id="sel2" name="classname" style="border-radius: 3px; width: 30%">
                     {% for classroom in classes %}
                         <option value="{{ classroom.id_className }}">
                             {{ classroom.class_name }}
