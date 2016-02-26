@@ -27,7 +27,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 ));
 
 $app->register(new Silex\Provider\DoctrineServiceProvider());
-
+$app->register(new Silex\Provider\SessionServiceProvider());
 
 // Provider pour générer des formulaires
 //$app->register(new Silex\Provider\FormServiceProvider());

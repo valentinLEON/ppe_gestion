@@ -2,7 +2,6 @@
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session;
 use ppe_gestion\Domain\Evaluation;
 use ppe_gestion\Domain\Discipline;
 use ppe_gestion\Domain\Student;
