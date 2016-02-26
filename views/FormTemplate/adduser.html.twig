@@ -47,7 +47,7 @@
             </div>
             <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
                 <label>Classes</label>
-                <select name="id_className" class="form-control" multiple>
+                <select name="id_className" class="form-control">{# multiple #}
                      {% for classes in classe %}
                         <option value="{{ classes.id_className }}">{{ classes.class_name }}</option> 
                       {% endfor %}

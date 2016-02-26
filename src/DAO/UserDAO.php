@@ -88,7 +88,7 @@ class UserDAO extends DAO implements UserProviderInterface
     
    public function saveUser(User $user)
     {
-     $this->getDb()->update( array(
+     $this->getDb()->update($user, array(
                
                 'username'      => $user->getUsername(), 
                 'name'          => $user->getName(),
