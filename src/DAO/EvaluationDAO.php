@@ -136,7 +136,7 @@ class EvaluationDAO extends DAO
             $evaluation->setIdEvaluation($_id_evaluation);
         }
         
-        var_dump( $evaluation->getJudgement());
+       // var_dump( $evaluation->getJudgement());
     }
 
     /**
