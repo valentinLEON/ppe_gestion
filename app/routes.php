@@ -339,6 +339,7 @@ $app->get('/addnote',function() use ($app) {
 })->bind('addnote');
 
 $app->post('/addnote', function(Request $request) use ($app){
+
     $newEvaluation = new Evaluation();
     $message = 0; //booléen qui affiche ou non un message de succes
 
