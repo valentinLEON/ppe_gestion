@@ -314,7 +314,7 @@ $app->post('/addnote', function(Request $request) use ($app){
 
                                     /* JUDGMENT - OBSERVATIONS*/
 
-$app->post('/addjudgement', function(Request $request) use ($app){
+$app->post('/addnote', function(Request $request) use ($app){
     $newJudgement = new Evaluation();
  
     $student = $app['dao.student']->findStudent($request->request->get('etudiant'));
