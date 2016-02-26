@@ -403,12 +403,12 @@ $app->get('/notestats', function () use ($app) {
 
 
 
-/**                                                              ABSCENCES
+/**                                                              ABSENCES
  * 
  * 
  *                      TABLEAU DE BORD
  * 
- * route pour l'affichage du tableaud de bord des abscences
+ * route pour l'affichage du tableaud de bord des absences
  */
 $app->get('/absencetab', function () use ($app) {
     return $app['twig']->render('TabTemplate/absencetab.html.twig');
@@ -420,11 +420,11 @@ $app->get('/absencetab', function () use ($app) {
  *                             LISTE
  * 
  * 
- * route pour l'affichage de la liste des abscences
+ * route pour l'affichage de la liste des absences
  */
-$app->get('/abscenceslist', function () use ($app) {
-    return $app['twig']->render('ListTemplate/abscenceslist.html.twig');
-})->bind('abscenceslist');
+$app->get('/absenceslist', function () use ($app) {
+    return $app['twig']->render('ListTemplate/absenceslist.html.twig');
+})->bind('absenceslist');
 
 
 
@@ -432,11 +432,11 @@ $app->get('/abscenceslist', function () use ($app) {
 /**
  *                             AJOUT
  * 
- * route pour l'ajout d abscence
+ * route pour l'ajout d absence
  */
-$app->get('/addabscence', function () use ($app) {
-    return $app['twig']->render('FormTemplate/addabscence.html.twig');
-})->bind('addabscence');
+$app->get('/addabsence', function () use ($app) {
+    return $app['twig']->render('FormTemplate/addabsence.html.twig');
+})->bind('addabsence');
 
 
 /**                                                               RETARDS
