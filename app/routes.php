@@ -5,6 +5,7 @@ use Symfony\Component\HttpFoundation\Response;
 use ppe_gestion\Domain\Evaluation;
 use ppe_gestion\Domain\Discipline;
 use ppe_gestion\Domain\Student;
+use ppe_gestion\Domain\User;
 
 // PAS TOUCHER use ppe_gestion\Form\Type\addNoteForm;
 
@@ -152,10 +153,11 @@ $app->get('/adduser', function () use ($app) {
     return $app['twig']->render('FormTemplate/adduser.html.twig');
 })->bind('adduser');
 
+
 $app->post('/adduser', function(Request $request) use ($app){
     $newUser = new User();
  
-    //$user = $app['dao.user']->findUser($request->request->get('user'));
+  //  $user = $app['dao.user']->findUser($request->request->get('user'));
     
     
     $newUser->setUserName($request->request->get('username'));
