@@ -11,7 +11,7 @@
 
     <!-- /.box-header -->
     <!-- form start -->
-   <form class="form-horizontal" method="post" action="{{ path('note') }}" style="margin-left:20px;">
+ {#   <form class="form-horizontal" method="post" action="{{ path('note') }}" style="margin-left:20px;">
 
         <div class="box-body" >
             <div class="form-group" style=" width: 110px; display:inline-block;">
@@ -46,7 +46,7 @@
         <!-- /.box-body -->
         <!-- mettre le submit ici -->
         <!-- /.box-footer -->
-  </form>
+{#    </form>
 
     </div>
 
@@ -77,71 +77,57 @@
         
             </div>   
                         
-        </form>                  
-
+        </form>
+            #}
 
 <div class="box box-primary">   
     <!-- Main content -->
-    <section class="content">
-        <div class="row">
               
-                 
+
                     <!-- /.box-header -->
-                    <div class="box-body">
+
                            
-                        <form class="form-horizontal" method="post" action="{{ path('note') }}" style="margin-left:20px;">
+    <form class="form-horizontal" method="post" action="{{ path('note') }}" style="margin-left:20px;">
 
-                          <div class="box-body" style="margin-top:-30px" >
-                              <div class="form-group" style=" width: 110px; display:inline-block;">
-                                  <label for="sel1">Note</label>
-                                  <input  style="border-radius: 3px;" type="text" class="form-control" name="note" placeholder="Ex : 12"/>
-                              </div>
-
-                              <div class="form-group" style=" width:auto;  min-width:25px; max-width:40px; ">
-
-
-                                  <label for="sel1">Etudiant</label>
-                                  <select class="form-control" id="sel2" name="etudiant" style="border-radius: 3px;">
-                                      {% for etudiant in student %}
-                                          <option value="{{ etudiant.id_student }}">{{ etudiant.student_name~' '~etudiant.student_firstname }}</option>
-                                      {% endfor %}
-                                  </select>
-                              </div>
-                              <div class="form-group" style=" width:auto;  min-width:25px; max-width:40px;">
-                                  <label for="sel1">Matière</label>
-                                  <select class="form-control" id="sel3" name="matiere"  style="border-radius: 3px;">
-                                      {% for matiere in matieres %}
-                                          <option value="{{ matiere.id_discipline }}">{{ matiere.name_discipline }}</option>
-                                      {% endfor %}
-                                  </select>
-                              </div>    
-                          </div>
-                                  
-                        <div class="form-group" style=" width:auto;  min-width:40px; max-width:100px;">
-                                <label for="sel1">Observations</label>
- 
-                           <div class="box-body" style="box-shadow: 3px 2px #222D32;">
-
-                                 <textarea  style=" width:40%; margin:3px; border-radius:3px;" name="judgement"></textarea>
-
-                                 <div class="form_group">
-                                     <button type="submit" class="btn btn-info pull-right" style="float:right; margin:5px;">Ajouter</button>
-                                 </div>
-
-                        
-                           </div>   
-
-                        </form>                           
-                        
-                              
+              <div class="box-body">
+                    <div class="form-group">
+                      <label for="sel1">Note</label>
+                      <input style="border-radius: 3px;" type="text" class="form-control" name="note" placeholder="Ex : 12"/>
                     </div>
-                    <!-- /.box-body -->
-                <!-- /.box -->
-            <!-- /.col -->
-        </div>
+
+                    <div class="form-group">
+                      <label for="sel1">Etudiant</label>
+                      <select class="form-control" id="sel2" name="etudiant" style="border-radius: 3px;">
+                          {% for etudiant in student %}
+                              <option value="{{ etudiant.id_student }}">{{ etudiant.student_name~' '~etudiant.student_firstname }}</option>
+                          {% endfor %}
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="sel1">Matière</label>
+                      <select class="form-control" id="sel3" name="matiere"  style="border-radius: 3px;">
+                          {% for matiere in matieres %}
+                              <option value="{{ matiere.id_discipline }}">{{ matiere.name_discipline }}</option>
+                          {% endfor %}
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                            <label for="sel1">Observations</label>
+
+                       <div class="box-body" style="box-shadow: 3px 2px #222D32;">
+
+                             <textarea  style=" width:40%; margin:3px; border-radius:3px;" name="judgement"></textarea>
+
+                             <div class="form_group">
+                                 <button type="submit" class="btn btn-info pull-right" style="float:right; margin:5px;">Ajouter</button>
+                             </div>
+                       </div>
+                    </div>
+              </div>
+    </form>
         <!-- /.row -->
-    </section>
-    <!-- /.content -->
 </div>
     <!-- /.content-wrapper -->
 
