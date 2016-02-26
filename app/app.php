@@ -26,12 +26,9 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.class_path' => __DIR__.'/../vendor/twig/twig/lib',
 ));
 
-$app->register(new Silex\Provider\DoctrineServiceProvider(), array(
-    'db.options' => array(
-        'driver'   => 'pdo_sqlite',
-        'path'     => __DIR__.'/app.db',
-    ),
-));
+$app->register(new Silex\Provider\DoctrineServiceProvider());
+
+
 // Provider pour générer des formulaires
 //$app->register(new Silex\Provider\FormServiceProvider());
 
