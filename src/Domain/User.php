@@ -21,6 +21,7 @@ class User implements UserInterface
     public $password;
     public $salt;
     public $role;
+    public $status;
     public $user_mail;
     public $dt_create;
     public $dt_update;
@@ -90,12 +91,35 @@ class User implements UserInterface
         $this->salt = $_salt;
     }
 
+    
+    //function recupérant tous les roles
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    public function setRoles($_roles)
+    {
+        $this->roles = $_roles;
+    }
+    
+    
     public function getRole()
     {
         return $this->role;
     }
 
     public function setRole($_role)
+    {
+        $this->role = $_role;
+    }
+    
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    public function setStatus($_role)
     {
         $this->role = $_role;
     }
@@ -163,7 +187,7 @@ class User implements UserInterface
 
     public function eraseCredentials()
     {
-        // Nothing to do here
+       // Nothing to do here;
     }
 
 }
