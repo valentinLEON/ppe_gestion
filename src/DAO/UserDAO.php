@@ -87,26 +87,29 @@ class UserDAO extends DAO implements UserProviderInterface
     
     
    public function saveUser(User $user)
-    {
-     $this->getDb()->update($user, array(
+    {     
+       
+        $infoUser= array(
                
-                'username'      => $user->getUsername(), 
-                'name'          => $user->getName(),
-                'firstname'     => $user->getFirstname(),
-                'password'      => $user->getPassword(),
-                'salt'          => $user->getSalt(),
-                'role'          => $user->getRole(), 
-                'status'        => $user->getStatus(), 
-                'user_mail'     => $user->getUserMail(), 
-                'description'   => $user->getDescription(), 
-                'dt_create'     => $user->getDtCreate(), 
-                'dt_update'     => $user->getDtUpdate(), 
-                'id_discipline' => $user->getIdDiscipline(), 
-                'id_className'  => $user->getIdClassName(),
-           ) );
-     
-            var_dump($user);
-            $this->getDb()->insert('user', $user);
+            'username'      => $user->getUsername(), 
+            'name'          => $user->getName(),
+            'firstname'     => $user->getFirstname(),
+            'password'      => $user->getPassword(),
+            'salt'          => $user->getSalt(),
+            'role'          => $user->getRole(), 
+            'status'        => $user->getStatus(), 
+            'user_mail'     => $user->getUserMail(), 
+            'description'   => $user->getDescription(), 
+            'dt_create'     => $user->getDtCreate(), 
+            'dt_update'     => $user->getDtUpdate(), 
+            'id_discipline' => $user->getIdDiscipline(), 
+            'id_className'  => $user->getIdClassName(),
+            );
+        
+     //       $this->getDb()->update('user', $infoUser);
+          
+            
+            $this->getDb()->insert('user', $infoUser);
             
             $_id_users = $this->getDb()->lastInsertId();
             $user->setIdUser($_id_users);    
