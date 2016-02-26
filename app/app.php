@@ -26,6 +26,12 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.class_path' => __DIR__.'/../vendor/twig/twig/lib',
 ));
 
+$app->register(new Silex\Provider\DoctrineServiceProvider(), array(
+    'db.options' => array(
+        'driver'   => 'pdo_sqlite',
+        'path'     => __DIR__.'/app.db',
+    ),
+));
 // Provider pour générer des formulaires
 //$app->register(new Silex\Provider\FormServiceProvider());
 
@@ -56,7 +62,7 @@ $app['dao.discipline'] = $app->share(function($app){
 $app['dao.className'] = $app->share(function($app){
     return new ppe_gestion\DAO\ClassNameDAO($app['db']);
 });
-  var_dump($app['dao.className']);
+
 /**
  * Controller pour la route des étudiants
  *
