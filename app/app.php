@@ -24,7 +24,7 @@ ExceptionHandler::register();
  
  $app->register(new Silex\Provider\SecurityServiceProvider(), array(
     'security.firewalls' => array(
-        'foo' => array('pattern' => '^/foo'), // Exemple d'une url accessible en mode non connecté
+        'foo' => array('pattern' => '^/login'), // Exemple d'une url accessible en mode non connecté
         'default' => array(
             'pattern' => '^.*$',
             'anonymous' => true, // Indispensable car la zone de login se trouve dans la zone sécurisée (tout le front-office)
