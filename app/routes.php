@@ -301,13 +301,14 @@ $app->post('/addnote', function(Request $request) use ($app){
     $newEvaluation->setJudgement('je suis un commentaire');
     $newEvaluation->setDtCreate(date('Y-m-d'));
     $newEvaluation->setDtUpdate(date('Y-m-d'));
- var_dump($newEvaluation);
+
     $app['dao.evaluation']->saveGrade($newEvaluation);
     
-  
-    return new Response('Bien joué kiki', 201);
+   // var_dump($newEvaluation);
+   
+   // return new Response('Bien joué kiki', 201);
     //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
-})->bind('note');
+})->bind('addnote');
 
 /**
  * 
