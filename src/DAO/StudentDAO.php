@@ -76,15 +76,15 @@ class StudentDAO extends DAO
     public function saveStudent(Student $student)
     {
         $studentInfo = array(
-            '$student_name'     => $student->getName(),
-            '$student_firstname'=> $student->getFirstname(),
-            '$student_birthday' => $student->getBirthday(),
-            '$student_email'    => $student->getEmail(),
-            '$student_address'  => $student->getAddress(),
-            '$student_tel'      => $student->getTel(),
-            '$dt_create'        => $student->getDtCreate(),
-            '$dt_update'        => $student->getDtUpdate(),
-            'id_class'          => $student->getClass->getIdClass(),
+            'student_name'     => $student->getName(),
+            'student_firstname'=> $student->getFirstname(),
+            'student_birthday' => $student->getBirthday(),
+            'student_email'    => $student->getEmail(),
+            'student_address'  => $student->getAddress(),
+            'student_tel'      => $student->getTel(),
+            'dt_create'        => $student->getDtCreate(),
+            'dt_update'        => $student->getDtUpdate(),
+            'id_class'         => $student->getClass()->getIdClassName(),
         );
 
         //on modifie
