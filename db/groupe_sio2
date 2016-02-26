@@ -156,9 +156,11 @@ CREATE TABLE IF NOT EXISTS `studentToClass` (
 CREATE TABLE IF NOT EXISTS `users` (
   `id_users` int(11) NOT NULL,
   `username` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `firstname` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `salt` varchar(23) COLLATE utf8_unicode_ci NOT NULL,
-  `roles` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `role` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
   `dt_create` date NOT NULL,
   `dt_update` date NOT NULL,
   `id_discipline` int(11) NOT NULL,
