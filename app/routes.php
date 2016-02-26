@@ -110,9 +110,10 @@ $app->get('/studenttab', function () use ($app) {
  * route pour l'affichage de la liste des etudiants
  */
 $app->get('/studentslist', function () use ($app) {
+    $etudiants = $app['dao.student']->findAll();
+
     return $app['twig']->render('ListTemplate/studentslist.html.twig', array(
-        'students' =>
-    ));
+        'students' => $etudiants));
 })->bind('studentslist');
 
 /**
