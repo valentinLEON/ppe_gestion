@@ -97,7 +97,7 @@
 
                     <div class="form-group">
                       <label for="sel1">Etudiant</label>
-                      <select class="form-control" id="sel2" name="etudiant" style="border-radius: 3px;">
+                      <select class="form-control" id="sel2" name="etudiant" style="border-radius: 3px; width: 30%">
                           {% for etudiant in student %}
                               <option value="{{ etudiant.id_student }}">{{ etudiant.student_name~' '~etudiant.student_firstname }}</option>
                           {% endfor %}
@@ -106,7 +106,7 @@
 
                     <div class="form-group">
                       <label for="sel1">Matière</label>
-                      <select class="form-control" id="sel3" name="matiere"  style="border-radius: 3px;">
+                      <select class="form-control" id="sel3" name="matiere"  style="border-radius: 3px; width: 30%">
                           {% for matiere in matieres %}
                               <option value="{{ matiere.id_discipline }}">{{ matiere.name_discipline }}</option>
                           {% endfor %}
@@ -114,16 +114,12 @@
                     </div>
 
                     <div class="form-group">
-                            <label for="sel1">Observations</label>
+                        <label for="sel1">Observations</label>
+                         <textarea  style=" border-radius:3px; width: 30%" name="judgement"></textarea>
 
-                       <div class="box-body" style="box-shadow: 3px 2px #222D32;">
-
-                             <textarea  style=" width:40%; margin:3px; border-radius:3px;" name="judgement"></textarea>
-
-                             <div class="form_group">
-                                 <button type="submit" class="btn btn-info pull-right" style="float:right; margin:5px;">Ajouter</button>
-                             </div>
-                       </div>
+                         <div class="form_group">
+                             <button type="submit" class="btn btn-info pull-right" style="float:right; margin:5px;">Ajouter</button>
+                         </div>
                     </div>
               </div>
     </form>
