@@ -100,7 +100,7 @@ class UserDAO extends DAO implements UserProviderInterface
                 'dt_create'=> $user->getDtCreate(), 
                 'dt_update'=> $user->getDtUpdate(), 
                 'id_discipline'=> $user->getIdDiscipline(), 
-              //  'id_class'=> $user->getIdClass(),
+                'id_class'=> $user->getIdClass(),
             ));
         }
         else{
@@ -139,11 +139,16 @@ class UserDAO extends DAO implements UserProviderInterface
         if(array_key_exists('id_class', $row))
         {
             $classID = $row['id_class'];
-            $users = $this->UserDAO->findUser($classID);
+            $users = $this->getIdClassDAO->findUser($classID);
             $user->setUser($users);
         }
 
-      
+        if(array_key_exists('id_discipline', $row))
+        {
+            $disciplineID = $row['id_discipline'];
+            $discipline = $this->disciplineDAO->findDiscipline($disciplineID);
+            $evaluation->setDiscipline($discipline);
+        }
         return $user;
     }
 }
