@@ -3,7 +3,7 @@
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use ppe_gestion\Domain\Evaluation;
-use ppe_gestion\Domain\Discipline;
+use ppe_gestion\Domain\UserToClass;
 use ppe_gestion\Domain\Student;
 use ppe_gestion\Domain\User;
 
@@ -209,7 +209,7 @@ $app->post('/adduser', function(Request $request) use ($app){
     $newUser->setDtCreate(date('Y-m-d'));
     $newUser->setDtUpdate(date('Y-m-d'));
     
-  $newUser->setIdClass($request->request->get('id_class'));
+ // $newUser->setIdClass($request->request->get('id_class'));
 
     $app['dao.users']->saveUser($newUser);
 
