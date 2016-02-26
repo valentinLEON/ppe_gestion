@@ -27,7 +27,7 @@ class User implements UserInterface
     public $dt_update;
 
     public $id_discipline; /*clé étrangère*/
-    public $id_class; /*clé étrangère*/
+    public $id_className; /*clé étrangère*/
 
     public function getIdUsers()
     {
