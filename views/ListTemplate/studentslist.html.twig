@@ -27,7 +27,6 @@
                     <table class="table table-hover">
                         {% for etudiant in students %}
                             <option value="{{ etudiant.id_student }}">{{ etudiant.student_name~' '~etudiant.student_firstname }}</option>
-                        {% endfor %}
                         <tr>
                             <th style="text-align: center; border: 1px solid darkgrey;">Nom</th>
                             <th style="text-align: center; border: 1px solid darkgrey;">Prénom</th>
@@ -44,6 +43,7 @@
                             <td style="text-align: center; border: 1px solid darkgrey;">{{ etudiant.phone }}</td>
                             <td style="text-align: center; border: 1px solid darkgrey;">{{ etudiant.address }}</td>
                         </tr>
+                        {% endfor %}
                     </table>
                 </div>
                 <!-- /.box-body -->
