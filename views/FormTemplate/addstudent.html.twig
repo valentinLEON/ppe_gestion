@@ -18,8 +18,8 @@
                 <label for="#">Prénom *</label>
                 <input type="text" class="form-control" style=" width: 25% ;border-radius: 3px" id="#" placeholder="Ex : Jean-Michel" name="firstname">
             </div>
-            <div class="form-group">
-                <div class="form-group-lg">
+            <div class="form-horizontal">
+                <div class="form-group">
                     <label for="#">Classe *</label>
                     <select class="form-control" id="sel2" name="classname" style="border-radius: 3px; width: 30%">
                         {% for classroom in classes %}
@@ -29,7 +29,7 @@
                         {% endfor %}
                     </select>
                 </div>
-                <div class="form-group-sm">
+                <div class="form-group">
                     <label for="#">Option</label>
                     <input type="text" class="form-control" style="border-radius: 3px; width: 30%" id="#" placeholder="Ex: SLAM" name="option">
                 </div>
