@@ -92,12 +92,12 @@
               <div class="box-body">
                     <div class="form-group">
                       <label for="#">Note</label>
-                      <input style="border-radius: 3px; width: 10px;" type="text" class="form-control" name="note" placeholder="Ex : 12"/>
+                      <input style="border-radius: 3px; width: 15%" type="text" class="form-control" name="note" placeholder="Ex : 12"/>
                     </div>
 
                     <div class="form-group">
                       <label for="#">Etudiant</label>
-                      <select class="form-control" id="sel2" name="etudiant" style="border-radius: 3px; width: 35px">
+                      <select class="form-control" id="sel2" name="etudiant" style="border-radius: 3px; width: 30%">
                           {% for etudiant in student %}
                               <option value="{{ etudiant.id_student }}">{{ etudiant.student_name~' '~etudiant.student_firstname }}</option>
                           {% endfor %}
@@ -106,7 +106,7 @@
 
                     <div class="form-group">
                       <label for="#">Matière</label>
-                      <select class="form-control" id="sel3" name="matiere"  style="border-radius: 3px; width: 30px">
+                      <select class="form-control" id="sel3" name="matiere"  style="border-radius: 3px; width: 30%">
                           {% for matiere in matieres %}
                               <option value="{{ matiere.id_discipline }}">{{ matiere.name_discipline }}</option>
                           {% endfor %}
@@ -115,7 +115,7 @@
 
                     <div class="form-group">
                         <label for="#">Observations</label>
-                        <textarea  class="form-control" rows="3" style="width: 40px; border-radius: 3px" name="judgement"></textarea>
+                        <textarea  class="form-control" rows="3" style="width: 30%; border-radius: 3px" name="judgement"></textarea>
                     </div>
                     <div class="form_group">
                       <button type="submit" class="btn btn-info pull-right">Ajouter</button>
