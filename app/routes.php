@@ -110,7 +110,10 @@ $app->get('/studenttab', function () use ($app) {
  * route pour l'affichage de la liste des etudiants
  */
 $app->get('/studentslist', function () use ($app) {
-    return $app['twig']->render('ListTemplate/studentslist.html.twig');
+    $etudiants = $app['dao.student']->findAll();
+
+    return $app['twig']->render('ListTemplate/studentslist.html.twig', array(
+        'students' => $etudiants));
 })->bind('studentslist');
 
 /**
@@ -182,14 +185,12 @@ $app->post('/adduser', function(Request $request) use ($app){
  
     $user = $app['dao.users']->findAll($request->request->get('user'));
     $user->setIdUsers($row['id_users']);
-    
-    $newUser->setUsername($user);
     $newUser->setUsername($request->request->get('username'));
     $newUser->setName($request->request->get('name'));
     $newUser->setFirstName($request->request->get('firstname'));
     $newUser->setPassword($request->request->get('password'));
     $newUser->setSalt($request->request->get('salt'));
-    $newUser->setRole($request->request->get('role'));
+    $newUser->setUserRole($request->request->get('role'));
     $newUser->setDescription($request->request->get('description'));
     $newUser->setUserMail($request->request->get('user_mail'));
     $newUser->setDtCreate(date('Y-m-d'));
