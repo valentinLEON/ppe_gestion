@@ -135,6 +135,8 @@ class EvaluationDAO extends DAO
             $_id_evaluation = $this->getDb()->lastInsertId();
             $evaluation->setIdEvaluation($_id_evaluation);
         }
+        
+       // var_dump( $evaluation->getJudgement());
     }
 
     /**
@@ -178,6 +180,13 @@ class EvaluationDAO extends DAO
             $disciplineID = $row['id_discipline'];
             $discipline = $this->disciplineDAO->findDiscipline($disciplineID);
             $evaluation->setDiscipline($discipline);
+        }
+        
+        if(array_key_exists('id_evaluation', $row))
+        {
+            $evaluationID = $row['id_judgement'];
+            $judgement= $this->EvalutationDAO->findDiscipline($judgementID);
+            $evaluation->setJudgement($judgement);
         }
 
         return $evaluation;

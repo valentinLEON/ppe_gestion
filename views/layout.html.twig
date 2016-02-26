@@ -34,9 +34,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-   <script src="{{ app.request.getBaseURL() }}/js/ajoutStyles.js"></script>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+ 
 
 </head>
 <!--
@@ -72,13 +70,15 @@ desired effect
             <!-- logo for regular state and mobile devices -->
             <span class="logo-lg"><b>Classroom</b>Manager</span>
         </a>
-
+       
         <!-- Header Navbar -->
         <nav class="navbar navbar-static-top" role="navigation" style="height:40px">
             <!-- Sidebar toggle button-->
             <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
                 <span class="sr-only">Toggle navigation</span>
-            </a>
+            </a>   
+            <a href="testroutes"><i class="fa fa-gears"></i></a>
+            
             
             
             <!-- Navbar Right Menu -->
@@ -87,11 +87,11 @@ desired effect
                     
                     
              <!-- search form (Optional) -->
-            <form action="#" method="get" class="sidebar-form" style="width:300px; margin-left:20px; padding:-2px; display:inline-block;">
+            <form action="#" method="get" class="sidebar-form" style="height:30px; width:300px; margin-left:20px; padding:-2px; display:inline-block;">
                 <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="Recherche...">
+                    <input type="text" name="recherche" class="form-control" style="height:30px;" placeholder="Recherche...">
               <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat" style="height:30px;"><i class="fa fa-search"></i>
                 </button>
               </span>
                 </div>
@@ -114,6 +114,7 @@ desired effect
                             <li class="user-header">
                                 <img src="{{ app.request.getBaseURL() }}/themes/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                                 <p>
+                                   {# {{ path(user.user_name) }} #}
                                     Maurice Dupont <br> Professeur de Mathématiques
                                 </p>
                    
@@ -125,18 +126,15 @@ desired effect
                                 <div  style="margin:5px; display:inline-block;">
                                     <a href="#" class="btn btn-default btn-flat">Profil</a>
                                 </div>
-                                <div  style="margin:5px; display:inline-block;">
-                                    <a href="login" class="btn btn-default btn-flat">Connexion</a>
-                                </div>
                                 <div style="margin:5px; display:inline-block;">
-                                    <a href="#" class="btn btn-default btn-flat">Déconnexion</a>
+                                    <a href="login" class="btn btn-default btn-flat">Déconnexion</a>
                                 </div>
                             </li>
                         </ul>
                     </li>
                     <!-- Control Sidebar Toggle Button -->
                     <li>
-                        <a href="testroutes.html.twig" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                        <a href="" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
                     </li>
                 </ul>
             </div>
@@ -189,9 +187,9 @@ desired effect
                     </ul>
                 </li>
                 <li class="treeview">
-                    <a href="abscencetab"><i class="glyphicon glyphicon-dashboard"></i><span>Gestion des Absences</span><i class="fa fa-angle-left pull-right"></i></a>
+                    <a href="absencetab"><i class="glyphicon glyphicon-dashboard"></i><span>Gestion des Absences</span><i class="fa fa-angle-left pull-right"></i></a>
                     <ul class="treeview-menu">
-                        <li><a href="abscenceslist"><i class="glyphicon glyphicon-th-list"></i>Liste des absences</a></li>
+                        <li><a href="absenceslist"><i class="glyphicon glyphicon-th-list"></i>Liste des absences</a></li>
                         <li><a href="retardslist"><i class="glyphicon glyphicon-th-list"></i>Liste des retards</a></li>
                     </ul>
                 </li>
@@ -262,6 +260,11 @@ desired effect
 <!-- AdminLTE App -->
 <script src="{{ app.request.getBaseURL() }}/themes/AdminLTE/dist/js/app.min.js"></script>
 
+    <script src="{{ app.request.getBaseURL() }}/js/ajoutStyles.js"></script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+    <script src="cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.print.css "></script>
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. Slimscroll is required when using the

@@ -20,28 +20,17 @@ use ppe_gestion\Domain;
 ErrorHandler::register();
 ExceptionHandler::register();
 
-// Register service providers.
-$app->register(new Silex\Provider\DoctrineServiceProvider());
-
-// Provider pour générer des sessions
-//$app->register(new Silex\Provider\SessionServiceProvider(), array(
-//    
-//    
-//        'error'         => $app['security.last_error']($request),
-//
-//        'last_username' => $app['session']->get('_security.last_username'),
-//    
-//));
-
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../views',
     'twig.class_path' => __DIR__.'/../vendor/twig/twig/lib',
-    'twig.options' => array(),
 ));
 
+$app->register(new Silex\Provider\DoctrineServiceProvider());
+
+
 // Provider pour générer des formulaires
-$app->register(new Silex\Provider\FormServiceProvider());
+//$app->register(new Silex\Provider\FormServiceProvider());
 
 /**
  * Provider pour la génération des urls
@@ -53,32 +42,8 @@ $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 $app->register(new Silex\Provider\TranslationServiceProvider());
 
 
-// Provider pour gérer le login
-$app->register(new Silex\Provider\SecurityServiceProvider(), array(
 
-    'security.firewalls' => array(
 
-        'secured' => array(
-
-            'pattern' => '^/',
-
-            'anonymous' => true,
-
-            'logout' => true,
-
-            'form' => array('login_path' => '/login', 'check_path' => '/login_check'),
-
-            'users' => $app->share(function () use ($app) {
-
-                return new ppe_gestion\DAO\UserDAO($app['db']);
-
-            }),
-
-        ),
-
-    ),
-));
-            
 //                                                        CONTROLLERS
 /**
  * controller pour la route des matières
@@ -103,6 +68,15 @@ $app['dao.student'] = $app->share(function($app){
     return new ppe_gestion\DAO\StudentDAO($app['db']);
 });
 
+
+/**
+ * Controller pour la route des observations
+ *
+ */
+$app['dao.judgement'] = $app->share(function($app){
+    return new ppe_gestion\DAO\StudentDAO($app['db']);
+});
+
 /**
  * Controller pour la route des notes
  */
@@ -110,6 +84,8 @@ $app['dao.evaluation'] = $app->share(function($app){
     $evaluationDAO = new ppe_gestion\DAO\EvaluationDAO($app['db']);
     $evaluationDAO->setStudentDAO($app['dao.student']);
     $evaluationDAO->setDisciplineDAO($app['dao.discipline']);
+ 
+    
     return $evaluationDAO;
 });
 
@@ -121,23 +97,32 @@ $app['dao.users'] = $app->share(function($app){
     return new ppe_gestion\DAO\UserDAO($app['db']);
 });
 
-return $app;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Register service providers.
+ /*
+ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
+    'security.firewalls' => array(
+        'foo' => array('pattern' => '^/login'), // Exemple d'une url accessible en mode non connecté
+        'default' => array(
+            'pattern' => '^.*$',
+            'anonymous' => true, // Indispensable car la zone de login se trouve dans la zone sécurisée (tout le front-office)
+            'form' => array('login_path' => '/', 'check_path' => 'connexion'),
+            'logout' => array('logout_path' => '/deconnexion'), // url à appeler pour se déconnecter
+            'users' => $app->share(function() use ($app) {
+                // La classe App\User\UserProvider est spécifique à notre application et est décrite plus bas
+                return new App\User\UserProvider($app['db']);
+            }),
+        ),
+    ),
+    'security.access_rules' => array(
+        // ROLE_USER est défini arbitrairement, vous pouvez le remplacer par le nom que vous voulez
+        array('^/.+$', 'ROLE_USER'),
+        array('^/foo$', ''), // Cette url est accessible en mode non connecté
+    )
+));
+*/
 
 //Monolog
 // $app->register(new Provider\MonologServiceProvider(), array(
@@ -162,3 +147,8 @@ return $app;
     // }
 // });
 
+
+            
+            
+            
+return $app;

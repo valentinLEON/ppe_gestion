@@ -15,7 +15,7 @@ class Discipline
     public $name_discipline;
     public $description;
 
-    public $evaluation;
+   // public $evaluation;
 
     public $dt_create;
     public $dt_update;
@@ -53,19 +53,19 @@ class Discipline
     /**
      * @return mixed
      */
-    public function getEvaluation()
+ /*   public function getEvaluation()
     {
         return $this->evaluation;
     }
-
+*/
     /**
      * @param mixed $evalutation
      */
-    public function setEvaluation($evaluation)
+/*    public function setEvaluation($evaluation)
     {
         $this->evaluation = $evaluation;
     }
-
+*/
     public function getDtCreate()
     {
         return $this->dt_create;

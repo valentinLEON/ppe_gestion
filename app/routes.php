@@ -5,6 +5,7 @@ use Symfony\Component\HttpFoundation\Response;
 use ppe_gestion\Domain\Evaluation;
 use ppe_gestion\Domain\Discipline;
 use ppe_gestion\Domain\Student;
+use ppe_gestion\Domain\User;
 
 // PAS TOUCHER use ppe_gestion\Form\Type\addNoteForm;
 
@@ -16,13 +17,23 @@ use ppe_gestion\Domain\Student;
  * 
  *                              AFFICHAGE ACCUEIL
  * 
- * Route pour l'accueil
- */
-$app->get('/', function () use ($app) {
-    return $app['twig']->render('index.html.twig');
-});
+ * Acces avec SecurityProvider
 
-//                                                             Login form
+$app->get('/', function(Request $request) use ($app) {
+    
+    return $app['twig']->render('index.html.twig'), array(
+        'error' => $app['security.last_error']($request),
+        'last_username' => $app['session']->get('_security.last_username'),
+    ));
+    
+});
+ */
+$app->get('/', function(Request $request) use ($app) {
+    
+    return $app['twig']->render('index.html.twig'); 
+       
+});
+//                                                             LOGIN 
 
 $app->get('/login', function(Request $request) use ($app) {
     return $app['twig']->render('login.html.twig', array(
@@ -32,40 +43,7 @@ $app->get('/login', function(Request $request) use ($app) {
 })->bind('login');
 
 
-// 
-//
-//    
-//    $username = $app['request']->server->get('PHP_AUTH_USER', false);
-//    $password = $app['request']->server->get('PHP_AUTH_PW');
-//var_dump($username);
-//    if ('igor' === $username && 'password' === $password) {
-//        $app['session']->set('user', array('username' => $username));
-//        return $app->redirect('/account');
-//    }else{
-//
-//    $response = new Response();
-//    $response->headers->set('WWW-Authenticate', sprintf('Basic realm="%s"', 'site_login'));
-//    $response->setStatusCode(401, 'Please sign in.');
-//    return $response;
-//    }
 
-//    return $app['twig']->render('login.html.twig', array(
-//
-//        'error'         => $app['security.last_error']($request),
-//
-//        'last_username' => $app['session']->get('_security.last_username'),
-//    ));    
-
-    
-$app->get('/account', function () use ($app) {
-    if (null === $user = $app['session']->get('user')) {
-     
-        
-    return "Welcome {$user['username']}!";
-    
-    
-    }
-});
  /*                                                                 ADMIN
 
  *                       TESTS POUR LES ROUTES
@@ -75,6 +53,15 @@ $app->get('/account', function () use ($app) {
 $app->get('/testroutes', function () use ($app) {
     return $app['twig']->render('testroutes.html.twig');
 })->bind('testroutes');
+
+/*
+ *                       TESTS POUR LES LOGINS
+ * 
+ * route pour l'affichage de la liste des etudiants
+ */
+$app->get('/testlogin', function () use ($app) {
+    return $app['twig']->render('testlogin.html.twig');
+})->bind('testlogin');
 
 
 /**                                                          
@@ -86,6 +73,22 @@ $app->get('/testroutes', function () use ($app) {
 $app->get('/admintab', function () use ($app) {
     return $app['twig']->render('TabTemplate/admintab.html.twig');
 })->bind('admintab');
+
+/**
+ * 
+ *  *   
+*                                                                   LOGIN
+ * route pour afficher le login
+ */
+$app->get('/login', function (Request $request) use ($app) {
+    return $app['twig']->render('login.html.twig', array(
+     //   'error' => $app['security.last.error']($request),
+    //    'last_username' => $app['session']->get('_security.last_username'),
+    ));
+})->bind('login');
+
+
+
 
 
 /**                                                            ETUDIANTS
@@ -150,6 +153,28 @@ $app->get('/adduser', function () use ($app) {
     return $app['twig']->render('FormTemplate/adduser.html.twig');
 })->bind('adduser');
 
+
+$app->post('/adduser', function(Request $request) use ($app){
+   
+    $newUser = new User();
+ 
+    $user = $app['dao.users']->findAll($request->request->get('user'));
+
+    $newUser->setUsername($request->request->get('username'));
+    
+    $newUser->setDtCreate(date('Y-m-d'));
+    $newUser->setDtUpdate(date('Y-m-d'));
+    
+    var_dump($newUser);
+
+    $app['dao.users']->saveUser($newUser);
+    
+    
+   
+    return new Response('Bien joué aussi', 201);
+    //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
+})->bind('user');
+
 /**
  *     
  *                     LISTE 
@@ -157,7 +182,9 @@ $app->get('/adduser', function () use ($app) {
  * route pour l'affichage de la liste des utilisateurs
  */
 $app->get('/userslist', function () use ($app) {
+    
     return $app['twig']->render('ListTemplate/userslist.html.twig');
+    
 })->bind('userslist');
 
 /**
@@ -170,22 +197,6 @@ $app->get('/calendar', function () use ($app) {
     //$eval = $app['dao.evaluation']->findAllByDiscipline(1);
     return $app['twig']->render('calendar.html.twig');
 })->bind('calendar');
-
-/**
- * 
- *  *   
-*                                                                   LOGIN
- * route pour afficher le login
- */
-$app->get('/login', function (Request $request) use ($app) {
-    return $app['twig']->render('login.html.twig', array(
-     //   'error' => $app['security.last.error']($request),
-    //    'last_username' => $app['session']->get('_security.last_username'),
-    ));
-})->bind('login');
-
-
-
 
 /**                                                              CLASSES
  * 
@@ -261,12 +272,12 @@ $app->get('/adddiscipline', function () use ($app) {
 /**                                                 NOTES         - EVALUATIONS
  * 
  *  
- *                   TABLEAU DE BORD
+ *                   TABLEAU DE BORD STATS DES NOTES
  * 
  */
-$app->match('/notetab', function () use ($app) {
-    return $app['twig']->render('TabTemplate/notetab.html.twig');
-})->bind('notetab');
+$app->get('/notetab', function () use ($app) {
+    return $app['twig']->render('StatTemplate/notestat.html.twig');
+})->bind('notetabstats');
 
 /**   
  * 
@@ -285,10 +296,12 @@ $app->get('/notelist', function () use ($app) {
  *              AJOUT
  * 
  * 
- * Route pour l'ajout des notes
+ *                                  Route pour l'ajout des notes et commentaires
  */
 
 $app->get('/addnote',function() use ($app) {
+    
+   // var_dump($app['dao.className']);
     $classes = $app['dao.className']->findAll();
     $discipline = $app['dao.discipline']->findAll();
     $etudiant = $app['dao.student']->findAll();
@@ -297,26 +310,34 @@ $app->get('/addnote',function() use ($app) {
         'classNames' => $classes,
         'matieres' => $discipline,
         'student' => $etudiant));
+    
 })->bind('addnote');
 
 $app->post('/addnote', function(Request $request) use ($app){
     $newEvaluation = new Evaluation();
-
+ 
     $student = $app['dao.student']->findStudent($request->request->get('etudiant'));
     $discipline = $app['dao.discipline']->findDiscipline($request->request->get('matiere'));
-
+   
+    
     $newEvaluation->setGradeStudent($request->request->get('note'));
     $newEvaluation->setDiscipline($discipline);
     $newEvaluation->setStudent($student);
     $newEvaluation->setCoefDiscipline(2);
-    $newEvaluation->setJudgement('je suis un commentaire');
+    $newEvaluation->setJudgement($request->request->get('judgement'));
     $newEvaluation->setDtCreate(date('Y-m-d'));
     $newEvaluation->setDtUpdate(date('Y-m-d'));
 
     $app['dao.evaluation']->saveGrade($newEvaluation);
+    
+ //   var_dump($newEvaluation);
+   
     return new Response('Bien joué kiki', 201);
     //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
 })->bind('note');
+
+
+
 
 /**
  * 
@@ -339,9 +360,9 @@ $app->get('/notestats', function () use ($app) {
  * 
  * route pour l'affichage du tableaud de bord des abscences
  */
-$app->get('/abscencetab', function () use ($app) {
-    return $app['twig']->render('TabTemplate/abscencetab.html.twig');
-})->bind('abscencetab');
+$app->get('/absencetab', function () use ($app) {
+    return $app['twig']->render('TabTemplate/absencetab.html.twig');
+})->bind('absencetab');
 
 
 /**
