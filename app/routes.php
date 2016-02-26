@@ -152,7 +152,7 @@ $app->post('/addstudent', function(Request $request) use($app){
 
     return new Response('Bien joué kiki', 201);
     //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
-})->bind('addstudent');
+})->bind('student');
 
 /**
  *     
