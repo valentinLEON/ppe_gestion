@@ -38,10 +38,12 @@ class ClassNameDAO extends DAO
         $sql = "SELECT * FROM className WHERE id_class=?";
         $row = $this->getDb()->fetchAssoc($sql, array($id));
 
-        if($row)
+        if($row){
             return $this->buildDomainObject($row);
-        else
+        }
+        else{
             throw new \Exception("Aucune classe pour l'id : ".$id);
+        }
     }
 
     /**

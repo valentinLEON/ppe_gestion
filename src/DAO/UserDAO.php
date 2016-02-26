@@ -59,10 +59,12 @@ class UserDAO extends DAO implements UserProviderInterface
         $sql = "SELECT * FROM users";
         $row = $this->getDb()->fetchAssoc($sql, array($username));
 
-        if($row)
+        if($row){
             return $this->buildDomainObject($row);
-        else
+        }
+        else{
             throw new UsernameNotFoundException('User "%s" not found.', $username);
+        }
     }
 
     public function refreshUser(UserInterface $user)
@@ -108,8 +110,8 @@ class UserDAO extends DAO implements UserProviderInterface
             $_id_users = $this->getDb()->lastInsertId();
             $user->setIdUser($_id_users);
             
-            $this->getDb()->insert('id_class', $idclass);
-            $UserToClass->setIdClass($_id_class);
+            $this->getDb()->insert('id_class', $_id_class);
+            $user->setIdClass($_id_class);
       
     }
 

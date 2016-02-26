@@ -135,7 +135,7 @@ $app->get('/addstudent', function () use ($app) {
 $app->post('/addstudent', function(Request $request) use($app){
     $newStudent = new Student();
 
-    $class = $app['dao.className']->findClassname($request->request->get('id_class'));
+    $class = $app['dao.className']->findClassname($request->request->get('classname'));
 
     $newStudent->setName($request->request->get('name'));
     $newStudent->setFirstname($request->request->get('firstname'));
