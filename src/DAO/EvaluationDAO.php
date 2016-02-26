@@ -181,6 +181,13 @@ class EvaluationDAO extends DAO
             $discipline = $this->disciplineDAO->findDiscipline($disciplineID);
             $evaluation->setDiscipline($discipline);
         }
+        
+        if(array_key_exists('id_evaluation', $row))
+        {
+            $evaluationID = $row['id_discipline'];
+            $judgement= $this->EvalutationDAO->findDiscipline($judgementID);
+            $evaluation->setEvaluation($judgement);
+        }
 
         return $evaluation;
     }
