@@ -310,6 +310,32 @@ $app->post('/addnote', function(Request $request) use ($app){
     //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
 })->bind('note');
 
+
+
+                                    /* JUDGMENT - OBSERVATIONS*/
+
+$app->post('/addjudgment', function(Request $request) use ($app){
+    $newEvaluation = new Evaluation();
+ 
+    $student = $app['dao.student']->findStudent($request->request->get('etudiant'));
+    $discipline = $app['dao.discipline']->findDiscipline($request->request->get('matiere'));
+    $judgment = $app['dao.evalutation']->findDiscipline($request->request->get('judmgent'));
+ 
+    $newJudgment->setGradeStudent($request->request->get('note'));
+    $neJudgment->setDiscipline($discipline);
+    $newJudgment->setStudent($student);
+    $newJudgment->setCoefDiscipline(2);
+    $newJudgment->setJudgement();
+    $newJudgment->setDtCreate(date('Y-m-d'));
+    $newJudgment->setDtUpdate(date('Y-m-d'));
+
+    $app['dao.evaluation']->saveGrade($newJudgment);
+    
+    var_dump($newJudment);
+   
+    return new Response('ok ', 201);
+    //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
+})->bind('judgment');
 /**
  * 
  *          
