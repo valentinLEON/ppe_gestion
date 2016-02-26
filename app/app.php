@@ -72,15 +72,6 @@ $app['dao.student'] = $app->share(function($app){
     return $studentDAO;
 });
 
-
-/**
- * Controller pour la route des observations
- *
- */
-$app['dao.judgement'] = $app->share(function($app){
-    return new ppe_gestion\DAO\StudentDAO($app['db']);
-});
-
 /**
  * Controller pour la route des notes
  */
