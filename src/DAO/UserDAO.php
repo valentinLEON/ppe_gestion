@@ -84,7 +84,20 @@ class UserDAO extends DAO implements UserProviderInterface
    
          if($user->getIdUsers())
         {
-            $this->getDb()->update('user', $user, array('id_users'=> $user->getIdUsers()));
+            $this->getDb()->update('user', $user, array(
+                
+                'id_users'=> $user->getIdUsers(),
+                'username'=> $user->getUsername(), 
+                'password'=> $user->getPassword(),
+                'salt'=> $user->getSalt(),
+                'role'=> $user->getRole(), 
+                'user_mail'=> $user->getUserMail(), 
+                'description'=> $user->getDescription(), 
+                'dt_create'=> $user->getDtCreate(), 
+                'dt_update'=> $user->getDtUpdate(), 
+                'id_discipline'=> $user->getIdDiscipline(), 
+                'id_class'=> $user->getIdClass(),
+            ));
         }
         else{
             $this->getDb()->insert('user', $user);
