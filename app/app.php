@@ -60,34 +60,7 @@ $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 
 // Provider pour gérer les differents languages
 $app->register(new Silex\Provider\TranslationServiceProvider());
-
-
-// Provider pour gérer le login
-$app->register(new Silex\Provider\SecurityServiceProvider(), array(
-
-    'security.firewalls' => array(
-
-        'secured' => array(
-
-            'pattern' => '^/',
-
-            'anonymous' => true,
-
-            'logout' => true,
-
-            'form' => array('login_path' => '/login', 'check_path' => '/login_check'),
-
-            'users' => $app->share(function () use ($app) {
-
-                return new ppe_gestion\DAO\UserDAO($app['db']);
-
-            }),
-
-        ),
-
-    ),
-));
-            
+ 
 //                                                        CONTROLLERS
 /**
  * controller pour la route des matières
@@ -130,7 +103,6 @@ $app['dao.users'] = $app->share(function($app){
     return new ppe_gestion\DAO\UserDAO($app['db']);
 });
 
-return $app;
 
 
 
@@ -146,6 +118,33 @@ return $app;
 
 
 
+
+// Provider pour gérer le login
+$app->register(new Silex\Provider\SecurityServiceProvider(), array(
+
+    'security.firewalls' => array(
+
+        'secured' => array(
+
+            'pattern' => '^/',
+
+            'anonymous' => true,
+
+            'logout' => true,
+
+            'form' => array('login_path' => '/login', 'check_path' => '/login_check'),
+
+            'users' => $app->share(function () use ($app) {
+
+                return new ppe_gestion\DAO\UserDAO($app['db']);
+
+            }),
+
+        ),
+
+    ),
+));
+           
 
 
 //Monolog
@@ -171,3 +170,8 @@ return $app;
     // }
 // });
 
+
+            
+            
+            
+return $app;
