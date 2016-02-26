@@ -9,6 +9,7 @@
 namespace ppe_gestion\DAO;
 
 use ppe_gestion\Domain\Student;
+use ppe_gestion\DAO\ClassNameDAO;
 
 
 class StudentDAO extends DAO
@@ -117,12 +118,12 @@ class StudentDAO extends DAO
         $student->setDtCreate($row['dt_create']);
         $student->setDtUpdate($row['dt_update']);
 
-        if(array_key_exists('id_class', $row))
+        /*if(array_key_exists('id_class', $row))
         {
             $classNameID = $row['id_class'];
             $classname = $this->ClassNameDAO->findClassname($classNameID);
             $student->setClass($classname);
-        }
+        }*/
 
         return $student;
     }
