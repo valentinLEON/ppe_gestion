@@ -95,15 +95,9 @@ class User implements UserInterface
     //function recupérant tous les roles
     public function getRoles()
     {
-        return $this->roles;
+        return array($this->getRole());
     }
 
-    public function setRoles($_roles)
-    {
-        $this->roles = $_roles;
-    }
-    
-    
     public function getRole()
     {
         return $this->role;

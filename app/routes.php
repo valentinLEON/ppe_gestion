@@ -252,6 +252,11 @@ $app->get('/classeslist', function () use ($app) {
     return $app['twig']->render('ListTemplate/classeslist.html.twig');
 })->bind('classeslist');
 
+
+$app->post('/classlist', function () use ($app) {
+    var_dump(array($this->getDiscipline()));
+    die();
+});
 /**
  *                     AJOUT
  * 

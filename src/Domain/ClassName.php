@@ -19,7 +19,7 @@ class ClassName
     public $nombreEtudiant;
 
     public $student;
-    public $disciplines;
+    public $discipline;
 
     public $dt_create;
     public $dt_update;
@@ -146,4 +146,20 @@ class ClassName
     {
         $this->student = $_student;
     }
+
+    public function getDiscipline()
+    {
+        return $this->discipline;
+    }
+
+    public function setDiscipline($_discipline)
+    {
+        $this->discipline = $_discipline;
+    }
+
+    public function getDisciplines()
+    {
+        return array($this->getDiscipline());
+    }
+            
 }
