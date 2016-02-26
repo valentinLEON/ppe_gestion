@@ -190,12 +190,14 @@ $app->post('/adduser', function(Request $request) use ($app){
     $newUser->setFirstName($request->request->get('firstname'));
     $newUser->setPassword($request->request->get('password'));
     $newUser->setSalt($request->request->get('salt'));
-    $newUser->setUserRole($request->request->get('role'));
+    $newUser->setRole($request->request->get('role'));
+    $newUser->setStatus($request->request->get('status'));   
     $newUser->setDescription($request->request->get('description'));
     $newUser->setUserMail($request->request->get('user_mail'));
     $newUser->setDtCreate(date('Y-m-d'));
     $newUser->setDtUpdate(date('Y-m-d'));
     
+   $newUser->setIdClass($request->request->get('id_class'));
     var_dump($newUser);
 
     $app['dao.users']->saveUser($newUser);
