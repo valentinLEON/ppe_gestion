@@ -123,19 +123,8 @@ class User implements UserInterface
     /**
      * @return array
      * Retourne une liste des rôles des utilisateurs
-     */
-    public function getRole()
-    {
-        return array($this->getRole());
-    }
-    
-    public function setRole($_set_role)
-    {
-        return array($this->_set_Role());
-    }
 
-
-    public function getDtCreate()
+       public function getDtCreate()
     {
         return $this->dt_create;
     }
