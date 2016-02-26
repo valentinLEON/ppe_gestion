@@ -133,8 +133,22 @@ class UserDAO extends DAO implements UserProviderInterface
         $user->setDtUpdate($row['dt_update']);
 
         $user->setIdDiscipline($row['id_discipline']);
-      //  $user->setIdClass($row['id_class']);
+        
+         //  $user->setIdClass($row['id_class']);
+        
+        if(array_key_exists('id_class', $row))
+        {
+            $classID = $row['id_class'];
+            $users = $this->UserDAO->findUser($classID);
+            $user->setUser($users);
+        }
 
+        if(array_key_exists('id_discipline', $row))
+        {
+            $disciplineID = $row['id_discipline'];
+            $discipline = $this->disciplineDAO->findDiscipline($disciplineID);
+            $evaluation->setDiscipline($discipline);
+        }
         return $user;
     }
 }
