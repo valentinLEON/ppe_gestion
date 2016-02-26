@@ -25,9 +25,6 @@
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-hover">
-                        {% for etudiant in student %}
-                            <option value="{{ etudiant.id_student }}">{{ etudiant.student_name~' '~etudiant.student_firstname }}</option>
-                        {% endfor %}
                         <tr>
                             <th style="text-align: center; border: 1px solid darkgrey;">Nom</th>
                             <th style="text-align: center; border: 1px solid darkgrey;">Prénom</th>
