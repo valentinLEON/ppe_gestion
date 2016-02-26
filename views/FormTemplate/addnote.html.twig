@@ -7,26 +7,22 @@
 {% block content %}
 
     <!-- form start -->
-<<<<<<< HEAD
 
 
 <div class="box box-primary">
     <!-- /.box-header -->
     <!-- form start -->
-    <form method="post" action="{{ path('note') }}">
-=======
     <form class="form-horizontal" method="post" action="{{ path('note') }}">
->>>>>>> parent of 6dc8004... views
+
         <div class="box-body" style="margin-left:2rem; width: 80%; ">
             <div class="form-group" style="width: 6%;  display:inline-block; margin:10px;">
                 <label for="sel1">Note</label>
                 <input type="text" class="form-control" name="note" placeholder="Ex : 12/20"/>
             </div>
-<<<<<<< HEAD
+
             <div class="form-group" style="width: 30%; border-radius: 3px">
-=======
-            <div class="form-group" style="width: 6%;  display:inline-block; margin:10px;">
->>>>>>> parent of 6dc8004... views
+
+
                 <label for="sel1">Etudiant</label>
                 <select class="form-control" id="sel2" name="etudiant">
                     {% for etudiant in student %}
@@ -52,9 +48,9 @@
         <!-- mettre le submit ici -->
         <!-- /.box-footer -->
     </form>
-<<<<<<< HEAD
+
     </div>
-=======
+
 
     <!-- Main content -->
     <section class="content">
@@ -79,7 +75,7 @@
     <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
->>>>>>> parent of 6dc8004... views
+
 
 
 {% endblock %}
