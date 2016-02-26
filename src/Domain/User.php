@@ -16,12 +16,12 @@ class User implements UserInterface
 {
     public $id_users;
     public $username;
+    public $name;
+    public $firstname;
     public $password;
     public $salt;
     public $role;
     public $user_mail;
-    public $description;
-
     public $dt_create;
     public $dt_update;
 
@@ -120,16 +120,8 @@ class User implements UserInterface
         $this->description = $_description;
     }
 
-    /**
-     * @return array
-     * Retourne une liste des rôles des utilisateurs
-     */
-    public function getRoles()
-    {
-        return array($this->getRole());
-    }
 
-    public function getDtCreate()
+       public function getDtCreate()
     {
         return $this->dt_create;
     }
