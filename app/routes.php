@@ -133,10 +133,8 @@ $app->get('/addstudent', function () use ($app) {
 })->bind('addstudent');
 
 $app->post('/addstudent', function(Request $request) use($app){
+    
     $newStudent = new Student();
-
-    $class = $app['dao.className']->findClassname($request->request->get('classname'));
-
     $newStudent->setName($request->request->get('name'));
     $newStudent->setFirstname($request->request->get('firstname'));
     $newStudent->setBirthday($request->request->get('birthday'));
