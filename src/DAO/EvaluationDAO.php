@@ -174,20 +174,20 @@ class EvaluationDAO extends DAO
             $student = $this->studentDAO->findStudent($studentID);
             $evaluation->setStudent($student);
         }
-
-        if(array_key_exists('id_discipline', $row))
-        {
-            $disciplineID = $row['id_discipline'];
-            $discipline = $this->disciplineDAO->findDiscipline($disciplineID);
-            $evaluation->setDiscipline($discipline);
-        }
-        
-        if(array_key_exists('id_evaluation', $row))
-        {
-            $evaluationID = $row['id_judgement'];
-            $judgement= $this->EvalutationDAO->findDiscipline($judgementID);
-            $evaluation->setJudgement($judgement);
-        }
+//
+//        if(array_key_exists('id_discipline', $row))
+//        {
+//            $disciplineID = $row['id_discipline'];
+//            $discipline = $this->disciplineDAO->findDiscipline($disciplineID);
+//            $evaluation->setDiscipline($discipline);
+//        }
+//        
+//        if(array_key_exists('id_evaluation', $row))
+//        {
+//            $evaluationID = $row['id_judgement'];
+//            $judgement= $this->EvalutationDAO->findDiscipline($judgementID);
+//            $evaluation->setJudgement($judgement);
+//        }
 
         return $evaluation;
     }

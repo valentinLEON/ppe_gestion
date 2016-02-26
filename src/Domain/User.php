@@ -42,10 +42,32 @@ class User implements UserInterface
     {
         return $this->username;
     }
-
+    
     public function setUsername($_username)
     {
         $this->username = $_username;
+    }
+  
+    
+    public function getFirstName()
+    {
+        return $this->username;
+    }
+
+      
+    public function setFirstName($_firstname)
+    {
+        $this->firstname = $_firstname;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function setName($_name)
+    {
+        $this->name = $_name;
     }
 
     public function getPassword()
