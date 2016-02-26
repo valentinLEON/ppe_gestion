@@ -14,6 +14,7 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use ppe_gestion\Domain\User;
+use ppe_gestion\Domain\Discipline;
 
 class UserDAO extends DAO implements UserProviderInterface
 {
@@ -65,11 +66,11 @@ class UserDAO extends DAO implements UserProviderInterface
 
     public function refreshUser(UserInterface $user)
     {
-        $class = get_class($user);
-        if(!$this->supportsClass($class)){
-            throw new UnsupportedUserException(sprintf('instances of "%s" are not supported.', $class));
-        }
-        return $this->loadUserByUsername($user->getUsername());
+//        $class = get_class($user);
+//        if(!$this->supportsClass($class)){
+//            throw new UnsupportedUserException(sprintf('instances of "%s" are not supported.', $class));
+//        }
+//        return $this->loadUserByUsername($user->getUsername());
     }
 
     public function supportsClass($class)
@@ -99,13 +100,15 @@ class UserDAO extends DAO implements UserProviderInterface
                 'dt_create'=> $user->getDtCreate(), 
                 'dt_update'=> $user->getDtUpdate(), 
                 'id_discipline'=> $user->getIdDiscipline(), 
-                'id_class'=> $user->getIdClass(),
+              //  'id_class'=> $user->getIdClass(),
             ));
         }
         else{
             $this->getDb()->insert('user', $user);
             $_id_users = $this->getDb()->lastInsertId();
             $user->setIdUser($_id_users);
+            $_id_class = $this->getDb()->lastInsertId();
+            $user->setIdUser($_id_class);
         }
         
       
