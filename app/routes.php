@@ -253,10 +253,10 @@ $app->get('/classeslist', function () use ($app) {
 })->bind('classeslist');
 
 
-$app->post('/classlist', function () use ($app) {
+$app->post('/addclass', function () use ($app) {
     var_dump(array($this->getDiscipline()));
     die();
-});
+})->bind('class');
 /**
  *                     AJOUT
  * 
