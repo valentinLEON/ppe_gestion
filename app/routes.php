@@ -193,7 +193,7 @@ $app->post('/adduser', function(Request $request) use ($app){
     $newUser = new User();
  
     $user = $app['dao.users']->findAll($request->request->get('user'));
-    $user->setIdUsers($row['id_users']);
+ 
     $newUser->setUsername($request->request->get('username'));
     $newUser->setName($request->request->get('name'));
     $newUser->setFirstName($request->request->get('firstname'));
@@ -205,7 +205,7 @@ $app->post('/adduser', function(Request $request) use ($app){
     $newUser->setUserMail($request->request->get('user_mail'));
     $newUser->setDtCreate(date('Y-m-d'));
     $newUser->setDtUpdate(date('Y-m-d'));
-    
+    $newUser->setIdUsers('id_users');
    $newUser->setIdClass($request->request->get('id_class'));
     var_dump($newUser);
 
