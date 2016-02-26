@@ -12,7 +12,7 @@
 <div class="box box-primary">
     <!-- /.box-header -->
     <!-- form start -->
-    <form class="form-horizontal" method="post" action="{{ path('note') }}" style="margin-left:20px;    ">>
+    <form class="form-horizontal" method="post" action="{{ path('note') }}" style="margin-left:20px;">
 
         <div class="box-body" 
             <div class="form-group" style=" display:inline-block; margin:10px; width: 110px; border-radius: 3px;">
@@ -23,7 +23,7 @@
             <div class="form-group" style="">
                 
                 <label for="sel1">Etudiant</label>
-                <select class="form-control" id="sel2" name="etudiant" style="min-width:250px; max-width:500px; border-radius: 3px; ">
+                <select class="form-control" id="sel2" name="etudiant" style="min-width:250px; max-width:500px; border-radius: 3px;">
                     {% for etudiant in student %}
                         <option value="{{ etudiant.id_student }}">{{ etudiant.student_name~' '~etudiant.student_firstname }}</option>
                     {% endfor %}
@@ -67,7 +67,7 @@
                         
                     <form class="form-horizontal" method="post" action="{{ path('judgement') }}">
 
-                       <div class="box-body" style="margin-left:20px; width: 80px;  min-width:50px;  ">
+                       <div class="box-body" style="margin-left:20px; width: 80px;  min-width:50px;">
 
                            <textarea name="judgement"></textarea>
 
