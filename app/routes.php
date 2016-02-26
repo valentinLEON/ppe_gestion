@@ -146,6 +146,9 @@ $app->post('/addstudent', function(Request $request) use($app){
     $newStudent->setDtUpdate(date('Y-m-d'));
     $newStudent->setClass($class);
 
+    var_dump($class);
+    die();
+
     $app['dao.student']->saveStudent($newStudent);
 
     //   var_dump($newEvaluation);
