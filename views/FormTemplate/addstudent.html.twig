@@ -21,10 +21,11 @@
             <div class="form-group">
                 <label for="#">Classe *</label>
                 <select class="form-control" id="sel2" name="classe" style="border-radius: 3px; width: 30%">
-                    {% for classe in classes %}
-                        <option value="{{ classe.id_class }}">
-                            {{ classe.classe_name }}
+                    {% for classroom in classes %}
+                        <option value="{{ classroom.id_className }}">
+                            {{ classroom.class_name }}
                         </option>
+                    {% endfor %}
                 </select>
             </div>
             <div class="form-group">
@@ -53,6 +54,5 @@
     <!-- /.box-footer -->
 
 </div>
-
 
 {% endblock %}
