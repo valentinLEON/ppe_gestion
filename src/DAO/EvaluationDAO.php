@@ -184,7 +184,7 @@ class EvaluationDAO extends DAO
         
         if(array_key_exists('id_evaluation', $row))
         {
-            $evaluationID = $row['id_discipline'];
+            $evaluationID = $row['id_judgement'];
             $judgement= $this->EvalutationDAO->findDiscipline($judgementID);
             $evaluation->setJudgement($judgement);
         }
