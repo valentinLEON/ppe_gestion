@@ -21,7 +21,7 @@ ErrorHandler::register();
 ExceptionHandler::register();
 
 // Register service providers.
- 
+ /*
  $app->register(new Silex\Provider\SecurityServiceProvider(), array(
     'security.firewalls' => array(
         'foo' => array('pattern' => '^/login'), // Exemple d'une url accessible en mode non connecté
@@ -42,6 +42,7 @@ ExceptionHandler::register();
         array('^/foo$', ''), // Cette url est accessible en mode non connecté
     )
 ));
+*/
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../views',
@@ -106,19 +107,6 @@ $app['dao.users'] = $app->share(function($app){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Provider pour gérer le login
 $app->register(new Silex\Provider\SecurityServiceProvider(), array(
 
@@ -126,7 +114,7 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
 
         'secured' => array(
 
-            'pattern' => '^/',
+            'pattern' => '^/login',
 
             'anonymous' => true,
 
