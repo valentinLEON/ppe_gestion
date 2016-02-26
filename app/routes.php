@@ -299,7 +299,7 @@ $app->post('/addnote', function(Request $request) use ($app){
     $newEvaluation->setDiscipline($discipline);
     $newEvaluation->setStudent($student);
     $newEvaluation->setCoefDiscipline(2);
-    $newEvaluation->setJudgement($judgement);
+    $newEvaluation->setJudgement($request->request->get('judgement'));
     $newEvaluation->setDtCreate(date('Y-m-d'));
     $newEvaluation->setDtUpdate(date('Y-m-d'));
 
