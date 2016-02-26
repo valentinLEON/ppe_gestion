@@ -315,27 +315,27 @@ $app->post('/addnote', function(Request $request) use ($app){
                                     /* JUDGMENT - OBSERVATIONS*/
 
 $app->post('/addjudgment', function(Request $request) use ($app){
-    $newEvaluation = new Evaluation();
+    $newJudgement = new Evaluation();
  
     $student = $app['dao.student']->findStudent($request->request->get('etudiant'));
     $discipline = $app['dao.discipline']->findDiscipline($request->request->get('matiere'));
-    $judgment = $app['dao.evalutation']->findDiscipline($request->request->get('judmgent'));
+    $judgement = $app['dao.evalutation']->findDiscipline($request->request->get('judgement'));
  
-    $newJudgment->setGradeStudent($request->request->get('note'));
-    $neJudgment->setDiscipline($discipline);
-    $newJudgment->setStudent($student);
-    $newJudgment->setCoefDiscipline(2);
-    $newJudgment->setJudgement();
-    $newJudgment->setDtCreate(date('Y-m-d'));
-    $newJudgment->setDtUpdate(date('Y-m-d'));
+    $newJudgement->setGradeStudent($request->request->get('note'));
+    $newJudgment->setDiscipline($discipline);
+    $newJudgement->setStudent($student);
+    $newJudgement->setCoefDiscipline(2);
+    $newJudgement->setJudgement($judgement);
+    $newJudgement->setDtCreate(date('Y-m-d'));
+    $newJudgement->setDtUpdate(date('Y-m-d'));
 
-    $app['dao.evaluation']->saveGrade($newJudgment);
+    $app['dao.evaluation']->saveGrade($newJudgement);
     
-    var_dump($newJudment);
+    var_dump($newJudgement);
    
     return new Response('ok ', 201);
     //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
-})->bind('judgment');
+})->bind('judgement');
 /**
  * 
  *          
