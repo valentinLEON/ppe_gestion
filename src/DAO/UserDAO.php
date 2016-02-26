@@ -28,8 +28,8 @@ class UserDAO extends DAO implements UserProviderInterface
         $users = array();
         foreach($res as $row)
         {
-            $id = $row['id_users'];
-            $users[$id] = $this->buildDomainObject($row);
+            $id_user = $row['id_users'];
+            $users[$id_user] = $this->buildDomainObject($row);
         }
 
         return $users;

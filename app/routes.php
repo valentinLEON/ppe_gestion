@@ -190,8 +190,10 @@ $app->post('/adduser', function(Request $request) use ($app){
    
     $newUser = new User();
 
-    $user = $app['dao.users']->findAll($request->request->get('user'));
- 
+  //  $user = $app['dao.users']->findAll($request->request->get('user'));
+    $id_class = $app['dao.className']->findClassName($request->request->get('id_class'));
+    $id_discipline = $app['dao.discipline']->findDiscipline($request->request->get('id_discipline'));
+
     $newUser->setIdUsers($request->request->get('id_users'));
     
     $newUser->setUsername($request->request->get('username'));
@@ -200,6 +202,7 @@ $app->post('/adduser', function(Request $request) use ($app){
     $newUser->setPassword($request->request->get('password'));
     $newUser->setSalt($request->request->get('salt'));
     $newUser->setRole($request->request->get('role'));
+   // $newUser->setIdDiscipline($request->request->get('id_discipline'));
     $newUser->setStatus($request->request->get('status'));   
     $newUser->setDescription($request->request->get('description'));
     $newUser->setUserMail($request->request->get('user_mail'));
