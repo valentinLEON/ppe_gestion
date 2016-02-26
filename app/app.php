@@ -28,7 +28,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 ));
 
 // Provider pour générer des formulaires
-$app->register(new Silex\Provider\FormServiceProvider());
+//$app->register(new Silex\Provider\FormServiceProvider());
 
 /**
  * Provider pour la génération des urls
@@ -39,6 +39,8 @@ $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 // Provider pour gérer les differents languages
 $app->register(new Silex\Provider\TranslationServiceProvider());
  
+
+
 //                                                        CONTROLLERS
 /**
  * controller pour la route des matières
