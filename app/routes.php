@@ -303,6 +303,8 @@ $app->post('/addnote', function(Request $request) use ($app){
     $newEvaluation->setDtUpdate(date('Y-m-d'));
 
     $app['dao.evaluation']->saveGrade($newEvaluation);
+    
+    var_dump(newEvaluation);
     return new Response('Bien joué kiki', 201);
     //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
 })->bind('note');
