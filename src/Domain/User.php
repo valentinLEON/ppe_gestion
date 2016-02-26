@@ -120,9 +120,6 @@ class User implements UserInterface
         $this->description = $_description;
     }
 
-    /**
-     * @return array
-     * Retourne une liste des rôles des utilisateurs
 
        public function getDtCreate()
     {
