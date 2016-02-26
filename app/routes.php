@@ -336,6 +336,8 @@ $app->post('/addjudgement', function(Request $request) use ($app){
     return new Response('ok ', 201);
     //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
 })->bind('judgement');
+
+
 /**
  * 
  *          

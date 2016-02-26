@@ -14,25 +14,24 @@
     <!-- form start -->
     <form class="form-horizontal" method="post" action="{{ path('note') }}">
 
-        <div class="box-body" style="margin-left:20px; width: 80px;  min-width:50px;  ">
-            <div class="form-group" style="width: 6%;  display:inline-block; margin:10px;">
+        <div class="box-body" style="margin-left:20px;  ">
+            <div class="form-group" style=" display:inline-block; margin:10px; width: 80px; ">
                 <label for="sel1">Note</label>
                 <input type="text" class="form-control" name="note" placeholder="Ex : 12/20"/>
             </div>
 
-            <div class="form-group" style="margin-left:20px;  border-radius: 3px;  min-width:250px; max-width:500px; ">
-
-
+            <div class="form-group" style="margin-left:20px;  border-radius: 3px;  ">
+                
                 <label for="sel1">Etudiant</label>
-                <select class="form-control" id="sel2" name="etudiant">
+                <select class="form-control" id="sel2" name="etudiant" style="min-width:250px; max-width:500px; ">
                     {% for etudiant in student %}
                         <option value="{{ etudiant.id_student }}">{{ etudiant.student_name~' '~etudiant.student_firstname }}</option>
                     {% endfor %}
                 </select>
             </div>
-            <div class="form-group" style="margin-left:20px; border-radius: 3px;  min-width:250px; max-width:500px;">
+            <div class="form-group" style="margin-left:20px; border-radius: 3px;  >
                 <label for="sel1">Matière</label>
-                <select class="form-control" id="sel3" name="matiere">
+                <select class="form-control" id="sel3" name="matiere" style="min-width:250px; max-width:500px;">
                     {% for matiere in matieres %}
                         <option value="{{ matiere.id_discipline }}">{{ matiere.name_discipline }}</option>
                     {% endfor %}
