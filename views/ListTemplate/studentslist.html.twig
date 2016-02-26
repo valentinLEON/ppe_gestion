@@ -34,7 +34,7 @@
                             <th style="text-align: center; border: 1px solid darkgrey;">Adresse</th>
                         </tr>
                         {% for etudiant in students %}
-                            <option value="{{ etudiant.id_student }}">{{ etudiant.student_name~' '~etudiant.student_firstname }}</option>
+                            {#<option value="{{ etudiant.id_student }}">{{ etudiant.student_name~' '~etudiant.student_firstname }}</option>#}
                         <tr>
                             <td style="text-align: center; border: 1px solid darkgrey;" >{{ etudiant.name }}</td>
                             <td style="text-align: center; border: 1px solid darkgrey;">{{ etudiant.firstname }}</td>
