@@ -139,7 +139,7 @@ class StudentDAO extends DAO
         if(array_key_exists('id_class', $row))
         {
             $classNameID = $row['id_class'];
-            $classname = $this->ClassNameDAO->findClassname($classNameID);
+            $classname = $this->classDAO->findClassname($classNameID);
             $student->setClass($classname);
         }
 
