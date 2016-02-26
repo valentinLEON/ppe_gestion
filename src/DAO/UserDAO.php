@@ -122,9 +122,9 @@ class UserDAO extends DAO implements UserProviderInterface
         $user->setUserMail($row['user_mail']);
         $user->setDtCreate($row['dt_create']);
         $user->setDtUpdate($row['dt_update']);
-
-        $user->setIdDiscipline($row['id_discipline']);
-        $user->setIdClass($row['id_class']);
+//
+//        $user->setIdDiscipline($row['id_discipline']);
+//        $user->setIdClass($row['id_class']);
 
         return $user;
     }
