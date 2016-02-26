@@ -1,3 +1,6 @@
+
+
+{#
 {% if is_granted('ROLE_USER') %}
     <p>Bienvenue {{ app.security.token.user.username }} !</p>
     <p><a href="{{ path('deconnexion') }}">Déconnexion</a></p>
@@ -11,8 +14,8 @@
         {% endif %}
     </form>
 {% endif %}
-
-{#{% extends 'layout.html.twig' %}
+#}
+{% extends 'layout.html.twig' %}
 
 {% block title %}User authentication{% endblock %}
 
@@ -42,4 +45,4 @@
         </div>
     </form>
 </div>
-{% endblock %}#}
+{% endblock %}
