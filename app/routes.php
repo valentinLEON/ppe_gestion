@@ -187,7 +187,7 @@ $app->get('/adduser', function () use ($app) {
     
      $classes = $app['dao.className']->findAll();
      $discipline = $app['dao.discipline']->findAll();
-     $role = ($app['users'])->findAll();
+     $role = $app['dao.users']->findAll();
      
     return $app['twig']->render('FormTemplate/adduser.html.twig', array(
         'classes'=>$classes,
