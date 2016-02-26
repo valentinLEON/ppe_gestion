@@ -166,9 +166,9 @@ $app->post('/adduser', function(Request $request) use ($app){
     $newUser->setDtCreate(date('Y-m-d'));
     $newUser->setDtUpdate(date('Y-m-d'));
     
-var_dump( $app['dao.user']);
+var_dump( $app['dao.users']);
 
-    $app['dao.user']->saveGrade($newUser);
+    $app['dao.users']->saveGrade($newUser);
     
     
    
