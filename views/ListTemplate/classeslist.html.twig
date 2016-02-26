@@ -24,6 +24,11 @@
                         </div>
                     </div>
                 </div>
+                {% for classroom in classes %}
+                    <option value="{{ classroom.id_className }}">
+                        {{ classroom.class_name }}
+                    </option>
+                {% endfor %}
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-hover">
@@ -34,7 +39,9 @@
                             <th style="text-align: center">Description</th>
                         </tr>
                         <tr>
-                            <td>183</td>
+    {% for classroom in classes %}
+                            <td value="{{ classroom.id_className }}"> {{ classroom.class_name }}</td>
+    {% endfor %}
                             <td>John Doe</td>
                             <td>11-7-2014</td>
                             <td><span class="label label-success">Approved</span></td>
