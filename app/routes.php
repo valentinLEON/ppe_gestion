@@ -148,9 +148,9 @@ $app->post('/addstudent', function(Request $request) use($app){
     $newStudent->setDtUpdate(date('Y-m-d'));
     $newStudent->setClass($class);
 
-    var_dump($newStudent;)
+  
     
-   // $app['dao.student']->saveStudent($newStudent);
+    $app['dao.student']->saveStudent($newStudent);
 
 
     return new Response('Bien joué kiki', 201);
@@ -212,8 +212,8 @@ $app->post('/adduser', function(Request $request) use ($app){
     $newUser->setDtUpdate(date('Y-m-d'));
     
  // $newUser->setIdClass($request->request->get('id_class'));
-
-    $app['dao.users']->saveUser($newUser);
+var_dump($app['dao.users']);
+ //   $app['dao.users']->saveUser($newUser);
 
     return new Response('Bien joué aussi', 201);
     //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
