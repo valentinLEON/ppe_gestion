@@ -3,8 +3,6 @@
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use ppe_gestion\Domain\Evaluation;
-use ppe_gestion\Domain\UserToClass;
-use ppe_gestion\Domain\ClassName;
 use ppe_gestion\Domain\Student;
 use ppe_gestion\Domain\User;
 
@@ -216,7 +214,7 @@ $app->post('/adduser', function(Request $request) use ($app){
     $newUser->setSalt($request->request->get('salt'));
     $newUser->setRole($request->request->get('role'));
     $newUser->setIdDiscipline($request->request->get('id_discipline'));
-    $newUser->setIdClassName($request->request->get('id_class'));
+    $newUser->setIdClassName($request->request->get('id_className'));
     $newUser->setStatus($request->request->get('status'));   
     $newUser->setDescription($request->request->get('description'));
     $newUser->setUserMail($request->request->get('user_mail'));
