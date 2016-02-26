@@ -21,6 +21,18 @@
                 <label>Prénom</label>
                 <input type="text" name="firstname" class="form-control" placeholder="Prénom...">
             </div>
+             <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
+                <label>Discipline</label>
+                <select name="id_discipline" class="form-control" >
+                  {#  <option value="$id_discipline">{{ id_discipline }}</option> #}
+                </select>
+            </div>
+            <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
+                <label>Classes Associées</label>
+                <select name="id_class" class="form-control" >
+                  {#  <option value="$id_discipline">{{ id_class }}</option> #}
+                </select>
+            </div>
             <div class="form-group" style="width: 20%; display:inline-block;margin:10px;">
                 <label>Email  *</label>
                 <input type="email"  name="user_mail"  class="form-control" id="inputEmail3" required placeholder="Email...">
