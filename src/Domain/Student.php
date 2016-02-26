@@ -21,6 +21,8 @@ class Student
     public $student_tel;
     public $student_statut;
 
+    public $class;
+
     public $dt_create;
     public $dt_update;
 
@@ -103,6 +105,16 @@ class Student
     public function setStudentStatut($_student_statut)
     {
         $this->student_statut = $_student_statut;
+    }
+
+    public function getClass()
+    {
+        $this->class;
+    }
+
+    public function setClass(ClassName $_classname)
+    {
+        $this->class = $_classname;
     }
 
     /**

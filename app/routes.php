@@ -113,7 +113,8 @@ $app->get('/studentslist', function () use ($app) {
     $etudiants = $app['dao.student']->findAll();
 
     return $app['twig']->render('ListTemplate/studentslist.html.twig', array(
-        'students' => $etudiants));
+        'students' => $etudiants
+    ));
 })->bind('studentslist');
 
 /**
@@ -123,13 +124,17 @@ $app->get('/studentslist', function () use ($app) {
  * route pour l'ajout des étudiants
  */
 $app->get('/addstudent', function () use ($app) {
-    return $app['twig']->render('FormTemplate/addstudent.html.twig');
+    $classes = $app['dao.className']->findAll();
+
+    return $app['twig']->render('FormTemplate/addstudent.html.twig', array(
+        'classes' => $classes
+    ));
 })->bind('addstudent');
 
-$app->post('/addstudent/', function(Request $request) use($app){
+$app->post('/addstudent', function(Request $request) use($app){
     $newStudent = new Student();
 
-    $newStudentToClass = new StudentToClass();
+    $class = $app['dao.className']->findClassname($request->request->get('classname'));
 
     $newStudent->setName($request->request->get('name'));
     $newStudent->setFirstname($request->request->get('firstname'));
@@ -139,6 +144,7 @@ $app->post('/addstudent/', function(Request $request) use($app){
     $newStudent->setStudentStatut($request->request->get('statut'));
     $newStudent->setDtCreate(date('Y-m-d'));
     $newStudent->setDtUpdate(date('Y-m-d'));
+    $newStudent->setClass($class);
 
     $app['dao.student']->saveGrade($newStudent);
 
@@ -360,7 +366,7 @@ $app->post('/addnote', function(Request $request) use ($app){
     $newEvaluation->setDtUpdate(date('Y-m-d'));
 
     //$app['dao.evaluation']->saveGrade($newEvaluation);
-    var_dump(array($this->getDiscipline()));
+    //var_dump(array($this->getDiscipline()));
     /*if($message)
     {
         $app['session']->getFlashBag()->add('INFORMATION', 'La note a bien été ajouté !');
@@ -368,7 +374,7 @@ $app->post('/addnote', function(Request $request) use ($app){
     else{$app['session']->getFlashBag()->add('INFORMATION', 'La note a pas été ajouté !');}*/
 
     //return $app['twig']->render('/addnote');
-    //return new Response('Bien joué kiki', 201);
+    return new Response('Bien joué kiki', 201);
     //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
 })->bind('note');
 

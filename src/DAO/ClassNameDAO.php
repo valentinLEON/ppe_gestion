@@ -33,7 +33,7 @@ class ClassNameDAO extends DAO
      *
      * Retourne une classe par son id
      */
-    public function find($id)
+    public function findClassname($id)
     {
         $sql = "SELECT * FROM className WHERE id_class=?";
         $row = $this->getDb()->fetchAssoc($sql, array($id));

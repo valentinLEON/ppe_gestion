@@ -65,6 +65,7 @@ class StudentDAO extends DAO
             '$student_tel'      => $student->getTel(),
             '$dt_create'        => $student->getDtCreate(),
             '$dt_update'        => $student->getDtUpdate(),
+            'id_class'          => $student->getClass->getIdClass(),
         );
 
         //on modifie
@@ -93,6 +94,12 @@ class StudentDAO extends DAO
         ));
     }
 
+    /**
+     * @param $row
+     * @return Student
+     *
+     * Construction d'un objet étudiant
+     */
     protected function buildDomainObject($row)
     {
         $student = new Student();
@@ -109,6 +116,13 @@ class StudentDAO extends DAO
 
         $student->setDtCreate($row['dt_create']);
         $student->setDtUpdate($row['dt_update']);
+
+        if(array_key_exists('id_class', $row))
+        {
+            $classNameID = $row['id_class'];
+            $classname = $this->ClassNameDAO->findClassname($classNameID);
+            $student->setClass($classname);
+        }
 
         return $student;
     }
