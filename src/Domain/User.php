@@ -16,12 +16,12 @@ class User implements UserInterface
 {
     public $id_users;
     public $username;
+    public $name;
+    public $firstname;
     public $password;
     public $salt;
     public $role;
     public $user_mail;
-    public $description;
-
     public $dt_create;
     public $dt_update;
 
