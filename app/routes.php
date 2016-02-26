@@ -212,7 +212,7 @@ $app->post('/adduser', function(Request $request) use ($app){
     $newUser->setDtUpdate(date('Y-m-d'));
     
  // $newUser->setIdClass($request->request->get('id_class'));
-var_dump($newUser);
+   var_dump($newUser);
  //   $app['dao.users']->saveUser($newUser);
 
     return new Response('Bien joué aussi', 201);
