@@ -123,6 +123,28 @@ $app->get('/addstudent', function () use ($app) {
     return $app['twig']->render('FormTemplate/addstudent.html.twig');
 })->bind('addstudent');
 
+$app->post('/addstudent/', function(Request $request) use($app){
+    $newStudent = new Student();
+
+    $newStudentToClass = new StudentToClass();
+
+    $newStudent->setName($request->request->get('name'));
+    $newStudent->setFirstname($request->request->get('firstname'));
+    $newStudent->setBirthday($request->request->get('birthday'));
+    $newStudent->setAddress($request->request->get('address'));
+    $newStudent->setTel($request->request->get('phone'));
+    $newStudent->setStudentStatut($request->request->get('statut'));
+    $newStudent->setDtCreate(date('Y-m-d'));
+    $newStudent->setDtUpdate(date('Y-m-d'));
+
+    $app['dao.student']->saveGrade($newStudent);
+
+    //   var_dump($newEvaluation);
+
+    return new Response('Bien joué kiki', 201);
+    //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
+})->bind('addstudent');
+
 /**
  *     
  *                    STATISTIQUES
@@ -157,16 +179,15 @@ $app->get('/adduser', function () use ($app) {
 $app->post('/adduser', function(Request $request) use ($app){
    
     $newUser = new User();
-
+ 
     $user = $app['dao.users']->findAll($request->request->get('user'));
-    //$user->setIdUsers($row['id_users']);
-    
+   $user->setIdUsers($row['id_users']);
     $newUser->setUsername($request->request->get('username'));
     $newUser->setName($request->request->get('name'));
     $newUser->setFirstName($request->request->get('firstname'));
     $newUser->setPassword($request->request->get('password'));
     $newUser->setSalt($request->request->get('salt'));
-    $newUser->setRole($request->request->get('role'));
+    $newUser->setUserRole($request->request->get('role'));
     $newUser->setDescription($request->request->get('description'));
     $newUser->setUserMail($request->request->get('user_mail'));
     $newUser->setDtCreate(date('Y-m-d'));
@@ -255,7 +276,7 @@ $app->match('/disciplinetab', function () use ($app) {
  *                       LISTE
  * 
  * 
- * route pour l'affichage de la liste des disciplines
+ * route pour l'affichage de la liste des matières
  */
 $app->get('/disciplineslist', function () use ($app) {
     return $app['twig']->render('ListTemplate/disciplineslist.html.twig');
@@ -266,13 +287,11 @@ $app->get('/disciplineslist', function () use ($app) {
  * 
  *                     AJOUT
  *
- * route pour l'ajout des matières - disciplines
+ * route pour l'ajout des matières
  */
 $app->get('/adddiscipline', function () use ($app) {
     return $app['twig']->render('FormTemplate/adddiscipline.html.twig');
 })->bind('adddiscipline');
-
-
 
 
 
@@ -307,8 +326,7 @@ $app->get('/notelist', function () use ($app) {
  */
 
 $app->get('/addnote',function() use ($app) {
-    
-   // var_dump($app['dao.className']);
+
     $classes = $app['dao.className']->findAll();
     $discipline = $app['dao.discipline']->findAll();
     $etudiant = $app['dao.student']->findAll();
@@ -326,26 +344,25 @@ $app->post('/addnote', function(Request $request) use ($app){
 
     $student = $app['dao.student']->findStudent($request->request->get('etudiant'));
     $discipline = $app['dao.discipline']->findDiscipline($request->request->get('matiere'));
-   
-    
+
     $newEvaluation->setGradeStudent($request->request->get('note'));
     $newEvaluation->setDiscipline($discipline);
     $newEvaluation->setStudent($student);
-    $newEvaluation->setCoefDiscipline(2);
+    $newEvaluation->setCoefDiscipline($request->request->get('coeff'));
     $newEvaluation->setJudgement($request->request->get('judgement'));
     $newEvaluation->setDtCreate(date('Y-m-d'));
     $newEvaluation->setDtUpdate(date('Y-m-d'));
 
     $app['dao.evaluation']->saveGrade($newEvaluation);
 
-    if($message)
+    /*if($message)
     {
         $app['session']->getFlashBag()->add('INFORMATION', 'La note a bien été ajouté !');
     }
-    else{$app['session']->getFlashBag()->add('INFORMATION', 'La note a pas été ajouté !');}
+    else{$app['session']->getFlashBag()->add('INFORMATION', 'La note a pas été ajouté !');}*/
 
-    return $app['twig']->render('FormTemplate/addnote.html.twig');
-    //return new Response('Bien joué kiki', 201);
+    //return $app['twig']->render('/addnote');
+    return new Response('Bien joué kiki', 201);
     //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
 })->bind('note');
 

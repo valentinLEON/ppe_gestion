@@ -54,7 +54,7 @@ class StudentDAO extends DAO
      * @param Student $student
      * Fonction de sauvegarde d'un étudiant
      */
-    /*public function saveStudent(Student $student)
+    public function saveStudent(Student $student)
     {
         $studentInfo = array(
             '$student_name'     => $student->getName(),
@@ -78,7 +78,7 @@ class StudentDAO extends DAO
             $id = $this->getDb()->lastInsertId();
             $student->setIdStudent($id);
         }
-    }*/
+    }
 
     /**
      * @param $id
@@ -86,12 +86,12 @@ class StudentDAO extends DAO
      *
      * Fonction de suppression d'un utilisateur
      */
-    /*public function deleteStudent($id)
+    public function deleteStudent($id)
     {
         $this->getDb()->delete('users', array(
             'id_users' => $id
         ));
-    }*/
+    }
 
     protected function buildDomainObject($row)
     {

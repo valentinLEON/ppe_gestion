@@ -135,8 +135,6 @@ class EvaluationDAO extends DAO
             $_id_evaluation = $this->getDb()->lastInsertId();
             $evaluation->setIdEvaluation($_id_evaluation);
         }
-        
-       // var_dump( $evaluation->getJudgement());
     }
 
     /**
@@ -155,7 +153,7 @@ class EvaluationDAO extends DAO
     /**
      * @param $row
      * @return Evaluation
-     * création l'objet evaluation représentant la note de l'appréciation de l'élève
+     * création de l'objet evaluation représentant la note et l'appréciation de l'élève
      */
     protected function buildDomainObject($row)
     {
@@ -174,20 +172,13 @@ class EvaluationDAO extends DAO
             $student = $this->studentDAO->findStudent($studentID);
             $evaluation->setStudent($student);
         }
-//
-//        if(array_key_exists('id_discipline', $row))
-//        {
-//            $disciplineID = $row['id_discipline'];
-//            $discipline = $this->disciplineDAO->findDiscipline($disciplineID);
-//            $evaluation->setDiscipline($discipline);
-//        }
-//        
-//        if(array_key_exists('id_evaluation', $row))
-//        {
-//            $evaluationID = $row['id_judgement'];
-//            $judgement= $this->EvalutationDAO->findDiscipline($judgementID);
-//            $evaluation->setJudgement($judgement);
-//        }
+
+        if(array_key_exists('id_discipline', $row))
+        {
+            $disciplineID = $row['id_discipline'];
+            $discipline = $this->disciplineDAO->findDiscipline($disciplineID);
+            $evaluation->setDiscipline($discipline);
+        }
 
         return $evaluation;
     }

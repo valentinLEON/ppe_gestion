@@ -19,6 +19,7 @@ class ClassName
     public $nombreEtudiant;
 
     public $student;
+    public $disciplines;
 
     public $dt_create;
     public $dt_update;
