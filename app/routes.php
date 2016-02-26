@@ -158,15 +158,14 @@ $app->post('/adduser', function(Request $request) use ($app){
    
     $newUser = new User();
  
-  //  $user = $app['dao.user']->findUser($request->request->get('user'));
-    
-    
+    $user = $app['dao.users']->findUser($request->request->get('user'));
+
     $newUser->setUsername($request->request->get('username'));
     
     $newUser->setDtCreate(date('Y-m-d'));
     $newUser->setDtUpdate(date('Y-m-d'));
     
-var_dump( $app['dao.users']);
+    var_dump($newUser);
 
     $app['dao.users']->saveUser($newUser);
     
