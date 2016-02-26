@@ -3,8 +3,8 @@
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use ppe_gestion\Domain\Evaluation;
-use ppe_gestion\Domain\ClassName;
 use ppe_gestion\Domain\Student;
+use ppe_gestion\Domain\UserToClass;
 use ppe_gestion\Domain\User;
 
 // PAS TOUCHER use ppe_gestion\Form\Type\addNoteForm;
@@ -202,8 +202,8 @@ $app->post('/adduser', function(Request $request) use ($app){
    
    $newUser = new User();
 
-   $classname=$app['dao.ClassName']->$request->request->get('id_className');
-   $discipline=$app['dao.discipline']->$request->request->get('id_discipline');
+   $classname=$app['dao.ClassName']->$request->request->get('classname');
+   $discipline=$app['dao.discipline']->$request->request->get('discipline');
   // $user = $app['dao.users']->findAll($request->request->get('user'));
 //   $id_class = $app['dao.className']->findClassname($request->request->get('id_class'));
 //   $id_discipline = $app['dao.discipline']->findDiscipline($request->request->get('id_discipline'));
