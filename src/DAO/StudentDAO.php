@@ -14,6 +14,24 @@ use ppe_gestion\DAO\ClassNameDAO;
 
 class StudentDAO extends DAO
 {
+    private $classDAO;
+
+    /**
+     * @return mixed
+     */
+    public function getClassDAO()
+    {
+        return $this->classDAO;
+    }
+
+    /**
+     * @param mixed $classDAO
+     */
+    public function setClassDAO($classDAO)
+    {
+        $this->classDAO = $classDAO;
+    }
+
     /**
      * @return array
      *
@@ -118,12 +136,12 @@ class StudentDAO extends DAO
         $student->setDtCreate($row['dt_create']);
         $student->setDtUpdate($row['dt_update']);
 
-        /*if(array_key_exists('id_class', $row))
+        if(array_key_exists('id_class', $row))
         {
             $classNameID = $row['id_class'];
             $classname = $this->ClassNameDAO->findClassname($classNameID);
             $student->setClass($classname);
-        }*/
+        }
 
         return $student;
     }
