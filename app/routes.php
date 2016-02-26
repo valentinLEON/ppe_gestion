@@ -191,7 +191,7 @@ $app->get('/adduser', function () use ($app) {
     return $app['twig']->render('FormTemplate/adduser.html.twig', array(
         'classes'=>$classes,
         'discipline'=>$discipline,
-         'role'=>$role,  
+     
     ));
     
 })->bind('adduser');
