@@ -296,6 +296,8 @@ $app->post('/addclass', function(Request $request) use ($app){
     $newClass->setClassYear($request->request->get('year'));
     $newClass->setDescription($request->request->get('description'));
     $newClass->setNombreEtudiant($request->request->get('nombreEtudiant'));
+    $newClass->setDtCreate(date('Y-m-d'));
+    $newClass->setDtUpdate(date('Y-m-d'));
 
     $app['dao.className']->saveClassName($newClass);
 
