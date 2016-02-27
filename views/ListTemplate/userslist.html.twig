@@ -1,14 +1,63 @@
 {% extends "layout.html.twig" %}
 
 {% block title %}
-       Liste des Utilisateurs
 {% endblock %}
 
 {% block content %}
 
     <!-- Div pour afficher le nombre d'étudiants total -->
-    <div class="small-box bg-aqua">
-             Liste des Utilisateurs
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">Liste des Utilisateurs</h3>
+
+                    <div class="box-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                            <input type="text" value="{{ user }}" name="table_search" class="form-control pull-right" placeholder="Recherche">
+                            
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <tr style="background-color: #3c8dbc">
+                            <th style="text-align: center; border: 1px solid darkgrey;">Login</th>
+                            <th style="text-align: center; border: 1px solid darkgrey;">Nom</th>
+                            <th style="text-align: center; border: 1px solid darkgrey;">Prénom</th>
+                            <th style="text-align: center; border: 1px solid darkgrey;">Mot de Passe</th>
+                            <th style="text-align: center; border: 1px solid darkgrey;">Role</th>
+                            <th style="text-align: center; border: 1px solid darkgrey;">Status</th>
+                            <th style="text-align: center; border: 1px solid darkgrey;">Description</th>   
+                            <th style="text-align: center; border: 1px solid darkgrey;">Adresse mail</th>
+                            <th style="text-align: center; border: 1px solid darkgrey;">Discipline</th>
+                            <th style="text-align: center; border: 1px solid darkgrey;">Classes</th>
+                        </tr>
+                        {% for user in users %}
+                        <tr>
+                            <td style="text-align: center; border: 1px solid darkgrey;" >{{ user.username }}</td>
+                            <td style="text-align: center; border: 1px solid darkgrey;" >{{ user.name }}</td>
+                            <td style="text-align: center; border: 1px solid darkgrey;">{{ user.firstname }}</td>
+                            <td style="text-align: center; border: 1px solid darkgrey;">{{ user.password }}</td>
+                            <td style="text-align: center; border: 1px solid darkgrey;">{{ user.role }}</td>
+                            <td style="text-align: center; border: 1px solid darkgrey;">{{ user.status }}</td>
+                            <td style="text-align: center; border: 1px solid darkgrey;">{{ user.description }}</td>
+                            <td style="text-align: center; border: 1px solid darkgrey;">{{ user.user_mail }}</td>
+                            <td style="text-align: center; border: 1px solid darkgrey;">{{ user.id_discipline }}</td>
+                            <td style="text-align: center; border: 1px solid darkgrey;">{{ user.id_classe }}</td>
+    
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
     </div>
 
 {% endblock %}

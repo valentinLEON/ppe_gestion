@@ -241,10 +241,20 @@ $app->post('/adduser', function(Request $request) use ($app){
  * route pour l'affichage de la liste des utilisateurs
  */
 $app->get('/userslist', function () use ($app) {
+       
+     $classes = $app['dao.className']->findAll();
+     $disciplines = $app['dao.discipline']->findAll();
+     $users = $app['dao.users']->findAll();
+     
+    return $app['twig']->render('ListTemplate/userslist.html.twig', array(
+        'classe'=>$classes,
+        'discipline'=>$disciplines,
+        'role'=>$users,
+    ));
     
-    return $app['twig']->render('ListTemplate/userslist.html.twig');
     
-})->bind('userslist');
+    
+})->bind('user');
 
 /**
  *   
