@@ -40,7 +40,7 @@ class Discipline
 
     public function getDescription()
     {
-        return $this->getDescription();
+        return $this->description;
     }
 
     public function setDescription($_description)
