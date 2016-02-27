@@ -20,15 +20,17 @@ class User implements UserInterface
     public $dt_create;
     public $dt_update;
 
-    public $id_discipline; /*clé étrangère*/
-    public $id_className; /*clé étrangère*/
-
     public $name;
     public $firstname;
+    public $description;
     public $password;
     public $salt;
     public $role;
     public $status;
+    
+    public $id_discipline; /*clé étrangère*/
+    public $id_className; /*clé étrangère*/
+
     public function getIdUsers()
     {
         return $this->id_users;

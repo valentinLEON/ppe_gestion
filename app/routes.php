@@ -215,6 +215,7 @@ $app->post('/adduser', function(Request $request) use ($app){
     $newUser->setUsername($request->request->get('username'));
     $newUser->setName($request->request->get('name'));
     $newUser->setFirstName($request->request->get('firstname'));
+    $newUser->setDescription($request->request->get('description'));
     $newUser->setPassword($request->request->get('password'));
     $newUser->setSalt($request->request->get('salt'));
     $newUser->setRole($request->request->get('role'));
