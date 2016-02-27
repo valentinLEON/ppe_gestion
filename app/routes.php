@@ -247,9 +247,9 @@ $app->get('/userslist', function () use ($app) {
      $users = $app['dao.users']->findAll();
      
     return $app['twig']->render('ListTemplate/userslist.html.twig', array(
-        'classe'=>$classes,
-        'discipline'=>$disciplines,
-        'user'=>$users,
+        'classes'=>$classes,
+        'disciplines'=>$disciplines,
+        'users'=>$users,
     ));
     
     
