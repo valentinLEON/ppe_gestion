@@ -2,7 +2,11 @@
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use ppe_gestion\Domain;
+use ppe_gestion\Domain\Evaluation;
+use ppe_gestion\Domain\Student;
+use ppe_gestion\Domain\UserToClass;
+use ppe_gestion\Domain\User;
+use ppe_gestion\Domain\ClassName;
 
 // PAS TOUCHER use ppe_gestion\Form\Type\addNoteForm;
 
@@ -253,8 +257,7 @@ $app->get('/calendar', function () use ($app) {
 })->bind('calendar');
 
 /**                                                              CLASSES
- * 
- 
+ *
  *                   TABLEAU DE BORD
  * 
  * 
@@ -286,10 +289,17 @@ $app->get('/addclass', function () use ($app) {
 })->bind('addclass');
 
 $app->post('/addclass', function(Request $request) use ($app){
-    /*$newClass = new ClassName();
+    $newClass = new ClassName();
 
-    $newClass->set*/
+    $newClass->setClassName($request->request->get('class'));
+    $newClass->setClassOption($request->request->get('option'));
+    $newClass->setClassYear($request->request->get('year'));
+    $newClass->setDescription($request->request->get('description'));
+    $newClass->setNombreEtudiant($request->request->get('nombreEtudiant'));
 
+    $app['dao.className']->saveClassName($newClass);
+
+    return new Response('bien joué kiki', 201);
 })->bind('class');
 
 
