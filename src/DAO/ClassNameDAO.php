@@ -73,13 +73,13 @@ class ClassNameDAO extends DAO
     public function saveClassName(ClassName $_className)
     {
         $class = array(
-            '$class_name'       => $_className->getClassName(),
-            '$class_option'     => $_className->getClassOption(),
-            '$class_year'       => $_className->getClassYear(),
-            '$nombreEtudiant'   => $_className->getNombreEtudiant(),
-            '$description'      => $_className->getDescription(),
-            '$dt_create'        => $_className->getDtCreate(),
-            '$dt_update'        => $_className->getDtUpdate(),
+            'class_name'       => $_className->getClassName(),
+            'class_option'     => $_className->getClassOption(),
+            'class_year'       => $_className->getClassYear(),
+            'nombreEtudiant'   => $_className->getNombreEtudiant(),
+            'description'      => $_className->getDescription(),
+            'dt_create'        => $_className->getDtCreate(),
+            'dt_update'        => $_className->getDtUpdate(),
         );
 
         //on modifie
