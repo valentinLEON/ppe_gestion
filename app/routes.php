@@ -347,6 +347,8 @@ $app->post('adddiscipline', function(Request $request) use($app){
     $newDiscipline->setDtUpdate(date('Y-m-d'));
 
     $newDiscipline->saveDiscipline($newDiscipline);
+
+    return new Response('Bien joué kiki', 201);
 })->bind('discipline');
 
 /**                                                 NOTES         - EVALUATIONS
