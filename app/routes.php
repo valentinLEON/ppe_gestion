@@ -334,7 +334,17 @@ $app->match('/disciplinetab', function () use ($app) {
  * route pour l'affichage de la liste des matières
  */
 $app->get('/disciplineslist', function () use ($app) {
-    return $app['twig']->render('ListTemplate/disciplineslist.html.twig');
+    
+     $classes = $app['dao.className']->findAll();
+     $disciplines = $app['dao.discipline']->findAll();
+     $users = $app['dao.users']->findAll();
+     
+    return $app['twig']->render('ListTemplate/disciplineslist.html.twig', array(
+        'classes'=>$classes,
+        'disciplines'=>$disciplines,
+        'users'=>$users,
+    ));
+    
 })->bind('disciplineslist');
 
 

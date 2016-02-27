@@ -15,15 +15,14 @@
                     <div class="box-tools">
                         <div class="input-group input-group-sm" style="width: 150px;">
                            
-                           
-                            
+                                                      
                             <div id="search">
                                 <form action="{{ path('search') }}" method="post" {{ form_enctype(search_form) }}>
                                     {{ form_widget(search_form.term) }}
                                     {{ form_widget(search_form.type) }}
                                     {{ form_widget(search_form.pool) }}
                                     {{ form_widget(search_form._token) }}
-                                     <input type="text" result="5" value="" name="table_search" class="form-control pull-right" placeholder="Recherche">
+                                     <input type="text" result="5" value="Search" name="table_search" class="form-control pull-right" placeholder="Recherche">
                                 </form>
                             </div>
                                     

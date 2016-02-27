@@ -95,7 +95,6 @@ $app['dao.users'] = $app->share(function($app){
 
 
 
-
 // Register service providers.
  /*
  $app->register(new Silex\Provider\SecurityServiceProvider(), array(
