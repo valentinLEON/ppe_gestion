@@ -59,10 +59,10 @@ class DisciplineDAO extends DAO
     public function saveDiscipline(Discipline $_discipline)
     {
         $disciplineData = array(
-            '$name_discipline'  => $_discipline->getNameDiscipline(),
-            '$description'      => $_discipline->getDescription(),
-            '$dt_create'        => $_discipline->getDtCreate(),
-            '$dt_update'        => $_discipline->getDtUpdate(),
+            'name_discipline'  => $_discipline->getNameDiscipline(),
+            'description'      => $_discipline->getDescription(),
+            'dt_create'        => $_discipline->getDtCreate(),
+            'dt_update'        => $_discipline->getDtUpdate(),
         );
 
         if($_discipline->getIdDiscipline()){
