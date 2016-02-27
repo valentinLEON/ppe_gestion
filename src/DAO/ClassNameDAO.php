@@ -85,7 +85,8 @@ class ClassNameDAO extends DAO
         //on modifie
         if($_className->getIdClassName())
         {
-            $this->getDb()->update('className', $class, array('id_class'=> $_className->getIdClassName()));
+            $this->getDb()->update('className', $class, array(
+                'id_class'=> $_className->getIdClassName()));
         }
         //on sauvegarde
         else{
@@ -118,11 +119,13 @@ class ClassNameDAO extends DAO
     {
         $class = new ClassName();
         $class->setIdClassName($row['id_class']);
+
         $class->setClassName($row['class_name']);
         $class->setClassOption($row['class_option']);
         $class->setClassYear($row['class_year']);
         $class->setNombreEtudiant($row['nombreEtudiant']);
         $class->setDescription($row['description']);
+
         $class->setDtCreate($row['dt_create']);
         $class->setDtUpdate($row['dt_update']);
 

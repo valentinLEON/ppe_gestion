@@ -24,9 +24,7 @@ class ClassName
     public $dt_create;
     public $dt_update;
 
-    public $id_student; /*clé étrangère*/
-
-
+    //region Getter et Setter pour l'ID de la classe
     public function getIdClassName()
     {
         return $this->id_className;
@@ -36,7 +34,9 @@ class ClassName
     {
         $this->id_className = $_id_className;
     }
+    //endregion
 
+    //region Getter et Setter pour le nom de la classe
     public function getClassName()
     {
         return $this->class_name;
@@ -46,7 +46,9 @@ class ClassName
     {
         $this->class_name = $_class_Name;
     }
+    //endregion
 
+    //region Getter et Setter pour le nom de l'option
     public function getClassOption()
     {
         return $this->class_option;
@@ -56,7 +58,9 @@ class ClassName
     {
         $this->class_option = $_class_option;
     }
+    //endregion
 
+    //region Getter et Setter pour la description
     /**
      * @return mixed
      */
@@ -68,11 +72,13 @@ class ClassName
     /**
      * @param mixed $description
      */
-    public function setDescription($_description)
+    public function setDescription($description)
     {
-        $this->description = $_description;
+        $this->description = $description;
     }
+    //endregion
 
+    //region Getter et Setter pour le nombre d'étudiant
     /**
      * @return mixed
      */
@@ -88,7 +94,9 @@ class ClassName
     {
         $this->nombreEtudiant = $nombreEtudiant;
     }
+    //endregion
 
+    //region Getter et Setter pour l'année
     public function getClassYear()
     {
         return $this->class_year;
@@ -98,7 +106,9 @@ class ClassName
     {
         $this->class_year = $_class_year;
     }
+    //endregion
 
+    //region Getter et Setter pour les dates d'ajout et de mise à jour
     public function getDtCreate()
     {
         return $this->dt_create;
@@ -118,17 +128,9 @@ class ClassName
     {
         $this->dt_update = $_dt_update;
     }
+    //endregion
 
-    public function getIdStudent()
-    {
-        return $this->id_student;
-    }
-
-    public function setIdStudent($_id_student)
-    {
-        $this->id_student = $_id_student;
-    }
-
+    //region Getter et Setter pour l'objet Etudiant
     /**
      * @return mixed
      * Getter sur l'étudiant
@@ -146,7 +148,9 @@ class ClassName
     {
         $this->student = $_student;
     }
+    //endregion
 
+    //region Getter et Setter pour l'objet Matière
     public function getDiscipline()
     {
         return $this->discipline;
@@ -156,7 +160,13 @@ class ClassName
     {
         $this->discipline = $_discipline;
     }
+    //endregion
 
+    /**
+     * @return array
+     *
+     * Fonction retournant un tableau des matières
+     */
     public function getDisciplines()
     {
         return array($this->getDiscipline());
