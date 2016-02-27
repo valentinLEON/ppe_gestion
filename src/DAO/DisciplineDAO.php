@@ -56,7 +56,7 @@ class DisciplineDAO extends DAO
      *
      * Ajout et modification d'une matière
      */
-    /*public function saveDiscipline(Discipline $_discipline)
+    public function saveDiscipline(Discipline $_discipline)
     {
         $disciplineData = array(
             '$name_discipline'  => $_discipline->getNameDiscipline(),
@@ -74,7 +74,7 @@ class DisciplineDAO extends DAO
             $id = $this->getDb()->lastInsertId();
             $_discipline->setIdDiscipline($id);
         }
-    }*/
+    }
 
     /**
      * @param $id
@@ -82,12 +82,12 @@ class DisciplineDAO extends DAO
      *
      * Suppression d'une matière par l'id
      */
-    /*public function deleteDiscipline($id)
+    public function deleteDiscipline($id)
     {
         $this->getDb()->delete('discipline', array(
             'id_discipline' => $id
         ));
-    }*/
+    }
 
     /**
      * @param $row

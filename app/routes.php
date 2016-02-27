@@ -7,6 +7,7 @@ use ppe_gestion\Domain\Student;
 use ppe_gestion\Domain\UserToClass;
 use ppe_gestion\Domain\User;
 use ppe_gestion\Domain\ClassName;
+use ppe_gestion\Domain\Discipline;
 
 // PAS TOUCHER use ppe_gestion\Form\Type\addNoteForm;
 
@@ -337,7 +338,16 @@ $app->get('/adddiscipline', function () use ($app) {
     return $app['twig']->render('FormTemplate/adddiscipline.html.twig');
 })->bind('adddiscipline');
 
+$app->post('adddiscipline', function(Request $request) use($app){
+    $newDiscipline = new Discipline();
 
+    $newDiscipline->setNameDiscipline($request->request->get('matiere'));
+    $newDiscipline->setDescription($request->request->get('description'));
+    $newDiscipline->setDtCreate(date('Y-m-d'));
+    $newDiscipline->setDtUpdate(date('Y-m-d'));
+
+    $newDiscipline->saveDiscipline($newDiscipline);
+})->bind('discipline');
 
 /**                                                 NOTES         - EVALUATIONS
  * 

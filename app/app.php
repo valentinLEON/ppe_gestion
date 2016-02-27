@@ -13,6 +13,7 @@ use Symfony\Component\Debug\ExceptionHandler;
 use Silex\Application;
 
 use ppe_gestion\DAO;
+use ppe_gestion\DAO\DisciplineDAO;
 use ppe_gestion\Domain;
 
 
@@ -49,7 +50,7 @@ $app->register(new Silex\Provider\TranslationServiceProvider());
  * controller pour la route des matières
  */
 $app['dao.discipline'] = $app->share(function($app){
-    return new ppe_gestion\DAO\DisciplineDAO($app['db']);
+    return new DisciplineDAO($app['db']);
 });
 
 /**
