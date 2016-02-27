@@ -346,7 +346,7 @@ $app->post('adddiscipline', function(Request $request) use($app){
     $newDiscipline->setDtCreate(date('Y-m-d'));
     $newDiscipline->setDtUpdate(date('Y-m-d'));
 
-    $newDiscipline->saveDiscipline($newDiscipline);
+    $app['dao.discipline']->saveDiscipline($newDiscipline);
 
     return new Response('Bien joué kiki', 201);
 })->bind('discipline');
