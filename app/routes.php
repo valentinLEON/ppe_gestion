@@ -249,7 +249,7 @@ $app->get('/userslist', function () use ($app) {
     return $app['twig']->render('ListTemplate/userslist.html.twig', array(
         'classe'=>$classes,
         'discipline'=>$disciplines,
-        'role'=>$users,
+        'user'=>$users,
     ));
     
     
