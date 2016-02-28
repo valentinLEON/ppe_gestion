@@ -12,8 +12,8 @@
             <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
                 <label>Login  *</label>
                 <select name="username"></select>
-                {% for i in range 1..users_total %}
-                <option>{{ user.username}}</option>
+                {% for user_total in users_total %}
+                <option>{{ user.username }}</option>
                 {% endfor %}
             </div>
             <div class="form-group" style="width: 15%; display:inline-block;margin:10px;">
