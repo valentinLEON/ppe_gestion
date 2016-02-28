@@ -350,8 +350,8 @@ $app->post('/modifuser', function (Request $request) use ($app) {
     
      $iduser= $request->request->get('id_users');
      $modification= $request->request->get('modification');    
-     $idclass = $request->request->get('$id_class_form');
-     $id_discipline = $request->request->get('$id_discipline');
+     $idclass = $request->request->get('id_class_form');
+     $id_discipline = $request->request->get('id_discipline');
      $idrole = $request->request->get('id_role'); 
      
      $classes = $app['dao.classNames']->findAll();
