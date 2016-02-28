@@ -272,7 +272,7 @@ $app->post('/adduser', function(Request $request) use ($app){
     $classes = $app['dao.className']->findAll();
     $disciplines = $app['dao.discipline']->findAll();
     $role = $app['dao.users']->findAll();
-    
+  
     $username = $request->request->get('username');
     $name = $request->request->get('name');
     $firstname = $request->request->get('firstname');
