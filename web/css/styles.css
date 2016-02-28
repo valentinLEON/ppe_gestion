@@ -43,5 +43,9 @@
     max-height:150px;
     font-size:13px;
     overflow: hidden; 
-  
+    -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
 }
