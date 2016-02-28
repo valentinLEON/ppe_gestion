@@ -51,6 +51,7 @@ $app->get('/', function(Request $request) use ($app) {
         'disciplines_number'=>$disciplines_total,
         'absences_number'=>'1',
         'retards_number'=>'1',
+        'retards_number'=>'1',
         'date'=>$date,
         
         )
@@ -485,8 +486,11 @@ $app->post('/addclass', function(Request $request) use ($app){
     $newClass->setDtUpdate(date('Y-m-d H:i:s'));
 
     $app['dao.className']->saveClassName($newClass);
+    $app['session']->getFlashBag()->add('success', 'La classe a été ajouté avec succès !');
 
-    return $app['twig']->render('FormTemplate/addclass.html.twig');
+    $app->redirect('/addclass', 301);
+
+    //return $app['twig']->render('FormTemplate/addclass.html.twig');
     
 })->bind('class');
 
