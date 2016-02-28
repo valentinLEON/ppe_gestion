@@ -309,20 +309,19 @@ $app->post('/adduser', function(Request $request) use ($app){
 // Modification de l'utilisateur
 
 $app->get('/modifuser', function () use ($app) {
-    
-         
+     
      $classes = $app['dao.className']->findAll();
      $disciplines = $app['dao.discipline']->findAll();
-     $roles = $app['dao.users']->findAll();
      $users = $app['dao.users']->findAll();
   
+     $modification='';
      
     return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
         'classe'        =>$classes,
         'discipline'    =>$disciplines,
-        'role'          =>$roles,
+        'role'          =>$users,
         'users'         =>$users,
-        'modification'  =>'NULL',
+        'modification'  =>$modification,
     
     ));
     
