@@ -489,6 +489,7 @@ $app->post('/addclass', function(Request $request) use ($app){
     $app['session']->getFlashBag()->add('success', 'La classe a été ajouté avec succès !');
 
     $app->redirect('/addclass', 301);
+    return;
 
     //return $app['twig']->render('FormTemplate/addclass.html.twig');
     
