@@ -308,7 +308,7 @@ $app->post('/adduser', function(Request $request) use ($app){
         'password'      =>$password,
         'salt'          =>$salt,
         'role'          =>$role,
-      'discipline_form' =>$discipline_form,
+        'discipline_form' =>$discipline_form,
         'classname'     =>$classname,
         'status'        =>$status,   
         'user_mail'     =>$user_mail,
