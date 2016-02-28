@@ -259,7 +259,7 @@ $app->post('/adduser', function(Request $request) use ($app){
     $newUser->setPassword($request->request->get('password'));
     $newUser->setSalt($request->request->get('salt'));
     $newUser->setRole($request->request->get('role'));
-    $newUser->setIdDiscipline($request->request->get('discipline'));
+    $newUser->setIdDiscipline($request->request->get('discipline_form'));
     $newUser->setIdClassName($request->request->get('classname'));
     $newUser->setStatus($request->request->get('status'));   
     $newUser->setUserMail($request->request->get('user_mail'));
@@ -280,7 +280,7 @@ $app->post('/adduser', function(Request $request) use ($app){
     $password = $request->request->get('password');
     $salt = $request->request->get('salt');
     $role_form = $request->request->get('role');
-    $disciplines = $request->request->get('disciplines');
+    $discipline_form = $request->request->get('discipline_form');
     $classname = $request->request->get('classname');
     $status = $request->request->get('status');   
     $user_mail = $request->request->get('user_mail');
@@ -299,7 +299,7 @@ $app->post('/adduser', function(Request $request) use ($app){
         'password'      =>$password,
         'salt'          =>$salt,
         'role'          =>$role,
-        'discipline'    =>$discipline,
+        'discipline_form'    =>$discipline_form,
         'classname'     =>$classname,
         'status'        =>$status,   
         'user_mail'     =>$user_mail,

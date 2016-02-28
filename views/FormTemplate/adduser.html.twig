@@ -32,7 +32,7 @@
                                      <td style="text-align: center; border: 1px solid darkgrey;">{{ role_form }}</td>
                                      <td style="text-align: center; border: 1px solid darkgrey;">{{ description }}</td>
                                      <td style="text-align: center; border: 1px solid darkgrey;">{{ user_mail }}</td>
-                                     <td style="text-align: center; border: 1px solid darkgrey;">{{ disciplines }}</td>
+                                     <td style="text-align: center; border: 1px solid darkgrey;">{{ discipline_form }}</td>
                                      <td style="text-align: center; border: 1px solid darkgrey;">{{ classname }}<td>
                                  </tr>
                              </table>
@@ -84,7 +84,7 @@
              </div>
              <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
                 <label>Disciplines</label>
-                <select name="discipline" class="form-control" >  
+                <select name="discipline_form" class="form-control" >  
                     {% for disciplines in discipline %}
                          <option value="{{ disciplines.id_discipline }}">{{ disciplines.name_discipline }}</option> 
                      {% endfor %}
