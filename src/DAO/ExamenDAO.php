@@ -99,7 +99,7 @@ class ExamenDAO extends DAO
         {
             $this->getDb()->insert('examen', $exam);
             $_id_examen = $this->getDb()->lastInsertId();
-            $_examen->setIdClassName($_id_examen);
+            $_examen->setIdExamen($_id_examen);
         }
     }
 
