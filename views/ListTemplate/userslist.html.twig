@@ -36,8 +36,9 @@
                             <th class="mytdmin">Discipline</th>
                             <th class="mytdmin">Classes</th>
                         </tr>
-                        {% for user in users %}
+                        
                         <form  action="modifuser" method="post" >
+                            {% for user in users %}
                             <tr>
                                 <td class="mytdmin"> 
                                     <i class='fa fa-pencil-square-o'></i>
@@ -68,12 +69,16 @@
                                 <input type="hidden" value="{{ user.user_mail }}" name="user_mail"  >
                                 <td class="mytdmin">{{ user.id_discipline }}</td>
                                 <input type="hidden" value="{{ user.id_discipline }}" name="id_discipline"  >
-                                <td class="mytdmin">{{ classe.class_name }}</td>
                                 <input type="hidden" value="{{ id_class }}" name="id_class"  >
-
+                            {% endfor %}
+                            {% for classes in classe %}
+                                <td class="mytdmin">{{ classes.class_name }}</td>
                             </tr>
+                            {% endfor %}                                  
+                            
+                           
+                           
                         </form>
-                        {% endfor %}
                     </table>
          
                 <!-- /.box-body -->
