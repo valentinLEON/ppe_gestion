@@ -64,10 +64,12 @@ class DisciplineDAO extends DAO
         $sql = "SELECT * FROM discipline WHERE id_discipline=?";
         $row = $this->getDb()->fetchAssoc($sql, array($id));
 
-        if($row)
+        if($row){
             return $this->buildDomainObject($row);
-        else
+        }
+        else{
             throw new \Exception("Aucune matière pour l'id : ".$id);
+        }
     }
 
     /**

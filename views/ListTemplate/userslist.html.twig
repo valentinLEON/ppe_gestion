@@ -23,10 +23,10 @@
                           
                     <table class="table table-hover" style="  table-layout: fixed; ">
                         <tr style="background-color: #3c8dbc">
-                            <th  class="mytdmin"  style="width:30px">
+                            <th  class="mytdmin">
                                <i class="fa fa-pencil-square-o"></i>
                             </th>
-                            <th class="mytd" >Login</th>
+                            <th class="mytd">Login</th>
                             <th class="mytd">Nom</th>
                             <th class="mytd">Prénom</th>
                             <th class="mytd">Mot de passe</th>
@@ -39,10 +39,10 @@
                         </tr>
                         {% for user in users %}
                         <tr>
-                            <td class="mytdmin" style="width:30px"> 
+                            <td class="mytdmin"> 
                                 <form  method="post" action="modifuser">
                                     <i class='fa fa-pencil-square-o'></i>
-                                    <input type="submit"  value="modification" style='width:5px;height:5px'>
+                                    <input type="submit" class='btn'  value="Modifier"
                                     <input type="hidden" value="modification" name="modification"  >
                                   {#
                                         <input type="hidden" value="{% if user.id_users_form %}{{ user.id_users_form }}{% endif %}" name="id_users_form"  >
