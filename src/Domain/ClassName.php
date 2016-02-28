@@ -11,7 +11,7 @@ namespace ppe_gestion\Domain;
  */
 class ClassName
 {
-    public $id_className;
+    public $id_class;
     public $class_name;
     public $class_option;
     public $class_year;

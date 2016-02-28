@@ -22,6 +22,11 @@
         <div class="box-footer">
             <button type="submit" class="btn btn-info pull-right">Ajouter</button>
         </div>
+        {% for success in app.session.getFlashBag.get('success') %}
+            <div class="alert alert-success">
+                {{ success }}
+            </div>
+        {% endfor %}
         <!-- /.box-footer -->
     </form>
 

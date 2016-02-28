@@ -40,17 +40,17 @@ $app->get('/', function(Request $request) use ($app) {
      $date = date("d/m/Y");
      
     return $app['twig']->render('index.html.twig', array(
-        'classes'=>$classes,
-        'classes_number'=>$classes_total,
-        'students'=>$students,
-        'students_number'=>$students_total,
-        
+            'classes'=>$classes,
+            'classes_number'=>$classes_total,
+            'students'=>$students,
+            'students_number'=>$students_total,
 
-        'date'=>$date,
-        
-        )
-    
-       );
+
+            'date'=>$date,
+
+            )
+
+           );
     
 });
 //                                                             LOGIN 
