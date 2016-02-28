@@ -280,7 +280,7 @@ $app->post('/adduser', function(Request $request) use ($app){
     $password = $request->request->get('password');
     $salt = $request->request->get('salt');
     $role_form = $request->request->get('role');
-    $discipline = $request->request->get('discipline');
+    $disciplines = $request->request->get('disciplines');
     $classname = $request->request->get('classname');
     $status = $request->request->get('status');   
     $user_mail = $request->request->get('user_mail');
