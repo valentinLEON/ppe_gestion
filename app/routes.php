@@ -364,8 +364,10 @@ $app->post('/modifuser', function (Request $request) use ($app) {
      $iddiscipline = $request->request->get('$id_discipline');
  
      $idrole = $request->request->get('id_role');
+     
 var_dump($id_classe);
 var_dump(classes);
+
      $id_classe = $app['dao.className']->findClassname($idclasse);
      $id_discipline = $app['dao.discipline']->findDiscipline($iddiscipline);
      $id_role = $app['dao.users']->find($idrole);
