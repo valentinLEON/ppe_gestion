@@ -38,14 +38,11 @@
    border: 1px solid darkgrey; 
     width: 150px;
     word-wrap: break-word;
-    height: auto;
-    min-height:50px;
-    max-height:150px;
     font-size:13px;
     overflow: hidden; 
     -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  -o-hyphens: auto;
-  hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -o-hyphens: auto;
+    hyphens: auto;
 }
