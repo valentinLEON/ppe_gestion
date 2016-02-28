@@ -42,10 +42,12 @@
        <h4 style="margin-left:100px">Ajouter un nouvel utilisateur</h4>                
        {% endif %}
        
-  <div class="box-primary">
+  <div class="box box-primary">
     <!-- form start -->
     <form class="form-horizontal" action="{{ path('user') }}"  method="post">
+        
         <div class="box-body" style="margin-left:2rem; width: 90%; ">
+            
             <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
                 <label>Login  *</label>
                 <input type="text" name="username" class="form-control" required placeholder="Login ...">
@@ -106,12 +108,13 @@
                 <label>Mot de passe  *</label>
                 <input type="password" class="form-control" required  placeholder="Min 6 caracteres">
             </div>
+                
         </div>
       
         <!-- /.box-body -->
-        <div class="box-footer" style='float:right'>
+        <div class="box-footer" >
             <input type="hidden" value="message" name="message">
-            <button type="submit" class="btn btn-info pull-right">Ajouter</button>
+            <button type="submit" style='float:right' class="btn btn-info pull-right">Ajouter</button>
         </div>
         <!-- /.box-footer -->
 
