@@ -347,18 +347,18 @@ $app->get('/modifuser', function () use ($app) {
 // Modification de l'utilisateur
 
 $app->post('/modifuser', function (Request $request) use ($app) {
-    
-     $iduser= $request->request->get('id_users');
-     $modification= $request->request->get('modification');    
-     $idclass = $request->request->get('id_class_form');
-     $id_discipline = $request->request->get('id_discipline');
-     $idrole = $request->request->get('id_role'); 
-     
+       
      $classes = $app['dao.classNames']->findAll();
      $disciplines = $app['dao.discipline']->findAll();
      $roles = $app['dao.users']->findAll();
      $id_users = $app['dao.users']->findAll();
      $username = $app['dao.users']->findAll();
+     
+     $iduser= $request->request->get('id_users[$id_users]');    
+     $modification= $request->request->get('modification');    
+     $idclass = $request->request->get('id_class_form');
+     $id_discipline = $request->request->get('id_discipline');
+     $idrole = $request->request->get('id_role'); 
      
      $users_total = $app['dao.users']->countAll();
    //  $id_class = $app['dao.classNames']->findClassname($idclass);
