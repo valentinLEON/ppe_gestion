@@ -321,12 +321,12 @@ $app->get('/modifuser', function () use ($app) {
      $id_role = $app['dao.users']->find($id_users);
      
     return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
-        'classe'=>$classes,
-        'discipline'=>$disciplines,
-        'role'=>$roles,
-        'id_classe'=>$id_classe,
-        'id_discipline'=>$id_discipline,
-        'id_role'=>$id_role,
+        'classe'        =>$classes,
+        'discipline'    =>$disciplines,
+        'role'          =>$roles,
+        'id_classe'     =>$id_classe,
+        'id_discipline' =>$id_discipline,
+        'id_role'       =>$id_role,
     ));
     
 })->bind('modifuser');
@@ -346,13 +346,13 @@ $app->post('/modifuser', function (Request $request) use ($app) {
      $id_role = $app['dao.users']->find($id_users);
      
     return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
-        'classe'=>$classes,
-        'discipline'=>$disciplines,
-        'role'=>$roles,
-        'id_classe'=>$id_classe,
-        'id_discipline'=>$id_discipline,
-        'id_role'=>$id_role,
-        'id_user'=>$id_user,
+        'classe'        =>$classes,
+        'discipline'    =>$disciplines,
+        'role'          =>$roles,
+        'id_classe'     =>$id_classe,
+        'id_discipline' =>$id_discipline,
+        'id_role'       =>$id_role,
+        'id_user'       =>$id_user,
     ));
     
 })->bind('modifuser');
@@ -370,7 +370,7 @@ $app->get('/userslist', function () use ($app) {
      $disciplines = $app['dao.discipline']->findAll();
      $users = $app['dao.users']->findAll();
      
-    return $app['twig']->render('ListTemplate/userslist.html.twig', array(
+    return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
         'classes'=>$classes,
         'disciplines'=>$disciplines,
         'users'=>$users,
