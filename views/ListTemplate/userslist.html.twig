@@ -41,7 +41,8 @@
                         <tr>
                             <td class="mytdmin" style="width:20px"> 
                                 <form  method="post" action="modifuser">
-                                    <input type="text" class="fa fa-pencil-square-o" value="{{ user.id_users }}" name="id_users" >
+                                    <input type="submit" class="fa fa-pencil-square-o" >
+                                    <input type="hidden" value="{{ user.id_users }}" name="id_users"  >
                                 </form>
                             </td>
                             <td class="mytd" >{{ user.username }}</td>
