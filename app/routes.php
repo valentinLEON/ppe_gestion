@@ -470,12 +470,12 @@ $app->get('/addnote',function() use ($app) {
 
     $classes = $app['dao.className']->findAll();
     $discipline = $app['dao.discipline']->findAll();
-    $etudiant = $app['dao.student']->findAll();
+    $student = $app['dao.student']->findAll();
 
     return $app['twig']->render('FormTemplate/addnote.html.twig', array(
         'classNames' => $classes,
         'matieres' => $discipline,
-        'student' => $etudiant));
+        'student' => $student));
     
 })->bind('addnote');
 
@@ -484,7 +484,7 @@ $app->post('/addnote', function(Request $request) use ($app){
     $newEvaluation = new Evaluation();
     $message = 0; //booléen qui affiche ou non un message de succes
 
-    $student = $app['dao.student']->findStudent($request->request->get('etudiant'));
+    $student = $app['dao.student']->findStudent($request->request->get('etudiants'));
     $discipline = $app['dao.discipline']->findDiscipline($request->request->get('matiere'));
 
     $newEvaluation->setGradeStudent($request->request->get('note'));
