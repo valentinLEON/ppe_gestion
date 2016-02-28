@@ -338,7 +338,7 @@ $app->get('/modifuser', function () use ($app) {
         'discipline'    =>$disciplines,
         'role'          =>$users,
         'users'         =>$users,
-        'username'     =>$users,
+        'username'      =>$users,
         'users_total'   =>$users_total,
         'modification'  =>$modification,
     
@@ -375,7 +375,7 @@ $app->post('/modifuser', function (Request $request) use ($app) {
         'discipline'    =>$disciplines,
         'username'      =>$username,
         'role'          =>$roles,
-        'id_className'  =>$id_classe,
+        'id_className'  =>$idclasse,
         'id_discipline' =>$id_discipline,
         'id_role'       =>$id_role,
         'id_user'       =>$id_users,
