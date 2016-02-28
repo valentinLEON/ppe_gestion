@@ -134,7 +134,7 @@ $app->get('/admintab', function () use ($app) {
 $app->get('/login', function (Request $request) use ($app) {
     return $app['twig']->render('login.html.twig', array(
         'error' => $app['security.last.error']($request),
-        'last_username' => $app['session']->get('_security.last_username'),
+        //'last_username' => $app['session']->get('_security.last_username'),
     ));
 })->bind('login');
 
