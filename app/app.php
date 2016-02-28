@@ -55,7 +55,7 @@ $app['dao.discipline'] = $app->share(function($app){
  * Controller pour la route des classes
  *
  */
-$app['dao.className'] = $app->share(function($app){
+$app['dao.classNames'] = $app->share(function($app){
     return new ppe_gestion\DAO\ClassNameDAO($app['db']);
 
 });
@@ -66,7 +66,7 @@ $app['dao.className'] = $app->share(function($app){
  */
 $app['dao.student'] = $app->share(function($app){
     $studentDAO = new ppe_gestion\DAO\StudentDAO($app['db']);
-    $studentDAO->setClassDAO($app['dao.className']);
+    $studentDAO->setClassDAO($app['dao.classNames']);
 
     return $studentDAO;
 });
