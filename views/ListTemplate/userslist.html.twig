@@ -21,22 +21,22 @@
               #} 
                         
                 <!-- /.box-header -->
-                <div class="box-body table-responsive no-padding">
+                          
                     <table class="table table-hover" style="  table-layout: fixed; ">
                         <tr style="background-color: #3c8dbc">
-                            <th>
+                            <th  class="mytdmin">
                                 <a href=adduser>  <i class="fa fa-pencil-square-o"></i></a>
                             </th>
                             <th class="mytd" >Login</th>
                             <th class="mytd">Nom</th>
                             <th class="mytd">Prénom</th>
                             <th class="mytd">Mot de passe</th>
-                            <th class="mytd">Role</th>
-                            <th class="mytd">Status</th>
+                            <th class="mytdmin">Role</th>
+                            <th class="mytdmin">Status</th>
                             <th class="mytd">Description</th>   
                             <th class="mytd">Adresse mail</th>
-                            <th class="mytd">Discipline</th>
-                            <th class="mytd">Classes</th>
+                            <th class="mytdmin">Discipline</th>
+                            <th class="mytdmin">Classes</th>
                         </tr>
                         {% for user in users %}
                         <tr>
@@ -49,17 +49,17 @@
                             <td class="mytd" >{{ user.name }}</td>
                             <td class="mytd">{{ user.firstname }}</td>
                             <td class="mytd">{{ user.password }}</td>
-                            <td class="mytd">{{ user.role }}</td>
-                            <td class="mytd">{{ user.status }}</td>
+                            <td class="mytdmin">{{ user.role }}</td>
+                            <td class="mytdmin">{{ user.status }}</td>
                             <td class="mytd">{{ user.description }}</td>
                             <td class="mytd">{{ user.user_mail }}</td>
-                            <td class="mytd">{{ user.id_discipline }}</td>
-                            <td class="mytd">{{ user.id_className }}</td>
+                            <td class="mytdmin">{{ user.id_discipline }}</td>
+                            <td class="mytdmin">{{ user.id_className }}</td>
     
                         </tr>
                         {% endfor %}
                     </table>
-                </div>
+         
                 <!-- /.box-body -->
             </div>
             <!-- /.box -->
