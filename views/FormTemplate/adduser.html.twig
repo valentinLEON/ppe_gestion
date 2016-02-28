@@ -77,22 +77,22 @@
             <button type="submit" class="btn btn-info pull-right">Ajouter</button>
         </div>
         <!-- /.box-footer -->
-              {% if message %}
-           <div class="box box-solid box-success">
-               <div class="box-header">
-                 Utilisateur enregistré avec succès
-                </div>
-              <div class="box-body">
-                   coucou info utilisateurs
-             </div>
-           </div>
-       {% endif %}
+
     </form>
                 
   
                 
 </div>  
-
+        {% if message %}
+           <div class="box box-solid box-success">
+               <div class="box-header">
+                 Utilisateur enregistré avec succès
+                </div>
+              <div class="box-body">
+                   {{ user.username }}
+             </div>
+           </div>
+       {% endif %}
 
 {% endblock %}
 
