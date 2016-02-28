@@ -289,7 +289,7 @@ $app->post('/adduser', function(Request $request) use ($app){
      
      return $app['twig']->render('FormTemplate/adduser.html.twig', array(
         'classe'        =>$classes,
-        'disciplines'    =>$disciplines,
+        'discipline'    =>$disciplines,
         'role_form'     =>$role_form,      
         'message'       =>$message,
         'username'      =>$username,
@@ -299,7 +299,7 @@ $app->post('/adduser', function(Request $request) use ($app){
         'password'      =>$password,
         'salt'          =>$salt,
         'role'          =>$role,
-        'discipline_form'    =>$discipline_form,
+      'discipline_form' =>$discipline_form,
         'classname'     =>$classname,
         'status'        =>$status,   
         'user_mail'     =>$user_mail,
