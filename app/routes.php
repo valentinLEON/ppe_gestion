@@ -291,7 +291,7 @@ $app->post('/adduser', function(Request $request) use ($app){
         'classe'        =>$classes,
         'discipline'    =>$disciplines,
         'role'          =>$role,
-        'user'          =>$users,
+        
         'message'       =>$message,
         'username'      =>$username,
         'name'          =>$name,
