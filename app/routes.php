@@ -376,8 +376,7 @@ $app->get('/userslist', function () use ($app) {
         'classe'        =>$classes,
         'discipline'    =>$disciplines,
         'role'          =>$roles,
-  
-        'id_users'       =>$id_users,
+        'id_users'      =>$id_users,
     ));
     
     
@@ -410,7 +409,7 @@ $app->post('/userslist', function (Request $request) use ($app) {
     
     
     
-})->bind('userlist');
+})->bind('modiflist');
 
 /**
  *   
