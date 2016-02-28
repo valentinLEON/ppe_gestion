@@ -373,7 +373,7 @@ $app->post('/modifuser', function (Request $request) use ($app) {
         'username'      =>$username,
         'role'          =>$roles,
         'role'          =>$roles,
-        'id_class_form' =>$id_class,
+        'id_class_form' =>$idclass,
         'id_class'      =>$idclass,
         'id_discipline' =>$id_discipline,
         'id_role'       =>$idrole,
