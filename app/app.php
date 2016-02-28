@@ -28,6 +28,21 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 $app->register(new Silex\Provider\DoctrineServiceProvider());
 $app->register(new Silex\Provider\SessionServiceProvider());
 
+//Service pour l'authentification
+$app->register(new Silex\Provider\SecurityServiceProvider(), array(
+    'security.firewalls' => array(
+        'secured' => array(
+            'pattern' => '^/',
+            'anonymous' => true,
+            'logout' => true,
+            'form' => array('login_path' => '/login', 'check_path' => '/login_check'),
+            'users' => $app->share(function () use($app){
+                return new ppe_gestion\DAO\UserDAO($app['db']);
+            })
+        )
+    )
+));
+
 // Provider pour générer des formulaires
 //$app->register(new Silex\Provider\FormServiceProvider());
 
@@ -99,31 +114,6 @@ $app['dao.users'] = $app->share(function($app){
 });
 
 
-
-// Register service providers.
- /*
- $app->register(new Silex\Provider\SecurityServiceProvider(), array(
-    'security.firewalls' => array(
-        'foo' => array('pattern' => '^/login'), // Exemple d'une url accessible en mode non connecté
-        'default' => array(
-            'pattern' => '^.*$',
-            'anonymous' => true, // Indispensable car la zone de login se trouve dans la zone sécurisée (tout le front-office)
-            'form' => array('login_path' => '/', 'check_path' => 'connexion'),
-            'logout' => array('logout_path' => '/deconnexion'), // url à appeler pour se déconnecter
-            'users' => $app->share(function() use ($app) {
-                // La classe App\User\UserProvider est spécifique à notre application et est décrite plus bas
-                return new App\User\UserProvider($app['db']);
-            }),
-        ),
-    ),
-    'security.access_rules' => array(
-        // ROLE_USER est défini arbitrairement, vous pouvez le remplacer par le nom que vous voulez
-        array('^/.+$', 'ROLE_USER'),
-        array('^/foo$', ''), // Cette url est accessible en mode non connecté
-    )
-));
-*/
-
 //Monolog
 // $app->register(new Provider\MonologServiceProvider(), array(
     // 'monolog.logfile' => __DIR__ . '/../log/development.log',
@@ -147,7 +137,26 @@ $app['dao.users'] = $app->share(function($app){
     // }
 // });
 
-
+/*$app->register(new Silex\Provider\SecurityServiceProvider(), array(
+    'security.firewalls' => array(
+        'foo' => array('pattern' => '^/login'), // Exemple d'une url accessible en mode non connecté
+        'default' => array(
+            'pattern' => '^.*$',
+            'anonymous' => true, // Indispensable car la zone de login se trouve dans la zone sécurisée (tout le front-office)
+            'form' => array('login_path' => '/', 'check_path' => 'connexion'),
+            'logout' => array('logout_path' => '/deconnexion'), // url à appeler pour se déconnecter
+            'users' => $app->share(function() use ($app) {
+                // La classe App\User\UserProvider est spécifique à notre application et est décrite plus bas
+                return new App\User\UserProvider($app['db']);
+            }),
+        ),
+    ),
+    'security.access_rules' => array(
+        // ROLE_USER est défini arbitrairement, vous pouvez le remplacer par le nom que vous voulez
+        array('^/.+$', 'ROLE_USER'),
+        array('^/foo$', ''), // Cette url est accessible en mode non connecté
+    )
+));*/
             
             
             

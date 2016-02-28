@@ -37,9 +37,15 @@
     <div class="login-box-body">
         <p class="login-box-msg">Connectez-vous pour accéder aux services</p>
 
-        <form action="login" method="get">
+        {% if error %}
+        <div class="alert alert-danger">
+            <strong>Échec d'authentification !</strong> {{ error }}
+        </div>
+        {% endif %}
+
+        <form role="form" method="get" action="{{ path('login_check') }}">
             <div class="form-group has-feedback">
-                <input type="test" class="form-control" placeholder="Identifiant ou Adresse email  * " required>
+                <input type="text" class="form-control" value="{{ last_username }}" placeholder="Identifiant ou Adresse email  * " required autofocus>
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">

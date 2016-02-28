@@ -17,19 +17,37 @@ class User implements UserInterface
     public $id_users;
     public $username;
     public $user_mail;
+
+    public $name;
+
+    public $firstname;
+
+    public $description;
+
+    public $password;
+    /**
+     * @var string
+     * type de hashage de l'utilisateur
+     */
+    public $salt;
+
+    /**
+     * @var
+     * Rôle de l'utilisateur
+     */
+    public $role;
+
+    public $status;
+
+    public $id_discipline; /*clé étrangère*/
+    public $id_class; /*clé étrangère*/
+
     public $dt_create;
     public $dt_update;
 
-    public $name;
-    public $firstname;
-    public $description;
-    public $password;
-    public $salt;
-    public $role;
-    public $status;
-    
-    public $id_discipline; /*clé étrangère*/
-    public $id_class; /*clé étrangère*/
+    /* ********************************************************* */
+    /* *********************** GETTER ET SETTER **************** */
+    /* ********************************************************* */
 
     public function getIdUsers()
     {
@@ -60,14 +78,12 @@ class User implements UserInterface
     {
         $this->name = $_name;
     }
-
     
     public function getFirstName()
     {
         return $this->username;
     }
 
-      
     public function setFirstName($_firstname)
     {
         $this->firstname = $_firstname;
@@ -94,14 +110,6 @@ class User implements UserInterface
     }
 
     
-    //function recupérant tous les roles
-    public function getRoles()
-    {
-        return array($this->getRole());
-    }
-
-    
-    
     public function getRole()
     {
         return $this->role;
@@ -110,6 +118,15 @@ class User implements UserInterface
     public function setRole($_role)
     {
         $this->role = $_role;
+    }
+
+    /**
+     * @return array
+     * Retourne le tableau des rôles
+     */
+    public function getRoles()
+    {
+        return array($this->getRole());
     }
     
     public function getStatus()

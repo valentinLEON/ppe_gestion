@@ -20,6 +20,24 @@ use ppe_gestion\Domain\UserToClass;
 class UserDAO extends DAO implements UserProviderInterface
 {
 
+    /**
+     * @param $id
+     * @return User
+     * @throws \Exception
+     *
+     * Retourne un utilisateur via son id
+     */
+    public function find($id)
+    {
+        $sql = "SELECT * FROM users WHERE id_users=?";
+        $row = $this->getDb()->fetchAssoc($sql, array($id));
+
+        if($row)
+            return $this->buildDomainObject($row);
+        else
+            throw new \Exception("No user matching id " . $id);
+    }
+
     //Ajout de la fonction findAll, pour rechercher tous les utilisateurs
     public function findAll()
     {
@@ -50,38 +68,15 @@ class UserDAO extends DAO implements UserProviderInterface
         return count($users_total);
     }
 
-    /**
-     * @param $id
-     * @return User
-     * @throws \Exception
-     *
-     * Retourne un utilisateur via son id
-     */
-    public function find($id)
-    {
-        $sql = "SELECT * FROM users";
-        $row = $this->getDb()->fetchAssoc($sql, array($id));
-
-        if($row){
-            return $this->buildDomainObject($row);
-        }
-        else
-        {
-            throw new \Exception("No user matching id " . $id);
-        }
-    }
-
     public function loadUserByUsername($username)
     {
-        $sql = "SELECT * FROM users";
+        $sql = "SELECT * FROM users WHERE username=?";
         $row = $this->getDb()->fetchAssoc($sql, array($username));
 
-        if($row){
+        if($row)
             return $this->buildDomainObject($row);
-        }
-        else{
-            throw new UsernameNotFoundException('User "%s" not found.', $username);
-        }
+        else
+            throw new UsernameNotFoundException('L\'utilisateur "%s" est introuvable.', $username);
     }
 
     public function refreshUser(UserInterface $user)
