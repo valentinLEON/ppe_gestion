@@ -6,7 +6,7 @@
 
 {% block content %}
     
-    <div class="box box-primary">   
+ <div class="box box-primary"> 
         
        {% if message %}
            <div class="box-body">
@@ -16,15 +16,14 @@
                      </div>
                    <div class="box-body">
                         <ul>
-                            <li>Username :{{ username }}<li>
-                            <li>Username :{{ name }}<li>
-                            <li>Username :{{ firstname }}<li>
-                            <li>Username :{{ role }}<li>
-                            <li>Username :{{ description }}<li>
-                            <li>Username :{{ user_mail }}<li>
-                            <li>Username :{{ discipline }}<li>
-                            <li>Username :{{ classname }}<li>
-                                
+                            <li>Login : {{ username }}<li>
+                            <li>Nom : {{ name }}<li>
+                            <li>Prenom : {{ firstname }}<li>
+                            <li>Role : {{ role }}<li>
+                            <li>Description : {{ description }}<li>
+                            <li>E-mail : {{ user_mail }}<li>
+                            <li>Discipline:{{ discipline }}<li>
+                            <li>Classe : {{ classname }}<li>
         
                         </ul>
                   </div>
