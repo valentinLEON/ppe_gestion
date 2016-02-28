@@ -72,7 +72,8 @@
         </div>
         <!-- /.box-body -->
         <div class="box-footer">
-            <input type="text" value="message" name="message">{% if message %}<div>OK</div>{% endif %}
+            <input type="hidden" value="message" name="message">
+            {% if message %}<div>OK</div>{% endif %}
             <button type="submit" class="btn btn-info pull-right">Ajouter</button>
         </div>
         <!-- /.box-footer -->
