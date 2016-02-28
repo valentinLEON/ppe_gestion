@@ -432,7 +432,7 @@ $app->post('/userslist', function (Request $request) use ($app) {
         'classe'        =>$classes,
         'discipline'    =>$disciplines,
         'role'          =>$roles,
-        'id_classe'     =>$id_classe,
+        'id_class'     =>$id_classe,
         'id_discipline' =>$id_discipline,
         'id_role'       =>$id_role,
         'id_user'       =>$id_users,
