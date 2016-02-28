@@ -364,33 +364,19 @@ $app->post('/modifuser', function (Request $request) use ($app) {
  * 
  * route pour l'affichage de la liste des utilisateurs
  */
-$app->get('/userslist', function (Request $request) use ($app) {
-                   
+$app->get('/userslist', function () use ($app) {
+                  
      $classes = $app['dao.className']->findAll();
      $disciplines = $app['dao.discipline']->findAll();
      $roles = $app['dao.users']->findAll();
      $id_users = $app['dao.users']->findAll();
-      
-    
-    $idclass=$request->request->get('id_class');;
-    $iddiscipline=$request->request->get('id_discipline');;
-    $iduser=  $request->request->get('id_user');
-    $idrole=  $request->request->get('role');
-    
-     $id_classe = $app['dao.className']->findClassname($idclass);
-     $id_discipline = $app['dao.discipline']->findDiscipline($iddiscipline);
-     $id_role = $app['dao.users']->find($idrole);
-     $id_user = $app['dao.users']->find($iduser);
    
      
     return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
         'classe'        =>$classes,
         'discipline'    =>$disciplines,
         'role'          =>$roles,
-        'id_classe'     =>$id_classe,
-        'id_discipline' =>$id_discipline,
-        'id_role'       =>$id_role,
-        'id_user'       =>$id_user,
+  
         'id_users'       =>$id_users,
     ));
     
