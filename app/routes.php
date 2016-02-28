@@ -364,7 +364,7 @@ $app->post('/modifuser', function (Request $request) use ($app) {
  * 
  * route pour l'affichage de la liste des utilisateurs
  */
-$app->get('/userslist', function () use ($app) {
+$app->get('/userslist', function (Request $request) use ($app) {
        
    $id_user= $request->request->get('id_user');
             
