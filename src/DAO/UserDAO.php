@@ -92,8 +92,6 @@ class UserDAO extends DAO implements UserProviderInterface
         return 'ppe_gestion\Domain\User' === $class;
     }
     
-    
-    
    public function saveUser(User $user)
     {     
        
