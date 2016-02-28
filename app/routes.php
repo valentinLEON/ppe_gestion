@@ -288,16 +288,16 @@ $app->post('/adduser', function(Request $request) use ($app){
     $message= $request->request->get('message');
      
      return $app['twig']->render('FormTemplate/adduser.html.twig', array(
-        'classe'=>$classes,
-        'discipline'=>$disciplines,
-        'role'          =>$users,
+        'classe'        =>$classes,
+        'discipline'    =>$disciplines,
+        'role'          =>$role,
         'user'          =>$users,
         'message'       =>$message,
         'username'      =>$username,
         'name'          =>$name,
         'firstname'     =>$firstname,
         'description'   =>$description,
-        'password'      => $password,
+        'password'      =>$password,
         'salt'          =>$salt,
         'role'          =>$role,
         'discipline'    =>$discipline,
