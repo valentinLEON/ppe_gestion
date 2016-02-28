@@ -73,7 +73,7 @@ class ClassNameDAO extends DAO
      */
         public function countAll()
     {
-        $sql = "SELECT cou* FROM className ORDER BY class_name";
+        $sql = "SELECT * FROM className ORDER BY class_name";
 
         $res = $this->getDb()->fetchAll($sql);
 
