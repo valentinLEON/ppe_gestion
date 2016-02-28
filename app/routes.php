@@ -290,7 +290,7 @@ $app->post('/adduser', function(Request $request) use ($app){
      return $app['twig']->render('FormTemplate/adduser.html.twig', array(
         'classe'        =>$classes,
         'discipline'    =>$disciplines,
-        'role'          =>$role_form,      
+        'role_form'          =>$role_form,      
         'message'       =>$message,
         'username'      =>$username,
         'name'          =>$name,
