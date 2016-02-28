@@ -89,8 +89,8 @@ $app->get('/testlogin', function () use ($app) {
  */
 $app->get('/admintab', function () use ($app) {
          
-     $users = $app['dao.users']->findAll();
-     $users_total = $app['dao.users']->countAll(); 
+     $users = $app['dao.user']->findAll();
+     $users_total = $app['dao.user']->countAll(); 
 
      $classes = $app['dao.classNames']->findAll();
      $classes_total = $app['dao.classNames']->countAll();
@@ -278,8 +278,8 @@ $app->post('/adduser', function(Request $request) use ($app){
     
     $classes = $app['dao.classNames']->findAll();
     $disciplines = $app['dao.discipline']->findAll();
-    $role = $app['dao.users']->findAll();
-    $id_users = $app['dao.users']->findAll();
+    $role = $app['dao.user']->findAll();
+    $id_users = $app['dao.user']->findAll();
   
     $username = $request->request->get('username');
     $name = $request->request->get('name');
@@ -324,8 +324,8 @@ $app->get('/modifuser', function () use ($app) {
      
      $classes = $app['dao.classNames']->findAll();
      $disciplines = $app['dao.discipline']->findAll();
-     $users = $app['dao.users']->findAll();
-     $users_total = $app['dao.users']->countAll();
+     $users = $app['dao.user']->findAll();
+     $users_total = $app['dao.user']->countAll();
   
      $modification='';
      
@@ -347,9 +347,9 @@ $app->post('/modifuser', function (Request $request) use ($app) {
        
      $classes = $app['dao.classNames']->findAll();
      $disciplines = $app['dao.discipline']->findAll();
-     $roles = $app['dao.users']->findAll();
-     $id_users = $app['dao.users']->findAll();
-     $username = $app['dao.users']->findAll();
+     $roles = $app['dao.user']->findAll();
+     $id_users = $app['dao.user']->findAll();
+     $username = $app['dao.user']->findAll();
      
      $iduser= $request->request->get('id_users');    
      $modification= $request->request->get('modification');    
@@ -357,11 +357,11 @@ $app->post('/modifuser', function (Request $request) use ($app) {
      $id_discipline = $request->request->get('id_discipline');
      $idrole = $request->request->get('id_role'); 
   
-     $users_total = $app['dao.users']->countAll();
+     $users_total = $app['dao.user']->countAll();
    //  $id_class = $app['dao.classNames']->findClassname($idclass);
    //  $id_discipline = $app['dao.discipline']->findDiscipline($iddiscipline);
-   //  $id_role = $app['dao.users']->find($idrole);
-     $id_user_form = $app['dao.users']->find($iduser);
+   //  $id_role = $app['dao.user']->find($idrole);
+     $id_user_form = $app['dao.user']->find($iduser);
      
     return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
         'classe'        =>$classes,
@@ -394,8 +394,8 @@ $app->get('/userslist', function () use ($app) {
                   
      $classes = $app['dao.classNames']->findAll();
      $disciplines = $app['dao.discipline']->findAll();
-     $roles = $app['dao.users']->findAll();
-     $users = $app['dao.users']->findAll();
+     $roles = $app['dao.user']->findAll();
+     $users = $app['dao.user']->findAll();
    
      
     return $app['twig']->render('ListTemplate/userslist.html.twig', array(
@@ -419,9 +419,9 @@ $app->post('/userslist', function (Request $request) use ($app) {
             
      $classes = $app['dao.classNames']->findAll();
      $disciplines = $app['dao.discipline']->findAll();
-     $roles = $app['dao.users']->findAll();
-     $id_users = $app['dao.users']->findAll();
-     $idclassUser = $app['dao.users']->findAll();
+     $roles = $app['dao.user']->findAll();
+     $id_users = $app['dao.user']->findAll();
+     $idclassUser = $app['dao.user']->findAll();
     
      $id_class_User=$idclassUser.id_class;
      
@@ -429,7 +429,7 @@ $app->post('/userslist', function (Request $request) use ($app) {
              
            
      $id_discipline = $app['dao.discipline']->findDiscipline($id_discipline_form);
-     $id_role = $app['dao.users']->find($id_users_form);
+     $id_role = $app['dao.user']->find($id_users_form);
      
     return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
         'classe'        =>$classes,
@@ -478,7 +478,7 @@ $app->get('/classeslist', function () use ($app) {
     
      $classes = $app['dao.classNames']->findAll();
      $disciplines = $app['dao.discipline']->findAll();
-     $users = $app['dao.users']->findAll();
+     $users = $app['dao.user']->findAll();
      
     return $app['twig']->render('ListTemplate/classeslist.html.twig', array(
         'classes'=>$classes,
@@ -538,7 +538,7 @@ $app->get('/disciplineslist', function () use ($app) {
     
      $classes = $app['dao.classNames']->findAll();
      $disciplines = $app['dao.discipline']->findAll();
-     $users = $app['dao.users']->findAll();
+     $users = $app['dao.user']->findAll();
      
     return $app['twig']->render('ListTemplate/disciplineslist.html.twig', array(
         'classes'=>$classes,
