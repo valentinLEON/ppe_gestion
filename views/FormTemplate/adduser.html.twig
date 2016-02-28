@@ -89,15 +89,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Statuts</label>
-                    <select name="status"  style=" width: 25% ;border-radius: 3px" class="form-control" >
-                        {% for i in 0..5 %}
-                            <option value="{{ i }}">{{ i }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Disciplines</label>
+                    <label>Matière</label>
                     <select name="discipline_form" style=" width: 25% ;border-radius: 3px" class="form-control" >
                         {% for disciplines in discipline %}
                             <option value="{{ disciplines.id_discipline }}">{{ disciplines.name_discipline }}</option>
