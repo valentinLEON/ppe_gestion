@@ -35,7 +35,7 @@ class ClassNameDAO extends DAO
      */
     public function findClassname($id)
     {
-        $sql = "SELECT * FROM className ";
+        $sql = "SELECT * FROM className WHERE id_examen=?";
         $row = $this->getDb()->fetchAssoc($sql, array($id));
 
         if($row){
@@ -73,7 +73,7 @@ class ClassNameDAO extends DAO
      */
         public function countAll()
     {
-        $sql = "SELECT * FROM className ORDER BY class_name";
+        $sql = "SELECT cou* FROM className ORDER BY class_name";
 
         $res = $this->getDb()->fetchAll($sql);
 

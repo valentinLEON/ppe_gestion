@@ -1,0 +1,46 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}
+    Formulaire d'ajout d'examens et contrôles
+{% endblock %}
+
+{% block content %}
+
+    <!-- form start -->
+
+
+    <!-- /.box-header -->
+    <!-- form start -->
+
+    <div class="box box-primary">
+        <!-- Main content -->
+        <form class="form-horizontal" method="post" action="{{ path('exam') }}" style="margin-left:20px">
+
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="#">Nom de l'examen</label>
+                    <input style="border-radius: 3px; width: 15%" type="text" class="form-control" name="name" placeholder=""/>
+                </div>
+
+                <div class="form-group">
+                    <label for="#">Date de l'examen</label>
+                    <input style="border-radius: 3px; width: 15%" type="text" class="form-control" name="date" placeholder="Ex : 1"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="#">Description</label>
+                    <textarea  class="form-control" rows="3" style="width: 30%; border-radius: 3px" name="description" placeholder="Ex : Bon travail, travaillez mieux la méthode vue en cours ..."></textarea>
+                </div>
+                <div class="form_group">
+                    <button type="submit" class="btn btn-info pull-right">Ajouter</button>
+                </div>
+            </div>
+        </form>
+        <!-- /.row -->
+    </div>
+    <!-- /.content-wrapper -->
+
+
+
+{% endblock %}
+

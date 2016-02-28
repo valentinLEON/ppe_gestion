@@ -8,6 +8,7 @@ use ppe_gestion\Domain\UserToClass;
 use ppe_gestion\Domain\User;
 use ppe_gestion\Domain\ClassName;
 use ppe_gestion\Domain\Discipline;
+use ppe_gestion\Domain\Examen;
 
 // PAS TOUCHER use ppe_gestion\Form\Type\addNoteForm;
 
@@ -506,8 +507,6 @@ $app->post('/addclass', function(Request $request) use ($app){
 
     return $app->redirect('/addclass', 301);
 
-    //return $app['twig']->render('FormTemplate/addclass.html.twig');
-    
 })->bind('class');
 
 
@@ -613,7 +612,6 @@ $app->get('/addnote',function() use ($app) {
 $app->post('/addnote', function(Request $request) use ($app){
 
     $newEvaluation = new Evaluation();
-    $message = 0; //booléen qui affiche ou non un message de succes
 
     $student = $app['dao.student']->findStudent($request->request->get('etudiants'));
     $discipline = $app['dao.discipline']->findDiscipline($request->request->get('matiere'));
@@ -636,22 +634,12 @@ $app->post('/addnote', function(Request $request) use ($app){
         'classNames' => $classes,
         'matieres' => $discipline,
         'student' => $student));
-    
-    //var_dump(array($this->getDiscipline()));
-    /*if($message)
-    {
-        $app['session']->getFlashBag()->add('INFORMATION', 'La note a bien été ajouté !');
-    }
-    else{$app['session']->getFlashBag()->add('INFORMATION', 'La note a pas été ajouté !');}*/
 
-    //return $app['twig']->render('/addnote');
-  
-  //  //  return new Response('Bien joué kiki', 201);
-  //  
-    //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
+    $app['session']->getFlashBag()->add('success', 'La note a été ajoutée avec succès !');
+
+    return $app->redirect('/addnote', 301);
+
 })->bind('note');
-
-
 
 
 /**
@@ -666,6 +654,34 @@ $app->get('/notestats', function () use ($app) {
 })->bind('notestats');
 
 
+/**
+ * Récupère via l'url les examens
+ */
+$app->get('/addexamen', function() use($app){
+    return $app['twig']->render('FormTemplate/addexam.html.twig');
+})->bind('addexam');
+
+/**
+ * Récupère les données en post et insère en base de données
+ *
+ * Avec un message de succès en flash
+ */
+$app->post('/addexamen', function(Request $request) use($app){
+    $newExamen = new Examen();
+
+    $newExamen->setNameExamen($request->request->get('name'));
+    $newExamen->setDateExamen($request->request->get('date'));
+    $newExamen->setDescriptionExamen($request->request->get('description'));
+
+    $newExamen->setDtCreate(date('Y-m-d H:i:s'));
+    $newExamen->setDtUpdate(date('Y-m-d H:i:s'));
+
+    $app['dao.examen']->saveExamen($newExamen);
+
+    $app['session']->getFlashBag()->add('success', 'L\'examen a été ajouté avec succès !');
+
+    return $app->redirect('/addexamen', 301);
+})->bind('exam');
 
 
 /**                                                              ABSENCES
