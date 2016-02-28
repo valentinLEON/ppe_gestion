@@ -107,9 +107,9 @@ $app['dao.evaluation'] = $app->share(function($app){
 
 /**
  * Controller pour la route des utilisateurs
- * TODO: A changer plus tard pour la concordance.
+ *
  */
-$app['dao.users'] = $app->share(function($app){
+$app['dao.user'] = $app->share(function($app){
     return new ppe_gestion\DAO\UserDAO($app['db']);
 });
 

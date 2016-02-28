@@ -11,9 +11,6 @@ use ppe_gestion\Domain\Examen;
 
 // PAS TOUCHER use ppe_gestion\Form\Type\addNoteForm;
 
-/**
- * TODO: faire les routes pour afficher les listes des datas
- */
 
 /**                                                            ACCUEIL
  * 
@@ -58,9 +55,8 @@ $app->get('/', function(Request $request) use ($app) {
 $app->get('/login', function(Request $request) use ($app) {
     return $app['twig']->render('login.html.twig', array(
         'error'         => $app['security.last_error']($request),
-        //'last_username' => $app['session']->get('_security.last_username'),
+        'last_username' => $app['session']->get('_security.last_username'),
     ));
-    var_dump($request);
 })->bind('login');
 
 
@@ -137,8 +133,8 @@ $app->get('/admintab', function () use ($app) {
  */
 $app->get('/login', function (Request $request) use ($app) {
     return $app['twig']->render('login.html.twig', array(
-     //   'error' => $app['security.last.error']($request),
-    //    'last_username' => $app['session']->get('_security.last_username'),
+        'error' => $app['security.last.error']($request),
+        'last_username' => $app['session']->get('_security.last_username'),
     ));
 })->bind('login');
 
