@@ -35,8 +35,8 @@ $app->get('/', function(Request $request) use ($app) {
      $classes = $app['dao.className']->findAll();
      $disciplines = $app['dao.discipline']->findAll();
      $disciplines = $app['dao.discipline']->countAll();
-     $users = $app['dao.users']->findAll();
-     $students = $app['dao.students']->findAll();
+     $users = $app['dao.user']->findAll();
+     $students = $app['dao.student']->findAll();
      
     return $app['twig']->render('ListTemplate/disciplineslist.html.twig', array(
         'classes'=>$classes,
