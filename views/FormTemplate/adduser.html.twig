@@ -70,11 +70,12 @@
                 <input type="password" class="form-control" required  placeholder="Min 6 caracteres">
             </div>
         </div>
+       {% if message %}<div class="box box-solid box-success" >
+            Utilisateur enregistré avec succès </div>
+       {% endif %}
         <!-- /.box-body -->
         <div class="box-footer" style='float:right'>
             <input type="hidden" value="message" name="message">
-            {% if message %}<span class="box box-solid box-success" >
-            Utilisateur enregistré avec succès </span>{% endif %}
             <button type="submit" class="btn btn-info pull-right">Ajouter</button>
         </div>
         <!-- /.box-footer -->
