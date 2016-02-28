@@ -355,6 +355,7 @@ $app->post('/modifuser', function (Request $request) use ($app) {
      $disciplines = $app['dao.discipline']->findAll();
      $roles = $app['dao.users']->findAll();
      $id_users = $app['dao.users']->findAll();
+     $users = $app['dao.users']->findAll();
      
      $users_total = $app['dao.users']->countAll();
        
@@ -371,8 +372,9 @@ $app->post('/modifuser', function (Request $request) use ($app) {
     return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
         'classe'        =>$classes,
         'discipline'    =>$disciplines,
+        'username'      =>$users,
         'role'          =>$roles,
-        'id_classe'     =>$id_classe,
+        'id_className'  =>$id_classe,
         'id_discipline' =>$id_discipline,
         'id_role'       =>$id_role,
         'id_user'       =>$id_users,

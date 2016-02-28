@@ -3,7 +3,7 @@
 {% block title %}
   Liste des utilisateurs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <span style="font-size:14px;">
-      <a href="adduser"><i class="fa fa-plus"></i>&nbsp; Ajouter un utilisateur</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="adduser"><i class="fa fa-plus"></i>&nbsp; Ajouter un utilisateur</a>
   </span>
 {% endblock %}
 
@@ -18,7 +18,6 @@
                     </div>
                   </div>
               #} 
-                        
                 <!-- /.box-header -->
                           
                     <table class="table table-hover" style="  table-layout: fixed; ">
@@ -41,16 +40,14 @@
                         <form  action="modifuser" method="post" >
                             <tr>
                                 <td class="mytdmin"> 
-
-                                <i class='fa fa-pencil-square-o'></i>
-                                <input type="submit" class='btn'  value="Modifier"
-                                <input type="hidden" value="modification" name="modification"  >
-                                      {#
-                                            <input type="hidden" value="{% if user.id_users_form %}{{ user.id_users_form }}{% endif %}" name="id_users_form"  >
-                                            <input type="hidden" value="{{ discipline.id_discipline_form }}" name="id_discipline_form"  >
-                                            <input type="hidden" value="{{ classe.id_class_form }}" name="id_class_form"  >
-                                    #}
-                               
+                                    <i class='fa fa-pencil-square-o'></i>
+                                    <input type="submit" class='btn'  value="Modifier"
+                                    <input type="hidden" value="modification" name="modification"  >
+                                {#
+                                      <input type="hidden" value="{% if user.id_users_form %}{{ user.id_users_form }}{% endif %}" name="id_users_form"  >
+                                      <input type="hidden" value="{{ discipline.id_discipline_form }}" name="id_discipline_form"  >
+                                      <input type="hidden" value="{{ classe.id_class_form }}" name="id_class_form"  >
+                                 #}
                                 </td>
                                 <td class="mytd" >{{ user.username }}</td>
                                 <input type="hidden" value="{{ user.username }}" name="username"  >
