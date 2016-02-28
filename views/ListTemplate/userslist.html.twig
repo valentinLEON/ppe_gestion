@@ -40,10 +40,12 @@
                         </tr>
                         {% for user in users %}
                         <tr>
-                            <td class="mytdmin">                               
-                                <a href=modifuser><i class="fa fa-pencil-square-o"></i>
-                                   <input type="hidden" value="{{ user.id_users }}" name="id_users" >
-                                </a>
+                            <td class="mytdmin"> 
+                                <form  method="post" action="modifuser">
+                                    <a href=modifuser><i class="fa fa-pencil-square-o"></i>
+                                       <input type="hidden" value="{{ user.id_users }}" name="id_users" >
+                                    </a>
+                                </form>
                             </td>
                             <td class="mytd" >{{ user.username }}</td>
                             <td class="mytd" >{{ user.name }}</td>
