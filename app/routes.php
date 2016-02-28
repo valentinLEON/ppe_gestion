@@ -322,6 +322,7 @@ $app->get('/modifuser', function () use ($app) {
         'discipline'    =>$disciplines,
         'role'          =>$roles,
         'users'         =>$users,
+        'modification'  =>'',
     
     ));
     
