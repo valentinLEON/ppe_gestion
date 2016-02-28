@@ -29,7 +29,7 @@ class User implements UserInterface
     public $status;
     
     public $id_discipline; /*clé étrangère*/
-    public $id_className; /*clé étrangère*/
+    public $id_class; /*clé étrangère*/
 
     public function getIdUsers()
     {
@@ -175,12 +175,12 @@ class User implements UserInterface
 
     public function getIdClassName()
     {
-        return $this->id_className;
+        return $this->id_class;
     }
 
-    public function setIdClassName($_id_className)
+    public function setIdClassName($_id_class)
     {
-        $this->id_className = $_id_className;
+        $this->id_class = $_id_class;
     }
 
   
