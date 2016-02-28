@@ -361,7 +361,7 @@ $app->post('/modifuser', function (Request $request) use ($app) {
      $username = $app['dao.users']->findAll();
      
      $users_total = $app['dao.users']->countAll();
-
+     $mod_user= $app['dao.users']->find($iduser);
    //  $id_class = $app['dao.classNames']->findClassname($idclass);
    //  $id_discipline = $app['dao.discipline']->findDiscipline($iddiscipline);
    //  $id_role = $app['dao.users']->find($idrole);
