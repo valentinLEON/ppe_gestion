@@ -90,13 +90,6 @@
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
 
-    <footer class="main-footer">
-        <div class="pull-right hidden-xs">
-            <b>Version</b> 2.3.0
-        </div>
-        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
-    </footer>
-
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
         <!-- Create the tabs -->
@@ -280,7 +273,7 @@
     <script src="../dist/js/demo.js"></script>
     <!-- fullCalendar 2.2.5 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
-    <script src="../plugins/fullcalendar/fullcalendar.min.js"></script>
+    <script src="{{ app.request.getBaseUrl() }}/plugins/fullcalendar/fullcalendar.min.js"></script>
     <!-- Page specific script -->
     <script>
         $(function () {
