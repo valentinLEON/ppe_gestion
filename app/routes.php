@@ -232,7 +232,7 @@ $app->get('/adduser', function () use ($app) {
     return $app['twig']->render('FormTemplate/adduser.html.twig', array(
         'classe'=>$classes,
         'discipline'=>$disciplines,
-        'role'=>$roles,
+        'roles'=>$roles,
     ));
     
 })->bind('adduser');
