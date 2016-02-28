@@ -272,6 +272,7 @@ $app->post('/adduser', function(Request $request) use ($app){
     $classes = $app['dao.className']->findAll();
     $disciplines = $app['dao.discipline']->findAll();
     $role = $app['dao.users']->findAll();
+    $id_users = $app['dao.users']->findAll();
   
     $username = $request->request->get('username');
     $name = $request->request->get('name');
@@ -292,6 +293,7 @@ $app->post('/adduser', function(Request $request) use ($app){
         'discipline'    =>$disciplines,
         'role_form'     =>$role_form,      
         'message'       =>$message,
+        'id_users'      =>$id_users,
         'username'      =>$username,
         'name'          =>$name,
         'firstname'     =>$firstname,
