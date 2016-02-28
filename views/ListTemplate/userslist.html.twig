@@ -43,10 +43,10 @@
                                 <form  method="post" action="modifuser">
                                     <input type="submit"  value="o" style='width:5px;height:5px'>
                                     <i class='fa fa-pencil-square-o'></i>
-                                   
-                                     {% if modification %}
+                                    <input type="hidden" value="modification" name="modification"  >
+                                     {% if modification == 'modification' %}
                                         <input type="hidden" value="{{ user.id_users_form }}" name="id_users_form"  >
-                                        <input type="hidden" value="modification" name="modification"  >
+                                        
                                         <input type="hidden" value="{{ discipline.id_discipline_form }}" name="id_discipline_form"  >
                                         <input type="hidden" value="{{ classe.id_class_form }}" name="id_class_form"  >
                                     {% endif %}
