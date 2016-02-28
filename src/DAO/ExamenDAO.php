@@ -11,7 +11,7 @@ namespace ppe_gestion\DAO;
 use ppe_gestion\Domain\Examen;
 
 
-class ExamenDAO
+class ExamenDAO extends DAO
 {
     /**
      * @param $id
