@@ -203,6 +203,7 @@ $app->post('/addstudent', function(Request $request) use($app){
  *     
  *                    STATISTIQUES
  * 
+ *
  * route pour l'affichage de la liste des etudiants
  */
 $app->get('/studentstats', function () use ($app) {

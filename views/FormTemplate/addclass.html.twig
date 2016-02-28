@@ -37,7 +37,9 @@
                 <button type="submit" class="btn btn-info pull-right">Enregistrer</button>
             </div>
             {% for success in app.session.getFlashBag.get('success') %}
-                {{ success }}
+                <div class="alert alert-success">
+                    {{ success }}
+                </div>
             {% endfor %}
         </form>
             <!-- /.box-footer -->
