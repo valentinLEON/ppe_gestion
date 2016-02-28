@@ -44,11 +44,11 @@
                                     <input type="submit"  value="o" style='width:5px;height:5px'>
                                     <i class='fa fa-pencil-square-o'></i>
                                     <input type="hidden" value="modification" name="modification"  >
-                                  
+                                  {#
                                         <input type="hidden" value="{% if user.id_users_form %}{{ user.id_users_form }}{% endif %}" name="id_users_form"  >
                                         <input type="hidden" value="{{ discipline.id_discipline_form }}" name="id_discipline_form"  >
                                         <input type="hidden" value="{{ classe.id_class_form }}" name="id_class_form"  >
-                                
+                                #}
                                 </form>
                             </td>
                             <td class="mytd" >{{ user.username }}</td>
