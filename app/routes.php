@@ -229,14 +229,14 @@ $app->get('/adduser', function () use ($app) {
      $classes = $app['dao.className']->findAll();
      $disciplines = $app['dao.discipline']->findAll();
      $users = $app['dao.users']->findAll();
-     $id_users = $app['dao.users']->findAll();
+     
      
     return $app['twig']->render('FormTemplate/adduser.html.twig', array(
         'classe'=>$classes,
         'discipline'=>$disciplines,
         'role'=>$users,
         'message'=>'',
-        'id_users'=>$id_users,
+        'id_users'=>$users,
         'user'=>$users,
     ));
     
