@@ -329,6 +329,7 @@ $app->get('/modifuser', function () use ($app) {
      $classes = $app['dao.className']->findAll();
      $disciplines = $app['dao.discipline']->findAll();
      $users = $app['dao.users']->findAll();
+     $users_total = $app['dao.users']->countAll();
   
      $modification='';
      
@@ -337,6 +338,7 @@ $app->get('/modifuser', function () use ($app) {
         'discipline'    =>$disciplines,
         'role'          =>$users,
         'users'         =>$users,
+        'users_total'         =>$users_total,
         'modification'  =>$modification,
     
     ));
@@ -353,12 +355,10 @@ $app->post('/modifuser', function (Request $request) use ($app) {
      $disciplines = $app['dao.discipline']->findAll();
      $roles = $app['dao.users']->findAll();
      $id_users = $app['dao.users']->findAll();
-     
-
        
-     $idclasse = $request->request->get('$id_class');
+     $idclasse = $request->request->get('$id_className');
      $iddiscipline = $request->request->get('$id_discipline');
-    var_dump($idclasse);
+ 
      $idrole = $request->request->get('id_role');
      
      $id_classe = $app['dao.className']->findClassname($idclasse);

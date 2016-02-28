@@ -38,31 +38,43 @@
                             <th class="mytdmin">Classes</th>
                         </tr>
                         {% for user in users %}
-                        <tr>
-                            <td class="mytdmin"> 
-                                <form  action="modifuser" method="post" >
-                                    <i class='fa fa-pencil-square-o'></i>
-                                    <input type="submit" class='btn'  value="Modifier"
-                                    <input type="hidden" value="modification" name="modification"  >
-                                  {#
-                                        <input type="hidden" value="{% if user.id_users_form %}{{ user.id_users_form }}{% endif %}" name="id_users_form"  >
-                                        <input type="hidden" value="{{ discipline.id_discipline_form }}" name="id_discipline_form"  >
-                                        <input type="hidden" value="{{ classe.id_class_form }}" name="id_class_form"  >
-                                #}
-                                </form>
-                            </td>
-                            <td class="mytd" >{{ user.username }}</td>
-                            <td class="mytd" >{{ user.name }}</td>
-                            <td class="mytd">{{ user.firstname }}</td>
-                            <td class="mytd">{{ user.password }}</td>
-                            <td class="mytdmin">{{ user.role }}</td>
-                            <td class="mytdmin">{{ user.status }}</td>
-                            <td class="mytd">{{ user.description }}</td>
-                            <td class="mytd">{{ user.user_mail }}</td>
-                            <td class="mytdmin">{{ user.id_discipline }}</td>
-                            <td class="mytdmin">{{ user.id_className }}</td>
-    
-                        </tr>
+                        <form  action="modifuser" method="post" >
+                            <tr>
+                                <td class="mytdmin"> 
+
+                                <i class='fa fa-pencil-square-o'></i>
+                                <input type="submit" class='btn'  value="Modifier"
+                                <input type="hidden" value="modification" name="modification"  >
+                                      {#
+                                            <input type="hidden" value="{% if user.id_users_form %}{{ user.id_users_form }}{% endif %}" name="id_users_form"  >
+                                            <input type="hidden" value="{{ discipline.id_discipline_form }}" name="id_discipline_form"  >
+                                            <input type="hidden" value="{{ classe.id_class_form }}" name="id_class_form"  >
+                                    #}
+                               
+                                </td>
+                                <td class="mytd" >{{ user.username }}</td>
+                                <input type="hidden" value="{{ user.username }}" name="username"  >
+                                <td class="mytd" >{{ user.name }}</td>
+                                <input type="hidden" value="{{ user.name }}" name="name"  >
+                                <td class="mytd">{{ user.firstname }}</td>
+                                <input type="hidden" value="{{ user.firstname }}" name="firstname"  >
+                                <td class="mytd">{{ user.password }}</td>
+                                <input type="hidden" value="{{ user.password }}" name="password"  >
+                                <td class="mytdmin">{{ user.role }}</td>
+                                <input type="hidden" value="{{ user.role }}" name="role"  >
+                                <td class="mytdmin">{{ user.status }}</td>
+                                <input type="hidden" value="{{ user.status }}" name="status"  >
+                                <td class="mytd">{{ user.description }}</td>
+                                <input type="hidden" value="{{ user.description }}" name="description"  >
+                                <td class="mytd">{{ user.user_mail }}</td>
+                                <input type="hidden" value="{{ user.user_mail }}" name="user_mail"  >
+                                <td class="mytdmin">{{ user.id_discipline }}</td>
+                                <input type="hidden" value="{{ user.id_discipline }}" name="discipline"  >
+                                <td class="mytdmin">{{ user.id_className }}</td>
+                                <input type="hidden" value="{{ user.id_className }}" name="id_className  >
+
+                            </tr>
+                        </form>
                         {% endfor %}
                     </table>
          
