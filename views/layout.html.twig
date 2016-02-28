@@ -11,14 +11,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="icon" type="image/png" href="/vendor/almasaeed2010/adminlte/dist/img/iconsite.png" />
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="{{ app.request.getBaseURL() }}/vendor/almasaeed2010/adminlte/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ app.request.getBaseURL() }}/themes/AdminLTE/plugins/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{ app.request.getBaseURL() }}/vendor/almasaeed2010/adminlte/dist/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="{{ app.request.getBaseURL() }}/vendor/almasaeed2010/adminlte/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="{{ app.request.getBaseURL() }}/themes/AdminLTE/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="{{ app.request.getBaseURL() }}/themes/AdminLTE/plugins/select2/select2.min.css">
     <!-- fullCalendar 2.2.5-->
     <link rel="stylesheet" href="{{ app.request.getBaseURL() }}/vendor/almasaeed2010/adminlte/plugins/fullcalendar/fullcalendar.min.css">
     <link rel="stylesheet" href="{{ app.request.getBaseURL() }}/vendor/almasaeed2010/adminlte/plugins/fullcalendar/fullcalendar.print.css" media="print">
@@ -26,8 +26,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect.
     -->
-    <link rel="stylesheet" href="{{ app.request.getBaseURL() }}/vendor/almasaeed2010/adminlte/dist/css/skins/_all-skins.min.css">
-    <link rel="stylesheet" href="{{ app.request.getBaseURL() }}/vendor/almasaeed2010/adminlte/dist/css/AdminLTE.css">
+    <link rel="stylesheet" href="{{ app.request.getBaseURL() }}/themes/AdminLTE/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="{{ app.request.getBaseURL() }}/css/styles.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -134,9 +134,9 @@ desired effect
                         </ul>
                     </li>
                     <!-- Control Sidebar Toggle Button -->
-                    {#<li>
+                    <li>
                         <a href="" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                    </li>#}
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -150,14 +150,14 @@ desired effect
             <!-- Sidebar user panel (optional)
             <div class="user-panel">
                 <div class="pull-left image">
-                    <a href="./"><img src="{#{{ app.request.getBaseURL() }}#}/themes/AdminLTE/dist/img/avatar5.png" class="img-circle" style="width:70px; height:70px;" alt="User Image"></a>
+                    <a href="./"><img src="{{ app.request.getBaseURL() }}/themes/AdminLTE/dist/img/avatar5.png" class="img-circle" style="width:70px; height:70px;" alt="User Image"></a>
                 </div>
                 <div class="pull-left info">
                     <p style="margin-left:15px;">Maurice Dupont</p>
 
                 </div>
             </div> -->
- 
+
            <!-- Sidebar Menu -->
             <ul class="sidebar-menu">
                 <li class="header">TABLEAU DE BORD</li>
@@ -169,19 +169,6 @@ desired effect
                     <ul class="treeview-menu">
                         <li><a href="classeslist"><i class="glyphicon glyphicon-th-list"></i>Liste des classes</a></li>
                         <li><a href="addclass"><i class="fa fa-plus"></i>Ajouter une classe</a></li>
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href=""><i class="fa fa-pencil"></i><span>Examens</span> <i class="fa fa-angle-left pull-right"></i></a>
-                    <ul class="treeview-menu">
-                        <li><a href="examenlist"><i class="glyphicon glyphicon-th-list"></i>Liste des examens</a></li>
-                        <li><a href="addexamen"><i class="fa fa-plus"></i>Ajouter un examen</a></li>
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href=""><i class="fa fa-university"></i><span>Matières</span> <i class="fa fa-angle-left pull-right"></i></a>
-                    <ul class="treeview-menu">
-                        <li><a href="disciplineslist"><i class="glyphicon glyphicon-th-list"></i>Liste des matières</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
