@@ -265,7 +265,7 @@ $app->post('/adduser', function(Request $request) use ($app){
  
     $app['dao.users']->saveUser($newUser);
 
-     return $app['twig']->render('ListTemplate/userlist.html.twig');
+     return $app['twig']->render('ListTemplate/userslist.html.twig');
     //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
 })->bind('user');
 
