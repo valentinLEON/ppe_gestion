@@ -639,7 +639,7 @@ $app->post('/addnote', function(Request $request) use ($app){
         'matieres' => $discipline,
         'student' => $student));
 
-    $app['session']->getFlashBag()->add('success', 'La note a été ajoutée avec succès !');
+   $app['session']->getFlashBag()->add('success', 'La note a été ajoutée avec succès !');
 
     return $app->redirect('/addnote', 301);
 
