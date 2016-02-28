@@ -282,7 +282,7 @@ $app->get('/modifuser', function () use ($app) {
         'role'=>$roles,
     ));
     
-})->bind('user');
+})->bind('modifuser');
 
 
 /**
