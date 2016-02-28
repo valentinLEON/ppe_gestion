@@ -40,7 +40,7 @@ $app->get('/', function(Request $request) use ($app) {
      
      $students = $app['dao.student']->findAll();
      $students_total = $app['dao.student']->countAll();
-     $date = date("m/d/Y");
+     $date = date("d/m/Y");
      
     return $app['twig']->render('index.html.twig', array(
         'classes'=>$classes,
