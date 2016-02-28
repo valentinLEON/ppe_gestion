@@ -265,7 +265,7 @@ $app->post('/adduser', function(Request $request) use ($app){
     $app['dao.users']->saveUser($newUser);
 
     //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
-})->bind('adduser');
+});
 
 
 // Modification de l'utilisateur
