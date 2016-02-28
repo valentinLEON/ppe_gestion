@@ -83,10 +83,12 @@ class StudentDAO extends DAO
         $sql = "SELECT * FROM student WHERE id_student=?";
         $row = $this->getDb()->fetchAssoc($sql, array($id));
 
-        if($row)
+        if($row){
             return $this->buildDomainObject($row);
-        else
+        }
+        else{
             throw new \Exception("Aucun étudiant pour l'id : ".$id);
+        }
     }
 
     /**
