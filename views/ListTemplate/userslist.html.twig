@@ -69,10 +69,9 @@
                                 <input type="hidden" value="{{ user.user_mail }}" name="user_mail"  >
                                 <td class="mytdmin">{{ user.id_discipline }}</td>
                                 <input type="hidden" value="{{ user.id_discipline }}" name="id_discipline"  >
-                                {% for classes in classe %}
-                                <td class="mytdmin">{{ classes.class_name }}</td>
-                                <input type="hidden" value="{{ classes.id_class }}" name="id_class"  >
-                            {% endfor %}
+                                <td class="mytdmin"> {% for classes in classe %}{{ classes.class_name }} {% endfor %}</td>
+                                <input type="hidden" value="{{ user.id_class }}" name="id_class"  >
+                           
                                </tr> 
                             {% endfor %}
                                                         
