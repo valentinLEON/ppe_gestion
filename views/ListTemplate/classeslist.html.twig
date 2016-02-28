@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body table-responsive no-padding">
+                {#<div class="box-body table-responsive no-padding">
                     <table class="table table-hover">
                         <tr style="background-color: #3c8dbc">
                             <th style="text-align: center; border: 1px solid darkgrey;">Nom de la classe</th>
@@ -49,7 +49,46 @@
                             </tr>
                         {% endfor %}
                     </table>
+                </div>#}
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Data Table With Full Features</h3>
+                    </div><!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th style="text-align: center; border: 1px solid darkgrey;">Nom de la classe</th>
+                                <th style="text-align: center; border: 1px solid darkgrey;">Option</th>
+                                <th style="text-align: center; border: 1px solid darkgrey;">Année</th>
+                                <th style="text-align: center; border: 1px solid darkgrey;">Nombre d'Etudiants</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for classe in classes %}
+                                <tr>
+                                    <td style="text-align: center; border: 1px solid darkgrey;" >{{ classe.class_name }}</td>
+                                    <td style="text-align: center; border: 1px solid darkgrey;">{{ classe.class_option }}</td>
+                                    <td style="text-align: center; border: 1px solid darkgrey;">{{ classe.class_year }}</td>
+                                    <td style="text-align: center; border: 1px solid darkgrey;">{{ classe.nombreEtudiant }}</td>
+                                    <td style="text-align: center; border: 1px solid darkgrey;">{{ classe.description }}</td>
+
+                                    <td></td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <th style="text-align: center; border: 1px solid darkgrey;">Nom de la classe</th>
+                                <th style="text-align: center; border: 1px solid darkgrey;">Option</th>
+                                <th style="text-align: center; border: 1px solid darkgrey;">Année</th>
+                                <th style="text-align: center; border: 1px solid darkgrey;">Nombre d'Etudiants</th>
+                            </tr>
+                            </tfoot>
+                        </table>
+                    </div>
                 </div>
+
                 <!-- /.box-body -->
             </div>
             <!-- /.box -->
