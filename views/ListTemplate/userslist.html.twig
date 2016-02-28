@@ -36,9 +36,9 @@
                             <th class="mytdmin">Discipline</th>
                             <th class="mytdmin">Classes</th>
                         </tr>
-                        
+                        {% for user in users %}
                         <form  action="modifuser" method="post" >
-                            {% for user in users %}
+                            
                             <tr>
                                 <td class="mytdmin"> 
                                    <button type="button" class="btn btn-warning btn-flat"><i class="fa fa-edit"></i></button>
@@ -73,12 +73,9 @@
                                 <input type="hidden" value="{{ user.id_class }}" name="id_class"  >
                            
                                </tr> 
-                            {% endfor %}
-                                                        
-                            
-                           
-                           
-                        </form>
+
+                        </form> 
+                        {% endfor %}
                     </table>
          
                 <!-- /.box-body -->
