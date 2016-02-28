@@ -235,6 +235,7 @@ $app->get('/adduser', function () use ($app) {
         'discipline'=>$disciplines,
         'role'=>$users,
         'message'=>'',
+        'user'=>$users,
     ));
     
 })->bind('adduser');
