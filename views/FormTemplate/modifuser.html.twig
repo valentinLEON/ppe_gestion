@@ -11,9 +11,9 @@
         <div class="box-body" style="margin-left:2rem; width: 90%; ">
             <div class="form-group" style="width: 20%;  display:inline-block; margin:10px;">
                 <label>Login  *</label>
-                <select name="username" class="form-control">
+                <select  class="form-control" name="username">
                      {% for usernames in username %}
-                        <option value="{{ usernames.username }}">{{ usernames.username }}</option> 
+                        <option value="{{ usernames.username }}" name="username">{{ usernames.username }}</option> 
                         <input type="hidden" value="{{ usernames.id_class }}" name="id_class">
                       {% endfor %}
                 </select>
