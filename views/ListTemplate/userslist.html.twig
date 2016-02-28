@@ -46,7 +46,7 @@
                                     <input type="hidden" value="{{ user.id_users_form }}" name="id_users_form"  >
                                     <input type="hidden" value="modification" name="modification"  >
                                     <input type="hidden" value="{{ discipline.id_discipline_form }}" name="id_discipline_form"  >
-                                    {% if {{ submit }} %}
+                                    {% if modification %}
                                         <input type="hidden" value="{{ classe.id_class_form }}" name="id_class_form"  >
                                     {% endif %}
                                 </form>
