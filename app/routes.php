@@ -269,17 +269,41 @@ $app->post('/adduser', function(Request $request) use ($app){
    
     $app['dao.users']->saveUser($newUser);
     
-     $classes = $app['dao.className']->findAll();
-     $disciplines = $app['dao.discipline']->findAll();
-     $users = $app['dao.users']->findAll();
-     $message= $request->request->get('message');
+    $classes = $app['dao.className']->findAll();
+    $disciplines = $app['dao.discipline']->findAll();
+    $role = $app['dao.users']->findAll();
+    
+    $username = $request->request->get('username');
+    $name->$request->request->get('name');
+    $firstname->setFirstName($request->request->get('firstname'));
+    $description->$request->request->get('description');
+    $password->$request->request->get('password');
+    $salt->$request->request->get('salt');
+    $role->$request->request->get('role');
+    $discipline->$request->request->get('discipline');
+    $classname->$request->request->get('classname');
+    $status->$request->request->get('status');   
+    $user_mail->$request->request->get('user_mail');
+    
+    $message= $request->request->get('message');
      
      return $app['twig']->render('FormTemplate/adduser.html.twig', array(
         'classe'=>$classes,
         'discipline'=>$disciplines,
-        'role'=>$users,
-        'user'=>$users,
-        'message'=>$message,
+        'role'          =>$users,
+        'user'          =>$users,
+        'message'       =>$message,
+        'username'      =>$username,
+        'name'          =>$name,
+        'firstname'     =>$firstname,
+        'description'   =>$description,
+        'password'      => $password,
+        'salt'          =>$salt,
+        'role'          =>$role,
+        'discipline'    =>$discipline,
+        'classname'     =>$classname,
+        'status'        =>$status,   
+        'user_mail'     =>$user_mail,
          
       ));
      
