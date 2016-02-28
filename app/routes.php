@@ -372,7 +372,7 @@ $app->get('/userslist', function () use ($app) {
      $id_users = $app['dao.users']->findAll();
    
      
-    return $app['twig']->render('FormTemplate/userslist.html.twig', array(
+    return $app['twig']->render('ListTemplate/userslist.html.twig', array(
         'classe'        =>$classes,
         'discipline'    =>$disciplines,
         'role'          =>$roles,
