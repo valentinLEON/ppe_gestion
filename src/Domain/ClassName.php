@@ -27,12 +27,12 @@ class ClassName
     //region Getter et Setter pour l'ID de la classe
     public function getIdClassName()
     {
-        return $this->id_className;
+        return $this->id_class;
     }
 
     public function setIdClassName($_id_className)
     {
-        $this->id_className = $_id_className;
+        $this->id_class = $_id_className;
     }
     //endregion
 
