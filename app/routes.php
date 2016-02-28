@@ -229,12 +229,14 @@ $app->get('/adduser', function () use ($app) {
      $classes = $app['dao.className']->findAll();
      $disciplines = $app['dao.discipline']->findAll();
      $users = $app['dao.users']->findAll();
+     $id_users = $app['dao.users']->findAll();
      
     return $app['twig']->render('FormTemplate/adduser.html.twig', array(
         'classe'=>$classes,
         'discipline'=>$disciplines,
         'role'=>$users,
         'message'=>'',
+        'id_user'=>$id_users,
         'user'=>$users,
     ));
     
@@ -245,13 +247,6 @@ $app->post('/adduser', function(Request $request) use ($app){
    
    $newUser = new User();
    
- //  $classname=$app['dao.className']->$request->request->get('classname');
- //  $discipline=$app['dao.discipline']->$request->request->get('discipline');
-  // $user = $app['dao.users']->findAll($request->request->get('user'));
-//   $id_class = $app['dao.className']->findClassname($request->request->get('id_class'));
-//   $id_discipline = $app['dao.discipline']->findDiscipline($request->request->get('id_discipline'));
-
-  //  $newUser->setIdUsers($request->request->get('id_users'));
     $newUser->setUsername($request->request->get('username'));
     $newUser->setName($request->request->get('name'));
     $newUser->setFirstName($request->request->get('firstname'));
