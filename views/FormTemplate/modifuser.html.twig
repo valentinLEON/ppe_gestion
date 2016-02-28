@@ -13,7 +13,8 @@
                 <label>Login  *</label>
                 <select name="username" class="form-control">
                      {% for usernames in username %}
-                        <option value="{{ usernames.id_class }}">{{ usernames.username }}</option> 
+                        <option value="{{ usernames.username }}">{{ usernames.username }}</option> 
+                        <input type="hidden" value="{{ usernames.id_class }}">
                       {% endfor %}
                 </select>
             </div>
