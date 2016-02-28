@@ -34,21 +34,18 @@ $app->get('/', function(Request $request) use ($app) {
     
      $classes = $app['dao.className']->findAll();
      $classes_total = $app['dao.className']->countAll();
-     
-     $disciplines = $app['dao.discipline']->findAll();
-     $disciplines_total = $app['dao.discipline']->countAll();
-     
+    
      $students = $app['dao.student']->findAll();
      $students_total = $app['dao.student']->countAll();
      $date = date("d/m/Y");
      
     return $app['twig']->render('index.html.twig', array(
         'classes'=>$classes,
-        'disciplines'=>$disciplines,
+        'classes_number'=>$classes_total,
         'students'=>$students,
         'students_number'=>$students_total,
-        'classes_number'=>$classes_total,
-        'disciplines_number'=>$disciplines_total,
+        
+
         'date'=>$date,
         
         )
@@ -97,15 +94,16 @@ $app->get('/admintab', function () use ($app) {
          
      $users = $app['dao.users']->findAll();
      $users_total = $app['dao.users']->countAll(); 
-     
-     $disciplines = $app['dao.discipline']->findAll();
-     $disciplines_total = $app['dao.discipline']->countAll();
-     
+
      $classes = $app['dao.className']->findAll();
      $classes_total = $app['dao.className']->countAll();
       
      $students = $app['dao.student']->findAll();
      $students_total = $app['dao.student']->countAll();
+          
+     $disciplines = $app['dao.discipline']->findAll();
+     $disciplines_total = $app['dao.discipline']->countAll();
+     
      $date = date("d/m/Y");
     
     return $app['twig']->render('TabTemplate/admintab.html.twig', array(
