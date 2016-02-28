@@ -48,6 +48,8 @@ $app->get('/', function(Request $request) use ($app) {
         'classes_number'=>'1',
         'disciplines_number'=>$disciplines_total,
         'users_number'=>'1',
+        'absences_number'=>'1',
+        'retards_number'=>'1',
         
         )
     
