@@ -389,16 +389,18 @@ $app->get('/userslist', function () use ($app) {
 // modifier un utilisateur
 $app->post('/userslist', function (Request $request) use ($app) {
        
-   $id_user= $request->request->get('id_user');
+   $id_users_form= $request->request->get('id_user');
+   $id_class_form= $request->request->get('id_classe');
+   $id_discipline_form= $request->request->get('id_discipline');
             
      $classes = $app['dao.className']->findAll();
      $disciplines = $app['dao.discipline']->findAll();
      $roles = $app['dao.users']->findAll();
      $id_users = $app['dao.users']->findAll();
     
-     $id_classe = $app['dao.className']->findClassname($id_class);
-     $id_discipline = $app['dao.discipline']->findDiscipline($id_discipline);
-     $id_role = $app['dao.users']->find($id_users);
+     $id_classe = $app['dao.className']->findClassname($id_class_form);
+     $id_discipline = $app['dao.discipline']->findDiscipline($id_discipline_form);
+     $id_role = $app['dao.users']->find($id_users_form);
      
     return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
         'classe'        =>$classes,
