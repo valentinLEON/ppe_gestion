@@ -488,8 +488,7 @@ $app->post('/addclass', function(Request $request) use ($app){
     $app['dao.className']->saveClassName($newClass);
     $app['session']->getFlashBag()->add('success', 'La classe a été ajouté avec succès !');
 
-    $app->redirect('/addclass', 301);
-    return;
+    return $app->redirect('/addclass', 301);
 
     //return $app['twig']->render('FormTemplate/addclass.html.twig');
     

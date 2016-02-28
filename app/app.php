@@ -8,8 +8,6 @@
  */
 use Symfony\Component\Debug\ErrorHandler;
 use Symfony\Component\Debug\ExceptionHandler;
-//use Silex\Provider\FormServiceProvider;
-//use Silex\Provider;
 use Silex\Application;
 
 use ppe_gestion\DAO;
