@@ -1,7 +1,7 @@
 {% extends "layout.html.twig" %}
 
 {% block title %}
-    Formulaire d'ajout de matière
+    Formulaire d'ajout de discipline
 {% endblock %}
 
 {% block content %}
@@ -10,12 +10,12 @@
     <form class="form-horizontal" method="post" action="{{ path('discipline') }}">
         <div class="box-body" style="margin-left:2rem; width: 80%; ">
             <div class="form-group" style="width: 15%; display:inline-block;margin:10px;">
-                <label>Intitulé de la matière</label>
+                <label>Intitulé de la discipline</label>
                 <input type="text" name="matiere" class="form-control" placeholder="Nom...">
             </div>
             <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
                 <label>Description</label>
-                <textarea type="text" name="description" class="form-control" rows="3" placeholder="Ajouter une description de la matière"></textarea>
+                <textarea type="text" name="description" class="form-control" rows="3" placeholder="Ajouter une description de la discipline"></textarea>
             </div>
         </div>
         <!-- /.box-body -->
