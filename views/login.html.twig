@@ -37,11 +37,11 @@
     <div class="login-box-body">
         <p class="login-box-msg">Connectez-vous pour accéder aux services</p>
 
-        {% if error %}
+        {#{% if error %}
         <div class="alert alert-danger">
             <strong>Échec d'authentification !</strong> {{ error }}
         </div>
-        {% endif %}
+        {% endif %}#}
 
         <form role="form" method="post" action="{{ path('login_check') }}">
             <div class="form-group has-feedback">
