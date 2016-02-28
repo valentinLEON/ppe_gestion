@@ -59,3 +59,15 @@
     -o-hyphens: auto;
     hyphens: auto;
 }
+.mytdminus{
+   text-align: center; 
+    width: 20px;
+    word-wrap: break-word;
+    font-size:13px;
+    overflow: hidden; 
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -o-hyphens: auto;
+    hyphens: auto;
+}
