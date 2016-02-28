@@ -482,8 +482,8 @@ $app->post('/addclass', function(Request $request) use ($app){
     $newClass->setClassYear($request->request->get('year'));
     $newClass->setDescription($request->request->get('description'));
     $newClass->setNombreEtudiant($request->request->get('nombreEtudiant'));
-    $newClass->setDtCreate(date('Y-m-d H:i:s'));
-    $newClass->setDtUpdate(date('Y-m-d H:i:s'));
+    $newClass->setDtCreate(getdate());
+    $newClass->setDtUpdate(getdate());
 
     $app['dao.className']->saveClassName($newClass);
     $app['session']->getFlashBag()->add('success', 'La classe a été ajouté avec succès !');
