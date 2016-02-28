@@ -378,7 +378,7 @@ $app->post('/modifuser', function (Request $request) use ($app) {
         'id_role'       =>$idrole,
         'id_user'       =>$id_users,
         'id_users'      =>$iduser,
-        'user_form'  =>$id_user_form,
+        'user_form'     =>$id_user_form,
         'users_total'   =>$users_total,
         'modification'  =>$modification,
    
