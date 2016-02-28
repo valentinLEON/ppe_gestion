@@ -24,7 +24,7 @@
                           
                     <table class="table table-hover" style="  table-layout: fixed; ">
                         <tr style="background-color: #3c8dbc">
-                            <th  class="mytdmin">
+                            <th  class="mytdmin"  style="width:20px">
                                 <a href=adduser>  <i class="fa fa-pencil-square-o"></i></a>
                             </th>
                             <th class="mytd" >Login</th>
@@ -40,9 +40,9 @@
                         </tr>
                         {% for user in users %}
                         <tr>
-                            <td class="mytdmin"> 
+                            <td class="mytdmin" style="width:20px"> 
                                 <form  method="post" action="modifuser">
-                                    <i class="fa fa-pencil-square-o"></i>
+                                    <i class="fa fa-pencil-square-o" ><input type="submit" /></i>
                                     <input type="hidden" value="{{ user.id_users }}" name="id_users" >
                                 </form>
                             </td>
