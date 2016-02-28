@@ -314,16 +314,15 @@ $app->get('/modifuser', function () use ($app) {
      $classes = $app['dao.className']->findAll();
      $disciplines = $app['dao.discipline']->findAll();
      $roles = $app['dao.users']->findAll();
-     $id_users = $app['dao.users']->findAll();
+     $users = $app['dao.users']->findAll();
   
      
     return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
         'classe'        =>$classes,
         'discipline'    =>$disciplines,
         'role'          =>$roles,
-        'id_classe'     =>$id_classe,
-        'id_discipline' =>$id_discipline,
-        'id_role'       =>$id_role,
+        'users'      =>$users,
+    
     ));
     
 })->bind('modifuser');
@@ -331,7 +330,7 @@ $app->get('/modifuser', function () use ($app) {
 
 $app->post('/modifuser', function (Request $request) use ($app) {
     
-    $id_user= $request->request->get('id_user');
+    $iduser= $request->request->get('id_user_form');
             
      $classes = $app['dao.className']->findAll();
      $disciplines = $app['dao.discipline']->findAll();
@@ -341,11 +340,12 @@ $app->post('/modifuser', function (Request $request) use ($app) {
        
      $idclasse = $request->request->get('$id_class');
      $iddiscipline = $request->request->get('$id_discipline');
-     $idrole = $request->request->get('id_role');;
+     $idrole = $request->request->get('id_role');
      
      $id_classe = $app['dao.className']->findClassname($idclasse);
      $id_discipline = $app['dao.discipline']->findDiscipline($iddiscipline);
      $id_role = $app['dao.users']->find($idrole);
+     $id_user_form = $app['dao.users']->find($iduser);
      
     return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
         'classe'        =>$classes,
@@ -355,6 +355,7 @@ $app->post('/modifuser', function (Request $request) use ($app) {
         'id_discipline' =>$id_discipline,
         'id_role'       =>$id_role,
         'id_user'       =>$id_users,
+        'id_user_form'       =>$id_user_form,
    
     ));
     
@@ -392,6 +393,7 @@ $app->post('/userslist', function (Request $request) use ($app) {
    $id_users_form= $request->request->get('id_user_form');
    $id_class_form= $request->request->get('id_class_form');
    $id_discipline_form= $request->request->get('id_discipline_form');
+
             
      $classes = $app['dao.className']->findAll();
      $disciplines = $app['dao.discipline']->findAll();
