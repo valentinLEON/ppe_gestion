@@ -37,8 +37,6 @@ class User implements UserInterface
      */
     public $role;
 
-    public $status;
-
     public $id_discipline; /*clé étrangère*/
     public $id_class; /*clé étrangère*/
 
@@ -127,16 +125,6 @@ class User implements UserInterface
     public function getRoles()
     {
         return array($this->getRole());
-    }
-    
-    public function getStatus()
-    {
-        return $this->status;
-    }
-
-    public function setStatus($_status)
-    {
-        $this->status = $_status;
     }
 
     public function getUserMail()

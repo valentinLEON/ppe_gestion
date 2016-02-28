@@ -14,7 +14,6 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use ppe_gestion\Domain\User;
-use ppe_gestion\Domain\UserToClass;
 
 
 class UserDAO extends DAO implements UserProviderInterface
@@ -53,6 +52,7 @@ class UserDAO extends DAO implements UserProviderInterface
 
         return $users;
     }
+
     public function countAll()
     {
         $sql = "SELECT * FROM users";
@@ -76,16 +76,15 @@ class UserDAO extends DAO implements UserProviderInterface
         if($row)
             return $this->buildDomainObject($row);
         else
-            throw new UsernameNotFoundException('L\'utilisateur "%s" est introuvable.', $username);
+            throw new UsernameNotFoundException(sprintf('L\'utilisateur "%s" est introuvable.', $username));
     }
 
     public function refreshUser(UserInterface $user)
     {
-//        $class = get_class($user);
-//        if(!$this->supportsClass($class)){
-//            throw new UnsupportedUserException(sprintf('instances of "%s" are not supported.', $class));
-//        }
-//        return $this->loadUserByUsername($user->getUsername());
+        $class = get_class($user);
+        if(!$this->supportsClass($class)){
+            throw new UnsupportedUserException(sprintf('instances of "%s" are not supported.', $class));
+        }return $this->loadUserByUsername($user->getUsername());
     }
 
     public function supportsClass($class)
@@ -105,8 +104,7 @@ class UserDAO extends DAO implements UserProviderInterface
             'firstname'     => $user->getFirstname(),
             'password'      => $user->getPassword(),
             'salt'          => $user->getSalt(),
-            'role'          => $user->getRole(), 
-            'status'        => $user->getStatus(), 
+            'role'          => $user->getRole(),
             'user_mail'     => $user->getUserMail(), 
             'description'   => $user->getDescription(), 
             'dt_create'     => $user->getDtCreate(), 
@@ -140,7 +138,6 @@ class UserDAO extends DAO implements UserProviderInterface
         $user->setPassword($row['password']);
         $user->setSalt($row['salt']);
         $user->setRole($row['role']);
-        $user->setStatus($row['status']);
         $user->setDescription($row['description']); 
         $user->setUserMail($row['user_mail']);
         $user->setDtCreate($row['dt_create']);
