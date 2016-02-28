@@ -47,7 +47,7 @@ class UserDAO extends DAO implements UserProviderInterface
             $users_total[$id_user] = $this->buildDomainObject($row);
         }
 
-        return coutn($users_total);
+        return count($users_total);
     }
 
     /**
