@@ -49,9 +49,7 @@ $app->get('/', function(Request $request) use ($app) {
         'students_number'=>$students_total,
         'classes_number'=>$classes_total,
         'disciplines_number'=>$disciplines_total,
-        'absences_number'=>'1',
-        'retards_number'=>'1',
-        'retards_number'=>'1',
+
         'date'=>$date,
         
         )
@@ -110,6 +108,9 @@ $app->get('/admintab', function () use ($app) {
         'users_number'=>$users_total,
         'disciplines'=>$disciplines,
         'disciplines_number'=>$disciplines_total,
+         'absences_number'=>'1',
+        'retards_number'=>'1',
+        'retards_number'=>'1',
     ));
     
     
