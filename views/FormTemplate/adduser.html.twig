@@ -10,14 +10,7 @@
 
     <!-- form start -->
     <form class="form-horizontal" action="{{ path('user') }}"  method="post">
-        
 
-      
-        <!-- /.box-body -->
-        <div class="box-footer" >
-            <input type="hidden" value="message" name="message">
-            <button type="submit" style='float:right' class="btn btn-info pull-right">Ajouter</button>
-        </div>
         {% for success in app.session.getFlashBag.get('success') %}
             <div class="alert alert-success">
                 {{ success }}
