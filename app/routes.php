@@ -32,8 +32,25 @@ $app->get('/', function(Request $request) use ($app) {
  */
 $app->get('/', function(Request $request) use ($app) {
     
-    return $app['twig']->render('index.html.twig'); 
-       
+     $classes = $app['dao.className']->findAll();
+     $disciplines = $app['dao.discipline']->findAll();
+     $users = $app['dao.users']->findAll();
+     
+    return $app['twig']->render('ListTemplate/disciplineslist.html.twig', array(
+        'classes'=>$classes,
+        'disciplines'=>$disciplines,
+        'users'=>$users,
+        'students'=>$students,
+        
+        'students_number'=>"",
+        'classes_number'=>'',
+        'disciplines_number'=>'',
+        'users_number'=>'',
+        
+        )
+    
+       );
+    
 });
 //                                                             LOGIN 
 
@@ -355,7 +372,7 @@ $app->get('/disciplineslist', function () use ($app) {
         'users'=>$users,
     ));
     
-})->bind('disciplineslist');
+})->bind('disciplines');
 
 
 /**

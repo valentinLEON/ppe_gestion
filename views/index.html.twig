@@ -14,7 +14,7 @@
             <!-- small box -->
             <div class="small-box bg-aqua-active" style="box-shadow: 3px 3px 3px #888888;">
                 <div class="inner">
-                    <h3>170</h3>
+                    <h3>{{ students_number }}</h3>
 
                     <p>Etudiants</p>
                 </div>
@@ -29,7 +29,7 @@
             <!-- small box -->
             <div class="small-box bg-aqua-active" style="box-shadow: 3px 3px 3px #888888;">
                 <div class="inner">
-                    <h3>13<sup style="font-size: 20px"></sup></h3>
+                    <h3>{{ classes_number}}</h3>
 
                     <p>Classes</p>
                 </div>
@@ -58,7 +58,7 @@
             <!-- small box -->
             <div class="small-box bg-aqua-active" style="box-shadow: 3px 3px 3px #888888;">
                 <div class="inner">
-                    <h3>13<sup style="font-size: 20px"></sup></h3>
+                    <h3>{{ disciplines_number }}</h3>
 
                     <p>Disciplines</p>
                 </div>
@@ -66,6 +66,51 @@
                     <i class="fa fa-university"></i>
                 </div>
                 <a href="disciplineslist" class="small-box-footer" style="box-shadow: 3px 3px 3px #888888;">Liste des disciplines <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+                <!-- ./col -->
+        <div class="col-lg-4 col-xs-8">
+            <!-- small box -->
+            <div class="small-box bg-aqua-active" style="box-shadow: 3px 3px 3px #888888;">
+                <div class="inner">
+                    <h3>{{ users_number }}</h3>
+
+                    <p>Utilisateurs</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-university"></i>
+                </div>
+                <a href="utilisateurslist" class="small-box-footer" style="box-shadow: 3px 3px 3px #888888;">Liste des utilisateurs <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+                        <!-- ./col -->
+        <div class="col-lg-4 col-xs-8">
+            <!-- small box -->
+            <div class="small-box bg-aqua-active" style="box-shadow: 3px 3px 3px #888888;">
+                <div class="inner">
+                    <h3>{{ absences_number }} </h3>
+
+                    <p>Abscences</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-university"></i>
+                </div>
+                <a href="abscenceslist" class="small-box-footer" style="box-shadow: 3px 3px 3px #888888;">Liste des abscences <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+                                <!-- ./col -->
+        <div class="col-lg-4 col-xs-8">
+            <!-- small box -->
+            <div class="small-box bg-aqua-active" style="box-shadow: 3px 3px 3px #888888;">
+                <div class="inner">
+                    <h3>{{ retards_number }}</h3>
+
+                    <p>Retards</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-university"></i>
+                </div>
+                <a href="retardslist" class="small-box-footer" style="box-shadow: 3px 3px 3px #888888;">Liste des retards <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
 {#
