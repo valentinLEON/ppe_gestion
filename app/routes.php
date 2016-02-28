@@ -286,7 +286,17 @@ $app->match('/classetab', function () use ($app) {
  * route pour l'affichage de la liste des classes
  */
 $app->get('/classeslist', function () use ($app) {
-    return $app['twig']->render('ListTemplate/classeslist.html.twig');
+    
+     $classes = $app['dao.className']->findAll();
+     $disciplines = $app['dao.discipline']->findAll();
+     $users = $app['dao.users']->findAll();
+     
+    return $app['twig']->render('ListTemplate/classeslist.html.twig', array(
+        'classes'=>$classes,
+        'disciplines'=>$disciplines,
+        'users'=>$users,
+    ));
+    
 })->bind('classeslist');
 
 /**
