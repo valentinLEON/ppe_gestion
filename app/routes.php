@@ -184,8 +184,8 @@ $app->post('/addstudent', function(Request $request) use($app){
     $newStudent->setTel($request->request->get('phone'));
     $newStudent->setEmail($request->request->get('email'));
     $newStudent->setStudentStatut($request->request->get('statut'));
-    $newStudent->setDtCreate(date('Y-m-d'));
-    $newStudent->setDtUpdate(date('Y-m-d'));
+    $newStudent->setDtCreate(date('Y-m-d H:i:s'));
+    $newStudent->setDtUpdate(date('Y-m-d H:i:s'));
     $newStudent->setClass($class);
 
     $app['dao.student']->saveStudent($newStudent);
@@ -258,8 +258,8 @@ $app->post('/adduser', function(Request $request) use ($app){
     $newUser->setIdClassName($request->request->get('classname'));
     $newUser->setStatus($request->request->get('status'));   
     $newUser->setUserMail($request->request->get('user_mail'));
-    $newUser->setDtCreate(date('Y-m-d'));
-    $newUser->setDtUpdate(date('Y-m-d'));
+    $newUser->setDtCreate(date('Y-m-d H:i:s'));
+    $newUser->setDtUpdate(date('Y-m-d H:i:s'));
  
    
     $app['dao.users']->saveUser($newUser);
@@ -481,8 +481,8 @@ $app->post('/addclass', function(Request $request) use ($app){
     $newClass->setClassYear($request->request->get('year'));
     $newClass->setDescription($request->request->get('description'));
     $newClass->setNombreEtudiant($request->request->get('nombreEtudiant'));
-    $newClass->setDtCreate(date('Y-m-d'));
-    $newClass->setDtUpdate(date('Y-m-d'));
+    $newClass->setDtCreate(date('Y-m-d H:i:s'));
+    $newClass->setDtUpdate(date('Y-m-d H:i:s'));
 
     $app['dao.className']->saveClassName($newClass);
 
@@ -538,8 +538,8 @@ $app->post('adddiscipline', function(Request $request) use($app){
 
     $newDiscipline->setNameDiscipline($request->request->get('matiere'));
     $newDiscipline->setDescription($request->request->get('description'));
-    $newDiscipline->setDtCreate(date('Y-m-d'));
-    $newDiscipline->setDtUpdate(date('Y-m-d'));
+    $newDiscipline->setDtCreate(date('Y-m-d H:i:s'));
+    $newDiscipline->setDtUpdate(date('Y-m-d H:i:s'));
 
     $app['dao.discipline']->saveDiscipline($newDiscipline);
 
@@ -603,8 +603,8 @@ $app->post('/addnote', function(Request $request) use ($app){
     $newEvaluation->setStudent($student);
     $newEvaluation->setCoefDiscipline($request->request->get('coeff'));
     $newEvaluation->setJudgement($request->request->get('judgement'));
-    $newEvaluation->setDtCreate(date('Y-m-d'));
-    $newEvaluation->setDtUpdate(date('Y-m-d'));
+    $newEvaluation->setDtCreate(date('Y-m-d H:i:s'));
+    $newEvaluation->setDtUpdate(date('Y-m-d H:i:s'));
 
     $app['dao.evaluation']->saveGrade($newEvaluation);
     
