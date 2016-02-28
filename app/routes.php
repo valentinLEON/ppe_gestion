@@ -44,7 +44,7 @@ $app->get('/', function(Request $request) use ($app) {
     return $app['twig']->render('index.html.twig', array(
         'classes'=>$classes,
         'disciplines'=>$disciplines,
-        'users'=>$users,
+       
         'students'=>$students,
         
         'students_number'=>$students_total,
