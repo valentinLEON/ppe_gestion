@@ -188,12 +188,13 @@ $app->post('/addstudent', function(Request $request) use($app){
     $newStudent->setDtUpdate(date('Y-m-d'));
     $newStudent->setClass($class);
 
-  
-    
     $app['dao.student']->saveStudent($newStudent);
 
+    $classes = $app['dao.className']->findAll();
 
-    return $app['twig']->render('FormTemplate/addstudent.html.twig');
+    return $app['twig']->render('FormTemplate/addstudent.html.twig', array(
+        'classes' => $classes
+    ));
     //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
 })->bind('student');
 
@@ -269,6 +270,7 @@ $app->post('/adduser', function(Request $request) use ($app){
      $classes = $app['dao.className']->findAll();
      $disciplines = $app['dao.discipline']->findAll();
      $users = $app['dao.users']->findAll();
+     
      
      return $app['twig']->render('FormTemplate/adduser.html.twig', array(
         'classe'=>$classes,
@@ -507,7 +509,15 @@ $app->post('/addnote', function(Request $request) use ($app){
 
     $app['dao.evaluation']->saveGrade($newEvaluation);
     
-    return $app['twig']->render('FormTemplate/addnote.html.twig');
+    $classes = $app['dao.className']->findAll();
+    $discipline = $app['dao.discipline']->findAll();
+    $student = $app['dao.student']->findAll();
+
+    return $app['twig']->render('FormTemplate/addnote.html.twig', array(
+        'classNames' => $classes,
+        'matieres' => $discipline,
+        'student' => $student));
+    
     //var_dump(array($this->getDiscipline()));
     /*if($message)
     {
