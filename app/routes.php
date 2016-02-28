@@ -275,11 +275,11 @@ $app->post('/adduser', function(Request $request) use ($app){
     
     $username = $request->request->get('username');
     $name = $request->request->get('name');
-    $firstname = setFirstName($request->request->get('firstname'));
+    $firstname = $request->request->get('firstname');
     $description = $request->request->get('description');
     $password = $request->request->get('password');
     $salt = $request->request->get('salt');
-    $role = $request->request->get('role');
+    $role_form = $request->request->get('role');
     $discipline = $request->request->get('discipline');
     $classname = $request->request->get('classname');
     $status = $request->request->get('status');   
