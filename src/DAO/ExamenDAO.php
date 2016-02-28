@@ -81,9 +81,9 @@ class ExamenDAO extends DAO
     public function saveExamen(Examen $_examen)
     {
         $exam = array(
-            'name_examen'           => $_examen->getNameExamen(),
-            'date_examen'           => $_examen->getDateExamen(),
-            'description_examen'    => $_examen->getDescriptionExamen(),
+            'examen_name'           => $_examen->getNameExamen(),
+            'date'           => $_examen->getDateExamen(),
+            'description'    => $_examen->getDescriptionExamen(),
             'dt_create'             => $_examen->getDtCreate(),
             'dt_update'             => $_examen->getDtUpdate(),
         );
