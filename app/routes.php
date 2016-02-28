@@ -417,14 +417,19 @@ $app->post('/userslist', function (Request $request) use ($app) {
    $id_users_form= $request->request->get('id_user');
    $id_class_form= $request->request->get('id_class');
    $id_discipline_form= $request->request->get('id_discipline');
-
+   
             
      $classes = $app['dao.classNames']->findAll();
      $disciplines = $app['dao.discipline']->findAll();
      $roles = $app['dao.users']->findAll();
      $id_users = $app['dao.users']->findAll();
+     $idclassUser = $app['dao.users']->findAll();
     
-     $id_classe = $app['dao.classNames']->findClassname($id_class_form);
+     $id_class_User=$idclassUser.id_class;
+     
+     $id_classe =   $app['dao.classNames']->findClassname($id_class_User);
+             
+           
      $id_discipline = $app['dao.discipline']->findDiscipline($id_discipline_form);
      $id_role = $app['dao.users']->find($id_users_form);
      
