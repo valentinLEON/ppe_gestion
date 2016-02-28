@@ -247,8 +247,7 @@ $app->post('/adduser', function(Request $request) use ($app){
 //   $id_class = $app['dao.className']->findClassname($request->request->get('id_class'));
 //   $id_discipline = $app['dao.discipline']->findDiscipline($request->request->get('id_discipline'));
 
-    $newUser->setIdUsers($request->request->get('id_users'));
-    
+  //  $newUser->setIdUsers($request->request->get('id_users'));
     $newUser->setUsername($request->request->get('username'));
     $newUser->setName($request->request->get('name'));
     $newUser->setFirstName($request->request->get('firstname'));
@@ -266,7 +265,7 @@ $app->post('/adduser', function(Request $request) use ($app){
     $app['dao.users']->saveUser($newUser);
 
     //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
-})->bind('user');
+})->bind('adduser');
 
 
 // Modification de l'utilisateur
