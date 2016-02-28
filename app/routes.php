@@ -252,14 +252,11 @@ $app->post('/adduser', function(Request $request) use ($app){
     $newUser->setUserMail($request->request->get('user_mail'));
     $newUser->setDtCreate(date('Y-m-d'));
     $newUser->setDtUpdate(date('Y-m-d'));
-    
  
-   var_dump($newUser);
     $app['dao.users']->saveUser($newUser);
 
-    return new Response('Bien joué aussi', 201);
     //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
-})->bind('user');
+})->bind('adduser');
 
 /**
  *     
