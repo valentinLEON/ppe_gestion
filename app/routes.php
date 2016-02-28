@@ -355,7 +355,7 @@ $app->post('/modifuser', function (Request $request) use ($app) {
      $id_users = $app['dao.users']->findAll();
      $username = $app['dao.users']->findAll();
      
-     $iduser= $request->request->get('id_users[]');    
+     $iduser= $request->request->get('id_users');    
      $modification= $request->request->get('modification');    
      $idclass = $request->request->get('id_class_form');
      $id_discipline = $request->request->get('id_discipline');

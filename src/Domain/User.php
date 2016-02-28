@@ -39,6 +39,7 @@ class User implements UserInterface
 
     public $id_discipline; /*clé étrangère*/
     public $id_class; /*clé étrangère*/
+    public $status;//
 
     public $dt_create;
     public $dt_update;
@@ -186,6 +187,16 @@ class User implements UserInterface
     public function setIdClassName($_id_class)
     {
         $this->id_class = $_id_class;
+    }
+    
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    public function setStatus($_status)
+    {
+        $this->id_class = $_status;
     }
 
   

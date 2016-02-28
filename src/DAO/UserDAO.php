@@ -31,10 +31,13 @@ class UserDAO extends DAO implements UserProviderInterface
         $sql = "SELECT * FROM users WHERE id_users=?";
         $row = $this->getDb()->fetchAssoc($sql, array($id));
 
-        if($row)
+        if($row){
             return $this->buildDomainObject($row);
+        }
         else
+        {
             throw new \Exception("No user matching id " . $id);
+        }
     }
 
     //Ajout de la fonction findAll, pour rechercher tous les utilisateurs
@@ -73,10 +76,12 @@ class UserDAO extends DAO implements UserProviderInterface
         $sql = "SELECT * FROM users WHERE username=?";
         $row = $this->getDb()->fetchAssoc($sql, array($username));
 
-        if($row)
+        if($row){
             return $this->buildDomainObject($row);
-        else
+        }
+        else{
             throw new UsernameNotFoundException(sprintf('L\'utilisateur "%s" est introuvable.', $username));
+        }
     }
 
     public function refreshUser(UserInterface $user)
