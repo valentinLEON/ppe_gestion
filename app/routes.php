@@ -268,6 +268,24 @@ $app->post('/adduser', function(Request $request) use ($app){
     //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
 })->bind('adduser');
 
+
+// Modification de l'utilisateur
+
+$app->get('/modifuser', function () use ($app) {
+    
+     $classes = $app['dao.className']->findAll();
+     $disciplines = $app['dao.discipline']->findAll();
+     $roles = $app['dao.users']->findAll();
+     
+    return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
+        'classe'=>$classes,
+        'discipline'=>$disciplines,
+        'role'=>$roles,
+    ));
+    
+})->bind('modifuser');
+
+
 /**
  *     
  *                     LISTE 
