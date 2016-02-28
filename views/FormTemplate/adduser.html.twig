@@ -137,7 +137,7 @@
 
 
 
-            <div class="box-body">
+          <!--  <div class="box-body">
                 <div class="form-group">
                     <label for="#">Nom *</label>
                     <input type="text" class="form-control" style=" width: 25% ;border-radius: 3px" id="#" placeholder="Ex : Dupont" name="name">
@@ -150,11 +150,11 @@
                     <div class="form-horizontal">
                         <label for="#">Classe *</label>
                         <select class="form-control" id="sel2" name="classname" style="border-radius: 3px; width: 10%">
-                            {% for classroom in classes %}
+                            {# for classroom in classes %}
                                 <option value="{{ classroom.id_class }}">
                                     {{ classroom.class_name }}
                                 </option>
-                            {% endfor %}
+                            {% endfor #}
                         </select>
                     </div>
                     <div class="form-horizontal" style="margin-left: 13%; margin-top: -5.5%; padding-bottom: 2%" >
