@@ -14,7 +14,7 @@
                 <select name="username" class="form-control">
                      {% for usernames in username %}
                         <option value="{{ usernames.username }}">{{ usernames.username }}</option> 
-                        <input type="hidden" value="{{ usernames.id_class }}">
+                        <input type="hidden" value="{{ usernames.id_class }}" name="id_class">
                       {% endfor %}
                 </select>
             </div>

@@ -49,7 +49,7 @@
                                    <button type="submit" class="btn btn-warning btn-flat">
                                        <i class="fa fa-edit"></i>
                                    </button>
-                                    <input type="hidden" value="{{ user.id_users }}" name="id_users[]"  >
+                                    <input type="hidden" value="{{ user.id_users }}" name="id_users"  >
                                     <input type="hidden" value="modification" name="modification"  >
                              
                                 <td class="mytdmin"> 
@@ -62,7 +62,7 @@
                                 <td class="mytd" >{{ user.username }}</td>
                                 <input type="hidden" value="{{ user.username }}" name="username"  >
                                 <td class="mytd" >{{ user.name }}</td>
-                                <input type="hidden" value="{{ user.name }}" name="name[{{ user.name }}]"  >
+                                <input type="hidden" value="{{ user.name }}" name="name"  >
                                 <td class="mytd">{{ user.firstname }}</td>
                                 <input type="hidden" value="{{ user.firstname }}" name="firstname"  >
                                 <td class="mytd">{{ user.password }}</td>
