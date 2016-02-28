@@ -38,8 +38,15 @@
    border: 1px solid darkgrey; 
     width: auto;
     max-width: 150px;
-    height: 40px;
-    font-size:11px;
-    overflow: hidden;
+    height: auto;
+    max-height:150px;
+    font-size:13px;
+    overflow: hidden; 
+  
+}
+.mytd a {
+    
+    width:150px;
+     word-wrap: break-word;
     
 }
