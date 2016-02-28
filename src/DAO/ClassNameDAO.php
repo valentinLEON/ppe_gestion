@@ -10,7 +10,6 @@ namespace ppe_gestion\DAO;
 
 use ppe_gestion\Domain\ClassName;
 use ppe_gestion\Form\Type\AddType;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class ClassNameDAO extends DAO

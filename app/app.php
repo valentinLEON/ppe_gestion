@@ -72,6 +72,13 @@ $app['dao.student'] = $app->share(function($app){
 });
 
 /**
+ * Controller pour la route des examens
+ */
+$app['dao.examen'] = $app->share(function($app){
+    return new ppe_gestion\DAO\Examen($app['db']);
+});
+
+/**
  * Controller pour la route des notes
  */
 $app['dao.evaluation'] = $app->share(function($app){
