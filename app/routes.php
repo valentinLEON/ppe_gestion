@@ -666,7 +666,7 @@ $app->get('/notestats', function () use ($app) {
  */
 $app->get('/addexamen', function() use($app){
     return $app['twig']->render('FormTemplate/addexam.html.twig');
-})->bind('addexam');
+})->bind('addexamen');
 
 /**
  * Récupère les données en post et insère en base de données
