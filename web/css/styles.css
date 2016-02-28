@@ -28,7 +28,16 @@
     display:none;
 }
 
-btnAdmin{
+.btnAdmin{
     
     width:250px;
+}
+
+.mytd{
+   text-align: center; 
+   border: 1px solid darkgrey; 
+    width: 150px;
+    height: 150px;
+    overflow: scroll;
+    
 }
