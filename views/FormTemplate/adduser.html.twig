@@ -5,113 +5,13 @@
 {% endblock %}
 
 {% block content %}
-    
-       
-       {% if message %}
-            <div class="box box-primary">      
-                <div class="box-body" >
-                     <div class="box box-solid box-success" >
-                         <div class="box-header" style="height:35px; font-size:16px; color: #333">
-                             Utilisateur enregistré avec succès
-                          </div>
-                        <div class="box-body">
-                            <table class="table table-hover">
-                                <tr style="background-color: #3c8dbc">
-                                     <th style="text-align: center; border: 1px solid darkgrey;">Login </th>
-                                     <th style="text-align: center; border: 1px solid darkgrey;">Nom </td>
-                                     <th style="text-align: center; border: 1px solid darkgrey;">Prenom </th>
-                                     <th style="text-align: center; border: 1px solid darkgrey;">Role</th>
-                                     <th style="text-align: center; border: 1px solid darkgrey;">Description</th>
-                                     <th style="text-align: center; border: 1px solid darkgrey;">E-mail </th>
-                                     <th style="text-align: center; border: 1px solid darkgrey;">Discipline</th>
-                                     <th style="text-align: center; border: 1px solid darkgrey;">Classe</th>
-                                 <tr>
-                                     <td style="text-align: center; border: 1px solid darkgrey;">{{ username }}</td>
-                                     <td style="text-align: center; border: 1px solid darkgrey;">{{ name }}</td>
-                                     <td style="text-align: center; border: 1px solid darkgrey;">{{ firstname }}</td>
-                                     <td style="text-align: center; border: 1px solid darkgrey;">{{ role_form }}</td>
-                                     <td style="text-align: center; border: 1px solid darkgrey;">{{ description }}</td>
-                                     <td style="text-align: center; border: 1px solid darkgrey;">{{ user_mail }}</td>
-                                     <td style="text-align: center; border: 1px solid darkgrey;">{{ discipline_form }}</td>
-                                     <td style="text-align: center; border: 1px solid darkgrey;">{{ classname }}<td>
-                                 </tr>
-                             </table>
-                       </div>
-                     </div>
-                </div>
-            </div>                 
-       <h5>Ajouter un nouvel utilisateur</h5>                
-       {% endif %}
        
    <div class="box box-primary">        
 
     <!-- form start -->
     <form class="form-horizontal" action="{{ path('user') }}"  method="post">
         
-        <div class="box-body" style="margin-left:2rem; width: 90%; ">
-            
-            <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
-                <label>Login  *</label>
-                <input type="text" name="username" class="form-control" required placeholder="Login ...">
-            </div>
-            <div class="form-group" style="width: 15%; display:inline-block;margin:10px;">
-                <label>Nom</label>
-                <input type="text" name="name" class="form-control" placeholder="Nom...">
-            </div>
-            <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
-                <label>Prénom</label>
-                <input type="text" name="firstname" class="form-control" placeholder="Prénom...">
-            </div>
-            <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
-                <label>Description</label>
-                <input type="text" name="description" class="form-control" placeholder="Description...">
-            </div>
-            <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
-              <label>Role</label>
-                <select class="form-control"  name="role" >
-                    {% for roles in role %}
-                         <option value="{{ roles.role }}">{{ roles.role }}</option> 
-                     {% endfor %}
-                </select>
-            </div>
-            <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
-                <label>Statuts</label>
-                      <select name="status"  class="form-control" >
-                    {% for i in 0..5 %}
-                         <option value="{{ i }}">{{ i }}</option> 
-                     {% endfor %}
-                </select>
-             </div>
-             <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
-                <label>Disciplines</label>
-                <select name="discipline_form" class="form-control" >  
-                    {% for disciplines in discipline %}
-                         <option value="{{ disciplines.id_discipline }}">{{ disciplines.name_discipline }}</option> 
-                     {% endfor %}
-                </select>
-            </div>
-            <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
-                <label>Classes</label>
-              <select name="classname" class="form-control">{# multiple #}
-                     {% for classes in classe %}
-                        <option value="{{ classes.id_class }}">{{ classes.class_name }}</option> 
-                      {% endfor %}
-                </select>
-            </div>
-            <div class="form-group" style="width: 20%; display:inline-block;margin:10px;">
-                <label>Email  *</label>
-                <input type="email"  name="user_mail"  class="form-control" id="inputEmail3" required placeholder="Email...">
-            </div>
-             <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
-                <label>Mot de passe  *</label>
-                <input type="password"  name="password" class="form-control" required placeholder="Min 6 caracteres">
-            </div>
-             <div class="form-group" style="width: 20%; display:inline-block;margin:10px;">
-                <label>Mot de passe  *</label>
-                <input type="password" class="form-control" required  placeholder="Min 6 caracteres">
-            </div>
-                
-        </div>
+
       
         <!-- /.box-body -->
         <div class="box-footer" >
@@ -129,8 +29,172 @@
                 
   
                 
-</div>  
-     
+</div>
+
+
+    {% if message %}
+        <div class="box box-primary">
+            <div class="box-body" >
+                <div class="box box-solid box-success" >
+                    <div class="box-header" style="height:35px; font-size:16px; color: #333">
+                        Utilisateur enregistré avec succès
+                    </div>
+                    <div class="box-body">
+                        <table class="table table-hover">
+                            <tr style="background-color: #3c8dbc">
+                                <th style="text-align: center; border: 1px solid darkgrey;">Login </th>
+                                <th style="text-align: center; border: 1px solid darkgrey;">Nom </td>
+                                <th style="text-align: center; border: 1px solid darkgrey;">Prenom </th>
+                                <th style="text-align: center; border: 1px solid darkgrey;">Role</th>
+                                <th style="text-align: center; border: 1px solid darkgrey;">Description</th>
+                                <th style="text-align: center; border: 1px solid darkgrey;">E-mail </th>
+                                <th style="text-align: center; border: 1px solid darkgrey;">Discipline</th>
+                                <th style="text-align: center; border: 1px solid darkgrey;">Classe</th>
+                            <tr>
+                                <td style="text-align: center; border: 1px solid darkgrey;">{{ username }}</td>
+                                <td style="text-align: center; border: 1px solid darkgrey;">{{ name }}</td>
+                                <td style="text-align: center; border: 1px solid darkgrey;">{{ firstname }}</td>
+                                <td style="text-align: center; border: 1px solid darkgrey;">{{ role_form }}</td>
+                                <td style="text-align: center; border: 1px solid darkgrey;">{{ description }}</td>
+                                <td style="text-align: center; border: 1px solid darkgrey;">{{ user_mail }}</td>
+                                <td style="text-align: center; border: 1px solid darkgrey;">{{ discipline_form }}</td>
+                                <td style="text-align: center; border: 1px solid darkgrey;">{{ classname }}<td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h5>Ajouter un nouvel utilisateur</h5>
+    {% endif %}
+
+<!-- NEW -->
+    <div class="box box-primary">
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form role="form" method="post" action="{{ path('user') }}">
+
+            <div class="box-body" style="margin-left:2rem; width: 90%; ">
+
+                <div class="form-group" >
+                    <label>Login  *</label>
+                    <input type="text" style=" width: 25% ;border-radius: 3px" name="username" class="form-control" required placeholder="Login ...">
+                </div>
+                <div class="form-group">
+                    <label>Nom</label>
+                    <input type="text" name="name" style=" width: 25% ;border-radius: 3px" class="form-control" placeholder="Nom...">
+                </div>
+                <div class="form-group">
+                    <label>Prénom</label>
+                    <input type="text" name="firstname" style=" width: 25% ;border-radius: 3px" class="form-control" placeholder="Prénom...">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <input type="text" name="description" style=" width: 25% ;border-radius: 3px" class="form-control" placeholder="Description...">
+                </div>
+                <div class="form-group">
+                    <label>Role</label>
+                    <select class="form-control" style=" width: 25% ;border-radius: 3px" name="role" >
+                        {% for roles in role %}
+                            <option value="{{ roles.role }}">{{ roles.role }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Statuts</label>
+                    <select name="status"  style=" width: 25% ;border-radius: 3px" class="form-control" >
+                        {% for i in 0..5 %}
+                            <option value="{{ i }}">{{ i }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Disciplines</label>
+                    <select name="discipline_form" style=" width: 25% ;border-radius: 3px" class="form-control" >
+                        {% for disciplines in discipline %}
+                            <option value="{{ disciplines.id_discipline }}">{{ disciplines.name_discipline }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
+                    <label>Classes</label>
+                    <select name="classname" style=" width: 25% ;border-radius: 3px" class="form-control">{# multiple #}
+                        {% for classes in classe %}
+                            <option value="{{ classes.id_class }}">{{ classes.class_name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Email  *</label>
+                    <input type="email"  name="user_mail"  style=" width: 25% ;border-radius: 3px" class="form-control" id="inputEmail3" required placeholder="Email...">
+                </div>
+                <div class="form-group">
+                    <label>Mot de passe  *</label>
+                    <input type="password"  name="password" style=" width: 25% ;border-radius: 3px" class="form-control" required placeholder="Minimum 6 caracteres">
+                </div>
+
+            </div>
+
+
+
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="#">Nom *</label>
+                    <input type="text" class="form-control" style=" width: 25% ;border-radius: 3px" id="#" placeholder="Ex : Dupont" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="#">Prénom *</label>
+                    <input type="text" class="form-control" style=" width: 25% ;border-radius: 3px" id="#" placeholder="Ex : Jean-Michel" name="firstname">
+                </div>
+                <div class="form-horizontal">
+                    <div class="form-horizontal">
+                        <label for="#">Classe *</label>
+                        <select class="form-control" id="sel2" name="classname" style="border-radius: 3px; width: 10%">
+                            {% for classroom in classes %}
+                                <option value="{{ classroom.id_class }}">
+                                    {{ classroom.class_name }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-horizontal" style="margin-left: 13%; margin-top: -5.5%; padding-bottom: 2%" >
+                        <label for="#">Option</label>
+                        <input type="text" class="form-control" style="border-radius: 3px; width: 10%" id="#" placeholder="Ex: SLAM" name="option">
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label for="#">Date de naissance *</label>
+                    <input type="date" class="form-control" name="birthday" style=" width: 25% ;border-radius: 3px" id="#" data-inputmask="'alias': 'jj/mm/aaaa'" data-mask>
+                </div>
+                <div class="form-group">
+                    <label for="#">Adresse email *</label>
+                    <input type="email" class="form-control" style=" width: 25% ;border-radius: 3px" id="#" name="email" placeholder="Ex : jeanmichou@gmail.com">
+                </div>
+                <div class="form-group">
+                    <label for="#">N° de téléphone</label>
+                    <input type="text" class="form-control" style=" width: 25% ;border-radius: 3px" id="#" name="phone" placeholder="Ex : 0656543487">
+                </div>
+                <div class="form-group">
+                    <label for="#">Adresse *</label>
+                    <textarea rows="3" class="form-control" name="address" placeholder="Ex : 234, route des pins / Nice / 06200, France" width="35%" style=" width: 35% ;border-radius: 3px" id="#"></textarea>
+                </div>
+                <small>* Champs obligatoires</small>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <button type="submit" class="btn btn-info pull-right">Enregistrer</button>
+            </div>
+            {% for success in app.session.getFlashBag.get('success') %}
+                <div class="alert alert-success">
+                    {{ success }}
+                </div>
+            {% endfor %}
+        </form>
+        <!-- /.box-footer -->
+
+    </div>
+
 
 {% endblock %}
 
