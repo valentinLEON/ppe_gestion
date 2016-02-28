@@ -372,7 +372,7 @@ $app->get('/userslist', function () use ($app) {
      $id_users = $app['dao.users']->findAll();
    
      
-    return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
+    return $app['twig']->render('FormTemplate/userslist.html.twig', array(
         'classe'        =>$classes,
         'discipline'    =>$disciplines,
         'role'          =>$roles,
@@ -381,7 +381,7 @@ $app->get('/userslist', function () use ($app) {
     
     
     
-})->bind('userlist');
+})->bind('userslist');
 
 // modifier un utilisateur
 $app->post('/userslist', function (Request $request) use ($app) {
@@ -409,7 +409,7 @@ $app->post('/userslist', function (Request $request) use ($app) {
     
     
     
-})->bind('modiflist');
+})->bind('userslist');
 
 /**
  *   
