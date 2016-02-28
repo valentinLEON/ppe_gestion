@@ -57,7 +57,7 @@ class UserDAO extends DAO implements UserProviderInterface
      *
      * Retourne un utilisateur via son id
      */
-    public function find($id)
+    public function findAll($id)
     {
         $sql = "SELECT * FROM users";
         $row = $this->getDb()->fetchAssoc($sql, array($id));
