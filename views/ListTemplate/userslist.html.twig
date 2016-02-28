@@ -22,7 +22,7 @@
                         
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover">
+                    <table class="table table-hover" style="  table-layout: fixed; ">
                         <tr style="background-color: #3c8dbc">
                             <th>
                                 <a href=adduser>  <i class="fa fa-pencil-square-o"></i></a>
@@ -30,7 +30,7 @@
                             <th class="mytd" >Login</th>
                             <th class="mytd">Nom</th>
                             <th class="mytd">Prénom</th>
-                            <th class="mytd">Mot de Passe</th>
+                            <th class="mytd">Mot de passe</th>
                             <th class="mytd">Role</th>
                             <th class="mytd">Status</th>
                             <th class="mytd">Description</th>   
@@ -42,7 +42,7 @@
                         <tr>
                             <td>                               
                                 <a href=adduser><i class="fa fa-pencil-square-o"></i>
-                                   <input type="hidden" value="{{ user.id_users }}" name="id_users" />
+                                   <input type="hidden" value="{{ user.id_users }}" name="id_users" >
                                 </a>
                             </td>
                             <td class="mytd" >{{ user.username }}</td>
