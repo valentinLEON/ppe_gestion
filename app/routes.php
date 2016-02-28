@@ -414,9 +414,9 @@ $app->get('/userslist', function () use ($app) {
 // modifier un utilisateur
 $app->post('/userslist', function (Request $request) use ($app) {
        
-   $id_users_form= $request->request->get('id_user_form');
-   $id_class_form= $request->request->get('id_class_form');
-   $id_discipline_form= $request->request->get('id_discipline_form');
+   $id_users_form= $request->request->get('id_user');
+   $id_class_form= $request->request->get('id_class');
+   $id_discipline_form= $request->request->get('id_discipline');
 
             
      $classes = $app['dao.className']->findAll();

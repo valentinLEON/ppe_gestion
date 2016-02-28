@@ -51,6 +51,7 @@
                                 </td>
                                 <td class="mytd" >{{ user.username }}</td>
                                 <input type="hidden" value="{{ user.username }}" name="username"  >
+                                <input type="hidden" value="{{ user.id_users }}" name="id_users"  >
                                 <td class="mytd" >{{ user.name }}</td>
                                 <input type="hidden" value="{{ user.name }}" name="name"  >
                                 <td class="mytd">{{ user.firstname }}</td>
@@ -66,7 +67,7 @@
                                 <td class="mytd">{{ user.user_mail }}</td>
                                 <input type="hidden" value="{{ user.user_mail }}" name="user_mail"  >
                                 <td class="mytdmin">{{ user.id_discipline }}</td>
-                                <input type="hidden" value="{{ user.id_discipline }}" name="discipline"  >
+                                <input type="hidden" value="{{ user.id_discipline }}" name="id_discipline"  >
                                 <td class="mytdmin">{{ classe.id_class }}</td>
                                 <input type="hidden" value="{{ classe.id_class }}" name="id_class"  >
 
