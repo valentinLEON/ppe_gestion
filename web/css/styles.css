@@ -39,6 +39,7 @@
     width: auto;
     max-width: 150px;
     height: 40px;
-    overflow: auto;
+    font-size:11px;
+    overflow: hidden;
     
 }
