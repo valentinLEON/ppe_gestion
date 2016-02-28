@@ -41,7 +41,7 @@
                             {% for user in users %}
                             <tr>
                                 <td class="mytdmin"> 
-                                    <i class='btn btn-warning btn-flat'></i>
+                                   <button type="button" class="btn btn-warning btn-flat"><i class="fa fa-edit"></i></button>
                                     <input type="submit" class='btn btn-warning btn-flat'  value="Modifier">
                                     <input type="hidden" value="modification" name="modification"  >
                                 {#
@@ -69,7 +69,7 @@
                                 <input type="hidden" value="{{ user.user_mail }}" name="user_mail"  >
                                 <td class="mytdmin">{{ user.id_discipline }}</td>
                                 <input type="hidden" value="{{ user.id_discipline }}" name="id_discipline"  >
-                                <td class="mytdmin"> {% for classes in classe %}{{ classes.class_name }} {% endfor %}</td>
+                                <td class="mytdmin"> {# for classes in classe %}{{ classes.class_name }} {% endfor #}</td>
                                 <input type="hidden" value="{{ user.id_class }}" name="id_class"  >
                            
                                </tr> 
