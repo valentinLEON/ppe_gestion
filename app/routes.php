@@ -348,7 +348,7 @@ $app->get('/modifuser', function () use ($app) {
 
 $app->post('/modifuser', function (Request $request) use ($app) {
     
-     $iduser= $request->request->get('id_user_form');
+     $iduser= $request->request->get('id_users');
      $modification= $request->request->get('modification');    
      $idclass = $request->request->get('$id_class_form');
      $id_discipline = $request->request->get('$id_discipline');
