@@ -36,7 +36,7 @@
 .mytd{
    text-align: center; 
    border: 1px solid darkgrey; 
-    width: 120px;
+    width: 90px;
     word-wrap: break-word;
     font-size:13px;
     overflow: hidden; 
@@ -49,7 +49,7 @@
 .mytdmin{
    text-align: center; 
    border: 1px solid darkgrey; 
-    width: 50px;
+    width: 70px;
     word-wrap: break-word;
     font-size:13px;
     overflow: hidden; 
