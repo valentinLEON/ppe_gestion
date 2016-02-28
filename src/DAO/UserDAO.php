@@ -35,6 +35,20 @@ class UserDAO extends DAO implements UserProviderInterface
 
         return $users;
     }
+    public function countAll()
+    {
+        $sql = "SELECT * FROM users ORDER BY role, username";
+        $res = $this->getDb()->fetchAll($sql);
+
+        $users_total = array();
+        foreach($res as $row)
+        {
+            $id_user = $row['id_users'];
+            $users_total[$id_user] = $this->buildDomainObject($row);
+        }
+
+        return coutn($users_total);
+    }
 
     /**
      * @param $id

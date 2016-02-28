@@ -33,10 +33,16 @@ $app->get('/', function(Request $request) use ($app) {
 $app->get('/', function(Request $request) use ($app) {
     
      $classes = $app['dao.className']->findAll();
+     $classes_total = $app['dao.className']->countAll();
+     
      $disciplines = $app['dao.discipline']->findAll();
      $disciplines_total = $app['dao.discipline']->countAll();
+     
      $users = $app['dao.users']->findAll();
+     $users_total = $app['dao.users']->countAll();
+     
      $students = $app['dao.student']->findAll();
+     $students_total = $app['dao.student']->countAll();
      
     return $app['twig']->render('index.html.twig', array(
         'classes'=>$classes,
@@ -44,10 +50,10 @@ $app->get('/', function(Request $request) use ($app) {
         'users'=>$users,
         'students'=>$students,
         
-        'students_number'=>"1",
-        'classes_number'=>'1',
+        'students_number'=>$students_total,
+        'classes_number'=>$classes_total,
         'disciplines_number'=>$disciplines_total,
-        'users_number'=>'1',
+        'users_number'=>$users_total,
         'absences_number'=>'1',
         'retards_number'=>'1',
         

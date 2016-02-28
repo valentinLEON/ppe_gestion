@@ -33,6 +33,12 @@ class DisciplineDAO extends DAO
 
         return $matieres;
     }
+    
+            /**
+     * @return int
+     *
+     * Retourne le nombre de disciplines
+     */
         public function countAll()
     {
         $_sql = "SELECT * FROM discipline ";

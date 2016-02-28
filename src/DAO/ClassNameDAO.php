@@ -65,6 +65,26 @@ class ClassNameDAO extends DAO
 
         return $classNames;
     }
+    
+        /**
+     * @return int
+     *
+     * Retourne le nombre de classes
+     */
+        public function countAll()
+    {
+        $sql = "SELECT * FROM className ORDER BY class_name";
+
+        $res = $this->getDb()->fetchAll($sql);
+
+        $classNames_total = array();
+        foreach($res as $row){
+            $_classNameId = $row['id_class'];
+            $classNames_total[$_classNameId] = $this->buildDomainObject($row);
+        }
+
+        return count($classNames_total);
+    }
 
     /**
      * @param ClassName $_className

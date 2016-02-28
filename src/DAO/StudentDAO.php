@@ -50,6 +50,26 @@ class StudentDAO extends DAO
 
         return $etudiants;
     }
+    
+      /**
+     * @return int
+     *
+     * retourne le nombre d' étudiants
+     */
+    public function countAll()
+    {
+        $_sql = "SELECT * FROM student ORDER BY student_name";
+        $_res = $this->getDb()->fetchAll($_sql);
+
+        $etudiants_total = array();
+        foreach($_res as $row){
+            $etudiantId = $row['id_student'];
+            $etudiants_total[$etudiantId] = $this->buildDomainObject($row);
+        }
+
+        return count($etudiants_total);
+    }
+    
 
     /**
      * @param $id
