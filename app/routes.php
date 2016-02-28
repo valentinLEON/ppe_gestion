@@ -379,7 +379,7 @@ $app->get('/userslist', function (Request $request) use ($app) {
     
      $id_classe = $app['dao.className']->findClassname($idclass);
      $id_discipline = $app['dao.discipline']->findDiscipline($iddiscipline);
-     $id_role = $app['dao.users']->find($idrole);
+     $id_role = $app['dao.users']->find($role);
      $id_user = $app['dao.users']->find($iduser);
    
      
