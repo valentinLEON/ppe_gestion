@@ -45,9 +45,7 @@ $app->get('/', function(Request $request) use ($app) {
     return $app['twig']->render('index.html.twig', array(
         'classes'=>$classes,
         'disciplines'=>$disciplines,
-       
         'students'=>$students,
-        
         'students_number'=>$students_total,
         'classes_number'=>$classes_total,
         'disciplines_number'=>$disciplines_total,
@@ -98,13 +96,18 @@ $app->get('/testlogin', function () use ($app) {
  * route pour l'affichage de la liste des etudiants
  */
 $app->get('/admintab', function () use ($app) {
-         $users = $app['dao.users']->findAll();
-        $users_total = $app['dao.users']->countAll();
-          
+         
+     $users = $app['dao.users']->findAll();
+     $users_total = $app['dao.users']->countAll();         
+     $disciplines = $app['dao.discipline']->findAll();
+     $disciplines_total = $app['dao.discipline']->countAll();
+     
     
     return $app['twig']->render('TabTemplate/admintab.html.twig', array(
         
-           'users_number'=>$users_total,
+        'users_number'=>$users_total,
+        'disciplines'=>$disciplines,
+        'disciplines_number'=>$disciplines_total,
     ));
     
     
