@@ -225,15 +225,14 @@ $app->get('/usertab', function () use ($app) {
  */
 $app->get('/adduser', function () use ($app) {
     
-     $classe = $app['dao.className']->findAll();
-     $discipline = $app['dao.discipline']->findAll();
-     $role = $app['dao.users']->findAll();
+     $classes = $app['dao.className']->findAll();
+     $disciplines = $app['dao.discipline']->findAll();
+     $users = $app['dao.users']->findAll();
      
     return $app['twig']->render('FormTemplate/adduser.html.twig', array(
-        'classe'=>$classe,
-        'discipline'=>$discipline,
-        'role'=>$role,
-        
+        'classe'=>$classes,
+        'discipline'=>$disciplines,
+        'role'=>$users,
     ));
     
 })->bind('adduser');
@@ -264,9 +263,19 @@ $app->post('/adduser', function(Request $request) use ($app){
     $newUser->setDtCreate(date('Y-m-d'));
     $newUser->setDtUpdate(date('Y-m-d'));
  
+   
     $app['dao.users']->saveUser($newUser);
-
-     return $app['twig']->render('FormTemplate/adduser.html.twig');
+    
+     $classes = $app['dao.className']->findAll();
+     $disciplines = $app['dao.discipline']->findAll();
+     $users = $app['dao.users']->findAll();
+     
+     return $app['twig']->render('FormTemplate/adduser.html.twig', array(
+        'classe'=>$classes,
+        'discipline'=>$disciplines,
+        'role'=>$users,
+      ));
+     
     //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
 })->bind('user');
 
