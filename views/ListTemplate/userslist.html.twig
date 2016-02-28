@@ -19,8 +19,9 @@
                   </div>
               #} 
                 <!-- /.box-header -->
-                          
-                    <table class="table table-hover" style="  table-layout: fixed; ">
+                       
+                <table class="table table-hover" style="  table-layout: fixed; ">
+                     <form action="modifuser" method="post" >     
                         <tr style="background-color: #3c8dbc; font-size:16px;">
                             <th  class="mytdmin">
                                <i class="fa fa-pencil-square-o"></i>
@@ -38,30 +39,30 @@
                             <th class="mytd">Adresse mail</th>
                             <th class="mytdmin">Discipline</th>
                             <th class="mytdmin">Classes</th>
-                        </tr>
+                        </tr>  
+                     
                         {% for user in users %}
-                        <form  action="modifuser" method="post" >
+                    
                             
                             <tr>
                                 <td class="mytdmin"> 
                                    <button type="submit" class="btn btn-warning btn-flat">
                                        <i class="fa fa-edit"></i>
                                    </button>
-                                    <input type="hidden" value="{{ user.id_users }}" name="id_users"  >
+                                    <input type="hidden" value="{{ user.id_users }}" name="id_users[{{ user.id_users }}]"  >
                                     <input type="hidden" value="modification" name="modification"  >
                              
                                 <td class="mytdmin"> 
                                     <button type="submit" class="btn btn-danger btn-flat">
                                         <i class="fa fa-trash"></i>
                                     </button>
-                                    <input type="hidden" value="{{ user.id_users }}" name="id_users"  >
                                     <input type="hidden" value="suppression" name="suppression"  >
                                 
                                 </td>
                                 <td class="mytd" >{{ user.username }}</td>
-                                <input type="hidden" value="{{ user.username }}" name="username"  >
+                                <input type="hidden" value="{{ user.username }}" name="username[{{ user.username }}]"  >
                                 <td class="mytd" >{{ user.name }}</td>
-                                <input type="hidden" value="{{ user.name }}" name="name"  >
+                                <input type="hidden" value="{{ user.name }}" name="name[{{ user.name }}]"  >
                                 <td class="mytd">{{ user.firstname }}</td>
                                 <input type="hidden" value="{{ user.firstname }}" name="firstname"  >
                                 <td class="mytd">{{ user.password }}</td>
@@ -81,8 +82,9 @@
                            
                                </tr> 
 
-                        </form> 
+                        
                         {% endfor %}
+                        </form> 
                     </table>
          
                 <!-- /.box-body -->
