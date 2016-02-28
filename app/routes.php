@@ -105,6 +105,7 @@ $app->get('/admintab', function () use ($app) {
     
     return $app['twig']->render('TabTemplate/admintab.html.twig', array(
         
+        'users'=>$users,
         'users_number'=>$users_total,
         'disciplines'=>$disciplines,
         'disciplines_number'=>$disciplines_total,
@@ -265,7 +266,7 @@ $app->post('/adduser', function(Request $request) use ($app){
     $app['dao.users']->saveUser($newUser);
 
     //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
-})->bind('user');
+});
 
 
 // Modification de l'utilisateur
