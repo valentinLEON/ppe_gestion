@@ -270,12 +270,14 @@ $app->post('/adduser', function(Request $request) use ($app){
      $classes = $app['dao.className']->findAll();
      $disciplines = $app['dao.discipline']->findAll();
      $users = $app['dao.users']->findAll();
-     
+     $message= $request->request->get('message');
      
      return $app['twig']->render('FormTemplate/adduser.html.twig', array(
         'classe'=>$classes,
         'discipline'=>$disciplines,
         'role'=>$users,
+        'message'=>$message,
+         
       ));
      
     //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
