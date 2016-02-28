@@ -274,7 +274,7 @@ $app->post('/adduser', function(Request $request) use ($app){
     $newUser->setDtUpdate(date('Y-m-d H:i:s'));
  
    
-    $app['dao.users']->saveUser($newUser);
+    $app['dao.user']->saveUser($newUser);
     
     $classes = $app['dao.classNames']->findAll();
     $disciplines = $app['dao.discipline']->findAll();
