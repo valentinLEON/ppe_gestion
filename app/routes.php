@@ -193,7 +193,7 @@ $app->post('/addstudent', function(Request $request) use($app){
     $app['dao.student']->saveStudent($newStudent);
 
 
-    return new Response('Bien joué kiki', 201);
+    return $app['twig']->render('FormTemplate/addstudent.html.twig');
     //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
 })->bind('student');
 
@@ -265,7 +265,7 @@ $app->post('/adduser', function(Request $request) use ($app){
  
     $app['dao.users']->saveUser($newUser);
 
-     return $app['twig']->render('ListTemplate/userslist.html.twig');
+     return $app['twig']->render('ListTemplate/userlist.html.twig');
     //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
 })->bind('user');
 
@@ -375,7 +375,8 @@ $app->post('/addclass', function(Request $request) use ($app){
 
     $app['dao.className']->saveClassName($newClass);
 
-    return new Response('bien joué kiki', 201);
+    return $app['twig']->render('FormTemplate/addclass.html.twig');
+    
 })->bind('class');
 
 
@@ -431,7 +432,8 @@ $app->post('adddiscipline', function(Request $request) use($app){
 
     $app['dao.discipline']->saveDiscipline($newDiscipline);
 
-//    return new Response('Bien joué kiki', 201);
+    return  $app['twig']->render('FormTemplate/adddiscipline.html.twig');
+    
 })->bind('discipline');
 
 /**                                                 NOTES         - EVALUATIONS
@@ -494,6 +496,8 @@ $app->post('/addnote', function(Request $request) use ($app){
     $newEvaluation->setDtUpdate(date('Y-m-d'));
 
     $app['dao.evaluation']->saveGrade($newEvaluation);
+    
+    return $app['twig']->render('FormTemplate/addnote.html.twig');
     //var_dump(array($this->getDiscipline()));
     /*if($message)
     {
