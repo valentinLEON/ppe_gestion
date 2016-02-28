@@ -41,8 +41,11 @@
                             
                             <tr>
                                 <td class="mytdmin"> 
-                                   <button type="button" class="btn btn-warning btn-flat"><i class="fa fa-edit"></i></button>
-                                    <input type="submit" class='btn btn-warning btn-flat'  value="Modifier">
+                                   <button type="button" class="btn btn-warning btn-flat">
+                                       <input type="submit" class='btn btn-warning btn-flat'  value="">
+                                       <i class="fa fa-edit"></i>
+                                   </button>
+                                    <input type="hidden" value="{{ user.id_users }}" name="id_users"  >
                                     <input type="hidden" value="modification" name="modification"  >
                                 {#
                                       <input type="hidden" value="{% if user.id_users_form %}{{ user.id_users_form }}{% endif %}" name="id_users_form"  >
@@ -52,7 +55,6 @@
                                 </td>
                                 <td class="mytd" >{{ user.username }}</td>
                                 <input type="hidden" value="{{ user.username }}" name="username"  >
-                                <input type="hidden" value="{{ user.id_users }}" name="id_users"  >
                                 <td class="mytd" >{{ user.name }}</td>
                                 <input type="hidden" value="{{ user.name }}" name="name"  >
                                 <td class="mytd">{{ user.firstname }}</td>
