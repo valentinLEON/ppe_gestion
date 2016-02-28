@@ -6,8 +6,7 @@
 
 {% block content %}
     
- <div class="box box-primary"> 
-        
+       
        {% if message %}
            <div class="box-body">
                 <div class="box box-solid box-success" background="rgba(46, 255, 106, 0.7);">
@@ -40,10 +39,11 @@
                 </div>
            </div>
                                 
-       <h3><i class="fa fa-plus"></i>Ajouter un nouvel utilisateur</h3>                
+       <h4 style="margin-left:100px">Ajouter un nouvel utilisateur</h4>                
        {% endif %}
        
-       
+  <div class="box-body">
+          
 
     <!-- form start -->
     <form class="form-horizontal" action="{{ path('user') }}"  method="post">
