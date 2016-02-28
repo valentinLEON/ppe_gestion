@@ -369,14 +369,14 @@ $app->get('/userslist', function () use ($app) {
      $classes = $app['dao.className']->findAll();
      $disciplines = $app['dao.discipline']->findAll();
      $roles = $app['dao.users']->findAll();
-     $id_users = $app['dao.users']->findAll();
+     $users = $app['dao.users']->findAll();
    
      
     return $app['twig']->render('ListTemplate/userslist.html.twig', array(
         'classe'        =>$classes,
         'discipline'    =>$disciplines,
         'role'          =>$roles,
-        'id_users'      =>$id_users,
+        'users'         =>$users,
     ));
     
     
