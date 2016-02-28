@@ -33,6 +33,19 @@ class DisciplineDAO extends DAO
 
         return $matieres;
     }
+        public function countAll()
+    {
+        $_sql = "SELECT * FROM discipline ";
+        $_res = $this->getDb()->fetchAll($_sql);
+
+        $matieres_total = array();
+        foreach($_res as $row){
+            $matiereId = $row['id_discipline'];
+            $matieres_total[$matiereId] = $this->buildDomainObject($row);
+        }
+
+        return count($matieres_total);
+    }
 
     /**
      * @param $id

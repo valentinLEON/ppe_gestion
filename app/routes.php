@@ -34,6 +34,7 @@ $app->get('/', function(Request $request) use ($app) {
     
      $classes = $app['dao.className']->findAll();
      $disciplines = $app['dao.discipline']->findAll();
+     $disciplines = $app['dao.discipline']->countAll();
      $users = $app['dao.users']->findAll();
      $students = $app['dao.students']->findAll();
      
@@ -43,10 +44,10 @@ $app->get('/', function(Request $request) use ($app) {
         'users'=>$users,
         'students'=>$students,
         
-        'students_number'=>"",
-        'classes_number'=>'',
-        'disciplines_number'=>'',
-        'users_number'=>'',
+        'students_number'=>"1",
+        'classes_number'=>'1',
+        'disciplines_number'=>$discipline_total,
+        'users_number'=>'1',
         
         )
     
