@@ -27,17 +27,24 @@
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-hover">
                         <tr style="background-color: #3c8dbc">
-                            <th style="text-align: center; border: 1px solid darkgrey;">Nom</th>
-                            <th style="text-align: center; border: 1px solid darkgrey;">Année</th>
+                            <th style="text-align: center; border: 1px solid darkgrey;">Nom de la classe</th>
                             <th style="text-align: center; border: 1px solid darkgrey;">Option</th>
+                            <th style="text-align: center; border: 1px solid darkgrey;">Année</th>
+                            <th style="text-align: center; border: 1px solid darkgrey;">Nombre d'Etudiants</th>
+                            <th style="text-align: center; border: 1px solid darkgrey;">Nombre d'Etudiants</th>
                             <th style="text-align: center; border: 1px solid darkgrey;">Description</th>
+                            <th style="text-align: center; border: 1px solid darkgrey;">Date de création</th>
+                            <th style="text-align: center; border: 1px solid darkgrey;">Date de modification/th>
                         </tr>
                         {% for classe in classes %}
                             <tr>
-                                <td style="text-align: center; border: 1px solid darkgrey;" >{{ classe.name }}</td>
-                                <td style="text-align: center; border: 1px solid darkgrey;">{{ classe.firstname }}</td>
-                                <td style="text-align: center; border: 1px solid darkgrey;">{{ classe.birthday }}</td>
-                                <td style="text-align: center; border: 1px solid darkgrey;">{{ classe.email }}</td>
+                                <td style="text-align: center; border: 1px solid darkgrey;" >{{ classe.class_name }}</td>
+                                <td style="text-align: center; border: 1px solid darkgrey;">{{ classe.class_option }}</td>
+                                <td style="text-align: center; border: 1px solid darkgrey;">{{ classe.class_year }}</td>
+                                <td style="text-align: center; border: 1px solid darkgrey;">{{ classe.nombreEtudiant }}</td>
+                                <td style="text-align: center; border: 1px solid darkgrey;">{{ classe.description }}</td>
+                                <td style="text-align: center; border: 1px solid darkgrey;">{{ classe.dt_create}}</td>
+                                <td style="text-align: center; border: 1px solid darkgrey;">{{ classe.dt_update}}</td>
                             </tr>
                         {% endfor %}
                     </table>
