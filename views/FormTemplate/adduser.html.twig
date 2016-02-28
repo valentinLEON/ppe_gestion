@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-
+<div class="box box-primary">
     <!-- form start -->
     <form class="form-horizontal" action="{{ path('user') }}"  method="post">
         <div class="box-body" style="margin-left:2rem; width: 90%; ">
@@ -70,8 +70,10 @@
                 <input type="password" class="form-control" required  placeholder="Min 6 caracteres">
             </div>
         </div>
-       {% if message %}<div class="box box-solid box-success" >
-            Utilisateur enregistré avec succès </div>
+       {% if message %}
+           <div class="box box-solid box-success">
+            Utilisateur enregistré avec succès
+           </div>
        {% endif %}
         <!-- /.box-body -->
         <div class="box-footer" style='float:right'>
@@ -81,7 +83,7 @@
         <!-- /.box-footer -->
     </form>
                 
-   
+</div>  
 
 
 {% endblock %}
