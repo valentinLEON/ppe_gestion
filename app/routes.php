@@ -1,47 +1,24 @@
 <?php
 
-use Symfony\Component\HttpFoundation\Request;
-use ppe_gestion\Domain\Evaluation;
-use ppe_gestion\Domain\Student;
-use ppe_gestion\Domain\UserToClass;
-use ppe_gestion\Domain\User;
-use ppe_gestion\Domain\ClassName;
-use ppe_gestion\Domain\Discipline;
-use ppe_gestion\Domain\Examen;
-
-// PAS TOUCHER use ppe_gestion\Form\Type\addNoteForm;
-
-
-/**                                                                ACCUEIL
+/**                                                           Home controller 
+ * 
+ *                                                                ACCUEIL
  * 
  *                              AFFICHAGE ACCUEIL        * */
 $app->get('/', "ppe_gestion\Controller\HomeController::indexAction");
 
-/**                                                                  LOGIN
+/**                                                                LOGIN
  * route pour afficher le login
  */
 $app->get('/login', "ppe_gestion\Controller\HomeController::loginAction")->bind('login');
 
- /*                                                                   ADMIN                                                      
- *                        TABLEAU DE BORD 
- * route pour l'affichage de la liste des etudiants
- */
-$app->get('/admintab', "ppe_gestion\Controller\AdminController::indexAction")->bind('admintab');
-
-
 /** 
- *                       TESTS POUR LES ROUTES
- * 
+ *                                                       TESTS POUR LES ROUTES
  * route pour l'affichage de la liste des etudiants
  */
-$app->get('/testroutes', function () use ($app) {
-    return $app['twig']->render('testroutes.html.twig');
-})->bind('testroutes');
-
-
+$app->get('/testroutes',"ppe_gestion\Controller\HomeController::indexAction")->bind('testroutes');
 /*
- *                       TESTS POUR LES LOGINS
- * 
+ *                                                       TESTS POUR LES LOGINS
  * route pour l'affichage de la liste des etudiants
  */
 $app->get('/testlogin', function () use ($app) {
@@ -50,47 +27,36 @@ $app->get('/testlogin', function () use ($app) {
 
 
 
+ /*                                                           AdminController                                                   
+ *                        TABLEAU DE BORD 
+ * route pour l'affichage de la liste des etudiants
+ */
+$app->get('/admintab', "ppe_gestion\Controller\AdminController::indexAction")->bind('admintab');
 
-/**                                                            ETUDIANTS
+
+
+/**                                                          StudentController
+ * 
+ *                                             ETUDIANTS
  *   
  *                     TABLEAU DE BORD 
  * 
  * route pour l'affichage de la gestion des etudiants
  */
-$app->get('/studenttab', function () use ($app) {
-    return $app['twig']->render('TabTemplate/studenttab.html.twig');
-})->bind('studenttab');
-
-
+$app->get('/studenttab',"ppe_gestion\Controller\StudentController::indexAction")->bind('studenttab');
 
 /**
- *  *   
  *                     LISTE 
- * 
  * route pour l'affichage de la liste des etudiants
  */
-$app->get('/studentslist', function () use ($app) {
-    $etudiants = $app['dao.student']->findAll();
-
-    return $app['twig']->render('ListTemplate/studentslist.html.twig', array(
-        'students' => $etudiants
-    ));
-})->bind('studentslist');
+$app->get('/studentslist',"ppe_gestion\Controller\StudentController::listIndexAction")->bind('studentslist');
 
 /**
- *  *   
  *                     AJOUT
- * 
  * route pour l'affichage du template de l'ajout des étudiants
  * avec l'affichage des classes dans la liste déroulante
  */
-$app->get('/addstudent', function () use ($app) {
-    $classes = $app['dao.classNames']->findAll();
-
-    return $app['twig']->render('FormTemplate/addstudent.html.twig', array(
-        'classes' => $classes
-    ));
-})->bind('addstudent');
+$app->get('/addstudent', "ppe_gestion\Controller\StudentController::addIndexAction")->bind('addstudent');
 
 $app->post('/addstudent', function(Request $request) use($app){
     
@@ -321,11 +287,12 @@ $app->post('/addnote', function(Request $request) use ($app){
     $student = $app['dao.student']->findAll();
 
     return $app['twig']->render('FormTemplate/addnote.html.twig', array(
+      
         'classNames' => $classes,
         'matieres' => $discipline,
-        'student' => $student));
-
- 
+        'student' => $student)
+            
+      );
 
    // return $app->redirect('/addnote', 301);
 

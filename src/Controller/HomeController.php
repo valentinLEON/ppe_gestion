@@ -5,8 +5,13 @@ namespace ppe_gestion\Controller;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 
-use ppe_gestion\Domain\User;
-
+//use ppe_gestion\Domain\User;
+//use ppe_gestion\Domain\StudentToClass;
+//use ppe_gestion\Domain\Student;
+//use ppe_gestion\Domain\DisciplineToClass;
+//use ppe_gestion\Domain\Evaluation;
+//use ppe_gestion\Domain\Discipline;
+//use ppe_gestion\Domain\ClassName;
 
 class HomeController {
 
@@ -45,5 +50,9 @@ class HomeController {
             'error'         => $app['security.last_error']($request),
             'last_username' => $app['session']->get('_security.last_username'),
             ));
+    }
+    
+    public function testroutes (Application $app){
+        return $app['twig']->render('testroutes.html.twig');
     }
 }
