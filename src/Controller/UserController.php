@@ -89,7 +89,9 @@ class UserController {
         $user_mail = $request->request->get('user_mail');
 
         $message= $request->request->get('message');
-
+        
+        $app['session']->getFlashBag()->add('success', 'The user was succesfully saved.');
+  
         return $app['twig']->render('FormTemplate/adduser.html.twig', array(
            'classe'        =>$classes,
            'discipline'    =>$disciplines,
@@ -201,12 +203,12 @@ class UserController {
 
      */
 
-    public function deleteUserAction($id, Application $app) {
+    public function deleteUserAction($id, Request $request, Application $app) {
 
-       
+        $id_users = $request->request->get('id_users'); 
         // Delete the user
 
-        $app['dao.user']->delete($id);
+        $app['dao.user']->delete($id_users);
 
         $app['session']->getFlashBag()->add('success', 'The user was succesfully removed.');
 
