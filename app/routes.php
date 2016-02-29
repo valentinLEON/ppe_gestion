@@ -281,15 +281,18 @@ $app->post('/addclass', function(Request $request) use ($app){
  *                   TABLEAU DE BORD                */
 $app->get('/disciplinetab',  "ppe_gestion\Controller\DisciplineController::tabDisciplineAction")->bind('disciplinetab');
 
-  /**                       LISTE
+  /**                   LISTE
  * route pour l'affichage de la liste des matières          */
- $app->get('/disciplineslist', "ppe_gestion\Controller\DisciplineController::listDisciplineIndexAction")->bind('disciplines');
+ $app->get('/disciplineslist', "ppe_gestion\Controller\DisciplineController::listDisciplineIndexAction")->bind('list_disciplines');
+ $app->get('/disciplineslist', "ppe_gestion\Controller\DisciplineController::listDisciplineAction")->bind('post_list_disciplines');
 
-/**                   AJOUT
+/**                      AJOUT
  * route pour l'ajout des matières      */
 $app->get('/adddiscipline', "ppe_gestion\Controller\DisciplineController:: addDisciplineIndexAction" )->bind('adddiscipline');
-
 $app->post('adddiscipline', "ppe_gestion\Controller\DisciplineController::addDisciplineAction")->bind('discipline');
+
+
+
 
 /**                                                                   NOTES     
  * 
