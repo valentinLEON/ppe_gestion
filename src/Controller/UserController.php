@@ -251,15 +251,11 @@ var_dump($newUser);
             'discipline'    =>$disciplines,
             'username'      =>$username,
             'role'          =>$roles,
-            'role'          =>$roles,
             'id_class_form' =>$idclass,
             'id_discipline' =>$id_discipline,
             'id_role'       =>$idrole,
             'id_user'       =>$id_users,
-//            'id_users'      =>$id_user,
-//            'user_form'     =>$id_user_form,
             'users_total'   =>$users_total,
-            'modification'  =>$modification,
          ));
 
     }
@@ -273,18 +269,13 @@ var_dump($newUser);
         $id_users = $app['dao.user']->findAll();
         $username = $app['dao.user']->findAll();
 
-        $modification= $request->request->get('modification');    
-    //    $suppression= $request->request->get('suppression');    
-
         $idclass = $request->request->get('id_class_form');
         $id_discipline = $request->request->get('id_discipline');
         $idrole = $request->request->get('id_role'); 
 
         $users_total = $app['dao.user']->countAll();
-   
 
         $newUser = new User();
-
         $newUser->setUsername($request->request->get('username'));
         $newUser->setName($request->request->get('name'));
         $newUser->setFirstName($request->request->get('firstname'));
@@ -299,7 +290,7 @@ var_dump($newUser);
         $newUser->setStatus($request->request->get('status'));   
         $newUser->setUserMail($request->request->get('user_mail'));
         $newUser->setDtUpdate(date('Y-m-d H:i:s'));
-
+var_dump($newUser);
         $app['dao.user']->saveUser($newUser);
         
        $app['session']->getFlashBag()->add('success', 'L Utilisateur Enregistré');
@@ -314,25 +305,14 @@ var_dump($newUser);
             'id_discipline' =>$id_discipline,
             'id_role'       =>$idrole,
             'id_user'       =>$id_users,
-//            'id_users'      =>$id_user,
-//            'user_form'     =>$id_user_form,
             'users_total'   =>$users_total,
             'modification'  =>$modification,
          ));
 
     }
 
-    /**
-
-     * Delete user controller.
-
-     *
-
-     * @param integer $id User id
-
-     * @param Application $app Silex application
-
-     */
+    
+    /**  *           Delete user controller.  */
     
 // Alert Etes vous sur de vouloir supprimer tel utilisateur .    
     public function deleteUserIndexAction(Request $request, Application $app) { 
@@ -344,11 +324,11 @@ var_dump($newUser);
 // POST ACTION DE SUPPRESSION DE L UTILSATEUR
     public function deleteUserAction(Request $request, Application $app) {
 
-      $id_user = ($request->request->get('id_user'));
+       $id_user = ($request->request->get('id_user'));
        
         var_dump($id_user);
 
-        $app['dao.user']->deleteUser($id_users);
+        $app['dao.user']->deleteUser($id_user);
 
         $app['session']->getFlashBag()->add('danger', 'Utilisateur supprimé !');
 
