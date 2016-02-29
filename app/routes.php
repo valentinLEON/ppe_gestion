@@ -304,7 +304,7 @@ $app->get('/userslist', function () use ($app) {
 })->bind('userslist');
 
 // liste des utilisateurs   revoyant l'id selectionné à la fonction modifier
-$app->post('/userslist', "ppe_gestion\Controller\UserController::listUserAction")->$bind('users');
+$app->post('/userslist', "ppe_gestion\Controller\UserController::listUserAction")->bind('users');
 
 /**
  *   
