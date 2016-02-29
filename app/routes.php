@@ -58,47 +58,18 @@ $app->get('/studentslist',"ppe_gestion\Controller\StudentController::listIndexAc
  */
 $app->get('/addstudent', "ppe_gestion\Controller\StudentController::addIndexAction")->bind('addstudent');
 
-$app->post('/addstudent', function(Request $request) use($app){
-    
-    $newStudent = new Student();
+$app->post('/addstudent', "ppe_gestion\Controller\StudentController::addAction")->bind('student');
 
-    $class = $app['dao.classNames']->findClassname($request->request->get('classname'));
-
-    $newStudent->setName($request->request->get('name'));
-    $newStudent->setFirstname($request->request->get('firstname'));
-    $newStudent->setBirthday($request->request->get('birthday'));
-    $newStudent->setAddress($request->request->get('address'));
-    $newStudent->setTel($request->request->get('phone'));
-    $newStudent->setEmail($request->request->get('email'));
-    $newStudent->setStudentStatut($request->request->get('statut'));
-    $newStudent->setDtCreate(date('Y-m-d H:i:s'));
-    $newStudent->setDtUpdate(date('Y-m-d H:i:s'));
-    $newStudent->setClass($class);
-
-    $app['dao.student']->saveStudent($newStudent);
-
-    $classes = $app['dao.classNames']->findAll();
-
-    return $app['twig']->render('FormTemplate/addstudent.html.twig', array(
-        'classes' => $classes
-    ));
-    //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
-})->bind('student');
-
-/**
- *     
- *                    STATISTIQUES
- * 
- *
- * route pour l'affichage de la liste des etudiants
- */
+/* *                    STATISTIQUES
+ * route pour l'affichage de la liste des etudiants*/
 $app->get('/studentstats', function () use ($app) {
     return $app['twig']->render('StatTemplate/studentstats.html.twig');
 })->bind('studentstats');
 
 
 
-/**                                                           UTILISATEURS              **
+/**                                                                     UserController   
+ *                                               UTILISATEURS              **
  * 
  * 
  *   
@@ -124,12 +95,9 @@ $app->get('/studentstats', function () use ($app) {
  //* route pour la soumission du formulaire d ajout d utilisateurs
     $app->post('/adduser', "ppe_gestion\Controller\UserController::addUserAction")->bind('user_added');
 
-
-
 /**
  *   
-*                                                                    CALENDRIER
-*
+                                                                   CALENDRIER
  * route pour afficher le calendrier
  */
 $app->get('/calendar', function () use ($app) {
@@ -140,8 +108,7 @@ $app->get('/calendar', function () use ($app) {
 /**                                                                CLASSES
  *
  *                   TABLEAU DE BORD
- * 
- * 
+
  * route pour l'ajout des classes
  */
 $app->match('/classetab', function () use ($app) {
@@ -311,7 +278,7 @@ $app->get('/notestats', function () use ($app) {
 })->bind('notestats');
 
 
-/**
+/**                                                              EXAMEN
  * Récupère via l'url les examens
  */
 $app->get('/addexamen', function() use($app){

@@ -20,15 +20,8 @@ class UserController {
 
 
     /**
-
      * User page controller.
-
-     *
-
-     * @param Application $app Silex application
-
      */
-
     public function indexAction(Application $app) {
               
         $classes = $app['dao.classNames']->findAll();
@@ -59,16 +52,11 @@ class UserController {
            'users'         =>$users,
        ));
     }
-    
-    
 
     /**
-
      * User LIST  controller.
-
-     *    
     */
-     
+        
     public function listUserIndexAction(Application $app) {
                    
         $classes = $app['dao.classNames']->findAll();
@@ -86,8 +74,7 @@ class UserController {
 
     }
     
-    
-    
+
     public function listUserAction(Request $request, $app) {
        
        $users = $app['dao.user']->findAll();   
