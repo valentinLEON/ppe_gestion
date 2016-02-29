@@ -56,17 +56,6 @@ class UserDAO extends DAO implements UserProviderInterface
         return $users;
     }
 
-// SUPPRIME LE USER    
-    public function deleteUserAction($id, Application $app) {
-       
-        // Delete the user
-        $app['dao.user']->delete($id);
-        $app['session']->getFlashBag()->add('success', 'The user was succesfully removed.');
-        // Redirect to admin home page
-        return $app->redirect($app['url_generator']->generate('userlist'));
-    }
-    
-    // fonction count a utiliser directement dans les autres fonctions
     public function countAll()
     {
         $sql = "SELECT * FROM users";
@@ -81,32 +70,7 @@ class UserDAO extends DAO implements UserProviderInterface
 
         return count($users_total);
     }
-    
-    // MODIFE LE USER
-    public function editUserAction($id, Request $request, Application $app) {
-        $user = $app['dao.user']->find($id);
-        $userForm = $app['form.factory']->create(new UserType(), $user);
-        $userForm->handleRequest($request);
-        if ($userForm->isSubmitted() && $userForm->isValid()) {
-            $plainPassword = $user->getPassword();
-            // find the encoder for the user
-            $encoder = $app['security.encoder_factory']->getEncoder($user);
-            // compute the encoded password
-            $password = $encoder->encodePassword($plainPassword, $user->getSalt());
-            $user->setPassword($password); 
-            $app['dao.user']->save($user);
-            $app['session']->getFlashBag()->add('success', 'The user was succesfully updated.');
-        }
-        return $app['twig']->render('user_form.html.twig', array(
-            'title' => 'Edit user',
-            'userForm' => $userForm->createView()));
-    }
 
-    
-    
-    
-    
-    //SELECTIONNE LES INFOS DU USER PRENDS EN PARAMETRE LE USERNDAME ??? VAUT MIEUX ID SAUF SI ON VEUX TRIER PAR NOM DE USER
     public function loadUserByUsername($username)
     {
         $sql = "SELECT * FROM users WHERE username=?";
@@ -120,7 +84,6 @@ class UserDAO extends DAO implements UserProviderInterface
         }
     }
 
-    // NE SAIT PAS PREND EN PARAMETRE SUOI
     public function refreshUser(UserInterface $user)
     {
         $class = get_class($user);
@@ -129,14 +92,11 @@ class UserDAO extends DAO implements UserProviderInterface
         }return $this->loadUserByUsername($user->getUsername());
     }
 
-    // NE SAIT PAS NON PLUS
     public function supportsClass($class)
     {
         return 'ppe_gestion\Domain\User' === $class;
     }
     
-    
-    // ADD LE USER 
    public function saveUser(User $user)
     {     
        
@@ -170,7 +130,7 @@ class UserDAO extends DAO implements UserProviderInterface
     }
 
     
-    // CREER NOTRE INSTANCE DE LA CLASSE USER
+    
     protected function buildDomainObject($row)
     {
         $user = new User();
