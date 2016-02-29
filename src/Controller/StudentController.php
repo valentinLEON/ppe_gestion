@@ -13,7 +13,7 @@ use ppe_gestion\Domain\Student;
 //use ppe_gestion\Domain\DisciplineToClass;
 //use ppe_gestion\Domain\Evaluation;
 //use ppe_gestion\Domain\Discipline;
-use ppe_gestion\Domain\ClassName;
+//use ppe_gestion\Domain\ClassName;
 
 /**
  * Description of StudentController
