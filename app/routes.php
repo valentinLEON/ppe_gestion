@@ -258,7 +258,7 @@ $app->post('/adduser', "ppe_gestion\Controller\UserController::addUserAction")->
  * 
  * route pour l'affichage de la liste des utilisateurs
  */
-$app->get('/userslist', "ppe_gestion\Controller\UserController::listUserIndexAction")>bind('userslist');
+$app->get('/userslist', "ppe_gestion\Controller\UserController::listUserIndexAction")->bind('userslist');
 
 // liste des utilisateurs  renvoyant l'id selectionné à la fonction modifier
 $app->post('/userslist', "ppe_gestion\Controller\UserController::listUserAction")->bind('users');
