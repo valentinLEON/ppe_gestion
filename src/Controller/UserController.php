@@ -228,7 +228,7 @@ class UserController {
         return $app->redirect($app['url_generator']->generate('userslist'));
     }
 
-    public function editUserAction(Request $request, Application $app) {
+    public function editUserAction(User $user, Request $request, Application $app) {
 
         $classes = $app['dao.classNames']->findAll();
         $disciplines = $app['dao.discipline']->findAll();
@@ -241,8 +241,11 @@ class UserController {
         $idrole = $request->request->get('id_role'); 
 
         $users_total = $app['dao.user']->countAll();
-
-        $newUser = new User();
+        
+        $user=$app['dao.user']->findUser($request->request->get('id_user'));
+   var_dump($user);                 
+        $newUser = new User(); 
+  
         $newUser->setUsername($request->request->get('username'));
         $newUser->setName($request->request->get('name'));
         $newUser->setFirstName($request->request->get('firstname'));
@@ -251,13 +254,12 @@ class UserController {
         $newUser->setSalt($request->request->get('salt'));
         $newUser->setRole($request->request->get('role'));
         $newUser->setIdDiscipline($request->request->get('id_discipline_form'));
-        $newUser->setIdUsers($request->request->get('id_user'));
         $newUser->setIdClassName($request->request->get('id_class_form'));
         $newUser->setStatus($request->request->get('status'));   
         $newUser->setUserMail($request->request->get('user_mail'));
         $newUser->setDtUpdate(date('Y-m-d H:i:s'));
         
-var_dump($newUser);
+
 
         $app['dao.user']->saveUser($newUser);
         
