@@ -229,27 +229,27 @@ var_dump($newUser);
 
     public function editUserIndexAction(Request $request, Application $app) {
 
-        $classes = $app['dao.classNames']->findAll();
-        $disciplines = $app['dao.discipline']->findAll();
-        $roles = $app['dao.user']->findAll();
-        $id_users = $app['dao.user']->findAll();
-        $username = $app['dao.user']->findAll();
-
-        $users_total = $app['dao.user']->countAll();
+//        $classes = $app['dao.classNames']->findAll();
+//        $disciplines = $app['dao.discipline']->findAll();
+//        $roles = $app['dao.user']->findAll();
+//        $id_users = $app['dao.user']->findAll();
+//        $username = $app['dao.user']->findAll();
+//
+//        $users_total = $app['dao.user']->countAll();
         
-        $app['session']->getFlashBag()->add('success', 'You are in editUserIndexAction');
-
-        return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
-            'classe'        =>$classes,
-            'discipline'    =>$disciplines,
-            'username'      =>$username,
-            'role'          =>$roles,
-            'id_class_form' =>$idclass,
-            'id_discipline' =>$id_discipline,
-            'id_role'       =>$idrole,
-            'id_user'       =>$id_users,
-            'users_total'   =>$users_total,
-         ));
+    //    $app['session']->getFlashBag()->add('success', 'You are in editUserIndexAction');
+//
+//        return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
+//            'classe'        =>$classes,
+//            'discipline'    =>$disciplines,
+//            'username'      =>$username,
+//            'role'          =>$roles,
+//            'id_class_form' =>$idclass,
+//            'id_discipline' =>$id_discipline,
+//            'id_role'       =>$idrole,
+//            'id_user'       =>$id_users,
+//            'users_total'   =>$users_total,
+//         ));
 
     }
 

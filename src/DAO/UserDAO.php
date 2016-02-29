@@ -26,7 +26,7 @@ class UserDAO extends DAO implements UserProviderInterface
      *
      * Retourne un utilisateur via son id
      */
-    public function find($id)
+    public function findUser($id)
     {
         $sql = "SELECT * FROM users WHERE id_users=?";
         $row = $this->getDb()->fetchAssoc($sql, array($id));
@@ -166,27 +166,11 @@ class UserDAO extends DAO implements UserProviderInterface
 
     
                              // Delete LE USER 
-   public function deleteUser(User $user)
-    {     
-        $infoUser= array( 
-            'id_users'      => $user->getIdUsers(), 
-            'username'      => $user->getUsername(), 
-            'name'          => $user->getName(),
-            'firstname'     => $user->getFirstname(),
-            'password'      => $user->getPassword(),
-            'salt'          => $user->getSalt(),
-            'role'          => $user->getRole(),
-            'user_mail'     => $user->getUserMail(), 
-            'description'   => $user->getDescription(), 
-            'dt_create'     => $user->getDtCreate(), 
-            'dt_update'     => $user->getDtUpdate(), 
-            'id_discipline' => $user->getIdDiscipline(), 
-            'id_class'      => $user->getIdClassName(),
-            );
-
-            $this->getDb()->delete('users', $infoUser);        
-
-    }
+    
+    public function deleteUser(User $user)
+        {     
+            $this->getDb()->delete('users', $user);           
+        }
     
     // CREER NOTRE INSTANCE DE LA CLASSE USER
     protected function buildDomainObject($row)
