@@ -29,35 +29,38 @@ $app->get('/', function(Request $request) use ($app) {
  */
 $app->get('/', function(Request $request) use ($app) {
     
-     $classes = $app['dao.classNames']->findAll();
-     $classes_total = $app['dao.classNames']->countAll();
-    
-     $students = $app['dao.student']->findAll();
-     $students_total = $app['dao.student']->countAll();
-     $date = date("d/m/Y");
+    $classes = $app['dao.classNames']->findAll();
+    $classes_total = $app['dao.classNames']->countAll();
+
+    $students = $app['dao.student']->findAll();
+    $students_total = $app['dao.student']->countAll();
+    $date = date("d/m/Y");
      
     return $app['twig']->render('index.html.twig', array(
+            
             'classes'=>$classes,
             'classes_number'=>$classes_total,
             'students'=>$students,
             'students_number'=>$students_total,
-
-
             'date'=>$date,
-
-            )
-
-           );
-    
+        )
+    );  
 });
-//                                                             LOGIN 
 
-$app->get('/login', function(Request $request) use ($app) {
+
+/**
+ * 
+ *  *   
+*                                                                   LOGIN
+ * route pour afficher le login
+ */
+$app->get('/login', function (Request $request) use ($app) {
     return $app['twig']->render('login.html.twig', array(
-        'error'         => $app['session']->getFlashBag()->add('error', 'Mauvais utilisateur !'),
-        'last_username' => $app['session']->get('_security.last_username'),
+    /*  'error' => $app['security.last.error']($request),
+        'last_username' => $app['session']->get('_security.last_username'),*/
     ));
 })->bind('login');
+
 
 
 
@@ -89,21 +92,6 @@ $app->get('/testroutes', function () use ($app) {
 $app->get('/testlogin', function () use ($app) {
     return $app['twig']->render('testlogin.html.twig');
 })->bind('testlogin');
-
-
-/**
- * 
- *  *   
-*                                                                   LOGIN
- * route pour afficher le login
- */
-$app->get('/login', function (Request $request) use ($app) {
-    return $app['twig']->render('login.html.twig', array(
-        /*'error' => $app['security.last.error']($request),
-        'last_username' => $app['session']->get('_security.last_username'),*/
-    ));
-})->bind('login');
-
 
 
 
@@ -190,8 +178,10 @@ $app->get('/studentstats', function () use ($app) {
 
 
 /**                                                           UTILISATEURS              **
+ * 
+ * 
  *   
- *                        TABLEAU DE BORD DE GESTION DES UTILISATEURS        */
+ *                   TABLEAU DE BORD DE GESTION DES UTILISATEURS        */
     $app->get('/usertab',  "ppe_gestion\Controller\UserController::tabUserAction")->bind('userstab');
 /**
  *                             LISTE DES UTILSATEURS       */
@@ -226,7 +216,7 @@ $app->get('/calendar', function () use ($app) {
     return $app['twig']->render('calendar.html.twig');
 })->bind('calendar');
 
-/**                                                              CLASSES
+/**                                                                CLASSES
  *
  *                   TABLEAU DE BORD
  * 
@@ -325,11 +315,7 @@ $app->get('/disciplineslist', function () use ($app) {
  *
  * route pour l'ajout des matières
  */
-$app->get('/adddiscipline', function () use ($app) {
-    return $app['twig']->render('FormTemplate/adddiscipline.html.twig');
-})->bind('adddiscipline');
-
-$app->post('adddiscipline', function(Request $request) use($app){
+$app->match('adddiscipline', function(Request $request) use($app){
     $newDiscipline = new Discipline();
 
     $newDiscipline->setNameDiscipline($request->request->get('matiere'));
@@ -338,15 +324,15 @@ $app->post('adddiscipline', function(Request $request) use($app){
     $newDiscipline->setDtUpdate(date('Y-m-d H:i:s'));
 
     $app['dao.discipline']->saveDiscipline($newDiscipline);
-
+    $app['session']->getFlashBag()->add('success', 'La discipline a été ajoutée avec succès !');
     return  $app['twig']->render('FormTemplate/adddiscipline.html.twig');
     
 })->bind('discipline');
 
-/**                                                 NOTES         - EVALUATIONS
+/**                                                                   NOTES     
  * 
  *  
- *                   TABLEAU DE BORD STATS DES NOTES
+ *                                  TABLEAU DE BORD STATS DES NOTES
  * 
  */
 $app->get('/notetab', function () use ($app) {
@@ -355,7 +341,7 @@ $app->get('/notetab', function () use ($app) {
 
 /**   
  * 
- *                       LISTE
+ *                                   LISTE
  * 
  * 
  * route pour l'affichage de la liste des notes - evaluations
@@ -367,10 +353,10 @@ $app->get('/notelist', function () use ($app) {
 
 /**   
  * 
- *              AJOUT
+ *                                    AJOUT
  * 
  * 
- *                                  Route pour l'ajout des notes et commentaires
+ *  Route pour l'ajout des notes et commentaires
  */
 
 $app->get('/addnote',function() use ($app) {
@@ -386,12 +372,15 @@ $app->get('/addnote',function() use ($app) {
     
 })->bind('addnote');
 
+
+
 $app->post('/addnote', function(Request $request) use ($app){
 
     $newEvaluation = new Evaluation();
 
     $student = $app['dao.student']->findStudent($request->request->get('etudiants'));
     $discipline = $app['dao.discipline']->findDiscipline($request->request->get('matiere'));
+
 
     $newEvaluation->setGradeStudent($request->request->get('note'));
     $newEvaluation->setDiscipline($discipline);
@@ -403,9 +392,9 @@ $app->post('/addnote', function(Request $request) use ($app){
 
     $app['dao.evaluation']->saveGrade($newEvaluation);
     
-    $classes = $app['dao.classNames']->findAll();
-    $discipline = $app['dao.discipline']->findAll();
-    $student = $app['dao.student']->findAll();
+//    $classes = $app['dao.classNames']->findAll();
+//    $discipline = $app['dao.discipline']->findAll();
+//    $student = $app['dao.student']->findAll();
 
     return $app['twig']->render('FormTemplate/addnote.html.twig', array(
         'classNames' => $classes,
