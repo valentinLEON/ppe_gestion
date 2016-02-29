@@ -92,14 +92,18 @@ $app->get('/studentstats',  "ppe_gestion\Controller\StudentController::studentSt
     $app->post('/adduser', "ppe_gestion\Controller\UserController::addUserAction")->bind('user_added');
 
     
-/**                                                         CalendarController    
+/**                                                       
+ * 
+ *                                                            CalendarController    
  *      
  *                                                              CALENDRIER
  * route pour afficher le calendrier*/
 $app->get('/calendar',"ppe_gestion\Controller\CalendarController::indexAction")->bind('calendar');
 
 
-/**                                                         ClassNameController                                                
+/**                                                        
+ * 
+ *                                                             ClassNameController                                                
  *
  *                                                                CLASSES
  *                                   TABLEAU DE BORD
@@ -118,7 +122,7 @@ $app->get('/classeslist', "ppe_gestion\Controller\ClassNameController::listClass
  *                                         AJOUT
  * route pour l'ajout des classes
  */
-$app->get('/addclass', "ppe_gestion\Controller\ClassNameController::addClassNameAction")->bind('addclass');
+$app->get('/addclass', "ppe_gestion\Controller\ClassNameController::addClassAction")->bind('addclass');
 
 $app->post('/addclass', "ppe_gestion\Controller\ClassNameController::addClassNameAction")->bind('class');
 
