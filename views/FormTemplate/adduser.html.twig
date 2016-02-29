@@ -7,7 +7,7 @@
 {% block content %}
 
     <!-- form start -->
-    <form class="form-horizontal" action="adduser"  method="post">
+  {#  <form class="form-horizontal" action="modiduser/add"  method="post">
 
         {% for success in app.session.getFlashBag.get('success') %}
             <div class="alert alert-success">
@@ -16,7 +16,7 @@
         {% endfor %}
         <!-- /.box-footer -->
 
-    </form>
+    </form>#}
 
 
     {% if message %}
@@ -60,7 +60,7 @@
     <div class="box box-primary">
         <!-- /.box-header -->
         <!-- form start -->
-        <form role="form" method="post" action="{{ path('user') }}">
+        <form role="form" method="post" action="modifuser/{{ user.id_users }}/add">
 
             <div class="box-body" style="margin-left:2rem; width: 90%; ">
 

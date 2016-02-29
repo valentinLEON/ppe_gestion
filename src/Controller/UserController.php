@@ -7,14 +7,12 @@ use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 
 use ppe_gestion\Domain\User;
-use ppe_gestion\Domain\StudentToClass;
-use ppe_gestion\Domain\Student;
-use ppe_gestion\Domain\DisciplineToClass;
-use ppe_gestion\Domain\Evaluation;
-use ppe_gestion\Domain\Discipline;
-use ppe_gestion\Domain\ClassName;
-
-use ppe_gestion\Form\Type\addNoteForm;
+//use ppe_gestion\Domain\StudentToClass;
+//use ppe_gestion\Domain\Student;
+//use ppe_gestion\Domain\DisciplineToClass;
+//use ppe_gestion\Domain\Evaluation;
+//use ppe_gestion\Domain\Discipline;
+//use ppe_gestion\Domain\ClassName;
 
 
 
@@ -138,14 +136,14 @@ class UserController {
         $username = $app['dao.user']->findAll();
 
         $modification= $request->request->get('modification');    
-        $suppression= $request->request->get('suppression');    
+    //    $suppression= $request->request->get('suppression');    
 
         $idclass = $request->request->get('id_class_form');
         $id_discipline = $request->request->get('id_discipline');
         $idrole = $request->request->get('id_role'); 
 
         $users_total = $app['dao.user']->countAll();
-        $id_user_form = $app['dao.user']->find($iduser);
+      //  $id_user_form = $app['dao.user']->find($iduser);
 
         $newUser = new User();
 
@@ -178,7 +176,7 @@ class UserController {
             'id_discipline' =>$id_discipline,
             'id_role'       =>$idrole,
             'id_user'       =>$id_users,
-            'id_users'      =>$iduser,
+            'id_users'      =>$id_user,
             'user_form'     =>$id_user_form,
             'users_total'   =>$users_total,
             'modification'  =>$modification,
