@@ -16,9 +16,23 @@ class HomeController {
      * @param Application $app Silex application
      */
     public function indexAction(Application $app) {
-        $users= $app['dao.user']->findAll();
-        return $app['twig']->render('index.html.twig', array('users' => $users));
-    }
+        
+        $classes = $app['dao.classNames']->findAll();
+        $classes_total = $app['dao.classNames']->countAll();
+
+        $students = $app['dao.student']->findAll();
+        $students_total = $app['dao.student']->countAll();
+        $date = date("d/m/Y");
+
+        return $app['twig']->render('index.html.twig', array(
+
+                'classes'=>$classes,
+                'classes_number'=>$classes_total,
+                'students'=>$students,
+                'students_number'=>$students_total,
+                'date'=>$date,
+            ));
+    } 
 
     /**
      * User login controller.

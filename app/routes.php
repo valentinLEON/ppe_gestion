@@ -12,63 +12,18 @@ use ppe_gestion\Domain\Examen;
 // PAS TOUCHER use ppe_gestion\Form\Type\addNoteForm;
 
 
-/**                                                            ACCUEIL
+/**                                                                ACCUEIL
  * 
- *                              AFFICHAGE ACCUEIL
- * 
- * Acces avec SecurityProvider
+ *                              AFFICHAGE ACCUEIL        * */
+$app->get('/', "ppe_gestion\Controller\HomeController::indexAction");
 
-$app->get('/', function(Request $request) use ($app) {
-    
-    return $app['twig']->render('index.html.twig'), array(
-        'error' => $app['security.last_error']($request),
-        'last_username' => $app['session']->get('_security.last_username'),
-    ));
-    
-});
- */
-$app->get('/', function(Request $request) use ($app) {
-    
-    $classes = $app['dao.classNames']->findAll();
-    $classes_total = $app['dao.classNames']->countAll();
-
-    $students = $app['dao.student']->findAll();
-    $students_total = $app['dao.student']->countAll();
-    $date = date("d/m/Y");
-     
-    return $app['twig']->render('index.html.twig', array(
-            
-            'classes'=>$classes,
-            'classes_number'=>$classes_total,
-            'students'=>$students,
-            'students_number'=>$students_total,
-            'date'=>$date,
-        )
-    );  
-});
-
-
-/**
- * 
- *  *   
-*                                                                   LOGIN
+/**                                                                  LOGIN
  * route pour afficher le login
  */
-$app->get('/login', function (Request $request) use ($app) {
-    return $app['twig']->render('login.html.twig', array(
-    /*  'error' => $app['security.last.error']($request),
-        'last_username' => $app['session']->get('_security.last_username'),*/
-    ));
-})->bind('login');
+$app->get('/login', "ppe_gestion\Controller\HomeController::loginAction")->bind('login');
 
-
-
-
- /*                                                                 ADMIN
-                                                         
- * 
+ /*                                                                   ADMIN                                                      
  *                        TABLEAU DE BORD 
- * 
  * route pour l'affichage de la liste des etudiants
  */
 $app->get('/admintab', "ppe_gestion\Controller\AdminController::indexAction")->bind('admintab');
