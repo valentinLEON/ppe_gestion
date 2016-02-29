@@ -241,7 +241,7 @@ $app->post('/modifuser/{id_users}/delete', "ppe_gestion\Controller\UserControlle
 
 //      MODIFIE USER
 
-$app->get('/modifuser/edit', "ppe_gestion\Controller\UserController::indexAction")->bind('user_edit');
+$app->get('/modifuser/edit', "ppe_gestion\Controller\UserController::editUserindexAction")->bind('user_edit');
 $app->post('/modifuser/{id_users}/edit', "ppe_gestion\Controller\UserController::editUserAction")->bind('user_edited');
 
 

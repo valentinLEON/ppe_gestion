@@ -46,8 +46,13 @@ class UserController {
     
     
     
-    
-    
+
+    /**
+
+     * User LIST  controller.
+
+     *    
+    */
     public function listUserAction(Request $request, $app) {
    
 
@@ -90,18 +95,8 @@ class UserController {
         ));
     }
 
-    /**
-
-     * Add user controller.
-
-     *
-
-     * @param Request $request Incoming request
-
-     * @param Application $app Silex application
-
-     */   
-    public function addUserIndexAction(Request $request, Application $app) {
+//                              INDEX DE L AJOUT D UTILISATEURS
+    public function addUserIndexAction(Application $app) {
         
         $classes = $app['dao.classNames']->findAll();
         $disciplines = $app['dao.discipline']->findAll();
@@ -118,7 +113,7 @@ class UserController {
          ));
     }
     
-
+//                              FONCTION D AJOUT D UTILISATEUR
     public function addUserAction(Request $request, Application $app) {
    
         $newUser = new User();
