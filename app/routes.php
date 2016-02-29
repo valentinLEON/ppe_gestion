@@ -91,77 +91,41 @@ $app->get('/studentstats',  "ppe_gestion\Controller\StudentController::studentSt
  //* route pour la soumission du formulaire d ajout d utilisateurs
     $app->post('/adduser', "ppe_gestion\Controller\UserController::addUserAction")->bind('user_added');
 
-/**
- *   
-                                                                   CALENDRIER
- * route pour afficher le calendrier
- */
-$app->get('/calendar', function () use ($app) {
-    //$eval = $app['dao.evaluation']->findAllByDiscipline(1);
-    return $app['twig']->render('calendar.html.twig');
-})->bind('calendar');
+    
+/**                                                         CalendarController    
+ *      
+ *                                                              CALENDRIER
+ * route pour afficher le calendrier*/
+$app->get('/calendar',"ppe_gestion\Controller\CalendarController::indexAction")->bind('calendar');
 
-/**                                                                CLASSES
+
+/**                                                         ClassNameController                                                
  *
- *                   TABLEAU DE BORD
-
+ *                                                                CLASSES
+ *                                   TABLEAU DE BORD
  * route pour l'ajout des classes
  */
-$app->match('/classetab', function () use ($app) {
-    return $app['twig']->render('TabTemplate/classetab.html.twig');
-})->bind('classetab');
+$app->match('/classetab', "ppe_gestion\Controller\ClassNameController::indexAction")->bind('classetab');
 
  /**
- * 
- *                       LISTE
- * 
+ *                                        LISTE
  * 
  * route pour l'affichage de la liste des classes
  */
-$app->get('/classeslist', function () use ($app) {
-    
-     $classes = $app['dao.classNames']->findAll();
-     $disciplines = $app['dao.discipline']->findAll();
-     $users = $app['dao.user']->findAll();
-     
-    return $app['twig']->render('ListTemplate/classeslist.html.twig', array(
-        'classes'=>$classes,
-        'disciplines'=>$disciplines,
-        'users'=>$users,
-    ));
-    
-})->bind('classeslist');
+$app->get('/classeslist', "ppe_gestion\Controller\ClassNameController::listClassNameindexAction")->bind('classeslist');
 
 /**
- *                     AJOUT
- * 
- * 
+ *                                         AJOUT
  * route pour l'ajout des classes
  */
-$app->get('/addclass', function () use ($app) {
-    return $app['twig']->render('FormTemplate/addclass.html.twig');
-})->bind('addclass');
+$app->get('/addclass', "ppe_gestion\Controller\ClassNameController::addClassNameindexAction")->bind('addclass');
 
-$app->post('/addclass', function(Request $request) use ($app){
-    $newClass = new ClassName();
-
-    $newClass->setClassName($request->request->get('class'));
-    $newClass->setClassOption($request->request->get('option'));
-    $newClass->setClassYear($request->request->get('year'));
-    $newClass->setDescription($request->request->get('description'));
-    $newClass->setNombreEtudiant($request->request->get('nombreEtudiant'));
-    $newClass->setDtCreate(date('Y-m-d H:i:s'));
-    $newClass->setDtUpdate(date('Y-m-d H:i:s'));
-
-    $app['dao.classNames']->saveClassName($newClass);
-    $app['session']->getFlashBag()->add('success', 'La classe a été ajouté avec succès !');
-
-    return $app->redirect('/addclass', 301);
-
-})->bind('class');
+$app->post('/addclass', "ppe_gestion\Controller\ClassNameController::addClassNameAction")->bind('class');
 
 
-/**                                                            DISCIPLINES
+/**                                                              DisciplineController
+ * 
+ *                                                                  DISCIPLINES
  *                   TABLEAU DE BORD                */
 $app->get('/disciplinetab',  "ppe_gestion\Controller\DisciplineController::tabDisciplineAction")->bind('disciplinetab');
 
@@ -174,7 +138,6 @@ $app->get('/disciplinetab',  "ppe_gestion\Controller\DisciplineController::tabDi
  * route pour l'ajout des matières      */
 $app->get('/adddiscipline', "ppe_gestion\Controller\DisciplineController::addDisciplineIndexAction" )->bind('adddiscipline');
 $app->post('adddiscipline', "ppe_gestion\Controller\DisciplineController::addDisciplineAction")->bind('discipline');
-
 
 
 
