@@ -16,14 +16,12 @@ $app->get('/login', "ppe_gestion\Controller\HomeController::loginAction")->bind(
  *                                                       TESTS POUR LES ROUTES
  * route pour l'affichage de la liste des etudiants
  */
-$app->get('/testroutes',"ppe_gestion\Controller\HomeController::indexAction")->bind('testroutes');
+$app->get('/testroutes',"ppe_gestion\Controller\HomeController::testroutesAction")->bind('testroutes');
 /*
  *                                                       TESTS POUR LES LOGINS
  * route pour l'affichage de la liste des etudiants
  */
-$app->get('/testlogin', function () use ($app) {
-    return $app['twig']->render('testlogin.html.twig');
-})->bind('testlogin');
+$app->get('/testlogin',"ppe_gestion\Controller\HomeController::testloginAction")->bind('testlogin');
 
 
 
@@ -37,22 +35,22 @@ $app->get('/admintab', "ppe_gestion\Controller\AdminController::indexAction")->b
 
 /**                                                          StudentController
  * 
- *                                             ETUDIANTS
+ *                                                               ETUDIANTS
  *   
- *                     TABLEAU DE BORD 
+ *                                                            TABLEAU DE BORD 
  * 
  * route pour l'affichage de la gestion des etudiants
  */
 $app->get('/studenttab',"ppe_gestion\Controller\StudentController::indexAction")->bind('studenttab');
 
 /**
- *                     LISTE 
+ *                                                                LISTE 
  * route pour l'affichage de la liste des etudiants
  */
 $app->get('/studentslist',"ppe_gestion\Controller\StudentController::listIndexAction")->bind('studentslist');
 
 /**
- *                     AJOUT
+ *                                                                AJOUT
  * route pour l'affichage du template de l'ajout des étudiants
  * avec l'affichage des classes dans la liste déroulante
  */
@@ -62,9 +60,7 @@ $app->post('/addstudent', "ppe_gestion\Controller\StudentController::addAction")
 
 /* *                    STATISTIQUES
  * route pour l'affichage de la liste des etudiants*/
-$app->get('/studentstats', function () use ($app) {
-    return $app['twig']->render('StatTemplate/studentstats.html.twig');
-})->bind('studentstats');
+$app->get('/studentstats',  "ppe_gestion\Controller\StudentController::studentStatIndex")->bind('studentstats');
 
 
 

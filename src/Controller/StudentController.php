@@ -23,13 +23,15 @@ use ppe_gestion\Domain\ClassName;
 class StudentController {
     
     
-//    INDEX
+//                     INDEX
+    
    public function indexAction(Application $app) {
        
         return $app['twig']->render('TabTemplate/studenttab.html.twig');
    }
 
-   // LISTE
+   //                   LISTE
+   
     public function listIndexAction(Request $request ,Application $app) {
 
        $etudiants = $app['dao.student']->findAll();
@@ -75,4 +77,8 @@ class StudentController {
         ));
     }
     
+    //              STATS
+    public function studentStatIndex(Request $request ,Application $app){
+        return $app['twig']->render('StatTemplate/studentstats.html.twig');
+    }
  }

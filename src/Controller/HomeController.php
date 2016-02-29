@@ -52,7 +52,15 @@ class HomeController {
             ));
     }
     
-    public function testroutes (Application $app){
+    //      TESTLOGIN
+    public function testroutesAction(Application $app){
         return $app['twig']->render('testroutes.html.twig');
     }
+    
+    //      TESTS ROUTES
+    public function testloginAction(Request $request, Application $app){
+        return $app['twig']->render('testlogin.html.twig');
+    }
+    
+    
 }
