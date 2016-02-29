@@ -74,35 +74,37 @@ class UserController {
     
     
     public function listUserAction(Request $request, $app) {
-   
-
-        $users = $app['dao.user']->findAll();   
-
-
-       $id_users_form = $request->request->get('id_user');
-       $id_users= $request->request->get('id_user');
-       $id_class_form = $request->request->get('id_class');
-       $id_discipline_form = $request->request->get('id_discipline');
-
+       
+       $users = $app['dao.user']->findAll();   
+               
+        $classes = $app['dao.classNames']->findAll();
+        $disciplines = $app['dao.discipline']->findAll();
+        $roles = $app['dao.user']->findAll();
+        $users = $app['dao.user']->findAll();
+        
+//       $id_users_form = $request->request->get('id_user');
+//       $id_users= $request->request->get('id_user');
+//       $id_class_form = $request->request->get('id_class');
+//       $id_discipline_form = $request->request->get('id_discipline');
 
         $classes = $app['dao.classNames']->findAll();
 
         $disciplines = $app['dao.discipline']->findAll();
 
-        $get_id_users = $app['dao.user']->getIdUsers();
-        $get_id_users = $app['dao.classNames']->getIdClass();
-        $get_id_disciplines = $app['dao.discipline']->getIdDisciplines();
-
-        $set_id_users = $app['dao.user']->setIdUsers($get_id_users);
-
-
-        $get_id_role = $app['dao.user']->findAll(); 
-        $idclassUser = $app['dao.user']->findAll();
-
-
-        $id_classe =   $app['dao.classNames']->findClassname($id_class_User);            
-        $id_discipline = $app['dao.discipline']->findDiscipline($id_discipline_form);
-        $id_role = $app['dao.user']->find($id_users_form);
+//        $get_id_users = $app['dao.user']->getIdUsers();
+//        $get_id_class = $app['dao.classNames']->getIdClass();
+//        $get_id_disciplines = $app['dao.discipline']->getIdDisciplines();
+//
+//        $set_id_users = $app['dao.user']->setIdUsers($get_id_users);
+//
+//
+//        $get_id_role = $app['dao.user']->findAll(); 
+//        $idclassUser = $app['dao.user']->findAll();
+//
+//
+//        $id_classe =   $app['dao.classNames']->findClassname($id_class_User);            
+//        $id_discipline = $app['dao.discipline']->findDiscipline($id_discipline_form);
+//        $id_role = $app['dao.user']->find($id_users_form);
 
         return $app['twig']->render('ListTemplate/userslist.html.twig', array(
             'classe'        =>$classes,
@@ -157,7 +159,7 @@ class UserController {
         $newUser->setUserMail($request->request->get('user_mail'));
         $newUser->setDtCreate(date('Y-m-d H:i:s'));
         $newUser->setDtUpdate(date('Y-m-d H:i:s'));
-
+var_dump($newUser);
         $app['dao.user']->saveUser($newUser);
 
         $classes = $app['dao.classNames']->findAll();

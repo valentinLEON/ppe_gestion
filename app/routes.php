@@ -62,7 +62,16 @@ $app->get('/login', function(Request $request) use ($app) {
 
 
  /*                                                                 ADMIN
+                                                         
+ * 
+ *                        TABLEAU DE BORD 
+ * 
+ * route pour l'affichage de la liste des etudiants
+ */
+$app->get('/admintab', "ppe_gestion\Controller\AdminController::indexAction")->bind('admintab');
 
+
+/** 
  *                       TESTS POUR LES ROUTES
  * 
  * route pour l'affichage de la liste des etudiants
@@ -70,6 +79,7 @@ $app->get('/login', function(Request $request) use ($app) {
 $app->get('/testroutes', function () use ($app) {
     return $app['twig']->render('testroutes.html.twig');
 })->bind('testroutes');
+
 
 /*
  *                       TESTS POUR LES LOGINS
@@ -80,50 +90,6 @@ $app->get('/testlogin', function () use ($app) {
     return $app['twig']->render('testlogin.html.twig');
 })->bind('testlogin');
 
-
-/**                                                          
- * 
- *                        TABLEAU DE BORD 
- * 
- * route pour l'affichage de la liste des etudiants
- */
-$app->get('/admintab', function () use ($app) {
-         
-     $users = $app['dao.user']->findAll();
-     $users_total = $app['dao.user']->countAll(); 
-
-     $classes = $app['dao.classNames']->findAll();
-     $classes_total = $app['dao.classNames']->countAll();
-      
-     $students = $app['dao.student']->findAll();
-     $students_total = $app['dao.student']->countAll();
-          
-     $disciplines = $app['dao.discipline']->findAll();
-     $disciplines_total = $app['dao.discipline']->countAll();
-     
-     $date = date("d/m/Y");
-    
-    return $app['twig']->render('TabTemplate/admintab.html.twig', array(
-        
-        'users'=>$users,
-        'users_number'=>$users_total,
-        'disciplines'=>$disciplines,
-        'disciplines_number'=>$disciplines_total,
-        'absences_number'=>'1',
-        'retards_number'=>'1',
-        'retards_number'=>'1',
-        'classes'=>$classes,
-        'disciplines'=>$disciplines,
-        'students'=>$students,
-        'students_number'=>$students_total,
-        'classes_number'=>$classes_total,
-        'disciplines_number'=>$disciplines_total,
-        'date'=>$date,
-        
-    ));
-    
-    
-})->bind('admintab');
 
 /**
  * 
@@ -225,13 +191,13 @@ $app->get('/studentstats', function () use ($app) {
 
 /**                                                           UTILISATEURS              **
  *   
- *                     TABLEAU DE BORD 
+ *                           TABLEAU DE BORD 
  */
 $app->get('/usertab', function () use ($app) {
     return $app['twig']->render('TabTemplate/usertab.html.twig');
 })->bind('usertab');
 
-// Modification de l'utilisateur
+//                   Modification de l'utilisateur
 // 
 //      SUPPRIME USER
 $app->get('/modifuser/delete', "ppe_gestion\Controller\UserController::deleteUserIndexAction")->bind('user_delete');
@@ -243,7 +209,7 @@ $app->get('/modifuser/edit', "ppe_gestion\Controller\UserController::editUserInd
 $app->post('/modifuser/edit', "ppe_gestion\Controller\UserController::editUserAction")->bind('user_edited');
 
 /*    *
- *                     AJOUT
+ *                              AJOUT
  * 
  * route pour l'ajout des utilisateurs
  */
