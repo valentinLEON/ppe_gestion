@@ -30,11 +30,18 @@ class UserController {
      */
 
     public function indexAction(Application $app) {
-
+              
+        $classes = $app['dao.classNames']->findAll();
+        $disciplines = $app['dao.discipline']->findAll();
+        $roles = $app['dao.user']->findAll();
         $users = $app['dao.user']->findAll();
 
-        return $app['twig']->render('TabTemplate/userslist.html.twig');
-
+       return $app['twig']->render('ListTemplate/userslist.html.twig', array(
+           'classe'        =>$classes,
+           'discipline'    =>$disciplines,
+           'role'          =>$roles,
+           'users'         =>$users,
+       ));
     }
 
     /**

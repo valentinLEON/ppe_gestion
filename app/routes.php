@@ -250,23 +250,23 @@ $app->post('/modifuser/{id_users}/edit', "ppe_gestion\Controller\UserController:
  * 
  * route pour l'ajout des utilisateurs
  */
-$app->get('/adduser', function () use ($app) {
-    
-     $classes = $app['dao.classNames']->findAll();
-     $disciplines = $app['dao.discipline']->findAll();
-     $users = $app['dao.user']->findAll();
-     
-     
-    return $app['twig']->render('FormTemplate/adduser.html.twig', array(
-        'classe'=>$classes,
-        'discipline'=>$disciplines,
-        'role'=>$users,
-        'message'=>'',
-        'id_users'=>$users,
-        'user'=>$users,
-    ));
-    
-})->bind('adduser');
+//$app->get('/adduser', function () use ($app) {
+//    
+//     $classes = $app['dao.classNames']->findAll();
+//     $disciplines = $app['dao.discipline']->findAll();
+//     $users = $app['dao.user']->findAll();
+//     
+//     
+//    return $app['twig']->render('FormTemplate/adduser.html.twig', array(
+//        'classe'=>$classes,
+//        'discipline'=>$disciplines,
+//        'role'=>$users,
+//        'message'=>'',
+//        'id_users'=>$users,
+//        'user'=>$users,
+//    ));
+//    
+//})->bind('adduser');
 
 $app->post('/adduser', "ppe_gestion\Controller\UserController::addUserAction")->bind('user_add');
 
