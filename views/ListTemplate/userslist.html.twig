@@ -48,24 +48,20 @@
                                     {# formulaire de modification de l'utilisatateur via l'id_user 
                                     
                                  //   <form action="{{ path('modifuser', {'modifuser':user.id_users }) }}" method="get" >   #}  
-                                    <form action="'modifuser/{{user.id_users}}' " method="get" >
-                                        
+                                    <form action="'modifuser/{{user.id_users}}/edit' " method="post" >
                                         <button type="submit" class="btn btn-warning btn-flat">
                                             <i class="fa fa-edit"></i>
                                         </button>
-                                         <input type="hidden" value="{{ user.id_users }}" name="id_user"  >
-                                         <input type="hidden" value="modification" name="modification"  >
                                     </form>   
                                          
                                 <td class="mytdminus"> 
                                     {# formulaire de suppression de l'utilisatateur via l'id_user 
                                     
                                 //    <form action="{{ path('delete', {'delete': artist.id}) }}" method="get" >  #}
-                                    <form action="modifuser/{{user.id_users}}'" method="get" >  
+                                    <form action="modifuser/{{user.id_users}}/delete'" method="post" >  
                                        <button type="submit" class="btn btn-danger btn-flat">
                                            <i class="fa fa-trash"></i>
                                        </button>
-                                       <input type="hidden" value="suppression" name="suppression"  >
                                     </form>
                                        
                                 </td>

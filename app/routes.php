@@ -236,10 +236,11 @@ $app->get('/usertab', function () use ($app) {
 // 
 //      SUPPRIME USER
 
-$app->get('/supuser/{id_users}/delete', "ppe_gestion\Controller\UserController::deleteUserAction")->bind('user_delete');
+$app->get('/modifuser/{id_users}/delete', "ppe_gestion\Controller\UserController::deleteUserAction")->bind('user_delete');
 
 //      MODIFIE USER
 
+$app->get('/modifuser/{id_users}/edit', "ppe_gestion\Controller\UserController::editUserAction")->bind('user_edit');
 $app->post('/modifuser/{id_users}/edit', "ppe_gestion\Controller\UserController::editUserAction")->bind('user_edit');
 
 
@@ -266,7 +267,7 @@ $app->get('/adduser', function () use ($app) {
     
 })->bind('adduser');
 
-$app->post('/modifuser/{id_users}/add', "ppe_gestion\Controller\UserController::addUserAction")->bind('user_add');
+$app->post('/modifuser/{$id_users}/add', "ppe_gestion\Controller\UserController::addUserAction")->bind('user_add');
 
 //$app->post('/adduser')->bind('user');
 
