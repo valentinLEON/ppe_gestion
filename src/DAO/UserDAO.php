@@ -155,20 +155,38 @@ class UserDAO extends DAO implements UserProviderInterface
             'id_discipline' => $user->getIdDiscipline(), 
             'id_class'      => $user->getIdClassName(),
             );
-        
      //       $this->getDb()->update('user', $infoUser);
-          
-            
-            $this->getDb()->insert('users', $infoUser);
-            
+            $this->getDb()->insert('users', $infoUser);        
 //            $_id_users = $this->getDb()->lastInsertId();
 //            $user->setIdUser($_id_users);    
 //            
            // $this->getDb()->insert('id_class', $_id_class);
            // $user->setIdClass($_id_class);
-      
     }
 
+    
+                             // Delete LE USER 
+   public function deleteUser(User $user)
+    {     
+        $infoUser= array( 
+            'id_users'      => $user->getIdUsers(), 
+            'username'      => $user->getUsername(), 
+            'name'          => $user->getName(),
+            'firstname'     => $user->getFirstname(),
+            'password'      => $user->getPassword(),
+            'salt'          => $user->getSalt(),
+            'role'          => $user->getRole(),
+            'user_mail'     => $user->getUserMail(), 
+            'description'   => $user->getDescription(), 
+            'dt_create'     => $user->getDtCreate(), 
+            'dt_update'     => $user->getDtUpdate(), 
+            'id_discipline' => $user->getIdDiscipline(), 
+            'id_class'      => $user->getIdClassName(),
+            );
+
+            $this->getDb()->delete('users', $infoUser);        
+
+    }
     
     // CREER NOTRE INSTANCE DE LA CLASSE USER
     protected function buildDomainObject($row)

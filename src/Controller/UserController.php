@@ -281,7 +281,7 @@ var_dump($newUser);
         $idrole = $request->request->get('id_role'); 
 
         $users_total = $app['dao.user']->countAll();
-      //  $id_user_form = $app['dao.user']->find($iduser);
+   
 
         $newUser = new User();
 
@@ -302,7 +302,7 @@ var_dump($newUser);
 
         $app['dao.user']->saveUser($newUser);
         
-       $app['session']->getFlashBag()->add('success', 'L');
+       $app['session']->getFlashBag()->add('success', 'L Utilisateur Enregistré');
 
         return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
             'classe'        =>$classes,
@@ -348,7 +348,7 @@ var_dump($newUser);
        
         var_dump($id_user);
 
-        $app['dao.user']->delete($id_users);
+        $app['dao.user']->deleteUser($id_users);
 
         $app['session']->getFlashBag()->add('danger', 'Utilisateur supprimé !');
 
