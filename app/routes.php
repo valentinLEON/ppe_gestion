@@ -283,9 +283,7 @@ $app->post('/addclass', function(Request $request) use ($app){
  *                   TABLEAU DE BORD
  * 
  */
-$app->match('/disciplinetab', function () use ($app) {
-    return $app['twig']->render('TabTemplate/disciplinetab.html.twig');
-})->bind('disciplinetab');
+  $app->get('/disciplinetab',  "ppe_gestion\Controller\UserController::tabUserAction")->bind('disciplinetab');
 
 /**   
  * 
@@ -386,7 +384,6 @@ $app->post('/addnote', function(Request $request) use ($app){
     $student = $app['dao.student']->findStudent($request->request->get('etudiants'));
     $discipline = $app['dao.discipline']->findDiscipline($request->request->get('matiere'));
 
-
     $newEvaluation->setGradeStudent($request->request->get('note'));
     $newEvaluation->setDiscipline($discipline);
     $newEvaluation->setStudent($student);
@@ -395,20 +392,25 @@ $app->post('/addnote', function(Request $request) use ($app){
     $newEvaluation->setDtCreate(date('Y-m-d H:i:s'));
     $newEvaluation->setDtUpdate(date('Y-m-d H:i:s'));
 
+    var_dump($newEvaluation);
+        
+    
     $app['dao.evaluation']->saveGrade($newEvaluation);
     
-//    $classes = $app['dao.classNames']->findAll();
-//    $discipline = $app['dao.discipline']->findAll();
-//    $student = $app['dao.student']->findAll();
+    $app['session']->getFlashBag()->add('success', 'La note a été ajoutée avec succès !');
+      
+    $classes = $app['dao.classNames']->findAll();
+    $discipline = $app['dao.discipline']->findAll();
+    $student = $app['dao.student']->findAll();
 
     return $app['twig']->render('FormTemplate/addnote.html.twig', array(
         'classNames' => $classes,
         'matieres' => $discipline,
         'student' => $student));
 
-   $app['session']->getFlashBag()->add('success', 'La note a été ajoutée avec succès !');
+ 
 
-    return $app->redirect('/addnote', 301);
+   // return $app->redirect('/addnote', 301);
 
 })->bind('note');
 
