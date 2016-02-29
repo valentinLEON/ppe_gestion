@@ -177,80 +177,55 @@ class UserController {
         $newUser->setDtCreate(date('Y-m-d H:i:s'));
         $newUser->setDtUpdate(date('Y-m-d H:i:s'));
         // regler le probleme de classname id class
-var_dump($newUser);
+        var_dump($newUser);
 
         $app['dao.user']->saveUser($newUser);
-//
-//        $classes = $app['dao.classNames']->findAll();
-//        $disciplines = $app['dao.discipline']->findAll();
-//        $role = $app['dao.user']->findAll();
-//        $id_users = $app['dao.user']->findAll();
-//
-//        $username = $request->request->get('username');
-//        $name = $request->request->get('name');
-//        $firstname = $request->request->get('firstname');
-//        $description = $request->request->get('description');
-//        $password = $request->request->get('password');
-//        $salt = $request->request->get('salt');
-//        $role_form = $request->request->get('role');
-//        $discipline_form = $request->request->get('discipline_form');
-//        $classname = $request->request->get('classname');
-//        $status = $request->request->get('status');   
-//        $user_mail = $request->request->get('user_mail');
+
+        $classes = $app['dao.classNames']->findAll();
+        $disciplines = $app['dao.discipline']->findAll();
+        $users = $app['dao.user']->findAll();
+       
+       // recupere les infos enregistrés concernant l utilisateur
+        $username = $request->request->get('username');
+        $name = $request->request->get('name');
+        $firstname = $request->request->get('firstname');
+        $description = $request->request->get('description');
+        $password = $request->request->get('password');
+        $salt = $request->request->get('salt');
+        $role = $request->request->get('role');
+        $discipline_form = $request->request->get('discipline_form');
+        $classname = $request->request->get('classname');
+        $status = $request->request->get('status');   
+        $user_mail = $request->request->get('user_mail');
         
         $app['session']->getFlashBag()->add('success', 'Utilisateur bien enregistré');
   
-        return $app['twig']->render('FormTemplate/adduser.html.twig');
-        
-//        
-//        , array(
-//           'classe'        =>$classes,
-//           'discipline'    =>$disciplines,
-//           'role_form'     =>$role_form,      
-//           'message'       =>$message,
-//           'id_users'      =>$id_users,
-//           'username'      =>$username,
-//           'name'          =>$name,
-//           'firstname'     =>$firstname,
-//           'description'   =>$description,
-//           'password'      =>$password,
-//           'salt'          =>$salt,
-//           'role'          =>$role,
-//           'discipline_form' =>$discipline_form,
-//           'classname'     =>$classname,
-//           'status'        =>$status,   
-//           'user_mail'     =>$user_mail,
-//
-//           ));
+        return $app['twig']->render('FormTemplate/adduser.html.twig'  , array(
+           'classe'           =>$classes,
+           'discipline'       =>$disciplines,
+           'user'             =>$users,  
+         //  'id_users'       =>$id_users,
+           'username'         =>$username,
+           'name'             =>$name,
+           'firstname'        =>$firstname,
+           'description'      =>$description,
+           'password'         =>$password,
+           'salt'             =>$salt,
+           'role'             =>$role,
+           'discipline_form'  =>$discipline_form,
+           'classname'        =>$classname,
+           'status'           =>$status,   
+           'user_mail'        =>$user_mail,
+  
+           ));
 } 
 
 
     /**   *             Edit user controller.            */   
 
-    public function editUserIndexAction(Request $request, Application $app) {
+    public function editUserIndexAction(Application $app) {
 
-//        $classes = $app['dao.classNames']->findAll();
-//        $disciplines = $app['dao.discipline']->findAll();
-//        $roles = $app['dao.user']->findAll();
-//        $id_users = $app['dao.user']->findAll();
-//        $username = $app['dao.user']->findAll();
-//
-//        $users_total = $app['dao.user']->countAll();
-        
-    //    $app['session']->getFlashBag()->add('success', 'You are in editUserIndexAction');
-//
-//        return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
-//            'classe'        =>$classes,
-//            'discipline'    =>$disciplines,
-//            'username'      =>$username,
-//            'role'          =>$roles,
-//            'id_class_form' =>$idclass,
-//            'id_discipline' =>$id_discipline,
-//            'id_role'       =>$idrole,
-//            'id_user'       =>$id_users,
-//            'users_total'   =>$users_total,
-//         ));
-
+        return $app->redirect($app['url_generator']->generate('userslist'));
     }
 
     public function editUserAction(Request $request, Application $app) {
@@ -278,11 +253,12 @@ var_dump($newUser);
         $newUser->setIdDiscipline($request->request->get('id_discipline_form'));
         $newUser->setIdUsers($request->request->get('id_user'));
         $newUser->setIdClassName($request->request->get('id_class_form'));
-        $newUser->setClassName($request->request->get('classname'));
         $newUser->setStatus($request->request->get('status'));   
         $newUser->setUserMail($request->request->get('user_mail'));
         $newUser->setDtUpdate(date('Y-m-d H:i:s'));
+        
 var_dump($newUser);
+
         $app['dao.user']->saveUser($newUser);
         
        $app['session']->getFlashBag()->add('success', 'L Utilisateur Enregistré');
@@ -307,7 +283,7 @@ var_dump($newUser);
     /**  *           Delete user controller.  */
     
 // Alert Etes vous sur de vouloir supprimer tel utilisateur .    
-    public function deleteUserIndexAction(Request $request, Application $app) { 
+    public function deleteUserIndexAction(Application $app) { 
    
         return $app->redirect($app['url_generator']->generate('userslist'));
     }
