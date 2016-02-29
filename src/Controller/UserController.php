@@ -200,7 +200,7 @@ var_dump($newUser);
         
         $app['session']->getFlashBag()->add('success', 'Utilisateur bien enregistré');
   
-        return $app['twig']->render('FormTemplate/adduser.html.twig'));
+        return $app['twig']->render('FormTemplate/adduser.html.twig');
         
 //        
 //        , array(
