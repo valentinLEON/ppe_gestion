@@ -49,20 +49,20 @@ class AdminController {
     
     return $app['twig']->render('TabTemplate/admintab.html.twig', array(
         
-        'users'=>$users,
-        'users_number'=>$users_total,
-        'disciplines'=>$disciplines,
-        'disciplines_number'=>$disciplines_total,
-        'absences_number'=>'1',
-        'retards_number'=>'1',
-        'retards_number'=>'1',
-        'classes'=>$classes,
-        'disciplines'=>$disciplines,
-        'students'=>$students,
-        'students_number'=>$students_total,
-        'classes_number'=>$classes_total,
-        'disciplines_number'=>$disciplines_total,
-        'date'=>$date,
+        'users'                 =>$users,
+        'users_number'          =>$users_total,
+        'disciplines'           =>$disciplines,
+        'disciplines_number'    =>$disciplines_total,
+        'absences_number'       =>'1',
+        'retards_number'        =>'1',
+        'retards_number'        =>'1',
+        'classes'               =>$classes,
+        'disciplines'           =>$disciplines,
+        'students'              =>$students,
+        'students_number'       =>$students_total,
+        'classes_number'        =>$classes_total,
+        'disciplines_number'    =>$disciplines_total,
+        'date'                  =>$date,
         
     ));
     
