@@ -191,46 +191,29 @@ $app->get('/studentstats', function () use ($app) {
 
 /**                                                           UTILISATEURS              **
  *   
- *                           TABLEAU DE BORD 
+ *                               TABLEAU DE BORD 
  */
-$app->get('/usertab', function () use ($app) {
-    return $app['twig']->render('TabTemplate/usertab.html.twig');
-})->bind('usertab');
-
-//                   Modification de l'utilisateur
-// 
-//      SUPPRIME USER
-$app->get('/modifuser/delete', "ppe_gestion\Controller\UserController::deleteUserIndexAction")->bind('user_delete');
-$app->post('/modifuser/delete', "ppe_gestion\Controller\UserController::deleteUserAction")->bind('user_deleted');
-
-//      MODIFIE USER
-
-$app->get('/modifuser/edit', "ppe_gestion\Controller\UserController::editUserIndexAction")->bind('user_edit');
-$app->post('/modifuser/edit', "ppe_gestion\Controller\UserController::editUserAction")->bind('user_edited');
-
-/*    *
- *                              AJOUT
- * 
- * route pour l'ajout des utilisateurs
- */
- //* route pour l'affichage du formulaire d ajout d utilisateurs
-$app->get('/adduser', "ppe_gestion\Controller\UserController::addUserIndexAction")->bind('user_add');
-
- //* route pour la soumission du formulaire d ajout d utilisateurs
-$app->post('/adduser', "ppe_gestion\Controller\UserController::addUserAction")->bind('user_added');
+    $app->get('/usertab',  "ppe_gestion\Controller\UserController::listUserIndexAction")->bind('userstab');
 
 /**
- *                     LISTE 
- * 
- * route pour l'affichage de la liste des utilisateurs
- */
-$app->get('/userslist', "ppe_gestion\Controller\UserController::listUserIndexAction")->bind('userslist');
-
+ *                             LISTE DES UTILSATEURS       */
+    $app->get('/userslist', "ppe_gestion\Controller\UserController::listUserIndexAction")->bind('userslist');
 // liste des utilisateurs  renvoyant l'id selectionné à la fonction modifier
-$app->post('/userslist', "ppe_gestion\Controller\UserController::listUserAction")->bind('users');
+    $app->post('/userslist', "ppe_gestion\Controller\UserController::listUserAction")->bind('users');
 
+//                                SUPPRIME USER
+    $app->get('/modifuser/delete', "ppe_gestion\Controller\UserController::deleteUserIndexAction")->bind('user_delete');
+    $app->post('/modifuser/delete', "ppe_gestion\Controller\UserController::deleteUserAction")->bind('user_deleted');
+                
+//                                 MODIFIE USER
+    $app->get('/modifuser/edit', "ppe_gestion\Controller\UserController::editUserIndexAction")->bind('user_edit');
+    $app->post('/modifuser/edit', "ppe_gestion\Controller\UserController::editUserAction")->bind('user_edited');
 
-
+/*  //                              AJOUT USER
+ *  //* route pour l'affichage du formulaire d ajout d utilisateurs */
+    $app->get('/adduser', "ppe_gestion\Controller\UserController::addUserIndexAction")->bind('user_add');
+ //* route pour la soumission du formulaire d ajout d utilisateurs
+    $app->post('/adduser', "ppe_gestion\Controller\UserController::addUserAction")->bind('user_added');
 
 
 

@@ -44,6 +44,21 @@ class UserController {
        ));
     }
     
+    //               TABLEAU DE BORD USER
+     public function tabUserAction(Application $app) {
+              
+        $classes = $app['dao.classNames']->findAll();
+        $disciplines = $app['dao.discipline']->findAll();
+        $roles = $app['dao.user']->findAll();
+        $users = $app['dao.user']->findAll();
+
+       return $app['twig']->render('TabTemplate/usertab.html.twig', array(
+           'classe'        =>$classes,
+           'discipline'    =>$disciplines,
+           'role'          =>$roles,
+           'users'         =>$users,
+       ));
+    }
     
     
 
@@ -287,7 +302,7 @@ var_dump($newUser);
 
         $app['dao.user']->saveUser($newUser);
         
-       $app['session']->getFlashBag()->add('success', 'The user was succesfully updated.');
+       $app['session']->getFlashBag()->add('success', 'L');
 
         return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
             'classe'        =>$classes,
@@ -324,28 +339,23 @@ var_dump($newUser);
 
      */
     
-    
-    public function deleteUserIndexAction(Request $request, Application $app) {
-
-       $id_user = ($request->request->get('id_user'));
-       
-        var_dump($id_user);
-      
-        $app['session']->getFlashBag()->add('success', 'you are in the good file deleteUserIndexAction');
-
+// Alert Etes vous sur de vouloir supprimer tel utilisateur .    
+    public function deleteUserIndexAction(Request $request, Application $app) { 
         // Redirect to admin home page
 
         return $app->redirect($app['url_generator']->generate('userslist'));
     }
-
+    
+// POST ACTION DE SUPPRESSION DE L UTILSATEUR
     public function deleteUserAction($id, Request $request, Application $app) {
 
-      
-        var_dump($id);
-        
-        $app['dao.user']->delete($id);
+      $id_user = ($request->request->get('id_user'));
+       
+        var_dump($id_user);
 
-        $app['session']->getFlashBag()->add('success', 'The user was succesfully removed.');
+        $app['dao.user']->delete($id_users);
+
+        $app['session']->getFlashBag()->add('danger', 'Utilisateur supprimé !');
 
         // Redirect to admin home page
 
