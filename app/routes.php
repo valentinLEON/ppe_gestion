@@ -315,7 +315,11 @@ $app->get('/disciplineslist', function () use ($app) {
  *
  * route pour l'ajout des matières
  */
-$app->match('adddiscipline', function(Request $request) use($app){
+$app->get('/adddiscipline', function () use ($app) {
+    return $app['twig']->render('FormTemplate/adddiscipline.html.twig');
+})->bind('adddiscipline');
+
+$app->post('adddiscipline', function(Request $request) use($app){
     $newDiscipline = new Discipline();
 
     $newDiscipline->setNameDiscipline($request->request->get('matiere'));
@@ -325,6 +329,7 @@ $app->match('adddiscipline', function(Request $request) use($app){
 
     $app['dao.discipline']->saveDiscipline($newDiscipline);
     $app['session']->getFlashBag()->add('success', 'La discipline a été ajoutée avec succès !');
+    
     return  $app['twig']->render('FormTemplate/adddiscipline.html.twig');
     
 })->bind('discipline');
