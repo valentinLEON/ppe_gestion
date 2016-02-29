@@ -100,7 +100,24 @@ class UserController {
 
      * @param Application $app Silex application
 
-     */
+     */   
+    public function addUserIndexAction(Request $request, Application $app) {
+        
+        $classes = $app['dao.classNames']->findAll();
+        $disciplines = $app['dao.discipline']->findAll();
+        $users = $app['dao.user']->findAll();
+
+
+       return $app['twig']->render('FormTemplate/adduser.html.twig', array(
+           'classe'=>$classes,
+           'discipline'=>$disciplines,
+           'role'=>$users,
+           'message'=>'',
+           'id_users'=>$users,
+           'user'=>$users,
+         ));
+    }
+    
 
     public function addUserAction(Request $request, Application $app) {
    
