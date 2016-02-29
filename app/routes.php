@@ -690,6 +690,18 @@ $app->post('/addexamen', function(Request $request) use($app){
     return $app->redirect('/addexamen', 301);
 })->bind('exam');
 
+/**
+ *
+ *                             LISTE
+ *
+ *
+ * route pour l'affichage de la liste des examens
+ */
+
+$app->get('/examlist', function () use ($app) {
+    return $app['twig']->render('TabTemplate/examlist.html.twig');
+})->bind('examlist');
+
 
 /**                                                              ABSENCES
  * 
