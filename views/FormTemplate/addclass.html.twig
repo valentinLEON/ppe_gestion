@@ -11,7 +11,11 @@
         <form class="form-horizontal" method="post" action="{{ path('class') }}" style="margin-left:20px">
             <div class="box-body">
                 <div class="form-group">
-                    <label for="#">Nom de la classe*</label>
+                    <label for="#">Type de classe*</label>
+                    <input type="text" name="class" class="form-control" style="width: 10%; border-radius: 3px" id="#" placeholder="Ex : SIO 2">
+                </div>
+                <div class="form-group">
+                    <label for="#">Classe*</label>
                     <input type="text" name="class" class="form-control" style="width: 10%; border-radius: 3px" id="#" placeholder="Ex : SIO 2">
                 </div>
                 <div class="form-group">
@@ -19,8 +23,12 @@
                     <input type="text" name="nombreEtudiant" class="form-control" style="width: 10%; border-radius: 3px" id="#" placeholder="Ex : 15">
                 </div>
                 <div class="form-group">
-                    <label for="#">Année scolaire*</label>
-                    <input type="text" name="year" class="form-control" style="width: 20%; border-radius: 3px" id="#" placeholder="2015-2016">
+                    <label for="#">Date de passage d'examen final*</label>
+                    <input type="text" name="year" class="form-control" style="width: 20%; border-radius: 3px" id="#" placeholder="2016">
+                </div>
+                <div class="form-group">
+                    <label for="#">Statut</label>
+                    <input type="text" name="option" class="form-control" style="width: 20%; border-radius: 3px" id="#" placeholder="SLAM">
                 </div>
                 <div class="form-group">
                     <label for="#">Option</label>
