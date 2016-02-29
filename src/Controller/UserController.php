@@ -43,6 +43,52 @@ class UserController {
            'users'         =>$users,
        ));
     }
+    
+    
+    
+    
+    
+    public function listUserAction(Request $request, $app) {
+   
+
+        $users = $app['dao.user']->findAll();   
+
+
+       $id_users_form = $request->request->get('id_user');
+       $id_users= $request->request->get('id_user');
+       $id_class_form = $request->request->get('id_class');
+       $id_discipline_form = $request->request->get('id_discipline');
+
+
+        $classes = $app['dao.classNames']->findAll();
+
+        $disciplines = $app['dao.discipline']->findAll();
+
+        $get_id_users = $app['dao.user']->getIdUsers();
+        $get_id_users = $app['dao.classNames']->getIdClass();
+        $get_id_disciplines = $app['dao.discipline']->getIdDisciplines();
+
+        $set_id_users = $app['dao.user']->setIdUsers($get_id_users);
+
+
+        $get_id_role = $app['dao.user']->findAll(); 
+        $idclassUser = $app['dao.user']->findAll();
+
+
+        $id_classe =   $app['dao.classNames']->findClassname($id_class_User);            
+        $id_discipline = $app['dao.discipline']->findDiscipline($id_discipline_form);
+        $id_role = $app['dao.user']->find($id_users_form);
+
+        return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
+    //        'classe'        => $classes,
+    //        'discipline'    => $disciplines,
+    //        'role'          => $roles,
+    //        'id_class'      => $id_classe,
+    //        'id_discipline' => $id_discipline,
+    //        'id_role'       => $id_role,
+            'id_user'       => $id_users,
+        ));
+    }
 
     /**
 
@@ -134,7 +180,7 @@ class UserController {
      */
 
   //  public function editUserAction($id, Request $request, Application $app) {
-    public function editUserAction( Request $request, Application $app) {
+    public function editUserAction($id, Request $request, Application $app) {
 
         $classes = $app['dao.classNames']->findAll();
         $disciplines = $app['dao.discipline']->findAll();
@@ -183,8 +229,8 @@ class UserController {
             'id_discipline' =>$id_discipline,
             'id_role'       =>$idrole,
             'id_user'       =>$id_users,
-            'id_users'      =>$id_user,
-            'user_form'     =>$id_user_form,
+//            'id_users'      =>$id_user,
+//            'user_form'     =>$id_user_form,
             'users_total'   =>$users_total,
             'modification'  =>$modification,
          ));
@@ -210,10 +256,10 @@ class UserController {
 
     public function deleteUserAction($id, Request $request, Application $app) {
 
-        $id_user = $request->request->get('id_users'); 
-        // Delete the user
-var_dump($id_user);
-        $app['dao.user']->delete($id_user);
+      
+        var_dump($id);
+        
+        $app['dao.user']->delete($id);
 
         $app['session']->getFlashBag()->add('success', 'The user was succesfully removed.');
 

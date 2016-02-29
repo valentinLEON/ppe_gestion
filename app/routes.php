@@ -304,49 +304,7 @@ $app->get('/userslist', function () use ($app) {
 })->bind('userslist');
 
 // liste des utilisateurs   revoyant l'id selectionné à la fonction modifier
-$app->post('/userslist', function (Request $request) use ($app) {
-   
-    
-    $users = $app['dao.user']->findAll();   
-    
-    
-   $id_users_form = $request->request->get('id_user');
-   $id_class_form = $request->request->get('id_class');
-   $id_discipline_form = $request->request->get('id_discipline');
-   
-            
-    $classes = $app['dao.classNames']->findAll();
-    
-    $disciplines = $app['dao.discipline']->findAll();
-    
-    $get_id_users = $app['dao.user']->getIdUsers();
-    $get_id_users = $app['dao.classNames']->getIdClass();
-    $get_id_disciplines = $app['dao.discipline']->getIdDisciplines();
-  
-    $set_id_users = $app['dao.user']->setIdUsers($get_id_users);
-             
-   
-    $get_id_role = $app['dao.user']->findAll(); 
-    $idclassUser = $app['dao.user']->findAll();
-    
-    
-    $id_classe =   $app['dao.classNames']->findClassname($id_class_User);            
-    $id_discipline = $app['dao.discipline']->findDiscipline($id_discipline_form);
-    $id_role = $app['dao.user']->find($id_users_form);
-     
-    return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
-//        'classe'        => $classes,
-//        'discipline'    => $disciplines,
-//        'role'          => $roles,
-//        'id_class'      => $id_classe,
-//        'id_discipline' => $id_discipline,
-//        'id_role'       => $id_role,
-        'id_user'       => $id_users,
-    ));
-    
-    
-    
-})->bind('users');
+$app->post('/userslist', "ppe_gestion\Controller\UserController::listUserAction")->$bind('users');
 
 /**
  *   
