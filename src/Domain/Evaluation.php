@@ -23,6 +23,7 @@ class Evaluation
     public $dt_create;
     public $dt_update;
 
+    //region Getter et Setter de l'ID de l'évaluation
     public function getIdEvaluation(){
         return $this->id_evaluation;
     }
@@ -31,7 +32,9 @@ class Evaluation
     {
         $this->id_evaluation = $_id_evaluation;
     }
+    //endregion
 
+    //region Getter et Setter de la note de l'évaluation a l'élève
     public function getGradeStudent(){
         return $this->grade_student;
     }
@@ -40,7 +43,9 @@ class Evaluation
     {
         $this->grade_student = $_grade_student;
     }
+    //endregion
 
+    //region Getter et Setter du coefficient de l'évaluation
     public function getCoefDiscipline()
     {
         return $this->coef_discipline;
@@ -50,7 +55,9 @@ class Evaluation
     {
         $this->coef_discipline = $_coef_discipline;
     }
+    //endregion
 
+    //region Getter et Setter de l'appréciation de l'évaluation
     public function getJudgement(){
         return $this->judgement;
     }
@@ -59,7 +66,9 @@ class Evaluation
     {
         $this->judgement = $_judgement;
     }
+    //endregion
 
+    //region Getter et Setter de l'objet Etudiant
     public function getStudent()
     {
         return $this->student;
@@ -69,7 +78,9 @@ class Evaluation
     {
         $this->student = $student;
     }
+    //endregion
 
+    //region Getter et Setter de l'objet Matière
     public function getDiscipline()
     {
         return $this->discipline;
@@ -79,7 +90,9 @@ class Evaluation
     {
         $this->discipline = $discipline;
     }
+    //endregion
 
+    //region Getter et Setter de la date de création de la note
     public function getDtCreate(){
         return $this->dt_create;
     }
@@ -88,7 +101,9 @@ class Evaluation
     {
         $this->dt_create = $_dt_create;
     }
+    //endregion
 
+    //region Getter et Setter de la date de modification d'une des notes
     public function getDtUpdate(){
         return $this->dt_update;
     }
@@ -97,6 +112,7 @@ class Evaluation
     {
         $this->dt_update = $_dt_update;
     }
+    //endregion
 
 
 }

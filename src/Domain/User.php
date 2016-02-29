@@ -44,10 +44,8 @@ class User implements UserInterface
     public $dt_create;
     public $dt_update;
 
-    /* ********************************************************* */
-    /* *********************** GETTER ET SETTER **************** */
-    /* ********************************************************* */
 
+    //region Getter et Setter de l'ID de l'utilisateur
     public function getIdUsers()
     {
         return $this->id_users;
@@ -57,7 +55,9 @@ class User implements UserInterface
     {
         $this->id_users = $_id_users;
     }
+    //endregion
 
+    //region Getter et Setter du pseudo de l'utilisateur
     public function getUsername()
     {
         return $this->username;
@@ -67,7 +67,9 @@ class User implements UserInterface
     {
         $this->username = $_username;
     }
-  
+    //endregion
+
+    //region Getter et Setter du nom de l'utilisateur
     public function getName()
     {
         return $this->name;
@@ -77,7 +79,9 @@ class User implements UserInterface
     {
         $this->name = $_name;
     }
-    
+    //endregion
+
+    //region Getter et Setter du prénom de l'utilisateur
     public function getFirstName()
     {
         return $this->username;
@@ -87,7 +91,9 @@ class User implements UserInterface
     {
         $this->firstname = $_firstname;
     }
+    //endregion
 
+    //region Getter et Setter du mot de passe de l'utilisateur
     public function getPassword()
     {
         return $this->password;
@@ -97,7 +103,9 @@ class User implements UserInterface
     {
         $this->password = $_password;
     }
+    //endregion
 
+    //region Getter et Setter de Hachage du mot de passe
     public function getSalt()
     {
         return $this->salt;
@@ -107,8 +115,9 @@ class User implements UserInterface
     {
         $this->salt = $_salt;
     }
+    //endregion
 
-    
+    //region Getter et Setter du role de l'utilisateur
     public function getRole()
     {
         return $this->role;
@@ -118,16 +127,15 @@ class User implements UserInterface
     {
         $this->role = $_role;
     }
+    //endregion
 
-    /**
-     * @return array
-     * Retourne le tableau des rôles
-     */
+    //Getter des roles des utilisateur
     public function getRoles()
     {
         return array($this->getRole());
     }
 
+    //region Getter et Setter de l'Email de l'utilisateur
     public function getUserMail()
     {
         return $this->user_mail;
@@ -137,7 +145,9 @@ class User implements UserInterface
     {
         $this->user_mail = $_user_mail;
     }
+    //endregion
 
+    //region Getter et Setter de la description de l'utilisateur
     public function getDescription()
     {
         return $this->description;
@@ -147,9 +157,10 @@ class User implements UserInterface
     {
         $this->description = $_description;
     }
+    //endregion
 
-
-   public function getDtCreate()
+    //region Getter et Setter de la date de création de l'utilisateur
+    public function getDtCreate()
     {
         return $this->dt_create;
     }
@@ -158,7 +169,9 @@ class User implements UserInterface
     {
         $this->dt_create = $_dt_create;
     }
+    //endregion
 
+    //region Getter et Setter de la date de modification de l'utilisateur
     public function getDtUpdate()
     {
         return $this->dt_update;
@@ -168,7 +181,10 @@ class User implements UserInterface
     {
         $this->dt_update = $_dt_update;
     }
+    //endregion
 
+    //region Getter et Setter de la clé etrangère de l'ID discipline et de l'Id className
+    //id_discipline
     public function getIdDiscipline()
     {
         return $this->id_discipline;
@@ -179,6 +195,7 @@ class User implements UserInterface
         $this->id_discipline = $_id_discipline;
     }
 
+    //id_className
     public function getIdClassName()
     {
         return $this->id_class;
@@ -188,6 +205,7 @@ class User implements UserInterface
     {
         $this->id_class = $_id_class;
     }
+    //endregion
     
     public function getStatus()
     {
@@ -199,7 +217,6 @@ class User implements UserInterface
         $this->id_class = $_status;
     }
 
-  
 
     public function eraseCredentials()
     {

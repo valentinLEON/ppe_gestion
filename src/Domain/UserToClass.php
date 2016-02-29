@@ -6,7 +6,7 @@
  * Date: 06/02/2016
  * Time: 00:20
  *
- * Association entre les classes Class et User
+ * Table d'association entre les classes ClassName et User
  */
 
 use ppe_gestion\Domain\ClassName;
@@ -17,16 +17,8 @@ class UserToClass
     public $user;
     public $class;
 
+
     /**
-     * @param ClassName $_classname
-     *
-     * Set la classe
-     */
-    public function setClassName(ClassName $_classname)
-    {
-        $this->class = $_classname;
-    }
-/**
      * @return mixed
      *
      * Récupère l'étudiant
@@ -56,11 +48,19 @@ class UserToClass
     {
         return $this->class;
     }
-    
-    
-    
-    
-      public function getIdClass()
+
+    /**
+     * @param ClassName $_classname
+     *
+     * Set la classe
+     */
+    public function setClassName(ClassName $_classname)
+    {
+        $this->class = $_classname;
+    }
+
+
+    public function getIdClass()
     {
         return $this->id_class;
     }

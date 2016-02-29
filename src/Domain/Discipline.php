@@ -18,6 +18,7 @@ class Discipline
     public $dt_create;
     public $dt_update;
 
+    //region Getter et Setter pour l'ID la discipline
     public function getIdDiscipline()
     {
         return $this->id_discipline;
@@ -27,7 +28,9 @@ class Discipline
     {
         $this->id_discipline = $_id_discipline;
     }
+    //endregion
 
+    //region Getter et Setter pour le nom de la discipline
     public function getNameDiscipline()
     {
         return $this->name_discipline;
@@ -37,7 +40,9 @@ class Discipline
     {
         $this->name_discipline = $_name_discipline;
     }
+    //endregion
 
+    //region Getter et Setter pour la description de la discipline
     public function getDescription()
     {
         return $this->description;
@@ -47,6 +52,7 @@ class Discipline
     {
         $this->description = $_description;
     }
+    //endregion
 
     /**
      * @return mixed
@@ -64,6 +70,7 @@ class Discipline
         $this->evaluation = $evaluation;
     }
 */
+    //region Getter et Setter de la date de création d'une discipline
     public function getDtCreate()
     {
         return $this->dt_create;
@@ -73,7 +80,9 @@ class Discipline
     {
         $this->dt_create = $_dt_create;
     }
+    //endregion
 
+    //region Getter et Setter de la date de modifiation d'une discipline
     public function getDtUpdate()
     {
         return $this->dt_update;
@@ -83,4 +92,5 @@ class Discipline
     {
         $this->dt_update = $_dt_update;
     }
+    //endregion
 }
