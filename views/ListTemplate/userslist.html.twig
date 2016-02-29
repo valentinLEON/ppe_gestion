@@ -61,7 +61,7 @@
                                     {# formulaire de suppression de l'utilisatateur via l'id_user 
                                     
                                 //    <form action="{{ path('delete', {'delete': artist.id}) }}" method="get" >  #}
-                                    <form action="{{ path('delete', {'delete': artist.id}) }}" method="get" >  
+                                    <form action="modifuser/{{user.id_users}}'" method="get" >  
                                        <button type="submit" class="btn btn-danger btn-flat">
                                            <i class="fa fa-trash"></i>
                                        </button>
