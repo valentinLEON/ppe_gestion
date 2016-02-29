@@ -21,12 +21,12 @@
                 <!-- /.box-header -->
                        
                 <table class="table table-hover" style="  table-layout: fixed; ">
-                     <form action="modifuser" method="post" >     
+       
                         <tr style="background-color: #3c8dbc; font-size:16px;">
-                            <th  class="mytdmin">
+                            <th  class="mytdminus">
                                <i class="fa fa-pencil-square-o"></i>
                             </th>
-                            <th  class="mytdmin">
+                            <th  class="mytdminus">
                                <i class="fa fa-trash"></i>
                             </th>
                             <th class="mytd">Login</th>
@@ -42,22 +42,32 @@
                         </tr>  
                      
                         {% for user in users %}
-                    
-                            
+
                             <tr>
                                 <td class="mytdminus"> 
-                                   <button type="submit" class="btn btn-warning btn-flat">
-                                       <i class="fa fa-edit"></i>
-                                   </button>
-                                    <input type="hidden" value="{{ user.id_users }}" name="id_users"  >
-                                    <input type="hidden" value="modification" name="modification"  >
-                             
+                                    {# formulaire de modification de l'utilisatateur via l'id_user 
+                                    
+                                 //   <form action="{{ path('modifuser', {'modifuser':user.id_users }) }}" method="get" >   #}  
+                                    <form action="'modifuser/{{user.id_users}}' " method="get" >
+                                        
+                                        <button type="submit" class="btn btn-warning btn-flat">
+                                            <i class="fa fa-edit"></i>
+                                        </button>
+                                         <input type="hidden" value="{{ user.id_users }}" name="id_user"  >
+                                         <input type="hidden" value="modification" name="modification"  >
+                                    </form>   
+                                         
                                 <td class="mytdminus"> 
-                                    <button type="submit" class="btn btn-danger btn-flat">
-                                        <i class="fa fa-trash"></i>
-                                    </button>
-                                    <input type="hidden" value="suppression" name="suppression"  >
-                                
+                                    {# formulaire de suppression de l'utilisatateur via l'id_user 
+                                    
+                                //    <form action="{{ path('delete', {'delete': artist.id}) }}" method="get" >  #}
+                                    <form action="{{ path('delete', {'delete': artist.id}) }}" method="get" >  
+                                       <button type="submit" class="btn btn-danger btn-flat">
+                                           <i class="fa fa-trash"></i>
+                                       </button>
+                                       <input type="hidden" value="suppression" name="suppression"  >
+                                    </form>
+                                       
                                 </td>
                                 <td class="mytd" >{{ user.username }}</td>
                                 <input type="hidden" value="{{ user.username }}" name="username"  >
@@ -80,9 +90,8 @@
                                 <td class="mytdmin"> {{ user.id_class }} </td>
                                 <input type="hidden" value="{{ user.id_class }}" name="id_class_form"  >
                            
-                               </tr> 
-
-                        
+                            </tr> 
+                            
                         {% endfor %}
                         </form> 
                     </table>
