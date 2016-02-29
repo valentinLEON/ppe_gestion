@@ -236,13 +236,13 @@ $app->get('/usertab', function () use ($app) {
 // Modification de l'utilisateur
 // 
 //      SUPPRIME USER
-$app->get('/modifuser/delete', "ppe_gestion\Controller\UserController::indexAction")->bind('user_delete');
-$app->post('/modifuser/{id_users}/delete', "ppe_gestion\Controller\UserController::deleteUserAction")->bind('user_deleted');
+$app->get('/modifuser/delete', "ppe_gestion\Controller\UserController::deleteUserIndexAction")->bind('user_delete');
+$app->post('/modifuser/delete', "ppe_gestion\Controller\UserController::deleteUserAction")->bind('user_deleted');
 
 //      MODIFIE USER
 
-$app->get('/modifuser/edit', "ppe_gestion\Controller\UserController::editUserindexAction")->bind('user_edit');
-$app->post('/modifuser/{id_users}/edit', "ppe_gestion\Controller\UserController::editUserAction")->bind('user_edited');
+$app->get('/modifuser/edit', "ppe_gestion\Controller\UserController::editUserIndexAction")->bind('user_edit');
+$app->post('/modifuser/edit', "ppe_gestion\Controller\UserController::editUserAction")->bind('user_edited');
 
 
 /*    *

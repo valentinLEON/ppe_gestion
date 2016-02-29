@@ -220,7 +220,7 @@ class UserController {
         $newUser->setSalt($request->request->get('salt'));
         $newUser->setRole($request->request->get('role'));
         $newUser->setIdDiscipline($request->request->get('id_discipline_form'));
-        $newUser->setIdUsers($request->request->get('id_users_form'));
+        $newUser->setIdUsers($request->request->get('id_user'));
         $newUser->setIdClassName($request->request->get('id_class_form'));
         $newUser->setIdClassName($request->request->get('classname'));
         $newUser->setStatus($request->request->get('status'));   
@@ -265,6 +265,23 @@ class UserController {
      * @param Application $app Silex application
 
      */
+    
+    
+    public function deleteUserIndexAction(Request $request, Application $app) {
+
+       $id_user = ($request->request->get('id_user'));
+       
+        var_dump($id_user);
+      
+        $app['session']->getFlashBag()->add('success', 'you are in the good file');
+
+        // Redirect to admin home page
+
+         return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
+             
+                     'id_user'        =>$id_user,
+                ));
+    }
 
     public function deleteUserAction($id, Request $request, Application $app) {
 
