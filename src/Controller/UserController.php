@@ -181,7 +181,7 @@ var_dump($newUser);
 
         $message= $request->request->get('message');
         
-        $app['session']->getFlashBag()->add('success', 'The user was succesfully saved.');
+        $app['session']->getFlashBag()->add('success', 'Utilisateur bien enregistré');
   
         return $app['twig']->render('FormTemplate/adduser.html.twig', array(
            'classe'        =>$classes,
