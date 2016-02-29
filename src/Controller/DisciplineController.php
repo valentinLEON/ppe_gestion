@@ -36,6 +36,19 @@ public function tabDisciplineAction(Application $app) {
  * 
  * route pour l'affichage de la liste des matières
  */
+public function listDisciplineIndexAction(Application $app) {
+    
+    $classes = $app['dao.classNames']->findAll();
+    $disciplines = $app['dao.discipline']->findAll();
+    $users = $app['dao.user']->findAll();
+     
+    return $app['twig']->render('ListTemplate/disciplineslist.html.twig', array(
+        'classes'=>$classes,
+        'disciplines'=>$disciplines,
+        'users'=>$users,
+    ));
+}
+
 public function listDisciplineAction(Application $app) {
     
     $classes = $app['dao.classNames']->findAll();

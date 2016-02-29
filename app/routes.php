@@ -288,7 +288,7 @@ $app->get('/disciplinetab',  "ppe_gestion\Controller\DisciplineController::tabDi
 
 /**                      AJOUT
  * route pour l'ajout des matières      */
-$app->get('/adddiscipline', "ppe_gestion\Controller\DisciplineController:: addDisciplineIndexAction" )->bind('adddiscipline');
+$app->get('/adddiscipline', "ppe_gestion\Controller\DisciplineController::addDisciplineIndexAction" )->bind('adddiscipline');
 $app->post('adddiscipline', "ppe_gestion\Controller\DisciplineController::addDisciplineAction")->bind('discipline');
 
 
