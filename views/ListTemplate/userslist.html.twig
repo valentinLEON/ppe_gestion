@@ -48,7 +48,7 @@
                                     {# formulaire de modification de l'utilisatateur via l'id_user 
                                     
                                  //   <form action="{{ path('modifuser', {'modifuser':user.id_users }) }}" method="get" >   #}  
-                                    <form action="'modifuser/{{user.id_users}}/edit' " method="post" >
+                                    <form action="modifuser/{{user.id_users}}/edit " method="post" >
                                         <button type="submit" class="btn btn-warning btn-flat">
                                             <i class="fa fa-edit"></i>
                                         </button>
@@ -58,7 +58,7 @@
                                     {# formulaire de suppression de l'utilisatateur via l'id_user 
                                     
                                 //    <form action="{{ path('delete', {'delete': artist.id}) }}" method="get" >  #}
-                                    <form action="modifuser/{{user.id_users}}/delete'" method="post" >  
+                                    <form action="modifuser/{{user.id_users}}/delete" method="post" >  
                                        <button type="submit" class="btn btn-danger btn-flat">
                                            <i class="fa fa-trash"></i>
                                        </button>

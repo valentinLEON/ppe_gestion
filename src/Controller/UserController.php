@@ -126,7 +126,8 @@ class UserController {
 
      */
 
-    public function editUserAction($id, Request $request, Application $app) {
+  //  public function editUserAction($id, Request $request, Application $app) {
+    public function editUserAction( Request $request, Application $app) {
 
         $classes = $app['dao.classNames']->findAll();
         $disciplines = $app['dao.discipline']->findAll();

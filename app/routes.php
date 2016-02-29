@@ -184,6 +184,7 @@ $app->get('/addstudent', function () use ($app) {
 })->bind('addstudent');
 
 $app->post('/addstudent', function(Request $request) use($app){
+    
     $newStudent = new Student();
 
     $class = $app['dao.classNames']->findClassname($request->request->get('classname'));
@@ -235,12 +236,12 @@ $app->get('/usertab', function () use ($app) {
 // Modification de l'utilisateur
 // 
 //      SUPPRIME USER
-$app->get('/modifuser/delete', "ppe_gestion\Controller\UserController::editUserAction")->bind('user_delete');
+$app->get('/modifuser/delete', "ppe_gestion\Controller\UserController::indexAction")->bind('user_delete');
 $app->match('/modifuser/{id_users}/delete', "ppe_gestion\Controller\UserController::deleteUserAction")->bind('user_delete');
 
 //      MODIFIE USER
 
-$app->get('/modifuser/edit', "ppe_gestion\Controller\UserController::editUserAction")->bind('user_edit');
+$app->get('/modifuser/edit', "ppe_gestion\Controller\UserController::indexAction")->bind('user_edit');
 $app->match('/modifuser/{id_users}/edit', "ppe_gestion\Controller\UserController::editUserAction")->bind('user_edit');
 
 
