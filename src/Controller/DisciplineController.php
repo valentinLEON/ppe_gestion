@@ -32,32 +32,23 @@ class DisciplineController {
 public function tabDisciplineAction(Application $app) {
     return $app['twig']->render('TabTemplate/disciplinetab.html.twig');
 }
-
-/**   
- * 
- *                       LISTE
- * 
+/**   *                       LISTE
  * 
  * route pour l'affichage de la liste des matières
  */
-$app->get('/disciplineslist', function () use ($app) {
+public function listDisciplineAction(Application $app) {
     
-     $classes = $app['dao.classNames']->findAll();
-     $disciplines = $app['dao.discipline']->findAll();
-     $users = $app['dao.user']->findAll();
+    $classes = $app['dao.classNames']->findAll();
+    $disciplines = $app['dao.discipline']->findAll();
+    $users = $app['dao.user']->findAll();
      
     return $app['twig']->render('ListTemplate/disciplineslist.html.twig', array(
         'classes'=>$classes,
         'disciplines'=>$disciplines,
         'users'=>$users,
     ));
-    
-})->bind('disciplines');
 
-
-/**
- * 
- *                     AJOUT
+/**                    AJOUT
  *
  * route pour l'ajout des matières
  */

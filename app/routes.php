@@ -278,41 +278,15 @@ $app->post('/addclass', function(Request $request) use ($app){
 
 
 /**                                                            DISCIPLINES
- * 
- *  
- *                   TABLEAU DE BORD
- * 
- */
-  $app->get('/disciplinetab',  "ppe_gestion\Controller\UserController::tabUserAction")->bind('disciplinetab');
+ *                   TABLEAU DE BORD                */
+$app->get('/disciplinetab',  "ppe_gestion\Controller\UserController::tabDisciplineAction")->bind('disciplinetab');
 
-/**   
- * 
- *                       LISTE
- * 
- * 
- * route pour l'affichage de la liste des matières
- */
-$app->get('/disciplineslist', function () use ($app) {
-    
-     $classes = $app['dao.classNames']->findAll();
-     $disciplines = $app['dao.discipline']->findAll();
-     $users = $app['dao.user']->findAll();
-     
-    return $app['twig']->render('ListTemplate/disciplineslist.html.twig', array(
-        'classes'=>$classes,
-        'disciplines'=>$disciplines,
-        'users'=>$users,
-    ));
-    
-})->bind('disciplines');
+  /**                       LISTE
+ * route pour l'affichage de la liste des matières          */
+ $app->get('/userslist', "ppe_gestion\Controller\UserController::listDisciplineIndexAction")->bind('disciplines');
 
-
-/**
- * 
- *                     AJOUT
- *
- * route pour l'ajout des matières
- */
+/**                   AJOUT
+ * route pour l'ajout des matières      */
 $app->get('/adddiscipline', function () use ($app) {
     return $app['twig']->render('FormTemplate/adddiscipline.html.twig');
 })->bind('adddiscipline');
