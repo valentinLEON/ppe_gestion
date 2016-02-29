@@ -33,7 +33,7 @@ class UserController {
 
         $users = $app['dao.user']->findAll();
 
-        return $app['twig']->render('userslist.html.twig');
+        return $app['twig']->render('TabTemplate/userslist.html.twig');
 
     }
 
@@ -156,7 +156,7 @@ class UserController {
         $newUser->setRole($request->request->get('role'));
         $newUser->setIdDiscipline($request->request->get('id_discipline_form'));
         $newUser->setIdUsers($request->request->get('id_users_form'));
-        $newUser->setIdClass($request->request->get('id_class_form'));
+        $newUser->setIdClassName($request->request->get('id_class_form'));
         $newUser->setIdClassName($request->request->get('classname'));
         $newUser->setStatus($request->request->get('status'));   
         $newUser->setUserMail($request->request->get('user_mail'));
