@@ -38,7 +38,7 @@ class ClassNameController {
      }
      
      // AJOUT INDEX
-    public function addIndexAction(Request $request ,Application $app) {
+    public function addClassNameIndexAction(Request $request ,Application $app) {
          $classes = $app['dao.classNames']->findAll();
 
       return $app['twig']->render('FormTemplate/addclass.html.twig', array(

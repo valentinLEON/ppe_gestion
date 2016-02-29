@@ -122,7 +122,7 @@ $app->get('/classeslist', "ppe_gestion\Controller\ClassNameController::listClass
  *                                         AJOUT
  * route pour l'ajout des classes
  */
-$app->get('/addclass', "ppe_gestion\Controller\ClassNameController::addClassAction")->bind('addclass');
+$app->get('/addclass', "ppe_gestion\Controller\ClassNameController::addClassNameIndexAction")->bind('addclass');
 
 $app->post('/addclass', "ppe_gestion\Controller\ClassNameController::addClassNameAction")->bind('class');
 
