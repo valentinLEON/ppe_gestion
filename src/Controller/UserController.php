@@ -265,7 +265,7 @@ var_dump($newUser);
     }
 
   //  public function editUserAction($id, Request $request, Application $app) {
-    public function editUserAction($id, Request $request, Application $app) {
+    public function editUserAction(Request $request, Application $app) {
 
         $classes = $app['dao.classNames']->findAll();
         $disciplines = $app['dao.discipline']->findAll();
@@ -347,7 +347,7 @@ var_dump($newUser);
     }
     
 // POST ACTION DE SUPPRESSION DE L UTILSATEUR
-    public function deleteUserAction($id, Request $request, Application $app) {
+    public function deleteUserAction(Request $request, Application $app) {
 
       $id_user = ($request->request->get('id_user'));
        

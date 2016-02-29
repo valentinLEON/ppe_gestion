@@ -191,10 +191,8 @@ $app->get('/studentstats', function () use ($app) {
 
 /**                                                           UTILISATEURS              **
  *   
- *                               TABLEAU DE BORD 
- */
-    $app->get('/usertab',  "ppe_gestion\Controller\UserController::listUserIndexAction")->bind('userstab');
-
+ *                        TABLEAU DE BORD DE GESTION DES UTILISATEURS        */
+    $app->get('/usertab',  "ppe_gestion\Controller\UserController::tabUserAction")->bind('userstab');
 /**
  *                             LISTE DES UTILSATEURS       */
     $app->get('/userslist', "ppe_gestion\Controller\UserController::listUserIndexAction")->bind('userslist');
