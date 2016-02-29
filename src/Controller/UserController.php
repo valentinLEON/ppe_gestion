@@ -53,8 +53,8 @@ class UserController {
 
      *    
     */
-       
-    public function listUserIndexAction($app) {
+     
+    public function listUserIndexAction(Application $app) {
                    
         $classes = $app['dao.classNames']->findAll();
         $disciplines = $app['dao.discipline']->findAll();

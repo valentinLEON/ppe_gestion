@@ -33,144 +33,42 @@ class AdminController {
 
     public function indexAction(Application $app) {
 
-        $users = $app['dao.user']->findAll();
+     $users = $app['dao.user']->findAll();
+     $users_total = $app['dao.user']->countAll(); 
 
-        return $app['twig']->render('admin.html.twig');
-
-    }
-
-    /**
-
-     * Add user controller.
-
-     *
-
-     * @param Request $request Incoming request
-
-     * @param Application $app Silex application
-
-     */
-
-    public function addUserAction(Request $request, Application $app) {
-
-        $user = new User();
-
-        $userForm = $app['form.factory']->create(new UserType(), $user);
-
-        $userForm->handleRequest($request);
-
-        if ($userForm->isSubmitted() && $userForm->isValid()) {
-
-            // generate a random salt value
-
-            $salt = substr(md5(time()), 0, 23);
-
-            $user->setSalt($salt);
-
-            $plainPassword = $user->getPassword();
-
-            // find the default encoder
-
-            $encoder = $app['security.encoder.digest'];
-
-            // compute the encoded password
-
-            $password = $encoder->encodePassword($plainPassword, $user->getSalt());
-
-            $user->setPassword($password); 
-
-            $app['dao.user']->save($user);
-
-            $app['session']->getFlashBag()->add('success', 'The user was successfully created.');
-
-        }
-
-        return $app['twig']->render('user_form.html.twig', array(
-
-            'title' => 'New user',
-
-            'userForm' => $userForm->createView()));
+     $classes = $app['dao.classNames']->findAll();
+     $classes_total = $app['dao.classNames']->countAll();
+      
+     $students = $app['dao.student']->findAll();
+     $students_total = $app['dao.student']->countAll();
+          
+     $disciplines = $app['dao.discipline']->findAll();
+     $disciplines_total = $app['dao.discipline']->countAll();
+     
+     $date = date("d/m/Y");
+    
+    return $app['twig']->render('TabTemplate/admintab.html.twig', array(
+        
+        'users'=>$users,
+        'users_number'=>$users_total,
+        'disciplines'=>$disciplines,
+        'disciplines_number'=>$disciplines_total,
+        'absences_number'=>'1',
+        'retards_number'=>'1',
+        'retards_number'=>'1',
+        'classes'=>$classes,
+        'disciplines'=>$disciplines,
+        'students'=>$students,
+        'students_number'=>$students_total,
+        'classes_number'=>$classes_total,
+        'disciplines_number'=>$disciplines_total,
+        'date'=>$date,
+        
+    ));
+    
 
     }
 
-
-    /**
-
-     * Edit user controller.
-
-     *
-
-     * @param integer $id User id
-
-     * @param Request $request Incoming request
-
-     * @param Application $app Silex application
-
-     */
-
-    public function editUserAction($id, Request $request, Application $app) {
-
-        $user = $app['dao.user']->find($id);
-
-        $userForm = $app['form.factory']->create(new UserType(), $user);
-
-        $userForm->handleRequest($request);
-
-        if ($userForm->isSubmitted() && $userForm->isValid()) {
-
-            $plainPassword = $user->getPassword();
-
-            // find the encoder for the user
-
-            $encoder = $app['security.encoder_factory']->getEncoder($user);
-
-            // compute the encoded password
-
-            $password = $encoder->encodePassword($plainPassword, $user->getSalt());
-
-            $user->setPassword($password); 
-
-            $app['dao.user']->save($user);
-
-            $app['session']->getFlashBag()->add('success', 'The user was succesfully updated.');
-
-        }
-
-        return $app['twig']->render('user_form.html.twig', array(
-
-            'title' => 'Edit user',
-
-            'userForm' => $userForm->createView()));
-
-    }
-
-
-    /**
-
-     * Delete user controller.
-
-     *
-
-     * @param integer $id User id
-
-     * @param Application $app Silex application
-
-     */
-
-    public function deleteUserAction($id, Application $app) {
-
-       
-        // Delete the user
-
-        $app['dao.user']->delete($id);
-
-        $app['session']->getFlashBag()->add('success', 'The user was succesfully removed.');
-
-        // Redirect to admin home page
-
-        return $app->redirect($app['url_generator']->generate('admin'));
-
-    }
 
 }
 
