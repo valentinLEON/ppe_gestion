@@ -53,46 +53,66 @@ class UserController {
 
      *    
     */
-    public function listUserAction(Request $request, $app) {
-   
-
-        $users = $app['dao.user']->findAll();   
-
-
-       $id_users_form = $request->request->get('id_user');
-       $id_users= $request->request->get('id_user');
-       $id_class_form = $request->request->get('id_class');
-       $id_discipline_form = $request->request->get('id_discipline');
-
-
+       
+    public function listUserIndexAction($app) {
+                   
         $classes = $app['dao.classNames']->findAll();
-
         $disciplines = $app['dao.discipline']->findAll();
-
-        $get_id_users = $app['dao.user']->getIdUsers();
-        $get_id_users = $app['dao.classNames']->getIdClass();
-        $get_id_disciplines = $app['dao.discipline']->getIdDisciplines();
-
-        $set_id_users = $app['dao.user']->setIdUsers($get_id_users);
+        $roles = $app['dao.user']->findAll();
+        $users = $app['dao.user']->findAll();
 
 
-        $get_id_role = $app['dao.user']->findAll(); 
-        $idclassUser = $app['dao.user']->findAll();
+       return $app['twig']->render('ListTemplate/userslist.html.twig', array(
+           'classe'        =>$classes,
+           'discipline'    =>$disciplines,
+           'role'          =>$roles,
+           'users'         =>$users,
+       ));
 
-
-        $id_classe =   $app['dao.classNames']->findClassname($id_class_User);            
-        $id_discipline = $app['dao.discipline']->findDiscipline($id_discipline_form);
-        $id_role = $app['dao.user']->find($id_users_form);
-
-        return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
-    //        'classe'        => $classes,
-    //        'discipline'    => $disciplines,
-    //        'role'          => $roles,
-    //        'id_class'      => $id_classe,
-    //        'id_discipline' => $id_discipline,
-    //        'id_role'       => $id_role,
-            'id_user'       => $id_users,
-        ));
+    }
+    
+    
+    
+    public function listUserAction(Request $request, $app) {
+//   
+//
+//        $users = $app['dao.user']->findAll();   
+//
+//
+//       $id_users_form = $request->request->get('id_user');
+//       $id_users= $request->request->get('id_user');
+//       $id_class_form = $request->request->get('id_class');
+//       $id_discipline_form = $request->request->get('id_discipline');
+//
+//
+//        $classes = $app['dao.classNames']->findAll();
+//
+//        $disciplines = $app['dao.discipline']->findAll();
+//
+//        $get_id_users = $app['dao.user']->getIdUsers();
+//        $get_id_users = $app['dao.classNames']->getIdClass();
+//        $get_id_disciplines = $app['dao.discipline']->getIdDisciplines();
+//
+//        $set_id_users = $app['dao.user']->setIdUsers($get_id_users);
+//
+//
+//        $get_id_role = $app['dao.user']->findAll(); 
+//        $idclassUser = $app['dao.user']->findAll();
+//
+//
+//        $id_classe =   $app['dao.classNames']->findClassname($id_class_User);            
+//        $id_discipline = $app['dao.discipline']->findDiscipline($id_discipline_form);
+//        $id_role = $app['dao.user']->find($id_users_form);
+//
+//        return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
+//    //        'classe'        => $classes,
+//    //        'discipline'    => $disciplines,
+//    //        'role'          => $roles,
+//    //        'id_class'      => $id_classe,
+//    //        'id_discipline' => $id_discipline,
+//    //        'id_role'       => $id_role,
+//            'id_user'       => $id_users,
+//        ));
     }
 
 //                              INDEX DE L AJOUT D UTILISATEURS
@@ -189,7 +209,37 @@ class UserController {
 
      * @param Application $app Silex application
 
-     */
+     */   
+
+    public function editUserIndexAction($id, Request $request, Application $app) {
+
+        $classes = $app['dao.classNames']->findAll();
+        $disciplines = $app['dao.discipline']->findAll();
+        $roles = $app['dao.user']->findAll();
+        $id_users = $app['dao.user']->findAll();
+        $username = $app['dao.user']->findAll();
+
+        $users_total = $app['dao.user']->countAll();
+        
+        $app['session']->getFlashBag()->add('success', 'You are in editUserIndexAction');
+
+        return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
+            'classe'        =>$classes,
+            'discipline'    =>$disciplines,
+            'username'      =>$username,
+            'role'          =>$roles,
+            'role'          =>$roles,
+            'id_class_form' =>$idclass,
+            'id_discipline' =>$id_discipline,
+            'id_role'       =>$idrole,
+            'id_user'       =>$id_users,
+//            'id_users'      =>$id_user,
+//            'user_form'     =>$id_user_form,
+            'users_total'   =>$users_total,
+            'modification'  =>$modification,
+         ));
+
+    }
 
   //  public function editUserAction($id, Request $request, Application $app) {
     public function editUserAction($id, Request $request, Application $app) {
@@ -273,14 +323,11 @@ class UserController {
        
         var_dump($id_user);
       
-        $app['session']->getFlashBag()->add('success', 'you are in the good file');
+        $app['session']->getFlashBag()->add('success', 'you are in the good file deleteUserIndexAction');
 
         // Redirect to admin home page
 
-         return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
-             
-                     'id_user'        =>$id_user,
-                ));
+        return $app->redirect($app['url_generator']->generate('userslist'));
     }
 
     public function deleteUserAction($id, Request $request, Application $app) {

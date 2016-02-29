@@ -224,14 +224,12 @@ $app->get('/studentstats', function () use ($app) {
 
 
 /**                                                           UTILISATEURS              **
-
  *   
  *                     TABLEAU DE BORD 
  */
 $app->get('/usertab', function () use ($app) {
     return $app['twig']->render('TabTemplate/usertab.html.twig');
 })->bind('usertab');
-
 
 // Modification de l'utilisateur
 // 
@@ -244,55 +242,35 @@ $app->post('/modifuser/delete', "ppe_gestion\Controller\UserController::deleteUs
 $app->get('/modifuser/edit', "ppe_gestion\Controller\UserController::editUserIndexAction")->bind('user_edit');
 $app->post('/modifuser/edit', "ppe_gestion\Controller\UserController::editUserAction")->bind('user_edited');
 
-
 /*    *
  *                     AJOUT
  * 
  * route pour l'ajout des utilisateurs
  */
+ //* route pour l'affichage du formulaire d ajout d utilisateurs
 $app->get('/adduser', "ppe_gestion\Controller\UserController::addUserIndexAction")->bind('user_add');
 
+ //* route pour la soumission du formulaire d ajout d utilisateurs
 $app->post('/adduser', "ppe_gestion\Controller\UserController::addUserAction")->bind('user_added');
 
-//$app->post('/adduser')->bind('user');
-
-
-// Modification de l'utilisateur
-
-//$app->post('/modifuser')->bind('modifusers');
-
-
 /**
- *     
  *                     LISTE 
  * 
  * route pour l'affichage de la liste des utilisateurs
  */
-$app->get('/userslist', function () use ($app) {
-                  
-     $classes = $app['dao.classNames']->findAll();
-     $disciplines = $app['dao.discipline']->findAll();
-     $roles = $app['dao.user']->findAll();
-     $users = $app['dao.user']->findAll();
-   
-     
-    return $app['twig']->render('ListTemplate/userslist.html.twig', array(
-        'classe'        =>$classes,
-        'discipline'    =>$disciplines,
-        'role'          =>$roles,
-        'users'         =>$users,
-    ));
-    
-    
-    
-})->bind('userslist');
+$app->get('/userslist', "ppe_gestion\Controller\UserController::listUserIndexAction")>bind('userslist');
 
-// liste des utilisateurs   revoyant l'id selectionné à la fonction modifier
+// liste des utilisateurs  renvoyant l'id selectionné à la fonction modifier
 $app->post('/userslist', "ppe_gestion\Controller\UserController::listUserAction")->bind('users');
+
+
+
+
+
 
 /**
  *   
-*                                                                CALENDRIER
+*                                                                    CALENDRIER
 *
  * route pour afficher le calendrier
  */
