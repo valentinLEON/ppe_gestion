@@ -203,10 +203,10 @@ class UserController {
 
     public function deleteUserAction($id, Request $request, Application $app) {
 
-        $id_users = $request->request->get('id_users'); 
+        $id_user = $request->request->get('id_users'); 
         // Delete the user
-
-        $app['dao.user']->delete($id_users);
+var_dump($id_user);
+        $app['dao.user']->delete($id_user);
 
         $app['session']->getFlashBag()->add('success', 'The user was succesfully removed.');
 
