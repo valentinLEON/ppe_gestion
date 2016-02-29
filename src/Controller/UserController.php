@@ -146,14 +146,16 @@ class UserController {
         $users = $app['dao.user']->findAll();
 
 
-       return $app['twig']->render('FormTemplate/adduser.html.twig', array(
-           'classe'=>$classes,
-           'discipline'=>$disciplines,
-           'role'=>$users,
-           'message'=>'',
-           'id_users'=>$users,
-           'user'=>$users,
-         ));
+       return $app['twig']->render('FormTemplate/adduser.html.twig', array( 
+           
+            'classe'=>$classes,
+            'discipline'=>$disciplines,
+            'role'=>$users,
+            'message'=>'',
+            'id_users'=>$users,
+            'user'=>$users,
+       
+           ));
     }
     
 //                              FONCTION D AJOUT D UTILISATEUR
@@ -169,70 +171,61 @@ class UserController {
         $newUser->setSalt($request->request->get('salt'));
         $newUser->setRole($request->request->get('role'));
         $newUser->setIdDiscipline($request->request->get('discipline_form'));
-        $newUser->setIdClassName($request->request->get('classname'));
+        $newUser->setIdClassName($request->request->get('id_classname'));S
         $newUser->setStatus($request->request->get('status'));   
         $newUser->setUserMail($request->request->get('user_mail'));
         $newUser->setDtCreate(date('Y-m-d H:i:s'));
         $newUser->setDtUpdate(date('Y-m-d H:i:s'));
+        // regler le probleme de classname id class
 var_dump($newUser);
+
         $app['dao.user']->saveUser($newUser);
-
-        $classes = $app['dao.classNames']->findAll();
-        $disciplines = $app['dao.discipline']->findAll();
-        $role = $app['dao.user']->findAll();
-        $id_users = $app['dao.user']->findAll();
-
-        $username = $request->request->get('username');
-        $name = $request->request->get('name');
-        $firstname = $request->request->get('firstname');
-        $description = $request->request->get('description');
-        $password = $request->request->get('password');
-        $salt = $request->request->get('salt');
-        $role_form = $request->request->get('role');
-        $discipline_form = $request->request->get('discipline_form');
-        $classname = $request->request->get('classname');
-        $status = $request->request->get('status');   
-        $user_mail = $request->request->get('user_mail');
-
-        $message= $request->request->get('message');
+//
+//        $classes = $app['dao.classNames']->findAll();
+//        $disciplines = $app['dao.discipline']->findAll();
+//        $role = $app['dao.user']->findAll();
+//        $id_users = $app['dao.user']->findAll();
+//
+//        $username = $request->request->get('username');
+//        $name = $request->request->get('name');
+//        $firstname = $request->request->get('firstname');
+//        $description = $request->request->get('description');
+//        $password = $request->request->get('password');
+//        $salt = $request->request->get('salt');
+//        $role_form = $request->request->get('role');
+//        $discipline_form = $request->request->get('discipline_form');
+//        $classname = $request->request->get('classname');
+//        $status = $request->request->get('status');   
+//        $user_mail = $request->request->get('user_mail');
         
         $app['session']->getFlashBag()->add('success', 'Utilisateur bien enregistré');
   
-        return $app['twig']->render('FormTemplate/adduser.html.twig', array(
-           'classe'        =>$classes,
-           'discipline'    =>$disciplines,
-           'role_form'     =>$role_form,      
-           'message'       =>$message,
-           'id_users'      =>$id_users,
-           'username'      =>$username,
-           'name'          =>$name,
-           'firstname'     =>$firstname,
-           'description'   =>$description,
-           'password'      =>$password,
-           'salt'          =>$salt,
-           'role'          =>$role,
-           'discipline_form' =>$discipline_form,
-           'classname'     =>$classname,
-           'status'        =>$status,   
-           'user_mail'     =>$user_mail,
-
-           ));
+        return $app['twig']->render('FormTemplate/adduser.html.twig'));
+        
+//        
+//        , array(
+//           'classe'        =>$classes,
+//           'discipline'    =>$disciplines,
+//           'role_form'     =>$role_form,      
+//           'message'       =>$message,
+//           'id_users'      =>$id_users,
+//           'username'      =>$username,
+//           'name'          =>$name,
+//           'firstname'     =>$firstname,
+//           'description'   =>$description,
+//           'password'      =>$password,
+//           'salt'          =>$salt,
+//           'role'          =>$role,
+//           'discipline_form' =>$discipline_form,
+//           'classname'     =>$classname,
+//           'status'        =>$status,   
+//           'user_mail'     =>$user_mail,
+//
+//           ));
 } 
 
 
-    /**
-
-     * Edit user controller.
-
-     *
-
-     * @param integer $id User id
-
-     * @param Request $request Incoming request
-
-     * @param Application $app Silex application
-
-     */   
+    /**   *             Edit user controller.            */   
 
     public function editUserIndexAction(Request $request, Application $app) {
 
@@ -260,7 +253,6 @@ var_dump($newUser);
 
     }
 
-  //  public function editUserAction($id, Request $request, Application $app) {
     public function editUserAction(Request $request, Application $app) {
 
         $classes = $app['dao.classNames']->findAll();
@@ -306,7 +298,7 @@ var_dump($newUser);
             'id_role'       =>$idrole,
             'id_user'       =>$id_users,
             'users_total'   =>$users_total,
-            'modification'  =>$modification,
+  
          ));
 
     }
@@ -316,8 +308,7 @@ var_dump($newUser);
     
 // Alert Etes vous sur de vouloir supprimer tel utilisateur .    
     public function deleteUserIndexAction(Request $request, Application $app) { 
-        // Redirect to admin home page
-
+   
         return $app->redirect($app['url_generator']->generate('userslist'));
     }
     

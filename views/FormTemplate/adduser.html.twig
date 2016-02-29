@@ -100,7 +100,8 @@
                     <label>Classes</label>
                     <select name="classname" style=" width: 25% ;border-radius: 3px" class="form-control">{# multiple #}
                         {% for classes in classe %}
-                            <option value="{{ classes.id_class }}">{{ classes.class_name }}</option>
+                            <option value="{{ classes.classes }}">{{ classes.class_name }}</option>
+                            <input type="hidden" name="id_classname" value="{{ classes.id_class }}">
                         {% endfor %}
                     </select>
                 </div>
