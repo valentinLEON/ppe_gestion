@@ -234,7 +234,7 @@ var_dump($newUser);
 
      */   
 
-    public function editUserIndexAction($id, Request $request, Application $app) {
+    public function editUserIndexAction(Request $request, Application $app) {
 
         $classes = $app['dao.classNames']->findAll();
         $disciplines = $app['dao.discipline']->findAll();
@@ -320,12 +320,7 @@ var_dump($newUser);
             'modification'  =>$modification,
          ));
 
-     
-  
-
     }
-    
-
 
     /**
 
