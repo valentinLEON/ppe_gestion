@@ -279,32 +279,17 @@ $app->post('/addclass', function(Request $request) use ($app){
 
 /**                                                            DISCIPLINES
  *                   TABLEAU DE BORD                */
-$app->get('/disciplinetab',  "ppe_gestion\Controller\UserController::tabDisciplineAction")->bind('disciplinetab');
+$app->get('/disciplinetab',  "ppe_gestion\Controller\DisciplineController::tabDisciplineAction")->bind('disciplinetab');
 
   /**                       LISTE
  * route pour l'affichage de la liste des matières          */
- $app->get('/userslist', "ppe_gestion\Controller\UserController::listDisciplineIndexAction")->bind('disciplines');
+ $app->get('/disciplineslist', "ppe_gestion\Controller\DisciplineController::listDisciplineIndexAction")->bind('disciplines');
 
 /**                   AJOUT
  * route pour l'ajout des matières      */
-$app->get('/adddiscipline', function () use ($app) {
-    return $app['twig']->render('FormTemplate/adddiscipline.html.twig');
-})->bind('adddiscipline');
+$app->get('/adddiscipline', "ppe_gestion\Controller\DisciplineController:: addDisciplineIndexAction" )->bind('adddiscipline');
 
-$app->post('adddiscipline', function(Request $request) use($app){
-    $newDiscipline = new Discipline();
-
-    $newDiscipline->setNameDiscipline($request->request->get('matiere'));
-    $newDiscipline->setDescription($request->request->get('description'));
-    $newDiscipline->setDtCreate(date('Y-m-d H:i:s'));
-    $newDiscipline->setDtUpdate(date('Y-m-d H:i:s'));
-
-    $app['dao.discipline']->saveDiscipline($newDiscipline);
-    $app['session']->getFlashBag()->add('success', 'La discipline a été ajoutée avec succès !');
-    
-    return  $app['twig']->render('FormTemplate/adddiscipline.html.twig');
-    
-})->bind('discipline');
+$app->post('adddiscipline', "ppe_gestion\Controller\DisciplineController::addDisciplineAction")->bind('discipline');
 
 /**                                                                   NOTES     
  * 

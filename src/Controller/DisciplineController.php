@@ -47,28 +47,31 @@ public function listDisciplineAction(Application $app) {
         'disciplines'=>$disciplines,
         'users'=>$users,
     ));
+}
 
 /**                    AJOUT
  *
  * route pour l'ajout des matières
- */
-$app->get('/adddiscipline', function () use ($app) {
-    return $app['twig']->render('FormTemplate/adddiscipline.html.twig');
-})->bind('adddiscipline');
-
-$app->post('adddiscipline', function(Request $request) use($app){
-    $newDiscipline = new Discipline();
-
-    $newDiscipline->setNameDiscipline($request->request->get('matiere'));
-    $newDiscipline->setDescription($request->request->get('description'));
-    $newDiscipline->setDtCreate(date('Y-m-d H:i:s'));
-    $newDiscipline->setDtUpdate(date('Y-m-d H:i:s'));
-
-    $app['dao.discipline']->saveDiscipline($newDiscipline);
-    $app['session']->getFlashBag()->add('success', 'La discipline a été ajoutée avec succès !');
+ */ 
+   public function addDisciplineIndexAction(Request $request, Application $app) {
     
-    return  $app['twig']->render('FormTemplate/adddiscipline.html.twig');
-    
-})->bind('discipline');
-    
+        return $app['twig']->render('FormTemplate/adddiscipline.html.twig');
+    }
+
+    public function addDisciplineAction(Request $request, Application $app) {
+        
+        $newDiscipline = new Discipline();
+
+        $newDiscipline->setNameDiscipline($request->request->get('matiere'));
+        $newDiscipline->setDescription($request->request->get('description'));
+        $newDiscipline->setDtCreate(date('Y-m-d H:i:s'));
+        $newDiscipline->setDtUpdate(date('Y-m-d H:i:s'));
+
+        $app['dao.discipline']->saveDiscipline($newDiscipline);
+        $app['session']->getFlashBag()->add('success', 'La discipline a été ajoutée avec succès !');
+
+        return  $app['twig']->render('FormTemplate/adddiscipline.html.twig');
+
+    }
+
 }
