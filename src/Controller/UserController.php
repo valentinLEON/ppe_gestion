@@ -278,7 +278,7 @@ var_dump($newUser);
         $newUser->setIdDiscipline($request->request->get('id_discipline_form'));
         $newUser->setIdUsers($request->request->get('id_user'));
         $newUser->setIdClassName($request->request->get('id_class_form'));
-        $newUser->setIdClassName($request->request->get('classname'));
+        $newUser->setClassName($request->request->get('classname'));
         $newUser->setStatus($request->request->get('status'));   
         $newUser->setUserMail($request->request->get('user_mail'));
         $newUser->setDtUpdate(date('Y-m-d H:i:s'));
@@ -313,13 +313,15 @@ var_dump($newUser);
     }
     
 // POST ACTION DE SUPPRESSION DE L UTILSATEUR
-    public function deleteUserAction(Request $request, Application $app) {
-
-       $id_user = ($request->request->get('id_user'));
+    public function deleteUserAction(Request $request, Application $app, User $user) {
+        
+        $newUser = new User();
+        
+        $newUser->setIdUsers($request->request->get('id_user'));
        
-        var_dump($id_user);
+        var_dump($newUser);
 
-        $app['dao.user']->deleteUser($id_user);
+        $app['dao.user']->deleteUser($newUser);
 
         $app['session']->getFlashBag()->add('danger', 'Utilisateur supprimé !');
 
