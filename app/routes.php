@@ -184,6 +184,7 @@ $app->get('/addstudent', function () use ($app) {
 })->bind('addstudent');
 
 $app->post('/addstudent', function(Request $request) use($app){
+    
     $newStudent = new Student();
 
     $class = $app['dao.classNames']->findClassname($request->request->get('classname'));
@@ -222,7 +223,7 @@ $app->get('/studentstats', function () use ($app) {
 
 
 
-/**                                                           UTILISATEURS
+/**                                                           UTILISATEURS              **
 
  *   
  *                     TABLEAU DE BORD 
@@ -230,6 +231,19 @@ $app->get('/studentstats', function () use ($app) {
 $app->get('/usertab', function () use ($app) {
     return $app['twig']->render('TabTemplate/usertab.html.twig');
 })->bind('usertab');
+
+
+// Modification de l'utilisateur
+// 
+//      SUPPRIME USER
+$app->get('/modifuser/delete', "ppe_gestion\Controller\UserController::indexAction")->bind('user_delete');
+$app->match('/modifuser/{id_users}/delete', "ppe_gestion\Controller\UserController::deleteUserAction")->bind('user_delete');
+
+//      MODIFIE USER
+
+$app->get('/modifuser/edit', "ppe_gestion\Controller\UserController::indexAction")->bind('user_edit');
+$app->match('/modifuser/{id_users}/edit', "ppe_gestion\Controller\UserController::editUserAction")->bind('user_edit');
+
 
 /*    *
  *                     AJOUT
@@ -254,134 +268,14 @@ $app->get('/adduser', function () use ($app) {
     
 })->bind('adduser');
 
+$app->post('/modifuser/{$id_users}/add', "ppe_gestion\Controller\UserController::addUserAction")->bind('user_add');
 
-$app->post('/adduser', function(Request $request) use ($app){
-   
-   $newUser = new User();
-   
-    $newUser->setUsername($request->request->get('username'));
-    $newUser->setName($request->request->get('name'));
-    $newUser->setFirstName($request->request->get('firstname'));
-    $newUser->setDescription($request->request->get('description'));
-    $newUser->setPassword($request->request->get('password'));
-    $newUser->setSalt($request->request->get('salt'));
-    $newUser->setRole($request->request->get('role'));
-    $newUser->setIdDiscipline($request->request->get('discipline_form'));
-    $newUser->setIdClassName($request->request->get('classname'));
-    $newUser->setStatus($request->request->get('status'));   
-    $newUser->setUserMail($request->request->get('user_mail'));
-    $newUser->setDtCreate(date('Y-m-d H:i:s'));
-    $newUser->setDtUpdate(date('Y-m-d H:i:s'));
- 
-   
-    $app['dao.user']->saveUser($newUser);
-    
-    $classes = $app['dao.classNames']->findAll();
-    $disciplines = $app['dao.discipline']->findAll();
-    $role = $app['dao.user']->findAll();
-    $id_users = $app['dao.user']->findAll();
-  
-    $username = $request->request->get('username');
-    $name = $request->request->get('name');
-    $firstname = $request->request->get('firstname');
-    $description = $request->request->get('description');
-    $password = $request->request->get('password');
-    $salt = $request->request->get('salt');
-    $role_form = $request->request->get('role');
-    $discipline_form = $request->request->get('discipline_form');
-    $classname = $request->request->get('classname');
-    $status = $request->request->get('status');   
-    $user_mail = $request->request->get('user_mail');
-    
-    $message= $request->request->get('message');
-     
-     return $app['twig']->render('FormTemplate/adduser.html.twig', array(
-        'classe'        =>$classes,
-        'discipline'    =>$disciplines,
-        'role_form'     =>$role_form,      
-        'message'       =>$message,
-        'id_users'      =>$id_users,
-        'username'      =>$username,
-        'name'          =>$name,
-        'firstname'     =>$firstname,
-        'description'   =>$description,
-        'password'      =>$password,
-        'salt'          =>$salt,
-        'role'          =>$role,
-        'discipline_form' =>$discipline_form,
-        'classname'     =>$classname,
-        'status'        =>$status,   
-        'user_mail'     =>$user_mail,
-         
-      ));
-     
-    //$app['session']->getFlashBag()->add('success', 'La note a bien été ajouté !'); //message flash success si réussi
-})->bind('user');
+//$app->post('/adduser')->bind('user');
+
 
 // Modification de l'utilisateur
 
-$app->get('/modifuser', function () use ($app) {
-     
-     $classes = $app['dao.classNames']->findAll();
-     $disciplines = $app['dao.discipline']->findAll();
-     $users = $app['dao.user']->findAll();
-     $users_total = $app['dao.user']->countAll();
-  
-     $modification='';
-     
-    return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
-        'classe'        =>$classes,
-        'discipline'    =>$disciplines,
-        'role'          =>$users,
-        'users'         =>$users,
-        'username'      =>$users,
-        'users_total'   =>$users_total,
-        'modification'  =>$modification,
-    
-    ));
-    
-})->bind('modifuser');
-// Modification de l'utilisateur
-
-$app->post('/modifuser', function (Request $request) use ($app) {
-       
-     $classes = $app['dao.classNames']->findAll();
-     $disciplines = $app['dao.discipline']->findAll();
-     $roles = $app['dao.user']->findAll();
-     $id_users = $app['dao.user']->findAll();
-     $username = $app['dao.user']->findAll();
-     
-     $iduser= $request->request->get('id_users');    
-     $modification= $request->request->get('modification');    
-     $idclass = $request->request->get('id_class_form');
-     $id_discipline = $request->request->get('id_discipline');
-     $idrole = $request->request->get('id_role'); 
-  
-     $users_total = $app['dao.user']->countAll();
-   //  $id_class = $app['dao.classNames']->findClassname($idclass);
-   //  $id_discipline = $app['dao.discipline']->findDiscipline($iddiscipline);
-   //  $id_role = $app['dao.user']->find($idrole);
-     $id_user_form = $app['dao.user']->find($iduser);
-     
-    return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
-        'classe'        =>$classes,
-        'discipline'    =>$disciplines,
-        'username'      =>$username,
-        'role'          =>$roles,
-        'role'          =>$roles,
-        'id_class_form' =>$idclass,
-        'id_class'      =>$idclass,
-        'id_discipline' =>$id_discipline,
-        'id_role'       =>$idrole,
-        'id_user'       =>$id_users,
-        'id_users'      =>$iduser,
-        'user_form'     =>$id_user_form,
-        'users_total'   =>$users_total,
-        'modification'  =>$modification,
-   
-    ));
-    
-})->bind('modifusers');
+//$app->post('/modifuser')->bind('modifusers');
 
 
 /**
@@ -409,36 +303,45 @@ $app->get('/userslist', function () use ($app) {
     
 })->bind('userslist');
 
-// modifier un utilisateur
+// liste des utilisateurs   revoyant l'id selectionné à la fonction modifier
 $app->post('/userslist', function (Request $request) use ($app) {
-       
-   $id_users_form= $request->request->get('id_user');
-   $id_class_form= $request->request->get('id_class');
-   $id_discipline_form= $request->request->get('id_discipline');
+   
+    
+    $users = $app['dao.user']->findAll();   
+    
+    
+   $id_users_form = $request->request->get('id_user');
+   $id_class_form = $request->request->get('id_class');
+   $id_discipline_form = $request->request->get('id_discipline');
    
             
-     $classes = $app['dao.classNames']->findAll();
-     $disciplines = $app['dao.discipline']->findAll();
-     $roles = $app['dao.user']->findAll();
-     $id_users = $app['dao.user']->findAll();
-     $idclassUser = $app['dao.user']->findAll();
+    $classes = $app['dao.classNames']->findAll();
     
-     $id_class_User=$idclassUser.id_class;
-     
-     $id_classe =   $app['dao.classNames']->findClassname($id_class_User);
+    $disciplines = $app['dao.discipline']->findAll();
+    
+    $get_id_users = $app['dao.user']->getIdUsers();
+    $get_id_users = $app['dao.classNames']->getIdClass();
+    $get_id_disciplines = $app['dao.discipline']->getIdDisciplines();
+  
+    $set_id_users = $app['dao.user']->setIdUsers($get_id_users);
              
-           
-     $id_discipline = $app['dao.discipline']->findDiscipline($id_discipline_form);
-     $id_role = $app['dao.user']->find($id_users_form);
+   
+    $get_id_role = $app['dao.user']->findAll(); 
+    $idclassUser = $app['dao.user']->findAll();
+    
+    
+    $id_classe =   $app['dao.classNames']->findClassname($id_class_User);            
+    $id_discipline = $app['dao.discipline']->findDiscipline($id_discipline_form);
+    $id_role = $app['dao.user']->find($id_users_form);
      
     return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
-        'classe'        =>$classes,
-        'discipline'    =>$disciplines,
-        'role'          =>$roles,
-        'id_class'      =>$id_classe,
-        'id_discipline' =>$id_discipline,
-        'id_role'       =>$id_role,
-        'id_user'       =>$id_users,
+//        'classe'        => $classes,
+//        'discipline'    => $disciplines,
+//        'role'          => $roles,
+//        'id_class'      => $id_classe,
+//        'id_discipline' => $id_discipline,
+//        'id_role'       => $id_role,
+        'id_user'       => $id_users,
     ));
     
     
