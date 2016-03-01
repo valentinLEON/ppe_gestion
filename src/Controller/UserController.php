@@ -197,7 +197,7 @@ class UserController {
 
     /**   *             Edit user controller.            */   
 
-    public function editUserIndexAction(Application $app) {
+    public function editUserIndexAction(Request $request, Application $app) {
         
         $id_user = $request->request->get('id_user');
                
