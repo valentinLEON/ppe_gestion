@@ -61,6 +61,7 @@
 }
 .mytdminus{
    text-align: center; 
+      border: 1px solid darkgrey; 
     width: 25px;
     word-wrap: break-word;
     font-size:13px;
