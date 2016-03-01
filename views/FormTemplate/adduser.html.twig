@@ -48,7 +48,7 @@
                     <label>Classes</label>
                     <select name="id_class" style=" width: 25% ;border-radius: 3px" class="form-control">{# multiple #}
                         {% for classes in classe %}
-                            <option value=""  >{{ classes.class_name ~ classes.class_type}}</option>
+                            <option value={{ classes.id_class }}[]"  >{{ classes.class_name ~ classes.class_type}}</option>
                           
                         {% endfor %}
                     </select>
