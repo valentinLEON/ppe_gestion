@@ -48,11 +48,15 @@ class EvaluationController {
     
     // AJOUT TRAITEMENT
     public function addAction(Request $request ,Application $app) {
- 
+        
+       $classes = $app['dao.classNames']->findAll();
+       $disciplines = $app['dao.discipline']->findAllByDiscipline();
+       $students = $app['dao.student']->findAll();
+       
        $id_student = $request->request->get('id_student');
        $id_discipline = $request->request->get('id_discipline');
        $note = $request->request->get('note');
-       $student = $app['dao.student']->findAll();
+      
      //  $discipline = $app['dao.discipline']->findDiscipline($id_discipline);
        $coeff =  $request->request->get('coeff');
        $judgement = $request->request->get('judgement');
@@ -72,9 +76,7 @@ class EvaluationController {
 
        $app['session']->getFlashBag()->add('success', 'La note a été ajoutée avec succès !');
 
-       $classes = $app['dao.classNames']->findAll();
-       $disciplines = $app['dao.discipline']->findAll();
-       $students = $app['dao.student']->findAll();
+      
 
        return $app['twig']->render('FormTemplate/addnote.html.twig', array(
 
