@@ -65,7 +65,7 @@ class ClassNameController {
 
         $app['dao.classNames']->saveClassName($newClass);
         
-        $app['session']->getFlashBag()->add('success', 'La classe a été ajouté avec succès !');
+     //   $app['session']->getFlashBag()->add('success', 'La classe a été ajouté avec succès !');
 
         return $app['twig']->render('FormTemplate/addclass.html.twig');
       

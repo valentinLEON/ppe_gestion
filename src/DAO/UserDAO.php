@@ -146,12 +146,11 @@ class UserDAO extends DAO implements UserProviderInterface
     // ENREGISTRE LE USER 
    public function saveUser(User $user)
     {     
-        $infoUser= array( 
+        $userInfo= array( 
             'username'      => $user->getUsername(), 
             'name'          => $user->getName(),
             'firstname'     => $user->getFirstname(),
             'password'      => $user->getPassword(),
-            'salt'          => $user->getSalt(),
             'role'          => $user->getRole(),
             'user_mail'     => $user->getUserMail(), 
             'description'   => $user->getDescription(), 
@@ -161,14 +160,17 @@ class UserDAO extends DAO implements UserProviderInterface
             'id_class'      => $user->getIdClassName(),
             );
         
-     //       $this->getDb()->update('user', $infoUser);
-            $this->getDb()->insert('users', $infoUser);        
-//            $_id_users = $this->getDb()->lastInsertId();
-//            $user->setIdUser($_id_users);    
-//            
-           // $this->getDb()->insert('id_class', $_id_class);
-           // $user->setIdClass($_id_class);
-    }
+        //on modifie
+        if($user->getIdStudent()){
+            $this->getDb()->update('users',$userInfo, array(
+                'id_user' => $student->getIdUser()));
+        }
+        //on sauvegarde
+        else{
+            $this->getDb()->insert('users',$userInfo);   $id = $this->getDb()->lastInsertId();
+            $student->setIdStudent($id);
+        }
+      }
 
     
                              // Delete LE USER 

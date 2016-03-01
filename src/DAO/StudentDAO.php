@@ -130,8 +130,8 @@ class StudentDAO extends DAO
      */
     public function deleteStudent($id)
     {
-        $this->getDb()->delete('users', array(
-            'id_users' => $id
+        $this->getDb()->delete('student', array(
+            'id_student' => $id
         ));
     }
 

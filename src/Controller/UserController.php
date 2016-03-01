@@ -198,9 +198,8 @@ class UserController {
         $classes = $app['dao.classNames']->findAll();
         $disciplines = $app['dao.discipline']->findAll();
         $roles = $app['dao.user']->findAll();
-        $id_users = $app['dao.user']->findAll();
-        $usernames = $app['dao.user']->findAll();
-      
+        $users = $app['dao.user']->findAll();
+
         $id_user = $request->request->get('id_user');
         $username = $request->request->get('username');
         $name = $request->request->get('name');
