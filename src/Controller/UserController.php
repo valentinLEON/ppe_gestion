@@ -158,7 +158,7 @@ class UserController {
         $newUser->setIdClassName($id_class);
         $newUser->setUserMail($user_mail);
         $newUser->setDtCreate($dt_create);
-        $newUser->setDtUpdate();
+        $newUser->setDtUpdate($dt_update);
          
     if($newUser->getUsers())
     {
