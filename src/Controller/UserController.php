@@ -198,8 +198,22 @@ class UserController {
     /**   *             Edit user controller.            */   
 
     public function editUserIndexAction(Application $app) {
+        
+        $classes = $app['dao.classNames']->findAll();
+        $disciplines = $app['dao.discipline']->findAll();
+        $users = $app['dao.user']->findAll();
 
-        return $app->redirect($app['url_generator']->generate('modifuser/delete/id'));
+      
+        
+          return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
+            'classe'        =>$classes,
+            'discipline'    =>$disciplines,
+            'user'          =>$users,
+          
+  
+         ));
+        
+        
     }
 
     public function editUserAction(Request $request, Application $app) {  
