@@ -49,8 +49,6 @@ class ExamenController {
      // Récupère les données en post et insère en base de données
     
     public function addAction(Request $request ,Application $app) {
-
-        $exam = count($app['dao.examen']->findAll());
           
         $newExamen = new Examen();
 
