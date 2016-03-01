@@ -172,45 +172,38 @@ $app->get('/notestats',"ppe_gestion\Controller\EvaluationController::statAction"
 
 
 /**                                                              EXAMEN
- * Récupère via l'url les examens
+ * 
+ *                          AJOUT
  */
-$app->get('/addexamen', function() use($app){
-    return $app['twig']->render('FormTemplate/addexam.html.twig');
-})->bind('addexamen');
+$app->get('/addexamen', "ppe_gestion\Controller\ExamenController::addIndexAction")->bind('addexamen');
+$app->post('/addexamen', "ppe_gestion\Controller\ExamenController::addAction")->bind('exam');
 
-/**
- * Récupère les données en post et insère en base de données
- *
- * Avec un message de succès en flash
+/**                        LISTE
+ *                           
+ * route pour l'affichage de la liste des examens */
+$app->get('/examlist',"ppe_gestion\Controller\ExamenController::listAction")->bind('examlist');
+
+
+
+
+/**                                                             STATISTIQUES
+ * 
+ *                       TABLEAU DE BORD
+ * 
+ * 
+ * route pour afficher un tableau de bord de toutes les statistiques 
  */
-$app->post('/addexamen', function(Request $request) use($app){
-    $newExamen = new Examen();
+$app->get('/stattab', function () use ($app) {
+    return $app['twig']->render('TabTemplate/stattab.html.twig');
+})->bind('stattab');
 
-    $newExamen->setNameExamen($request->request->get('name'));
-    $newExamen->setDateExamen($request->request->get('date'));
-    $newExamen->setDescriptionExamen($request->request->get('description'));
 
-    $newExamen->setDtCreate(date('Y-m-d H:i:s'));
-    $newExamen->setDtUpdate(date('Y-m-d H:i:s'));
 
-    $app['dao.examen']->saveExamen($newExamen);
 
-    $app['session']->getFlashBag()->add('success', 'L\'examen a été ajouté avec succès !');
 
-    return $app->redirect('/addexamen', 301);
-})->bind('exam');
 
-/**
- *
- *                             LISTE
- *
- *
- * route pour l'affichage de la liste des examens
- */
 
-$app->get('/examlist', function () use ($app) {
-    return $app['twig']->render('TabTemplate/examlist.html.twig');
-})->bind('examlist');
+
 
 
 /**                                                              ABSENCES
@@ -275,13 +268,5 @@ $app->get('/retardslist', function () use ($app) {
 
 
 
-/**                        STATISTIQUES
- * 
- *                       TABLEAU DE BORD
- * 
- * 
- * route pour afficher un tableau de bord de toutes les statistiques 
- */
-$app->get('/stattab', function () use ($app) {
-    return $app['twig']->render('TabTemplate/stattab.html.twig');
-})->bind('stattab');
+
+
