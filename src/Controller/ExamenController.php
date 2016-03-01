@@ -67,7 +67,7 @@ class ExamenController {
 
         $app['session']->getFlashBag()->add('success', 'L\'examen a été ajouté avec succès !');
         
-        return $app['twig']->render('/addexamen', array(
+        return $app['twig']->render('/addexam', array(
                 'name'              => $name,
                 'date'              => $date ,
                 'description'       => $description, 
