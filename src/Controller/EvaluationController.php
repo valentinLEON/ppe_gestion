@@ -65,7 +65,7 @@ class EvaluationController {
 
        $newEvaluation->setGradeStudent($note);
        $newEvaluation->setDiscipline($id_discipline);
-       $newEvaluation->setStudent($id_student);
+       $newEvaluation->setIdStudent($id_student);
        $newEvaluation->setCoefDiscipline($coeff);
        $newEvaluation->setJudgement($judgement);
        $newEvaluation->setDtCreate(date('Y-m-d H:i:s'));
