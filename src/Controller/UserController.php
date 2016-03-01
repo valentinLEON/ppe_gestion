@@ -115,18 +115,23 @@ class UserController {
     }
 
 //                              INDEX DE L AJOUT D UTILISATEURS
-    public function addIndexAction(Application $app) {
+    public function addIndexAction(Request $request , Application $app) {
     
         $classes = $app['dao.classNames']->findAll();
         $discipline = $app['dao.discipline']->findAll();
         $users = $app['dao.user']->findAll();
         
-       return $app['twig']->render('FormTemplate/adduser.html.twig', array( 
+        $id_user = $request->request->get('id_user');
+          
+        $userById=$app['dao.user']->findUser($id_user);
+        
+        return $app['twig']->render('FormTemplate/adduser.html.twig', array( 
            
                 'classe'           =>    $classes,
                 'discipline'       =>    $discipline,
                 'user'             =>    $users,  
-           ));
+                'userById'         =>    $userById,  
+        ));
     }
     
     
@@ -145,7 +150,12 @@ class UserController {
         $user_mail = $request->request->get('user_mail');
         $dt_create = date('Y-m-d H:i:s');
         $dt_update = date('Y-m-d H:i:s') ;
-    
+        
+           
+        $id_user = $request->request->get('id_user');
+          
+        $userById=$app['dao.user']->findUser($id_user);
+
         $newUser = new User();
 
         $newUser->setUsername($username);
@@ -178,6 +188,8 @@ class UserController {
            'classe'           =>    $classes,
            'discipline'       =>    $discipline,
            'user'             =>    $users,  
+
+           'userById'         =>    $userById, 
             
            'username'         =>    $username,
            'name'             =>    $name,
