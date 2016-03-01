@@ -66,12 +66,12 @@ public function listDisciplineAction(Application $app) {
  *
  * route pour l'ajout des matières
  */ 
-   public function addDisciplineIndexAction(Request $request, Application $app) {
+   public function addIndexAction(Request $request, Application $app) {
     
         return $app['twig']->render('FormTemplate/adddiscipline.html.twig');
     }
 
-    public function addDisciplineAction(Request $request, Application $app) {
+    public function addAction(Request $request, Application $app) {
         
         $newDiscipline = new Discipline();
 

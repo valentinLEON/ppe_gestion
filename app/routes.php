@@ -87,9 +87,9 @@ $app->get('/studentstats',  "ppe_gestion\Controller\StudentController::studentSt
 
 /*  //                              AJOUT USER
  *  //* route pour l'affichage du formulaire d ajout d utilisateurs */
-    $app->get('/adduser', "ppe_gestion\Controller\UserController::addUserIndexAction")->bind('user_add');
+    $app->get('/adduser', "ppe_gestion\Controller\UserController::addIndexAction")->bind('user_add');
  //* route pour la soumission du formulaire d ajout d utilisateurs
-    $app->post('/adduser', "ppe_gestion\Controller\UserController::addUserAction")->bind('user_added');
+    $app->post('/adduser', "ppe_gestion\Controller\UserController::addAction")->bind('user_added');
 
     
 /**                                                       
@@ -122,9 +122,9 @@ $app->get('/classeslist', "ppe_gestion\Controller\ClassNameController::listClass
  *                                         AJOUT
  * route pour l'ajout des classes
  */
-$app->get('/addclass', "ppe_gestion\Controller\ClassNameController::addClassNameIndexAction")->bind('addclass');
+$app->get('/addclass', "ppe_gestion\Controller\ClassNameController::addIndexAction")->bind('addclass');
 
-$app->post('/addclass', "ppe_gestion\Controller\ClassNameController::addClassNameAction")->bind('class');
+$app->post('/addclass', "ppe_gestion\Controller\ClassNameController::addAction")->bind('class');
 
 
 /**                                                              DisciplineController
@@ -136,12 +136,12 @@ $app->get('/disciplinetab',  "ppe_gestion\Controller\DisciplineController::tabDi
   /**                   LISTE
  * route pour l'affichage de la liste des matières          */
  $app->get('/disciplineslist', "ppe_gestion\Controller\DisciplineController::listDisciplineIndexAction")->bind('list_disciplines');
- $app->get('/disciplineslist', "ppe_gestion\Controller\DisciplineController::listDisciplineAction")->bind('post_list_disciplines');
+ $app->post('/disciplineslist', "ppe_gestion\Controller\DisciplineController::listDisciplineAction")->bind('post_list_disciplines');
 
 /**                      AJOUT
  * route pour l'ajout des matières      */
-$app->get('/adddiscipline', "ppe_gestion\Controller\DisciplineController::addDisciplineIndexAction" )->bind('adddiscipline');
-$app->post('adddiscipline', "ppe_gestion\Controller\DisciplineController::addDisciplineAction")->bind('discipline');
+$app->get('/adddiscipline', "ppe_gestion\Controller\DisciplineController::addIndexAction" )->bind('adddiscipline');
+$app->post('adddiscipline', "ppe_gestion\Controller\DisciplineController::addAction")->bind('discipline');
 
 
 
@@ -168,6 +168,7 @@ $app->get('/notelist', function () use ($app) {
 
 
 /**   
+ * 
  * 
  *                                    AJOUT
  * 

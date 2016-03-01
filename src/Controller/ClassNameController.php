@@ -38,7 +38,7 @@ class ClassNameController {
      }
      
      // AJOUT INDEX
-    public function addClassNameIndexAction(Request $request ,Application $app) {
+    public function addIndexAction(Request $request ,Application $app) {
          $classes = $app['dao.classNames']->findAll();
 
       return $app['twig']->render('FormTemplate/addclass.html.twig', array(
@@ -50,7 +50,7 @@ class ClassNameController {
     }
     
     // AJOUT TRAITEMENT
-    public function addClassNameAction(Request $request ,Application $app) {
+    public function addAction(Request $request ,Application $app) {
         
         $newClass = new ClassName();
 
@@ -63,6 +63,7 @@ class ClassNameController {
         $newClass->setDtUpdate(date('Y-m-d H:i:s'));
 
         $app['dao.classNames']->saveClassName($newClass);
+        
         $app['session']->getFlashBag()->add('success', 'La classe a été ajouté avec succès !');
 
         return $app['twig']->render('ListTemplate/classeslist.html.twig');
