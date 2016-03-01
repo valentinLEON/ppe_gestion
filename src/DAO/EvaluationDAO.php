@@ -49,7 +49,7 @@ class EvaluationDAO extends DAO
     {
         $student = $this->studentDAO->findStudent($studentId);
 
-        $sql = "SELECT id_student, grade_student, judgement FROM evaluation WHERE id_student = ?";
+        $sql = "SELECT id_student, grade_student, judgement FROM evaluationNew WHERE id_student = ?";
         $res = $this->getDb()->fetchAll($sql, array($studentId));
 
 
@@ -70,14 +70,14 @@ class EvaluationDAO extends DAO
      */
     public function findAll()
     {
-        $sql = "SELECT * FROM evaluation ";
+        $sql = "SELECT * FROM evaluationNew ";
         $res = $this->getDb()->fetchAll($sql);
 
         $matieres = array();
         foreach($res as $row)
         {
             $matiereID = $row['id_evaluation'];
-            $matieres[$matiereId] = $this->buildDomainObject($row);
+            $matieres[$matiereID] = $this->buildDomainObject($row);
         }
         return $matieres;   
     }
@@ -91,7 +91,7 @@ class EvaluationDAO extends DAO
      */
     public function find($id)
     {
-        $sql = "SELECT * FROM evaluation WHERE id_evaluation=?";
+        $sql = "SELECT * FROM evaluationNew WHERE id_evaluation=?";
         $row = $this->getDb()->fetchAssoc($sql, array($id));
 
         if ($row) {
