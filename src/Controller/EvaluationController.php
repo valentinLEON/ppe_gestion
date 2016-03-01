@@ -68,7 +68,6 @@ class EvaluationController {
        $newEvaluation->setStudent($id_student);
        $newEvaluation->setCoefDiscipline($coeff);
        $newEvaluation->setJudgement($judgement);
-       
        $newEvaluation->setDtCreate(date('Y-m-d H:i:s'));
        $newEvaluation->setDtUpdate(date('Y-m-d H:i:s'));
 
@@ -76,15 +75,12 @@ class EvaluationController {
 
        $app['session']->getFlashBag()->add('success', 'La note a été ajoutée avec succès !');
 
-      
-
        return $app['twig']->render('FormTemplate/addnote.html.twig', array(
 
-           'classNames'  => $classes,
-           'matieres'    => $disciplines,
-           'students'    => $students,
-           
-           )
+                'classNames'  => $classes,
+                'matieres'    => $disciplines,
+                'students'    => $students,
+             )
         );
     }
     
@@ -99,7 +95,7 @@ class EvaluationController {
     
      public function tabAction(Request $request ,Application $app) {    
   
-           return $app['twig']->render('StatTemplate/notestat.html.twig');
+           return $app['twig']->render('StatTemplate/notestats.html.twig');
     }
          
     // LISTE
