@@ -199,7 +199,7 @@ class UserController {
 
     public function editUserIndexAction(Application $app) {
 
-        return $app->redirect($app['url_generator']->generate('modifuser/edit/id'));
+        return $app->redirect($app['url_generator']->generate('modifuser/delete/id'));
     }
 
     public function editUserAction(Request $request, Application $app) {  
@@ -281,7 +281,7 @@ class UserController {
     /**  *           Delete user controller.  */
     
     public function deleteUserIndexAction(Application $app) { 
-          return $app->redirect($app['url_generator']->generate('modifuser/delete/id'));
+          return $app->redirect($app['url_generator']->generate('userslist/modifuser/delete/id'));
     }
     
 // POST ACTION DE SUPPRESSION DE L UTILSATEUR
