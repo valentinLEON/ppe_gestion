@@ -127,8 +127,7 @@ class UserController {
 
 //                              INDEX DE L AJOUT D UTILISATEURS
     public function addIndexAction(Application $app) {
-        
-         
+    
         $classes = $app['dao.classNames']->findAll();
         $discipline = $app['dao.discipline']->findAll();
         $users = $app['dao.user']->findAll();
@@ -141,6 +140,7 @@ class UserController {
        
            ));
     }
+    
     
 //                              FONCTION D AJOUT D UTILISATEUR
     public function addAction(Request $request, Application $app) {
@@ -196,7 +196,7 @@ class UserController {
            'id_discipline'    =>    $id_discipline,
            'id_class'         =>    $id_class,
 
-           ));
+        ));
 } 
 
 
