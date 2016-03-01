@@ -40,6 +40,10 @@ class StudentController {
             'students' => $etudiants,
         ));
     }
+
+    public function deleteIndexAction(Request $request, $id, Application $app){
+        $app['dao.student']->delete($id);
+    }
     
     public function addIndexAction(Request $request ,Application $app) {
         $classes = $app['dao.classNames']->findAll();
@@ -48,6 +52,7 @@ class StudentController {
             'classes' => $classes
         ));
     }
+
     
     public function addAction(Request $request ,Application $app){
     

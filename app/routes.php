@@ -50,6 +50,12 @@ $app->get('/studenttab',"ppe_gestion\Controller\StudentController::indexAction")
 $app->get('/studentslist',"ppe_gestion\Controller\StudentController::listIndexAction")->bind('studentslist');
 
 /**
+ *                                                                SUPPRESSION
+ * route pour la suppression d'un étudiant par l'id
+ */
+$app->get('/studentlist/{id}/delete', "ppe_gestion\Controller\StudentController::deleteIndexAction")->bind('delete_student');
+
+/**
  *                                                                AJOUT
  * route pour l'affichage du template de l'ajout des étudiants
  * avec l'affichage des classes dans la liste déroulante
@@ -61,7 +67,6 @@ $app->post('/addstudent', "ppe_gestion\Controller\StudentController::addAction")
 /* *                    STATISTIQUES
  * route pour l'affichage de la liste des etudiants*/
 $app->get('/studentstats',  "ppe_gestion\Controller\StudentController::studentStatIndex")->bind('studentstats');
-
 
 
 /**                                                                     UserController   
