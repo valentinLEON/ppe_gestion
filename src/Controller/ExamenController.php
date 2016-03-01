@@ -6,7 +6,7 @@ use Silex\Application;
 
 use Symfony\Component\HttpFoundation\Request;
 
-use ppe_gestion\Domain\Evaluation;
+use ppe_gestion\Domain\Examen;
 //use ppe_gestion\Domain\StudentToClass;
 //use ppe_gestion\Domain\Student;
 //use ppe_gestion\Domain\DisciplineToClass;
