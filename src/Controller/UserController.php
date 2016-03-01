@@ -199,16 +199,20 @@ class UserController {
 
     public function editUserIndexAction(Application $app) {
         
+        $id_user = $request->request->get('id_user');
+               
         $classes = $app['dao.classNames']->findAll();
         $disciplines = $app['dao.discipline']->findAll();
         $users = $app['dao.user']->findAll();
 
-      
+        $edit_user = $app['dao.user']->findUser($id_user);
         
-          return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
+        return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
             'classe'        =>$classes,
             'discipline'    =>$disciplines,
             'user'          =>$users,
+            'id_user'       =>$id_user,
+            'edit_user'     =>$edit_user,
           
   
          ));
