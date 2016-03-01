@@ -46,7 +46,7 @@ class StudentController {
 
         $app['dao.student']->deleteStudent($id_student);
 
-        return $app->redirect($app['url_generator']->generate('studentslist'));
+        //return $app->redirect($app['url_generator']->generate('studentslist'));
     }
     
     public function addIndexAction(Request $request ,Application $app) {
