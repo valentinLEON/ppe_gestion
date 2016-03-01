@@ -42,7 +42,7 @@ class StudentController {
     }
 
     public function deleteIndexAction(Request $request, $id, Application $app){
-        $app['dao.student']->delete($id);
+        $app['dao.student']->deleteStudent($id);
     }
     
     public function addIndexAction(Request $request ,Application $app) {
