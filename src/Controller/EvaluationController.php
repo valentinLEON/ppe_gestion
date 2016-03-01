@@ -50,7 +50,7 @@ class EvaluationController {
     public function addAction(Request $request ,Application $app) {
  
        $id_student = $request->request->get('id_student');
-       $id_discipline = $request->request->get('matiere');
+       $id_discipline = $request->request->get('id_discipline');
        $note = $request->request->get('note');
        $student = $app['dao.student']->findAll();
      //  $discipline = $app['dao.discipline']->findDiscipline($id_discipline);
