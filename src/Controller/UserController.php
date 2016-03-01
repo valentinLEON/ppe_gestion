@@ -137,7 +137,6 @@ class UserController {
                 'classe'           =>    $classes,
                 'discipline'       =>    $discipline,
                 'user'             =>    $users,  
-       
            ));
     }
     

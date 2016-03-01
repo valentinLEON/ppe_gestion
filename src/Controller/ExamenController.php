@@ -63,8 +63,12 @@ class ExamenController {
         $newExamen->setDtCreate(date('Y-m-d H:i:s'));
         $newExamen->setDtUpdate(date('Y-m-d H:i:s'));
 
-        $app['dao.examen']->saveExamen($newExamen);
-
+        $test=$app['dao.examen']->saveExamen($newExamen);
+        
+        if($test){
+             $app['session']->getFlashBag()->add('success', 'Examen ajouté avec succès !');
+        }
+        
         return $app['twig']->render('FormTemplate/addexam.html.twig', [
                 'name'              => $name,
                 'date'              => $date ,

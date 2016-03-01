@@ -82,8 +82,8 @@ class ExamenDAO extends DAO
     {
         $exam = array(
             'examen_name'           => $_examen->getNameExamen(),
-            'date'           => $_examen->getDateExamen(),
-            'description'    => $_examen->getDescriptionExamen(),
+            'date'                  => $_examen->getDateExamen(),
+            'description'           => $_examen->getDescriptionExamen(),
             'dt_create'             => $_examen->getDtCreate(),
             'dt_update'             => $_examen->getDtUpdate(),
         );
@@ -93,8 +93,6 @@ class ExamenDAO extends DAO
         {
             $this->getDb()->update('examen', $exam, array(
                 'id_examen'=> $_examen->getIdExamen()));
-            
-             $app['session']->getFlashBag()->add('success', 'Examen modifié avec succès !');
         }
         //on sauvegarde
         else
@@ -102,8 +100,7 @@ class ExamenDAO extends DAO
             $this->getDb()->insert('examen', $exam);
             $_id_examen = $this->getDb()->lastInsertId();
             $_examen->setIdExamen($_id_examen);
-            
-             $app['session']->getFlashBag()->add('success', 'Examen ajouté avec succès !');
+
         }
         
         
