@@ -136,7 +136,7 @@ class EvaluationDAO extends DAO
      */
     public function deleteGrade($id)
     {
-        $this->getDb()->delete('evaluation', array(
+        $this->getDb()->delete('evaluationNew', array(
             'id_evaluation' => $id
         ));
     }
