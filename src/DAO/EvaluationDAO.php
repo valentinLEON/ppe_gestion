@@ -70,7 +70,7 @@ class EvaluationDAO extends DAO
      */
     public function findAll()
     {
-        $sql = "SELECT id_discipline, grade_student, judgement FROM evaluation WHERE id_discipline = ?";
+        $sql = "SELECT * FROM evaluation ";
         $res = $this->getDb()->fetchAll($sql);
 
         $matieres = array();
