@@ -121,16 +121,16 @@ class UserController {
         $discipline = $app['dao.discipline']->findAll();
         $users = $app['dao.user']->findAll();
         
-        $id_user = $request->request->get('id_user');
+        // $id_user = $request->request->get('id_user');
           
-        $userById=$app['dao.user']->findUser($id_user);
+       // $userById=$app['dao.user']->findUser($id_user);
         
         return $app['twig']->render('FormTemplate/adduser.html.twig', array( 
            
                 'classe'           =>    $classes,
                 'discipline'       =>    $discipline,
                 'user'             =>    $users,  
-                'userById'         =>    $userById,  
+             //   'userById'         =>    $userById,  
         ));
     }
     
