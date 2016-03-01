@@ -213,8 +213,7 @@ class UserController {
             'user'          =>$users,
             'id_user'       =>$id_user,
             'userById'     =>$userById,
-          
-  
+
          ));
         
         
