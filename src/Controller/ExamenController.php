@@ -23,25 +23,29 @@ class ExamenController {
       
     }
     
-    // INDEX 
+    // AFFICHE INDEX 
    
      public function listIndexAction(Request $request ,Application $app)  {
     
       
      }
      
-     // AJOUT INDEX
-     //  //  Récupère via l'url les examens
- 
+    // AFFICHE LISTE
     
+     public function listAction(Request $request ,Application $app) {    
+  
+          return $app['twig']->render('ListTemplate/examlist.html.twig');
+    }
+     
+    
+     //  FONCTION  AJOUT INDEX
+     //  //  Récupère via l'url les examens
     public function addIndexAction(Request $request ,Application $app) {
         
          return $app['twig']->render('FormTemplate/addexam.html.twig');
     }
     
-    
-    
-    // AJOUT TRAITEMENT
+    //  FONCTION AJOUT TRAITEMENT
      // Récupère les données en post et insère en base de données
     
     public function addAction(Request $request ,Application $app) {
@@ -77,12 +81,7 @@ class ExamenController {
           
     }
          
-    // LISTE
-    
-     public function listAction(Request $request ,Application $app) {    
-  
-          return $app['twig']->render('TabTemplate/examlist.html.twig');
-    }
+
     
 }
 
