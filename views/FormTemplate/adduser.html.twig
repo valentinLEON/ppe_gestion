@@ -30,9 +30,9 @@
                 </div>
                 <div class="form-group">
                     <label>Role</label>
-                    <select class="form-control" style=" width: 25% ;border-radius: 3px" name="role" >
+                    <select  name="role" class="form-control" style=" width: 25% ;border-radius: 3px" >
                         {% for roles in role %}
-                            <option value="{{ roles.role }}">{{ roles.role }}</option>
+                            <option value="{{ user.role }}">{{ user.role }}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -40,7 +40,7 @@
                     <label>Matière</label>
                     <select name="id_discipline" style=" width: 25% ;border-radius: 3px" class="form-control" >
                         {% for disciplines in discipline %}
-                            <option value="{{ disciplines.id_discipline }}">{{ disciplines.name_discipline }}</option>
+                            <option value="{{ user.id_discipline }}">{{ disciplines.name_discipline }}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -48,7 +48,7 @@
                     <label>Classes</label>
                     <select name="id_class" style=" width: 25% ;border-radius: 3px" class="form-control">{# multiple #}
                         {% for classes in classe %}
-                            <option value="{{ classes.id_class }}"  >{{ classes.class_name ~ classes.class_type}}</option>
+                            <option value="{{ user.id_class }}"  >{{ classes.class_name ~ classes.class_type}}</option>
                           
                         {% endfor %}
                     </select>
