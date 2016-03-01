@@ -93,6 +93,7 @@ class ClassNameDAO extends DAO
     {
         $class = array(
             'class_name'       => $_className->getClassName(),
+            'class_type'       => $_className->getClassType(),
             'class_option'     => $_className->getClassOption(),
             'class_year'       => $_className->getClassYear(),
             'nombreEtudiant'   => $_className->getNombreEtudiant(),
@@ -140,6 +141,7 @@ class ClassNameDAO extends DAO
         $class->setIdClassName($row['id_class']);
 
         $class->setClassName($row['class_name']);
+        $class->setClassType($row['class_type']);
         $class->setClassOption($row['class_option']);
         $class->setClassYear($row['class_year']);
         $class->setNombreEtudiant($row['nombreEtudiant']);

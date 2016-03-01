@@ -13,6 +13,7 @@ class ClassName
 {
     public $id_class;
     public $class_name;
+    public $class_type;
     public $class_option;
     public $class_year;
     public $description;
@@ -47,7 +48,21 @@ class ClassName
         $this->class_name = $_class_Name;
     }
     //endregion
+    
+   
+    //region Getter et Setter pour le type de la classe
+    public function getClassType()
+    {
+        return $this->class_type;
+    }
 
+    public function setClassType($_class_type)
+    {
+        $this->class_type = $_class_Type;
+    }
+    //endregion
+
+    
     //region Getter et Setter pour le nom de l'option
     public function getClassOption()
     {
