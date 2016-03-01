@@ -189,7 +189,7 @@ class UserController {
   
         return $app['twig']->render('FormTemplate/adduser.html.twig'  , array(
            'classe'           =>$classes,
-           'disciplines'      =>$disciplines,
+           'discipline'      =>$disciplines,
            'user'             =>$users,  
            'username'         =>$username,
            'name'             =>$name,
@@ -198,7 +198,7 @@ class UserController {
            'password'         =>$password,
            'salt'             =>$salt,
            'role'             =>$role,
-           'discipline'      =>$discipline,
+           'disciplines'      =>$discipline,
            'classname'        =>$classname,
            'user_mail'        =>$user_mail,
   
