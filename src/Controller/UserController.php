@@ -160,7 +160,7 @@ class UserController {
         $newUser->setDtCreate($dt_create);
         $newUser->setDtUpdate($dt_update);
          
-    if($newUser->getUsers())
+    if($newUser->getIdUsers())
     {
         $app['dao.user']->saveUser($newUser); 
         
