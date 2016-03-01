@@ -42,15 +42,15 @@ class StudentController {
     }
 
     public function deleteIndexAction(Request $request, Application $app){
-        $id_student = $request->request->get('$id_student');
+        $id_student = $request->request->get('id_student');
 
         $app['dao.student']->deleteStudent($id_student);
         $etudiants = $app['dao.student']->findAll();
 
-        //return $app->redirect($app['url_generator']->generate('studentslist'));
-        return $app['twig']->render('ListTemplate/studentslist.html.twig', array(
+        return $app->redirect($app['url_generator']->generate('studentslist'));
+        /*return $app['twig']->render('ListTemplate/studentslist.html.twig', array(
             'students' => $etudiants,
-        ));
+        ));*/
     }
     
     public function addIndexAction(Request $request ,Application $app) {
