@@ -57,7 +57,7 @@ class UserDAO extends DAO implements UserProviderInterface
     }
 
 // SUPPRIME LE USER    
-    public function deleteUserAction($id, Application $app) {
+ /*   public function deleteUserAction($id, Application $app) {
        
         // Delete the user
         $app['dao.user']->delete($id);
@@ -65,6 +65,10 @@ class UserDAO extends DAO implements UserProviderInterface
         // Redirect to admin home page
         return $app->redirect($app['url_generator']->generate('userlist'));
     }
+ */
+    
+    
+    
     
     // fonction count a utiliser directement dans les autres fonctions
     public function countAll()
@@ -82,11 +86,15 @@ class UserDAO extends DAO implements UserProviderInterface
         return count($users_total);
     }
     
+    
+    
     // MODIFE LE USER
-    public function editUserAction($id, Request $request, Application $app) {
+   /* public function editUserAction($id, Request $request, Application $app) {
+        
         $user = $app['dao.user']->find($id);
         $userForm = $app['form.factory']->create(new UserType(), $user);
         $userForm->handleRequest($request);
+        
         if ($userForm->isSubmitted() && $userForm->isValid()) {
             $plainPassword = $user->getPassword();
             // find the encoder for the user
@@ -97,14 +105,13 @@ class UserDAO extends DAO implements UserProviderInterface
             $app['dao.user']->save($user);
             $app['session']->getFlashBag()->add('success', 'The user was succesfully updated.');
         }
+        
         return $app['twig']->render('user_form.html.twig', array(
             'title' => 'Edit user',
             'userForm' => $userForm->createView()));
     }
 
-    
-    
-    
+*/
     
     //SELECTIONNE LES INFOS DU USER PRENDS EN PARAMETRE LE USERNDAME ??? VAUT MIEUX ID SAUF SI ON VEUX TRIER PAR NOM DE USER
     public function loadUserByUsername($username)
@@ -136,12 +143,10 @@ class UserDAO extends DAO implements UserProviderInterface
     }
     
     
-    // ADD LE USER 
-   public function saveUser($user)
+    // ENREGISTRE LE USER 
+   public function saveUser(User $user)
     {     
-       
-        $infoUser= array(
-               
+        $infoUser= array( 
             'username'      => $user->getUsername(), 
             'name'          => $user->getName(),
             'firstname'     => $user->getFirstname(),
@@ -155,6 +160,7 @@ class UserDAO extends DAO implements UserProviderInterface
             'id_discipline' => $user->getIdDiscipline(), 
             'id_class'      => $user->getIdClassName(),
             );
+        
      //       $this->getDb()->update('user', $infoUser);
             $this->getDb()->insert('users', $infoUser);        
 //            $_id_users = $this->getDb()->lastInsertId();
@@ -167,10 +173,12 @@ class UserDAO extends DAO implements UserProviderInterface
     
                              // Delete LE USER 
     
-    public function deleteUser(User $user)
-        {     
-            $this->getDb()->delete('users', $user);           
-        }
+    public function deleteUser($id)
+    {     
+        $this->getDb()->delete('users', array(
+            'id_users' => $id
+        ));      
+    }
     
     // CREER NOTRE INSTANCE DE LA CLASSE USER
     protected function buildDomainObject($row)
