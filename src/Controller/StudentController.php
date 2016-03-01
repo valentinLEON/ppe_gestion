@@ -43,6 +43,8 @@ class StudentController {
 
     public function deleteIndexAction(Request $request, $id, Application $app){
         $app['dao.student']->deleteStudent($id);
+
+        return $app['twig']->render('ListTemplate/studentslist.html.twig');
     }
     
     public function addIndexAction(Request $request ,Application $app) {
