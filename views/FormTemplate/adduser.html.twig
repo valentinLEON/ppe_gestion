@@ -109,7 +109,7 @@
                     <label>Types de Classes</label>
                     <select name="class_type" style=" width: 25% ;border-radius: 3px" class="form-control">{# multiple #}
                         {% for classes in classe %}
-                            <option value="{{ classe.class_type }}">{{ classe.class_type }}</option>
+                            <option value="{{ classes.class_type }}">{{ classes.class_type }}</option>
                          {% endfor %}
                     </select>
                 </div>
