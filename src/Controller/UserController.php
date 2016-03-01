@@ -136,7 +136,7 @@ class UserController {
        return $app['twig']->render('FormTemplate/adduser.html.twig', array( 
            
             'classe'=>$classes,
-            'discipline'=>$disciplines,
+            'disciplines'=>$disciplines,
             'role'=>$users,
             'message'=>'',
             'id_users'=>$users,
@@ -181,8 +181,7 @@ class UserController {
         $role = $request->request->get('role');
         $discipline = $request->request->get('discipline');
         $classname = $request->request->get('classname');
-        $classtype = $request->request->get('class_type');
-    
+           
         $user_mail = $request->request->get('user_mail');
         
         $app['session']->getFlashBag()->add('success', 'Utilisateur bien enregistré');
