@@ -82,8 +82,8 @@ $app->match('/modifuser/delete', "ppe_gestion\Controller\UserController::deleteU
 $app->post('/modifuser/delete/id', "ppe_gestion\Controller\UserController::deleteUserAction")->bind('user_deleted');
                 
 //                                 MODIFIE USER
-$app->match('/modifuser/edit/id', "ppe_gestion\Controller\UserController::editUserIndexAction")->bind('user_edit');
-$app->post('/modifuser/edit', "ppe_gestion\Controller\UserController::editUserAction")->bind('user_edited');
+$app->match('/modifuser/edit', "ppe_gestion\Controller\UserController::editUserIndexAction")->bind('user_edit');
+$app->match('/modifuser/edit/id', "ppe_gestion\Controller\UserController::editUserAction")->bind('user_edited');
 
 /*  //                              AJOUT USER
  *  //* route pour l'affichage du formulaire d ajout d utilisateurs */
