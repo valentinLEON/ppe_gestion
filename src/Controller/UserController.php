@@ -157,15 +157,14 @@ class UserController {
         $newUser->setPassword($request->request->get('password'));
         $newUser->setSalt($request->request->get('salt'));
         $newUser->setRole($request->request->get('role'));
-        $newUser->setIdDiscipline($request->request->get('discipline_form'));
+        $newUser->setIdDiscipline($request->request->get('discipline'));
         $newUser->setIdClassName($request->request->get('id_classname'));
-        $newUser->setStatus($request->request->get('status'));   
         $newUser->setUserMail($request->request->get('user_mail'));
         $newUser->setDtCreate(date('Y-m-d H:i:s'));
         $newUser->setDtUpdate(date('Y-m-d H:i:s'));
         // regler le probleme de classname id class
         var_dump($newUser);
-
+        
         $app['dao.user']->saveUser($newUser);
 
         $classes = $app['dao.classNames']->findAll();
@@ -180,17 +179,17 @@ class UserController {
         $password = $request->request->get('password');
         $salt = $request->request->get('salt');
         $role = $request->request->get('role');
-        $discipline_form = $request->request->get('discipline_form');
+        $discipline = $request->request->get('discipline');
         $classname = $request->request->get('classname');
         $classtype = $request->request->get('class_type');
-        $status = $request->request->get('status');   
+    
         $user_mail = $request->request->get('user_mail');
         
         $app['session']->getFlashBag()->add('success', 'Utilisateur bien enregistré');
   
         return $app['twig']->render('FormTemplate/adduser.html.twig'  , array(
            'classe'           =>$classes,
-           'discipline'       =>$disciplines,
+           'disciplines'      =>$disciplines,
            'user'             =>$users,  
            'username'         =>$username,
            'name'             =>$name,
@@ -199,10 +198,8 @@ class UserController {
            'password'         =>$password,
            'salt'             =>$salt,
            'role'             =>$role,
-           'discipline_form'  =>$discipline_form,
+           'discipline'      =>$discipline,
            'classname'        =>$classname,
-           'class_type'        =>$classtype,
-           'status'           =>$status,   
            'user_mail'        =>$user_mail,
   
            ));
