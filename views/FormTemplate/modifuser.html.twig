@@ -39,16 +39,7 @@
                      {% endfor %}
                 </select>
             </div>
-            
             <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
-                <label>Statuts</label>
-                      <select name="status"  class="form-control" >
-                    {% for i in 0..5 %}
-                         <option value="{{ i }}">{{ i }}</option> 
-                     {% endfor %}
-                </select>
-             </div>
-             <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
                 <label>Disciplines</label>
                 <select name="discipline" class="form-control" >  
                     {% for disciplines in discipline %}
