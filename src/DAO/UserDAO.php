@@ -137,7 +137,7 @@ class UserDAO extends DAO implements UserProviderInterface
     
     
     // ADD LE USER 
-   public function saveUser(User $user)
+   public function saveUser($user)
     {     
        
         $infoUser= array(
