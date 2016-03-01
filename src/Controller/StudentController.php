@@ -43,9 +43,6 @@ class StudentController {
 
     public function deleteIndexAction(Request $request, Application $app){
         $id_student = $request->request->get('$id_student');
-        $newStudent = new Student();
-
-        $newStudent->setIdStudent($id_student);
 
         $app['dao.student']->deleteStudent($id_student);
 
