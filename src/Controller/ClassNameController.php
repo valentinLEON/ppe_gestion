@@ -12,7 +12,7 @@ use ppe_gestion\Domain\ClassName;
 //use ppe_gestion\Domain\DisciplineToClass;
 //use ppe_gestion\Domain\Evaluation;
 //use ppe_gestion\Domain\Discipline;
-//use ppe_gestion\Domain\ClassName;
+
 
 
 class ClassNameController {
@@ -24,7 +24,7 @@ class ClassNameController {
     }
     
     // INDEX
-     public function listClassNameindexAction(Request $request ,Application $app)  {
+     public function listIndexAction(Request $request ,Application $app)  {
     
         $classes = $app['dao.classNames']->findAll();
         $disciplines = $app['dao.discipline']->findAll();
@@ -53,7 +53,7 @@ class ClassNameController {
     public function addAction(Request $request ,Application $app) {
         
         $newClass = new ClassName();
-
+          
         $newClass->setClassName($request->request->get('class'));
         $newClass->setClassOption($request->request->get('option'));
         $newClass->setClassYear($request->request->get('year'));

@@ -116,7 +116,7 @@ $app->match('/classetab', "ppe_gestion\Controller\ClassNameController::indexActi
  * 
  * route pour l'affichage de la liste des classes
  */
-$app->get('/classeslist', "ppe_gestion\Controller\ClassNameController::listClassNameindexAction")->bind('classeslist');
+$app->get('/classeslist', "ppe_gestion\Controller\ClassNameController::listIndexAction")->bind('classeslist');
 
 /**
  *                                         AJOUT
