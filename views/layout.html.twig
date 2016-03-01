@@ -141,7 +141,7 @@ desired effect
                     
                     
              <!-- search form (Optional) -->
-            <form action="#" method="get" class="sidebar-form" style="height:30px; width:300px; margin-left:20px; padding:-2px; display:inline-block;">
+            <form action="/" method="post" class="sidebar-form" style="height:30px; width:300px; margin-left:20px; padding:-2px; display:inline-block;">
                 <div class="input-group">
                     <input type="text" name="recherche" class="form-control" style="height:30px;" placeholder="Recherche...">
               <span class="input-group-btn">
@@ -167,7 +167,7 @@ desired effect
                                     Bienvenue {{ app.user.username }}<br>Professeur de Mathématiques
                                 </span>
                                 <div style="margin:5px; display:inline-block;">
-                                    <a href="{{ path('logout') }}" class="btn btn-default btn-flat">Déconnexion</a>
+                                    <a href="logout" class="btn btn-default btn-flat">Déconnexion</a>
                                 </div>
                             </li>
                             <!-- Menu Body -->
@@ -180,7 +180,7 @@ desired effect
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <span class="glyphicon glyphicon-user"></span> Non connecté</a>
                                     <span style="margin:5px; display:inline-block;">
-                                        <a href="{{ path('login') }}" class="btn btn-default btn-flat">Se connecter</a>
+                                        <a href="login" class="btn btn-default btn-flat">Se connecter</a>
                                     </span>
                                 </a>
                             </li>
