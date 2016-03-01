@@ -168,8 +168,7 @@ class UserController {
         
     }else{
  
-      
-       
+
         $classes = $app['dao.classNames']->findAll();
         $discipline = $app['dao.discipline']->findAll();
         $users = $app['dao.user']->findAll();
@@ -204,7 +203,7 @@ class UserController {
     }
 
     public function editUserAction(User $user, Request $request, Application $app) {  
-        
+       
         $classes = $app['dao.classNames']->findAll();
         $disciplines = $app['dao.discipline']->findAll();
         $roles = $app['dao.user']->findAll();
@@ -221,16 +220,15 @@ class UserController {
         $password = $request->request->get('password');
         $role = $request->request->get('role');
         $id_class = $request->request->get('id_class');
-        
-        $users_total = $app['dao.user']->countAll();
-        
-        $userById=$app['dao.user']->findUser($id_user);
         $user_mail = $request->request->get('user_mail');
         $date_create = date('Y-m-d H:i:s');
+        $users_total = $app['dao.user']->countAll();
+        $userById=$app['dao.user']->findUser($id_user);
+
         
         $newUser = new User(); 
-        
-        $newUser->setIdUser($userById);
+
+        $newUser->setIdUsers($id_user);
         $newUser->setUsername($username);
         $newUser->setName($name);
         $newUser->setFirstName($firstname);
@@ -277,6 +275,13 @@ class UserController {
     }
 
     
+    
+    
+    
+    
+    
+    
+    
     /**  *           Delete user controller.  */
     
     public function deleteUserIndexAction(Application $app) { 
@@ -284,6 +289,8 @@ class UserController {
     }
     
 // POST ACTION DE SUPPRESSION DE L UTILSATEUR
+    
+    
     public function deleteUserAction(Request $request, Application $app) {
         
         $id_user = $request->request->get('id_user');
