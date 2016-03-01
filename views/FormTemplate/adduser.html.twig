@@ -6,55 +6,42 @@
 
 {% block content %}
 
-    <!-- form start -->
-  {#  <form class="form-horizontal" action="modiduser/add"  method="post">
 
-        {% for success in app.session.getFlashBag.get('success') %}
-            <div class="alert alert-success">
-                {{ success }}
-            </div>
-        {% endfor %}
-        <!-- /.box-footer -->
-
-    </form>#}
-
-
-    {% if message %}
-        <div class="box box-primary">
-            <div class="box-body" >
-                <div class="box box-solid box-success" >
-                    <div class="box-header" style="height:35px; font-size:16px; color: #333">
-                        Utilisateur enregistré avec succès
-                    </div>
-                    <div class="box-body">
-                        <table class="table table-hover">
-                            <tr style="background-color: #3c8dbc">
-                                <th style="text-align: center; border: 1px solid darkgrey;">Login </th>
-                                <th style="text-align: center; border: 1px solid darkgrey;">Nom </td>
-                                <th style="text-align: center; border: 1px solid darkgrey;">Prenom </th>
-                                <th style="text-align: center; border: 1px solid darkgrey;">Role</th>
-                                <th style="text-align: center; border: 1px solid darkgrey;">Description</th>
-                                <th style="text-align: center; border: 1px solid darkgrey;">E-mail </th>
-                                <th style="text-align: center; border: 1px solid darkgrey;">Discipline</th>
-                                <th style="text-align: center; border: 1px solid darkgrey;">Classe</th>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center; border: 1px solid darkgrey;">{{ username }}</td>
-                                <td style="text-align: center; border: 1px solid darkgrey;">{{ name }}</td>
-                                <td style="text-align: center; border: 1px solid darkgrey;">{{ firstname }}</td>
-                                <td style="text-align: center; border: 1px solid darkgrey;">{{ role_form }}</td>
-                                <td style="text-align: center; border: 1px solid darkgrey;">{{ description }}</td>
-                                <td style="text-align: center; border: 1px solid darkgrey;">{{ user_mail }}</td>
-                                <td style="text-align: center; border: 1px solid darkgrey;">{{ discipline_form }}</td>
-                                <td style="text-align: center; border: 1px solid darkgrey;">{{ classname }}<td>
-                            </tr>
-                        </table>
-                    </div>
+    <div class="box box-primary">
+        <div class="box-body" >
+            <div class="box box-solid box-success" >
+                <div class="box-header" style="height:35px; font-size:16px; color: #333">
+                    Utilisateur enregistré avec succès
+                </div>
+                <div class="box-body">
+                    <table class="table table-hover">
+                        <tr style="background-color: #3c8dbc">
+                            <th style="text-align: center; border: 1px solid darkgrey;">Login </th>
+                            <th style="text-align: center; border: 1px solid darkgrey;">Nom </td>
+                            <th style="text-align: center; border: 1px solid darkgrey;">Prenom </th>
+                            <th style="text-align: center; border: 1px solid darkgrey;">Role</th>
+                            <th style="text-align: center; border: 1px solid darkgrey;">Description</th>
+                            <th style="text-align: center; border: 1px solid darkgrey;">E-mail </th>
+                            <th style="text-align: center; border: 1px solid darkgrey;">Discipline</th>
+                            <th style="text-align: center; border: 1px solid darkgrey;">Classe</th>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center; border: 1px solid darkgrey;">{{ username }}</td>
+                            <td style="text-align: center; border: 1px solid darkgrey;">{{ name }}</td>
+                            <td style="text-align: center; border: 1px solid darkgrey;">{{ firstname }}</td>
+                            <td style="text-align: center; border: 1px solid darkgrey;">{{ role_form }}</td>
+                            <td style="text-align: center; border: 1px solid darkgrey;">{{ description }}</td>
+                            <td style="text-align: center; border: 1px solid darkgrey;">{{ user_mail }}</td>
+                            <td style="text-align: center; border: 1px solid darkgrey;">{{ discipline_form }}</td>
+                            <td style="text-align: center; border: 1px solid darkgrey;">{{ classname }}<td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
-        <h5>Ajouter un nouvel utilisateur</h5>
-    {% endif %}
+    </div>
+    <h5>Ajouter un nouvel utilisateur</h5>
+
 
 <!-- NEW -->
     <div class="box box-primary">
