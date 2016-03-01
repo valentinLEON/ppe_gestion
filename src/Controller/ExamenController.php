@@ -50,11 +50,15 @@ class ExamenController {
     
     public function addAction(Request $request ,Application $app) {
           
+        $name = $request->request->get('name'); 
+        $date = $request->request->get('date');
+        $description = $request->request->get('description');
+        
         $newExamen = new Examen();
 
-        $newExamen->setNameExamen($request->request->get('name'));
-        $newExamen->setDateExamen($request->request->get('date'));
-        $newExamen->setDescriptionExamen($request->request->get('description'));
+        $newExamen->setNameExamen($name);
+        $newExamen->setDateExamen($date);
+        $newExamen->setDescriptionExamen($description);
 
         $newExamen->setDtCreate(date('Y-m-d H:i:s'));
         $newExamen->setDtUpdate(date('Y-m-d H:i:s'));
@@ -64,7 +68,9 @@ class ExamenController {
         $app['session']->getFlashBag()->add('success', 'L\'examen a été ajouté avec succès !');
         
         return $app['twig']->render('/addexamen', array(
-                'exam_number'=> $exam,
+                'name'              => $name,
+                'date'              => $date ,
+                'description'       => $description, 
              ));
     }
     
