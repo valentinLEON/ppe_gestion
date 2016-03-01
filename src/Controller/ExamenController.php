@@ -50,6 +50,8 @@ class ExamenController {
     
     public function addAction(Request $request ,Application $app) {
 
+        $exam = count($app['dao.examen']->findAll());
+          
         $newExamen = new Examen();
 
         $newExamen->setNameExamen($request->request->get('name'));
@@ -62,9 +64,10 @@ class ExamenController {
         $app['dao.examen']->saveExamen($newExamen);
 
         $app['session']->getFlashBag()->add('success', 'L\'examen a été ajouté avec succès !');
-
-        return $app->redirect('/addexamen', 301);
-   
+        
+        return $app['twig']->render('/addexamen', array(
+                'exam_number'=> $exam,
+             ));
     }
     
     
