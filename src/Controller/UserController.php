@@ -144,7 +144,18 @@ class UserController {
     
 //                              FONCTION D AJOUT D UTILISATEUR
     public function addAction(Request $request, Application $app) {
-   
+
+       // recupere les infos enregistrés concernant l utilisateur
+        $username = $request->request->get('username');
+        $name = $request->request->get('name');
+        $firstname = $request->request->get('firstname');
+        $description = $request->request->get('description');
+        $password = $request->request->get('password');
+        $role = $request->request->get('role');
+        $id_discipline = $request->request->get('discipline');
+        $id_class = $request->request->get('id_class');
+        $user_mail = $request->request->get('user_mail');
+        
         $newUser = new User();
 
         $newUser->setUsername($request->request->get('username'));
@@ -167,19 +178,6 @@ class UserController {
         $classes = $app['dao.classNames']->findAll();
         $discipline = $app['dao.discipline']->findAll();
         $users = $app['dao.user']->findAll();
-       
-       // recupere les infos enregistrés concernant l utilisateur
-        $username = $request->request->get('username');
-        $name = $request->request->get('name');
-        $firstname = $request->request->get('firstname');
-        $description = $request->request->get('description');
-        $password = $request->request->get('password');
-        $role = $request->request->get('role');
-        $id_discipline = $request->request->get('discipline');
-        $id_class = $request->request->get('id_class');
-           
-        $user_mail = $request->request->get('user_mail');
-        
         $app['session']->getFlashBag()->add('success', 'Utilisateur bien enregistré');
   
         return $app['twig']->render('FormTemplate/adduser.html.twig'  , array(
