@@ -69,7 +69,12 @@
         </form>
       
     </div>
-
+                    
+        {% for success in app.session.getFlashBag.get('success') %}
+            <div class="alert alert-success">
+                {{ success }}
+            </div>
+        {% endfor %}
 
 {% endblock %}
 
