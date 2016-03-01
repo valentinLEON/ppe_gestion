@@ -71,24 +71,24 @@ class Evaluation
     //region Getter et Setter de l'objet Etudiant
     public function getStudent()
     {
-        return $this->student;
+        return $this->id_student;
     }
 
     public function setStudent(Student $student)
     {
-        $this->student = $student;
+        $this->id_student = $student;
     }
     //endregion
 
     //region Getter et Setter de l'objet Matière
     public function getDiscipline()
     {
-        return $this->discipline;
+        return $this->id_discipline;
     }
 
     public function setDiscipline(Discipline $discipline)
     {
-        $this->discipline = $discipline;
+        $this->id_discipline = $discipline;
     }
     //endregion
 
