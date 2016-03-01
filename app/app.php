@@ -44,13 +44,13 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
 ));
 
 // Provider pour générer des formulaires
-$app->register(new FormServiceProvider());
+//$app->register(new FormServiceProvider());
 
 
 //$app->register(new Silex\Provider\FormServiceProvider());
 
 //  Provider pour le systeme de validation 
-$app->register(new Silex\Provider\ValidatorServiceProvider());
+//$app->register(new Silex\Provider\ValidatorServiceProvider());
 
 
 
