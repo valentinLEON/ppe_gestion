@@ -201,6 +201,7 @@ class UserController {
         $id_users = $app['dao.user']->findAll();
         $usernames = $app['dao.user']->findAll();
       
+        $id_user = $request->request->get('id_user');
         $username = $request->request->get('username');
         $name = $request->request->get('name');
         $firstname = $request->request->get('firstname'); 
@@ -213,13 +214,14 @@ class UserController {
         $id_class = $request->request->get('id_class');
         
         $users_total = $app['dao.user']->countAll();
-        $name = $request->request->get('name');
-        $user=$app['dao.user']->findUser($request->request->get('id_user'));
+        
+        $userById=$app['dao.user']->findUser($id_user);
         $user_mail = $request->request->get('user_mail');
         $date_create = date('Y-m-d H:i:s');
         
         $newUser = new User(); 
-  
+        
+        $newUser->setIdUser($userById);
         $newUser->setUsername($username);
         $newUser->setName($name);
         $newUser->setFirstName($firstname);
@@ -229,13 +231,27 @@ class UserController {
         $newUser->setIdDiscipline($id_discipline);
         $newUser->setIdClassName($id_class);
         $newUser->setUserMail($user_mail);
-        $newUser->setDtUpdate($date_modif);
+        $newUser->setDtUpdate($date_create);
 
         $app['dao.user']->saveUser($newUser);
         
         $app['session']->getFlashBag()->add('success', 'L\'Utilisateur est bien enregistré ');
 
-        return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
+//        return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
+//            'classe'        =>$classes,
+//            'discipline'    =>$disciplines,
+//            'username'      =>$username,
+//            'role'          =>$roles,
+//            'role'          =>$roles,
+//            'id_class_form' =>$idclass,
+//            'id_discipline' =>$id_discipline,
+//            'id_role'       =>$idrole,
+//            'id_user'       =>$id_users,
+//            'users_total'   =>$users_total,
+//  
+//         ));
+        
+            return $app['twig']->register('FormTemplate/modifuser.html.twig', array(
             'classe'        =>$classes,
             'discipline'    =>$disciplines,
             'username'      =>$username,
