@@ -66,34 +66,6 @@ class EvaluationDAO extends DAO
     }
 
     /**
-     * @param $studentId
-     * @return array
-     *
-     * Fonction de recherche par étudiant (Filtre)
-     * On va rechercher toutes les notes d'un étudiant
-     * Fonctionne
-     */
-    public function findAll($studentId)
-    {
-        $student = $this->studentDAO->findStudent($studentId);
-
-        $sql = "SELECT id_student, grade_student, judgement FROM evaluation WHERE id_student = ?";
-        $res = $this->getDb()->fetchAll($sql, array($studentId));
-
-
-        $notes = array();
-        foreach($res as $row)
-        {
-            $noteID = $row['id_evaluation'];
-            $note = $this->buildDomainObject($row);
-
-            $note->setStudent($student);
-            $notes[$noteID] = $note;
-        }
-        return $note;
-    }
-
-    /**
      * //   FIND ALL
      */
     public function findAll()
