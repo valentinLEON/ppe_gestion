@@ -9,7 +9,7 @@
 namespace ppe_gestion\DAO;
 
 use ppe_gestion\Domain\Student;
-use ppe_gestion\DAO\ClassNameDAO;
+//use ppe_gestion\DAO\ClassNameDAO;
 
 
 class StudentDAO extends DAO

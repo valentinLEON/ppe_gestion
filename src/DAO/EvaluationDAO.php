@@ -73,7 +73,7 @@ class EvaluationDAO extends DAO
      * On va rechercher toutes les notes d'un étudiant
      * Fonctionne
      */
-    public function findAllByStudent($studentId)
+    public function findAll($studentId)
     {
         $student = $this->studentDAO->findStudent($studentId);
 
@@ -90,7 +90,7 @@ class EvaluationDAO extends DAO
             $note->setStudent($student);
             $notes[$noteID] = $note;
         }
-        return $notes;
+        return $note;
     }
 
     /**
