@@ -148,7 +148,7 @@ $app->post('adddiscipline', "ppe_gestion\Controller\DisciplineController::addAct
  *                  
  *                                                                   NOTES     
  *                     TABLEAU DE BORD STATS DES NOTES     */
-$app->get('/notetab', "ppe_gestion\Controller\EvaluationController::tabAction")->bind('notetabstats');
+$app->get('/notetab', "ppe_gestion\Controller\EvaluationController::tabAction")->bind('notetab');
 /** 
  *                             LISTE
  * route pour l'affichage de la liste des notes - evaluations
@@ -159,8 +159,7 @@ $app->get('/notelist', "ppe_gestion\Controller\EvaluationController::listAction"
 
  *  Route pour l'ajout des notes et commentaires
  */
-$app->get('/addnote',"ppe_gestion\Controller\EvaluationController::addActionIndex")->bind('addnote');
-
+$app->get('/addnote',"ppe_gestion\Controller\EvaluationController::addIndexAction")->bind('addnote');
 $app->post('/addnote', "ppe_gestion\Controller\EvaluationController::addAction")->bind('note');
 
 /**                      STATISTIQUES
