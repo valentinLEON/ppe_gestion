@@ -72,7 +72,7 @@ class EvaluationController {
        $newEvaluation->setDtUpdate(date('Y-m-d H:i:s'));
 
        $testsave=$app['dao.evaluation']->saveGrade($newEvaluation);
-      
+       var_dump($testsave);
        if($testsave){
          $app['session']->getFlashBag()->add('success', 'La note a été ajoutée avec succès !');
        }
@@ -86,7 +86,7 @@ class EvaluationController {
     }
     
     
-    // STAT
+    //  STAT
     public function statAction(Request $request ,Application $app) {    
   
             return $app['twig']->render('StatTemplate/notestats.html.twig');
