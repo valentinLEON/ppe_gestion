@@ -175,8 +175,8 @@ $app->get('/notestats',"ppe_gestion\Controller\EvaluationController::statAction"
  * 
  *                          AJOUT
  */
-$app->get('/addexamen', "ppe_gestion\Controller\ExamenController::addIndexAction")->bind('addexamen');
-$app->post('/addexamen', "ppe_gestion\Controller\ExamenController::addAction")->bind('exam');
+$app->get('/addexam', "ppe_gestion\Controller\ExamenController::addIndexAction")->bind('addexamen');
+$app->post('/addexam', "ppe_gestion\Controller\ExamenController::addAction")->bind('exam');
 
 /**                        LISTE
  *                           
