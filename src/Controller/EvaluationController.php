@@ -52,7 +52,7 @@ class EvaluationController {
        $id_student = $request->request->get('id_student');
        $id_discipline = $request->request->get('matiere');
        $note = $request->request->get('note');
-       $student = $app['dao.student']->findStudent($id_student);
+       $student = $app['dao.student']->findAll();
      //  $discipline = $app['dao.discipline']->findDiscipline($id_discipline);
        $coeff =  $request->request->get('coeff');
        $judgement = $request->request->get('judgement');
