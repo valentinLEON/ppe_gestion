@@ -67,11 +67,11 @@ class ExamenController {
 
         $app['session']->getFlashBag()->add('success', 'L\'examen a été ajouté avec succès !');
         
-        return $app['twig']->render('/addexam', array(
+        return $app['twig']->render('FormTemplate/addexam.html.twig', array(
                 'name'              => $name,
                 'date'              => $date ,
                 'description'       => $description, 
-             ));
+        ));
     }
     
     
