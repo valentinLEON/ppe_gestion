@@ -269,7 +269,6 @@ class UserController {
     
     /**  *           Delete user controller.  */
     
-// Alert Etes vous sur de vouloir supprimer tel utilisateur .    
     public function deleteUserIndexAction(Application $app) { 
    
         return $app->redirect($app['url_generator']->generate('userslist'));
@@ -282,13 +281,11 @@ class UserController {
         
         $newUser->setIdUsers($request->request->get('id_user'));
        
-        var_dump($newUser);
-
         $app['dao.user']->deleteUser($newUser);
 
         $app['session']->getFlashBag()->add('danger', 'Utilisateur supprimé !');
 
-        // Redirect to admin home page
+        // Redirect to list users page
 
         return $app->redirect($app['url_generator']->generate('userslist'));
 
