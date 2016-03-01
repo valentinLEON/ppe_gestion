@@ -40,7 +40,7 @@
                     <label>Matière</label>
                     <select name="id_discipline" style=" width: 25% ;border-radius: 3px" class="form-control" >
                         {% for disciplines in discipline %}
-                            <option value="">{{ disciplines.name_discipline }}</option>
+                            <option value="{{ disciplines.name_discipline[disciplines] }}">{{ disciplines.name_discipline }}</option>
                         {% endfor %}
                     </select>
                 </div>
