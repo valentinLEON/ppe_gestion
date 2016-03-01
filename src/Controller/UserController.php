@@ -168,7 +168,7 @@ class UserController {
         $app['dao.user']->saveUser($newUser);
 
         $classes = $app['dao.classNames']->findAll();
-        $disciplines = $app['dao.discipline']->findAll();
+        $discipline = $app['dao.discipline']->findAll();
         $users = $app['dao.user']->findAll();
        
        // recupere les infos enregistrés concernant l utilisateur
@@ -177,30 +177,30 @@ class UserController {
         $firstname = $request->request->get('firstname');
         $description = $request->request->get('description');
         $password = $request->request->get('password');
-        $salt = $request->request->get('salt');
         $role = $request->request->get('role');
-        $discipline = $request->request->get('discipline');
-        $classname = $request->request->get('classname');
+        $id_discipline = $request->request->get('discipline');
+        $id_class = $request->request->get('id_class');
            
         $user_mail = $request->request->get('user_mail');
         
         $app['session']->getFlashBag()->add('success', 'Utilisateur bien enregistré');
   
         return $app['twig']->render('FormTemplate/adduser.html.twig'  , array(
-           'classe'           =>$classes,
-           'discipline'      =>$disciplines,
-           'user'             =>$users,  
-           'username'         =>$username,
-           'name'             =>$name,
-           'firstname'        =>$firstname,
-           'description'      =>$description,
-           'password'         =>$password,
-           'salt'             =>$salt,
-           'role'             =>$role,
-           'disciplines'      =>$discipline,
-           'classname'        =>$classname,
-           'user_mail'        =>$user_mail,
-  
+            
+           'classe'           =>    $classes,
+           'discipline'       =>    $discipline,
+           'user'             =>    $users,  
+            
+           'username'         =>    $username,
+           'name'             =>    $name,
+           'firstname'        =>    $firstname,
+           'description'      =>    $description,
+           'password'         =>    $password,
+           'role'             =>    $role,
+           'user_mail'        =>    $user_mail,
+           'id_discipline'    =>    $id_discipline,
+           'id_class'         =>    $id_class,
+
            ));
 } 
 
