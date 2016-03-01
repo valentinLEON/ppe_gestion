@@ -270,6 +270,7 @@ class UserController {
             'id_discipline' =>$id_discipline,
             'id_role'       =>$idrole,
             'id_user'       =>$id_user,
+            'userById'       =>$userById,
             'users_total'   =>$users_total,
   
          ));

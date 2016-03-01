@@ -12,7 +12,7 @@
             <div class="form-group" style="width: 20%;  display:inline-block; margin:10px;">
                 <label>Login  *</label>
                 <select class="form-control" name="username">
-                     {% for usernames in user %}
+                     {% for usernames in userById %}
                         <option value="{{ usernames.username }}" >{{ usernames.username }}</option> 
                        
                       {% endfor %}
@@ -20,21 +20,21 @@
             </div>
              <div class="form-group" style="width: 15%; display:inline-block;margin:10px;">
                 <label>Nom</label>
-                <input type="text" name="name" class="form-control" value="{{ user.name }}">
-                <input type="hidden" value="{{ user.id_class }}" name="id_class">
+                <input type="text" name="name" class="form-control" value="{{ userById.name }}">
+                <input type="hidden" value="{{ userById.id_class }}" name="id_class">
             </div>
             <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
                 <label>Prénom</label>
-                <input type="text" name="firstname" class="form-control"  value="{{ user.firstname }}">
+                <input type="text" name="firstname" class="form-control"  value="{{ userById.firstname }}">
             </div>
             <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
                 <label>Description</label>
-                <input type="text" name="description" class="form-control" placeholder="Description..." value="{{ user.description }}">
+                <input type="text" name="description" class="form-control" placeholder="Description..." value="{{ userById.description }}">
             </div>
             <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
               <label>Role</label>
                 <select class="form-control"  name="role" >
-                    {% for roles in user %}
+                    {% for roles in userById %}
                          <option value="{{ roles.role }}">{{ roles.role }}</option> 
                      {% endfor %}
                 </select>
@@ -57,15 +57,15 @@
             </div>
             <div class="form-group" style="width: 20%; display:inline-block;margin:10px;">
                 <label>Email  *</label>
-                <input type="email"  name="user_mail"  class="form-control" id="inputEmail3" required placeholder="Email...">
+                <input type="email"  name="user_mail"  class="form-control" id="inputEmail3" required placeholder="{{ userById.user_mail }}">
             </div>
              <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
                 <label>Mot de passe  *</label>
-                <input type="password"  name="password" class="form-control" required placeholder="Min 6 caracteres">
+                <input type="password"  name="password" class="form-control" required placeholder="{{ userById.password }}">
             </div>
              <div class="form-group" style="width: 20%; display:inline-block;margin:10px;">
                 <label>Mot de passe  *</label>
-                <input type="password" class="form-control" required  placeholder="Min 6 caracteres">
+                <input type="password" class="form-control" required  placeholder="{{ userById.password }}">
             </div>
         </div>
         <!-- /.box-body -->
