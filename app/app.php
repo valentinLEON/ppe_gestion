@@ -9,7 +9,7 @@
 use Symfony\Component\Debug\ErrorHandler;
 use Symfony\Component\Debug\ExceptionHandler;
 use Silex\Application;
-
+use Silex\Provider\FormServiceProvider;
 use ppe_gestion\DAO;
 use ppe_gestion\DAO\DisciplineDAO;
 use ppe_gestion\Domain;
@@ -44,7 +44,15 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
 ));
 
 // Provider pour générer des formulaires
+$app->register(new FormServiceProvider());
+
+
 //$app->register(new Silex\Provider\FormServiceProvider());
+
+//  Provider pour le systeme de validation 
+$app->register(new Silex\Provider\ValidatorServiceProvider());
+
+
 
 /**
  * Provider pour la génération des urls
