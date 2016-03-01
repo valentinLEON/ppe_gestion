@@ -158,12 +158,12 @@ class UserDAO extends DAO implements UserProviderInterface
             'dt_update'     => $user->getDtUpdate(), 
             'id_discipline' => $user->getIdDiscipline(), 
             'id_class'      => $user->getIdClassName(),
-            );
+        );
         
         //on modifie
-        if($user->getIdUser()){
+        if($user->getIdUsers()){
             $this->getDb()->update('users',$userInfo, array(
-                'id_user' => $user->getIdUser()));
+                'id_users' => $user->getIdUsers()));
         }
         //on sauvegarde
         else{

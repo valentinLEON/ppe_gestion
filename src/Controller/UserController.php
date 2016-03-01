@@ -259,7 +259,7 @@ class UserController {
             'id_class_form' =>$idclass,
             'id_discipline' =>$id_discipline,
             'id_role'       =>$idrole,
-            'id_user'       =>$id_users,
+            'id_user'       =>$id_user,
             'users_total'   =>$users_total,
   
          ));
