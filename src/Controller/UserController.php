@@ -205,14 +205,14 @@ class UserController {
         $disciplines = $app['dao.discipline']->findAll();
         $users = $app['dao.user']->findAll();
 
-        $edit_user = $app['dao.user']->findUser($id_user);
+        $userById = $app['dao.user']->findUser($id_user);
         
         return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
             'classe'        =>$classes,
             'discipline'    =>$disciplines,
             'user'          =>$users,
             'id_user'       =>$id_user,
-            'edit_user'     =>$edit_user,
+            'userById'     =>$userById,
           
   
          ));
