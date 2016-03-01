@@ -94,10 +94,11 @@ class EvaluationDAO extends DAO
         $sql = "SELECT * FROM evaluation WHERE id_evaluation=?";
         $row = $this->getDb()->fetchAssoc($sql, array($id));
 
-        if($row)
+        if ($row) {
             return $this->buildDomainObject($row);
-        else
-            throw new \Exception("Aucune note pour l'id : ".$id);
+        } else {
+            throw new \Exception("Aucune note pour l'id : " . $id);
+        }
     }
 
     /**
