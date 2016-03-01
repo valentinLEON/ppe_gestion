@@ -74,7 +74,8 @@ class Evaluation
         return $this->id_student;
     }
 
-    public function setStudent(Student $student)
+    // voir pour les clef etrangeres aussi
+    public function setStudent($student)
     {
         $this->id_student = $student;
     }
@@ -85,7 +86,7 @@ class Evaluation
     {
         return $this->id_discipline;
     }
-
+   // voir pour les clef etrangeres aussi
     public function setDiscipline($discipline)
     {
         $this->id_discipline = $discipline;
