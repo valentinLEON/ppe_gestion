@@ -167,7 +167,8 @@ class UserDAO extends DAO implements UserProviderInterface
         }
         //on sauvegarde
         else{
-            $this->getDb()->insert('users',$userInfo);   $id = $this->getDb()->lastInsertId();
+            $this->getDb()->insert('users',$userInfo);   
+            $id = $this->getDb()->lastInsertId();
             $user->setIdUser($id);
         }
       }

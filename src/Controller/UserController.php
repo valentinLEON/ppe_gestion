@@ -143,7 +143,9 @@ class UserController {
         $id_discipline = $request->request->get('id_discipline');
         $id_class = $request->request->get('id_class');
         $user_mail = $request->request->get('user_mail');
-        
+        $dt_create = date('Y-m-d H:i:s');
+        $dt_update = date('Y-m-d H:i:s') ;
+    
         $newUser = new User();
 
         $newUser->setUsername($username);
@@ -155,12 +157,18 @@ class UserController {
         $newUser->setIdDiscipline($id_discipline);
         $newUser->setIdClassName($id_class);
         $newUser->setUserMail($user_mail);
-        $newUser->setDtCreate(date('Y-m-d H:i:s'));
-        $newUser->setDtUpdate(date('Y-m-d H:i:s'));
+        $newUser->setDtCreate($dt_create);
+        $newUser->setDtUpdate();
          
-        $app['dao.user']->saveUser($newUser);
+    if($newUser->getUsers())
+    {
+        $app['dao.user']->saveUser($newUser); 
+        
         $app['session']->getFlashBag()->add('success', 'Utilisateur bien enregistré');
-       
+        
+    }else{
+ 
+      
        
         $classes = $app['dao.classNames']->findAll();
         $discipline = $app['dao.discipline']->findAll();
@@ -183,6 +191,8 @@ class UserController {
            'id_class'         =>    $id_class,
 
         ));
+        
+    }
 } 
 
 
@@ -270,18 +280,18 @@ class UserController {
     /**  *           Delete user controller.  */
     
     public function deleteUserIndexAction(Application $app) { 
-   
-        return $app->redirect($app['url_generator']->generate('userslist'));
+          return $app->redirect($app['url_generator']->generate('userslist/modifuser/delete/id'));
     }
     
 // POST ACTION DE SUPPRESSION DE L UTILSATEUR
-    public function deleteUserAction(Request $request, Application $app, User $user) {
+    public function deleteUserAction(Request $request, Application $app) {
         
+        $id_user = $request->request->get('id_user');
         $newUser = new User();
         
-        $newUser->setIdUsers($request->request->get('id_user'));
+        $newUser->setIdUsers($id_user);
        
-        $app['dao.user']->deleteUser($newUser);
+        $app['dao.user']->deleteUser($id_user);
 
         $app['session']->getFlashBag()->add('danger', 'Utilisateur supprimé !');
 
