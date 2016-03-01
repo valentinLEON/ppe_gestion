@@ -157,7 +157,7 @@ class UserController {
         $newUser->setPassword($request->request->get('password'));
         $newUser->setSalt($request->request->get('salt'));
         $newUser->setRole($request->request->get('role'));
-        $newUser->setIdDiscipline($request->request->get('discipline'));
+        $newUser->setIdDiscipline($request->request->get('disciplines'));
         $newUser->setIdClassName($request->request->get('id_classname'));
         $newUser->setUserMail($request->request->get('user_mail'));
         $newUser->setDtCreate(date('Y-m-d H:i:s'));
