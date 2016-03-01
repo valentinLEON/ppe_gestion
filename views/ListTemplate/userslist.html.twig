@@ -45,6 +45,28 @@
                         {% for user in users %}
 
                             <tr>
+                             
+                                <td class="mytd" >{{ user.username }}</td>
+                                <input type="hidden" value="{{ user.username }}" name="username"  >
+                                <td class="mytd" >{{ user.name }}</td>
+                                <input type="hidden" value="{{ user.name }}" name="name"  >
+                                <td class="mytd">{{ user.firstname }}</td>
+                                <input type="hidden" value="{{ user.firstname }}" name="firstname"  >
+                                <td class="mytd">{{ user.password }}</td>
+                                <input type="hidden" value="{{ user.password }}" name="password"  >
+                                <td class="mytdmin">{{ user.role }}</td>
+                                <input type="hidden" value="{{ user.role }}" name="role"  >
+                                <td class="mytdmin">{{ user.status }}</td>
+                                <input type="hidden" value="{{ user.status }}" name="status"  >
+                                <td class="mytd">{{ user.description }}</td>
+                                <input type="hidden" value="{{ user.description }}" name="description"  >
+                                <td class="mytd">{{ user.user_mail }}</td>
+                                <input type="hidden" value="{{ user.user_mail }}" name="user_mail"  >
+                                <td class="mytdmin">{{ user.id_discipline }}</td>
+                                <input type="hidden" value="{{ user.id_discipline }}" name="id_discipline"  >
+                                <td class="mytdmin"> {{ user.id_class }} </td>
+                                <input type="hidden" value="{{ user.id_class }}" name="id_class_form"  >
+                                
                                 <td class="mytdminus"> 
                                     {# formulaire de modification de l'utilisatateur via l'id_user 
                                     
@@ -73,27 +95,7 @@
                                     </form>
                                        
                                 </td>
-                                <td class="mytd" >{{ user.username }}</td>
-                                <input type="hidden" value="{{ user.username }}" name="username"  >
-                                <td class="mytd" >{{ user.name }}</td>
-                                <input type="hidden" value="{{ user.name }}" name="name"  >
-                                <td class="mytd">{{ user.firstname }}</td>
-                                <input type="hidden" value="{{ user.firstname }}" name="firstname"  >
-                                <td class="mytd">{{ user.password }}</td>
-                                <input type="hidden" value="{{ user.password }}" name="password"  >
-                                <td class="mytdmin">{{ user.role }}</td>
-                                <input type="hidden" value="{{ user.role }}" name="role"  >
-                                <td class="mytdmin">{{ user.status }}</td>
-                                <input type="hidden" value="{{ user.status }}" name="status"  >
-                                <td class="mytd">{{ user.description }}</td>
-                                <input type="hidden" value="{{ user.description }}" name="description"  >
-                                <td class="mytd">{{ user.user_mail }}</td>
-                                <input type="hidden" value="{{ user.user_mail }}" name="user_mail"  >
-                                <td class="mytdmin">{{ user.id_discipline }}</td>
-                                <input type="hidden" value="{{ user.id_discipline }}" name="id_discipline"  >
-                                <td class="mytdmin"> {{ user.id_class }} </td>
-                                <input type="hidden" value="{{ user.id_class }}" name="id_class_form"  >
-                           
+                                
                             </tr> 
                             
                         {% endfor %}
