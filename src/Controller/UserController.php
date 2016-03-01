@@ -199,7 +199,7 @@ class UserController {
 
     public function editUserIndexAction(Application $app) {
 
-          return $app['twig']->render('FormTemplate/modifuser.html.twig');
+        return $app->redirect($app['url_generator']->generate('userslist/modifuser/edit/id'));
     }
 
     public function editUserAction(Request $request, Application $app) {  
