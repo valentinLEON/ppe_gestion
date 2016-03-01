@@ -54,7 +54,8 @@ class ClassNameController {
         
         $newClass = new ClassName();
           
-        $newClass->setClassName($request->request->get('class'));
+        $newClass->setClassName($request->request->get('class_name'));
+        $newClass->setClassType($request->request->get('class_type'));
         $newClass->setClassOption($request->request->get('option'));
         $newClass->setClassYear($request->request->get('year'));
         $newClass->setDescription($request->request->get('description'));
@@ -66,7 +67,7 @@ class ClassNameController {
         
         $app['session']->getFlashBag()->add('success', 'La classe a été ajouté avec succès !');
 
-        return $app['twig']->render('ListTemplate/classeslist.html.twig');
+        return $app['twig']->render('FormTemplate/addclass.html.twig');
       
     }
 }
