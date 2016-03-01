@@ -206,7 +206,6 @@ class UserController {
        
         $classes = $app['dao.classNames']->findAll();
         $disciplines = $app['dao.discipline']->findAll();
-        $roles = $app['dao.user']->findAll();
         $users = $app['dao.user']->findAll();
 
         $id_user = $request->request->get('id_user');
@@ -244,26 +243,11 @@ class UserController {
         
         $app['session']->getFlashBag()->add('success', 'L\'Utilisateur est bien enregistré ');
 
-//        return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
-//            'classe'        =>$classes,
-//            'discipline'    =>$disciplines,
-//            'username'      =>$username,
-//            'role'          =>$roles,
-//            'role'          =>$roles,
-//            'id_class_form' =>$idclass,
-//            'id_discipline' =>$id_discipline,
-//            'id_role'       =>$idrole,
-//            'id_user'       =>$id_users,
-//            'users_total'   =>$users_total,
-//  
-//         ));
-        
-            return $app['twig']->register('FormTemplate/modifuser.html.twig', array(
+        return $app['twig']->render('FormTemplate/modifuser.html.twig', array(
             'classe'        =>$classes,
             'discipline'    =>$disciplines,
+            'user'          =>$users,
             'username'      =>$username,
-            'role'          =>$roles,
-            'role'          =>$roles,
             'id_class_form' =>$idclass,
             'id_discipline' =>$id_discipline,
             'id_role'       =>$idrole,
@@ -271,6 +255,18 @@ class UserController {
             'users_total'   =>$users_total,
   
          ));
+//            return $app['twig']->register('FormTemplate/modifuser.html.twig', array(
+//            'classe'        =>$classes,
+//            'discipline'    =>$disciplines,
+//            'user'          =>$users,
+//            'username'      =>$username,
+//            'id_class_form' =>$idclass,
+//            'id_discipline' =>$id_discipline,
+//            'id_role'       =>$idrole,
+//            'id_user'       =>$id_user,
+//            'users_total'   =>$users_total,
+  
+  //       ));
 
     }
 
