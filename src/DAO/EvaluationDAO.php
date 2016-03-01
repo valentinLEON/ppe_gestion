@@ -66,30 +66,48 @@ class EvaluationDAO extends DAO
     }
 
     /**
-     * @param $disciplineId
+     * @param $studentId
      * @return array
      *
-     * Fonction de recherche des notes par matière (Filtre)
-     * On va rechercher toutes les notes qui existent en fonction de la matière
+     * Fonction de recherche par étudiant (Filtre)
+     * On va rechercher toutes les notes d'un étudiant
      * Fonctionne
      */
-    public function findAllByDiscipline($disciplineId)
+    public function findAllByStudent($studentId)
     {
-        $discipline = $this->disciplineDAO->findDiscipline($disciplineId);
+        $student = $this->studentDAO->findStudent($studentId);
 
+        $sql = "SELECT id_student, grade_student, judgement FROM evaluation WHERE id_student = ?";
+        $res = $this->getDb()->fetchAll($sql, array($studentId));
+
+
+        $notes = array();
+        foreach($res as $row)
+        {
+            $noteID = $row['id_evaluation'];
+            $note = $this->buildDomainObject($row);
+
+            $note->setStudent($student);
+            $notes[$noteID] = $note;
+        }
+        return $notes;
+    }
+
+    /**
+     * //   FIND ALL
+     */
+    public function findAll()
+    {
         $sql = "SELECT id_discipline, grade_student, judgement FROM evaluation WHERE id_discipline = ?";
-        $res = $this->getDb()->fetchAll($sql, array($disciplineId));
+        $res = $this->getDb()->fetchAll($sql);
 
         $matieres = array();
         foreach($res as $row)
         {
             $matiereID = $row['id_evaluation'];
-            $matiere  = $this->buildDomainObject($row);
-
-            $matiere->setStudent($discipline);
-            $matieres[$matiereID] = $matiere;
+            $matieres[$matiereId] = $this->buildDomainObject($row);
         }
-        return $matieres;
+        return $matieres;   
     }
 
     /**
