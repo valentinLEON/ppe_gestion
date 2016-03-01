@@ -134,13 +134,10 @@ class UserController {
         
        return $app['twig']->render('FormTemplate/adduser.html.twig', array( 
            
-            'classe'=>$classes,
-            'disciplines'=>$disciplines,
-            'discipline'=>$disciplines,
-            'role'=>$users,
-            'message'=>'',
-            'id_users'=>$users,
-            'user'=>$users,
+            'classe'            =>  $classes,
+            'disciplines'       =>  $disciplines,
+            'id_discipline'     =>  $disciplines,
+            'user'              =>  $users,
        
            ));
     }
