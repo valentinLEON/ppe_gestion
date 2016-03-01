@@ -158,16 +158,15 @@ class UserController {
         
         $newUser = new User();
 
-        $newUser->setUsername($request->request->get('username'));
-        $newUser->setName($request->request->get('name'));
-        $newUser->setFirstName($request->request->get('firstname'));
-        $newUser->setDescription($request->request->get('description'));
-        $newUser->setPassword($request->request->get('password'));
-        $newUser->setSalt($request->request->get('salt'));
-        $newUser->setRole($request->request->get('role'));
-        $newUser->setIdDiscipline($request->request->get('disciplines'));
-        $newUser->setIdClassName($request->request->get('id_classname'));
-        $newUser->setUserMail($request->request->get('user_mail'));
+        $newUser->setUsername($username);
+        $newUser->setName($name);
+        $newUser->setFirstName( $firstname);
+        $newUser->setDescription($description);
+        $newUser->setPassword($password);
+        $newUser->setRole($role);
+        $newUser->setIdDiscipline($id_discipline);
+        $newUser->setIdClassName($id_class);
+        $newUser->setUserMail($user_mail);
         $newUser->setDtCreate(date('Y-m-d H:i:s'));
         $newUser->setDtUpdate(date('Y-m-d H:i:s'));
         // regler le probleme de classname id class
