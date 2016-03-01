@@ -144,94 +144,32 @@ $app->post('adddiscipline', "ppe_gestion\Controller\DisciplineController::addAct
 
 
 
-/**                                                                   NOTES     
- *                                  TABLEAU DE BORD STATS DES NOTES
- */
-$app->get('/notetab', function () use ($app) {
-    return $app['twig']->render('StatTemplate/notestat.html.twig');
-})->bind('notetabstats');
-/**   
-                                  LISTE
- * 
- * 
+/**                                                           EvaluationController                                       
+ *                  
+ *                                                                   NOTES     
+ *                     TABLEAU DE BORD STATS DES NOTES     */
+$app->get('/notetab', "ppe_gestion\Controller\EvaluationController::tabAction")->bind('notetabstats');
+/** 
+ *                             LISTE
  * route pour l'affichage de la liste des notes - evaluations
  */
-$app->get('/notelist', function () use ($app) {
-    return $app['twig']->render('ListTemplate/notelist.html.twig');
-})->bind('notelist');
-
-
+$app->get('/notelist', "ppe_gestion\Controller\EvaluationController::listAction")->bind('notelist');
 /**   
- *                                 AJOUT
- * 
- * 
+ *                             AJOUT
+
  *  Route pour l'ajout des notes et commentaires
  */
+$app->get('/addnote',"ppe_gestion\Controller\EvaluationController::addActionIndex")->bind('addnote');
 
-$app->get('/addnote',function() use ($app) {
+$app->post('/addnote', "ppe_gestion\Controller\EvaluationController::addAction")->bind('note');
 
-    $classes = $app['dao.classNames']->findAll();
-    $discipline = $app['dao.discipline']->findAll();
-    $student = $app['dao.student']->findAll();
-
-    return $app['twig']->render('FormTemplate/addnote.html.twig', array(
-        'classNames' => $classes,
-        'matieres' => $discipline,
-        'student' => $student));
-    
-})->bind('addnote');
-
-
-
-$app->post('/addnote', function(Request $request) use ($app){
-
-    $newEvaluation = new Evaluation();
-
-    $student = $app['dao.student']->findStudent($request->request->get('etudiants'));
-    $discipline = $app['dao.discipline']->findDiscipline($request->request->get('matiere'));
-
-    $newEvaluation->setGradeStudent($request->request->get('note'));
-    $newEvaluation->setDiscipline($discipline);
-    $newEvaluation->setStudent($student);
-    $newEvaluation->setCoefDiscipline($request->request->get('coeff'));
-    $newEvaluation->setJudgement($request->request->get('judgement'));
-    $newEvaluation->setDtCreate(date('Y-m-d H:i:s'));
-    $newEvaluation->setDtUpdate(date('Y-m-d H:i:s'));
-
-    var_dump($newEvaluation);
-        
-    
-    $app['dao.evaluation']->saveGrade($newEvaluation);
-    
-    $app['session']->getFlashBag()->add('success', 'La note a été ajoutée avec succès !');
-      
-    $classes = $app['dao.classNames']->findAll();
-    $discipline = $app['dao.discipline']->findAll();
-    $student = $app['dao.student']->findAll();
-
-    return $app['twig']->render('FormTemplate/addnote.html.twig', array(
-      
-        'classNames' => $classes,
-        'matieres' => $discipline,
-        'student' => $student)
-            
-      );
-
-   // return $app->redirect('/addnote', 301);
-
-})->bind('note');
-
-
-/**
- * 
- *          
- *                          STATISTIQUES
+/**                      STATISTIQUES
  * 
  * route pour afficher les stats des notes
  */
-$app->get('/notestats', function () use ($app) {
-    return $app['twig']->render('StatTemplate/notestats.html.twig');
-})->bind('notestats');
+$app->get('/notestats',"ppe_gestion\Controller\EvaluationController::statAction")->bind('notestats');
+
+
 
 
 /**                                                              EXAMEN
