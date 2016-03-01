@@ -152,7 +152,7 @@ class UserController {
         $description = $request->request->get('description');
         $password = $request->request->get('password');
         $role = $request->request->get('role');
-        $id_discipline = $request->request->get('discipline');
+        $id_discipline = $request->request->get('id_discipline');
         $id_class = $request->request->get('id_class');
         $user_mail = $request->request->get('user_mail');
         
