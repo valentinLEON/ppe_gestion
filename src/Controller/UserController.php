@@ -128,16 +128,16 @@ class UserController {
 //                              INDEX DE L AJOUT D UTILISATEURS
     public function addIndexAction(Application $app) {
         
+         
         $classes = $app['dao.classNames']->findAll();
-        $disciplines = $app['dao.discipline']->findAll();
+        $discipline = $app['dao.discipline']->findAll();
         $users = $app['dao.user']->findAll();
         
        return $app['twig']->render('FormTemplate/adduser.html.twig', array( 
            
-            'classe'            =>  $classes,
-            'disciplines'       =>  $disciplines,
-            'id_discipline'     =>  $disciplines,
-            'user'              =>  $users,
+                'classe'           =>    $classes,
+                'discipline'       =>    $discipline,
+                'user'             =>    $users,  
        
            ));
     }
@@ -172,13 +172,14 @@ class UserController {
         // regler le probleme de classname id class
         var_dump($newUser);
         
-        $app['dao.user']->saveUser($newUser);
-
+       $app['dao.user']->saveUser($newUser);
+       $app['session']->getFlashBag()->add('success', 'Utilisateur bien enregistré');
+       
+       
         $classes = $app['dao.classNames']->findAll();
         $discipline = $app['dao.discipline']->findAll();
         $users = $app['dao.user']->findAll();
-        $app['session']->getFlashBag()->add('success', 'Utilisateur bien enregistré');
-  
+ 
         return $app['twig']->render('FormTemplate/adduser.html.twig'  , array(
             
            'classe'           =>    $classes,
