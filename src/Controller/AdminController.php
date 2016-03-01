@@ -33,7 +33,12 @@ class AdminController {
 
     public function indexAction(Application $app) {
 
+        
+    $exams_total = count($app['dao.user']->findAll());
+         
+         
      $users = $app['dao.user']->findAll();
+     
      $users_total = $app['dao.user']->countAll(); 
 
      $classes = $app['dao.classNames']->findAll();
@@ -53,6 +58,7 @@ class AdminController {
         'users_number'          =>$users_total,
         'disciplines'           =>$disciplines,
         'disciplines_number'    =>$disciplines_total,
+        'exam_number'           =>$exams_total,
         'absences_number'       =>'1',
         'retards_number'        =>'1',
         'retards_number'        =>'1',
