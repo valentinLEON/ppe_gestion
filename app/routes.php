@@ -70,26 +70,26 @@ $app->get('/studentstats',  "ppe_gestion\Controller\StudentController::studentSt
  * 
  *   
  *                   TABLEAU DE BORD DE GESTION DES UTILISATEURS        */
-    $app->get('/usertab',  "ppe_gestion\Controller\UserController::tabUserAction")->bind('userstab');
+$app->get('/usertab',  "ppe_gestion\Controller\UserController::tabUserAction")->bind('userstab');
 /**
  *                             LISTE DES UTILSATEURS       */
-    $app->get('/userslist', "ppe_gestion\Controller\UserController::listUserIndexAction")->bind('userslist');
+$app->get('/userslist', "ppe_gestion\Controller\UserController::listUserIndexAction")->bind('userslist');
 // liste des utilisateurs  renvoyant l'id selectionné à la fonction modifier
-    $app->post('/userslist', "ppe_gestion\Controller\UserController::listUserAction")->bind('users');
+$app->post('/userslist', "ppe_gestion\Controller\UserController::listUserAction")->bind('users');
 
 //                                SUPPRIME USER
-    $app->get('/modifuser/delete', "ppe_gestion\Controller\UserController::deleteUserIndexAction")->bind('user_delete');
-    $app->post('/modifuser/delete', "ppe_gestion\Controller\UserController::deleteUserAction")->bind('user_deleted');
+$app->get('/modifuser/delete', "ppe_gestion\Controller\UserController::deleteUserIndexAction")->bind('user_delete');
+$app->post('/modifuser/delete', "ppe_gestion\Controller\UserController::deleteUserAction")->bind('user_deleted');
                 
 //                                 MODIFIE USER
-    $app->get('/modifuser/edit', "ppe_gestion\Controller\UserController::editUserIndexAction")->bind('user_edit');
-    $app->post('/modifuser/edit', "ppe_gestion\Controller\UserController::editUserAction")->bind('user_edited');
+$app->get('/modifuser/edit', "ppe_gestion\Controller\UserController::editUserIndexAction")->bind('user_edit');
+$app->post('/modifuser/edit', "ppe_gestion\Controller\UserController::editUserAction")->bind('user_edited');
 
 /*  //                              AJOUT USER
  *  //* route pour l'affichage du formulaire d ajout d utilisateurs */
-    $app->get('/adduser', "ppe_gestion\Controller\UserController::addIndexAction")->bind('user_add');
+$app->get('/adduser', "ppe_gestion\Controller\UserController::addIndexAction")->bind('user_add');
  //* route pour la soumission du formulaire d ajout d utilisateurs
-    $app->post('/adduser', "ppe_gestion\Controller\UserController::addAction")->bind('user_added');
+$app->post('/adduser', "ppe_gestion\Controller\UserController::addAction")->bind('user_added');
 
     
 /**                                                       
@@ -102,8 +102,7 @@ $app->get('/calendar',"ppe_gestion\Controller\CalendarController::indexAction")-
 
 
 /**                                                        
- * 
- *                                                             ClassNameController                                                
+ *                                                         ClassNameController                                                
  *
  *                                                                CLASSES
  *                                   TABLEAU DE BORD
@@ -146,18 +145,13 @@ $app->post('adddiscipline', "ppe_gestion\Controller\DisciplineController::addAct
 
 
 /**                                                                   NOTES     
- * 
- *  
  *                                  TABLEAU DE BORD STATS DES NOTES
- * 
  */
 $app->get('/notetab', function () use ($app) {
     return $app['twig']->render('StatTemplate/notestat.html.twig');
 })->bind('notetabstats');
-
 /**   
- * 
- *                                   LISTE
+                                  LISTE
  * 
  * 
  * route pour l'affichage de la liste des notes - evaluations
@@ -168,9 +162,7 @@ $app->get('/notelist', function () use ($app) {
 
 
 /**   
- * 
- * 
- *                                    AJOUT
+ *                                 AJOUT
  * 
  * 
  *  Route pour l'ajout des notes et commentaires
