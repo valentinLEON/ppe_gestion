@@ -39,7 +39,9 @@ class EvaluationController {
         return $app['twig']->render('FormTemplate/addnote.html.twig', array(
             'classNames' => $classes,
             'matieres' => $discipline,
-            'student' => $student));
+            'students' => $student
+            )
+       );
     }
     
     
