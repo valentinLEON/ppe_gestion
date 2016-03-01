@@ -181,7 +181,8 @@ class UserController {
         $salt = $request->request->get('salt');
         $role = $request->request->get('role');
         $discipline_form = $request->request->get('discipline_form');
-        $classname = $request->request->get('classname');
+        $classname = $request->request->get('class_name');
+        $classtype = $request->request->get('class_type');
         $status = $request->request->get('status');   
         $user_mail = $request->request->get('user_mail');
         
@@ -200,7 +201,8 @@ class UserController {
            'salt'             =>$salt,
            'role'             =>$role,
            'discipline_form'  =>$discipline_form,
-           'classname'        =>$classname,
+           'class_name'        =>$classname,
+           'class_type'        =>$classtype,
            'status'           =>$status,   
            'user_mail'        =>$user_mail,
   
