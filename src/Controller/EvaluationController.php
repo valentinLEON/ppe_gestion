@@ -60,8 +60,8 @@ class EvaluationController {
        $newEvaluation = new Evaluation();
 
        $newEvaluation->setGradeStudent($note);
-       $newEvaluation->setDiscipline($discipline);
-       $newEvaluation->setStudent($student);
+       $newEvaluation->setDiscipline($id_discipline);
+       $newEvaluation->setStudent($id_student);
        $newEvaluation->setCoefDiscipline($coeff);
        $newEvaluation->setJudgement($judgement);
        
