@@ -46,38 +46,42 @@ class EvaluationController {
     
     // AJOUT TRAITEMENT
     public function addAction(Request $request ,Application $app) {
-
+ 
+       $id_student = $request->request->get('id_student');
+       $id_discipline = $request->request->get('matiere');
+       $note = $request->request->get('note');
+       $student = $app['dao.student']->findStudent($id_student);
+     //  $discipline = $app['dao.discipline']->findDiscipline($id_discipline);
+       $coeff =  $request->request->get('coeff');
+       $judgement = $request->request->get('judgement');
+       
        $newEvaluation = new Evaluation();
 
-       $student = $app['dao.student']->findStudent($request->request->get('etudiants'));
-       $discipline = $app['dao.discipline']->findDiscipline($request->request->get('matiere'));
-
-       $newEvaluation->setGradeStudent($request->request->get('note'));
+       $newEvaluation->setGradeStudent($note);
        $newEvaluation->setDiscipline($discipline);
        $newEvaluation->setStudent($student);
-       $newEvaluation->setCoefDiscipline($request->request->get('coeff'));
-       $newEvaluation->setJudgement($request->request->get('judgement'));
+       $newEvaluation->setCoefDiscipline($coeff);
+       $newEvaluation->setJudgement($judgement);
+       
        $newEvaluation->setDtCreate(date('Y-m-d H:i:s'));
        $newEvaluation->setDtUpdate(date('Y-m-d H:i:s'));
-
-       var_dump($newEvaluation);
-
 
        $app['dao.evaluation']->saveGrade($newEvaluation);
 
        $app['session']->getFlashBag()->add('success', 'La note a été ajoutée avec succès !');
 
        $classes = $app['dao.classNames']->findAll();
-       $discipline = $app['dao.discipline']->findAll();
-       $student = $app['dao.student']->findAll();
+       $disciplines = $app['dao.discipline']->findAll();
+       $students = $app['dao.student']->findAll();
 
        return $app['twig']->render('FormTemplate/addnote.html.twig', array(
 
-           'classNames' => $classes,
-           'matieres' => $discipline,
-           'student' => $student)
-
-         );
+           'classNames'  => $classes,
+           'matieres'    => $disciplines,
+           'students'    => $students,
+           
+           )
+        );
     }
     
     
