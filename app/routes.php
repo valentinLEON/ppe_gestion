@@ -78,7 +78,7 @@ $app->get('/userslist', "ppe_gestion\Controller\UserController::listUserIndexAct
 $app->post('/userslist', "ppe_gestion\Controller\UserController::listUserAction")->bind('users');
 
 //                                SUPPRIME USER
-$app->get('/modifuser/delete', "ppe_gestion\Controller\UserController::deleteUserIndexAction")->bind('user_delete');
+$app->match('/modifuser/delete', "ppe_gestion\Controller\UserController::deleteUserIndexAction")->bind('user_delete');
 $app->post('/modifuser/delete/id', "ppe_gestion\Controller\UserController::deleteUserAction")->bind('user_deleted');
                 
 //                                 MODIFIE USER
