@@ -12,7 +12,7 @@
             <div class="form-group" style="width: 20%;  display:inline-block; margin:10px;">
                 <label>Login  *</label>
                 <select class="form-control" name="username">
-                     {% for usernames in username %}
+                     {% for usernames in user %}
                         <option value="{{ usernames.username }}" >{{ usernames.username }}</option> 
                        
                       {% endfor %}
@@ -20,12 +20,12 @@
             </div>
              <div class="form-group" style="width: 15%; display:inline-block;margin:10px;">
                 <label>Nom</label>
-                <input type="text" name="name" class="form-control" value="{{ user_form.username }}">
-                <input type="hidden" value="{{ username.id_class }}" name="id_class">
+                <input type="text" name="name" class="form-control" value="{{ usem.username }}">
+                <input type="hidden" value="{{ user.id_class }}" name="id_class">
             </div>
             <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
                 <label>Prénom</label>
-                <input type="text" name="firstname" class="form-control"  value="{{ user_form.firstname }}">
+                <input type="text" name="firstname" class="form-control"  value="{{ user.firstname }}">
             </div>
             <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
                 <label>Description</label>
@@ -34,7 +34,7 @@
             <div class="form-group" style="width: 20%;  display:inline-block;margin:10px;">
               <label>Role</label>
                 <select class="form-control"  name="role" >
-                    {% for roles in role %}
+                    {% for roles in user %}
                          <option value="{{ roles.role }}">{{ roles.role }}</option> 
                      {% endfor %}
                 </select>
