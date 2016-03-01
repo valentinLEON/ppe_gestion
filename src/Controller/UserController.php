@@ -169,11 +169,9 @@ class UserController {
         $newUser->setUserMail($user_mail);
         $newUser->setDtCreate(date('Y-m-d H:i:s'));
         $newUser->setDtUpdate(date('Y-m-d H:i:s'));
-        // regler le probleme de classname id class
-        var_dump($newUser);
-        
-       $app['dao.user']->saveUser($newUser);
-       $app['session']->getFlashBag()->add('success', 'Utilisateur bien enregistré');
+         
+        $app['dao.user']->saveUser($newUser);
+        $app['session']->getFlashBag()->add('success', 'Utilisateur bien enregistré');
        
        
         $classes = $app['dao.classNames']->findAll();
