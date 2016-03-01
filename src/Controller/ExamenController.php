@@ -65,8 +65,6 @@ class ExamenController {
 
         $app['dao.examen']->saveExamen($newExamen);
 
-        $app['session']->getFlashBag()->add('success', 'Examen ajouté avec succès !');
-        
         return $app['twig']->render('FormTemplate/addexam.html.twig', [
                 'name'              => $name,
                 'date'              => $date ,
