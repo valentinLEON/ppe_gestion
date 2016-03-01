@@ -86,7 +86,7 @@ class Evaluation
         return $this->id_discipline;
     }
 
-    public function setDiscipline(Discipline $discipline)
+    public function setDiscipline($discipline)
     {
         $this->id_discipline = $discipline;
     }
