@@ -71,10 +71,11 @@ class EvaluationController {
        $newEvaluation->setDtCreate(date('Y-m-d H:i:s'));
        $newEvaluation->setDtUpdate(date('Y-m-d H:i:s'));
 
-       $app['dao.evaluation']->saveGrade($newEvaluation);
-
-       $app['session']->getFlashBag()->add('success', 'La note a été ajoutée avec succès !');
-
+       $testsave=$app['dao.evaluation']->saveGrade($newEvaluation);
+      
+       if($testsave){
+         $app['session']->getFlashBag()->add('success', 'La note a été ajoutée avec succès !');
+       }
        return $app['twig']->render('FormTemplate/addnote.html.twig', array(
 
                 'classNames'  => $classes,

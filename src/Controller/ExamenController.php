@@ -63,9 +63,9 @@ class ExamenController {
         $newExamen->setDtCreate(date('Y-m-d H:i:s'));
         $newExamen->setDtUpdate(date('Y-m-d H:i:s'));
 
-        $test=$app['dao.examen']->saveExamen($newExamen);
+        $testsave=$app['dao.examen']->saveExamen($newExamen);
         
-        if($test){
+        if($testsave){
              $app['session']->getFlashBag()->add('success', 'Examen ajouté avec succès !');
         }
         
