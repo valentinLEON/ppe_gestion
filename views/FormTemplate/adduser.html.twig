@@ -31,8 +31,8 @@
                 <div class="form-group">
                     <label>Role</label>
                     <select  name="role" class="form-control" style=" width: 25% ;border-radius: 3px" >
-                        {% for roles in role %}
-                            <option value="{{ user.role }}">{{ user.role }}</option>
+                        {% for users in user %}
+                            <option value="{{ users.role }}">{{ users.role }}</option>
                         {% endfor %}
                     </select>
                 </div>
