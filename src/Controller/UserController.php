@@ -202,7 +202,7 @@ class UserController {
         return $app->redirect($app['url_generator']->generate('userslist'));
     }
 
-    public function editUserAction(User $user, Request $request, Application $app) {  
+    public function editUserAction(Request $request, Application $app) {  
        
         $classes = $app['dao.classNames']->findAll();
         $disciplines = $app['dao.discipline']->findAll();
