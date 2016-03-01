@@ -58,7 +58,7 @@ class ClassName
 
     public function setClassType($_class_type)
     {
-        $this->class_type = $_class_Type;
+        $this->class_type = $_class_type;
     }
     //endregion
 
