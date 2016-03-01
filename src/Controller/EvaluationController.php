@@ -49,39 +49,38 @@ class EvaluationController {
     // AJOUT TRAITEMENT
     public function addAction(Request $request ,Application $app) {
         
-       $classes = $app['dao.classNames']->findAll();
-       $disciplines = $app['dao.discipline']->findAll();
-       $students = $app['dao.student']->findAll();
-       
-       $id_student = $request->request->get('id_student');
-       $id_discipline = $request->request->get('id_discipline');
-       $note = $request->request->get('note');
-      
-     //  $discipline = $app['dao.discipline']->findDiscipline($id_discipline);
-       $coeff =  $request->request->get('coeff');
-       $judgement = $request->request->get('judgement');
-       
-       $newEvaluation = new Evaluation();
+        $classes = $app['dao.classNames']->findAll();
+        $disciplines = $app['dao.discipline']->findAll();
+        $students = $app['dao.student']->findAll();
 
-       $newEvaluation->setGradeStudent($note);
-       $newEvaluation->setDiscipline($id_discipline);
-       $newEvaluation->setIdStudent($id_student);
-       $newEvaluation->setCoefDiscipline($coeff);
-       $newEvaluation->setJudgement($judgement);
-       $newEvaluation->setDtCreate(date('Y-m-d H:i:s'));
-       $newEvaluation->setDtUpdate(date('Y-m-d H:i:s'));
+        $id_student = $request->request->get('id_student');
+        $id_discipline = $request->request->get('id_discipline');
+        $note = $request->request->get('note');
 
-       $app['dao.evaluation']->saveGrade($newEvaluation);
- 
-         $app['session']->getFlashBag()->add('success', 'La note a été ajoutée avec succès !');
+      //  $discipline = $app['dao.discipline']->findDiscipline($id_discipline);
+        $coeff =  $request->request->get('coeff');
+        $judgement = $request->request->get('judgement');
 
-       return $app['twig']->render('FormTemplate/addnote.html.twig', array(
+        $newEvaluation = new Evaluation();
 
-                'classNames'  => $classes,
-                'matieres'    => $disciplines,
-                'students'    => $students,
-             )
-        );
+        $newEvaluation->setGradeStudent($note);
+        $newEvaluation->setDiscipline($id_discipline);
+        $newEvaluation->setIdStudent($id_student);
+        $newEvaluation->setCoefDiscipline($coeff);
+        $newEvaluation->setJudgement($judgement);
+        $newEvaluation->setDtCreate(date('Y-m-d H:i:s'));
+        $newEvaluation->setDtUpdate(date('Y-m-d H:i:s'));
+
+        $app['dao.evaluation']->saveGrade($newEvaluation);
+        $app['session']->getFlashBag()->add('success', 'La note a été ajoutée avec succès !');
+
+        return $app['twig']->render('FormTemplate/addnote.html.twig', array(
+
+                 'classNames'  => $classes,
+                 'matieres'    => $disciplines,
+                 'students'    => $students,
+              )
+         );
     }
     
     
