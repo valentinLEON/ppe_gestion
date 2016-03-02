@@ -168,7 +168,7 @@ desired effect
 
                         <!-- TODO: Bienvenue Professeur de Matière => Statut, à remplacer à Accueil -->
                         <ul class="dropdown-menu">
-                           {% if app.user and is_granted('IS_AUTHENTICATED_FULLY') %}
+                           {#{% if app.user and is_granted('IS_AUTHENTICATED_FULLY') %}#}
                             <li class="user-header">
                                 <span class="glyphicon glyphicon-user">
                                     Bienvenue {{ app.user.username }}<br>Professeur de Mathématiques
@@ -179,7 +179,7 @@ desired effect
                             </li>
                             <!-- Menu Body -->
                             <!-- Menu Footer-->
-                            {% else %}
+                            {#{% else %}#}
                             <li class="user-footer">
                                 {#<div  style="margin:5px; display:inline-block;">
                                     <a href="#" class="btn btn-default btn-flat">Profil</a>
@@ -191,7 +191,7 @@ desired effect
                                     </span>
                                 </a>
                             </li>
-                            {% endif %}
+                            {#{% endif %}#}
 
                         </ul>
                     </li>
