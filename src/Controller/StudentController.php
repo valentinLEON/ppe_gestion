@@ -57,7 +57,7 @@ class StudentController {
 
         $newStudent->setIdStudent($id_student);
 
-        $app['dao.student']->deleteStudent($newStudent);
+        $app['dao.student']->deleteStudent($newStudent->getIdStudent());
 
         $app['session']->getFlashBag()->add('danger', 'Étudiant supprimé !');
 
