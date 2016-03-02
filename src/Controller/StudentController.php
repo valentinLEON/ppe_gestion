@@ -57,9 +57,13 @@ class StudentController {
 
         // On redirige vers le tableau des étudiants
 
-        return $app->redirect($app['url_generator']->generate('$newStudent'));
+        return $app->redirect($app['url_generator']->generate('studentslist'));
     }
-    
+
+
+
+
+
     public function addIndexAction(Request $request ,Application $app) {
         $classes = $app['dao.classNames']->findAll();
 
