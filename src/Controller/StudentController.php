@@ -41,6 +41,12 @@ class StudentController {
         ));
     }
 
+
+
+
+
+
+
     public function deleteStudentIndexAction(Application $app) {
         return $app->redirect($app['url_generator']->generate('studentslist/modifstudent/delete/id'));
     }
