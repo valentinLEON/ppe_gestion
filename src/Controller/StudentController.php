@@ -45,11 +45,11 @@ class StudentController {
         return $app->redirect($app['url_generator']->generate('studentslist/modifStudent/delete/id'));
     }
 
-    public function deleteIndexAction(Request $request, Application $app){
+    public function deleteStudentAction(Request $request, Application $app){
         $id_student = $request->request->get('id_student');
         $newStudent = new Student();
 
-        $newStudent->setIdUsers($id_student);
+        $newStudent->setIdStudent($id_student);
 
         $app['dao.student']->deleteStudent($newStudent);
 
