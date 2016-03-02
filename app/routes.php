@@ -53,7 +53,6 @@ $app->get('/studentslist',"ppe_gestion\Controller\StudentController::listIndexAc
  *                                                                SUPPRESSION
  * route pour la suppression d'un étudiant par l'id
  */
-//$app->get('/studentslist/{id_student}/delete', "ppe_gestion\Controller\StudentController::deleteIndexAction")->bind('delete_student');
 $app->match('/modifstudent/delete', "ppe_gestion\Controller\UserController::deleteStudentIndexAction")->bind('student_delete');
 $app->post('/modifstudent/delete/id', "ppe_gestion\Controller\UserController::deleteIndexAction")->bind('student_deleted');
 
