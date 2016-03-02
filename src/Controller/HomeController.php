@@ -5,14 +5,6 @@ namespace ppe_gestion\Controller;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 
-//use ppe_gestion\Domain\User;
-//use ppe_gestion\Domain\StudentToClass;
-//use ppe_gestion\Domain\Student;
-//use ppe_gestion\Domain\DisciplineToClass;
-//use ppe_gestion\Domain\Evaluation;
-//use ppe_gestion\Domain\Discipline;
-//use ppe_gestion\Domain\ClassName;
-
 class HomeController {
 
     /**
@@ -36,8 +28,8 @@ class HomeController {
                 'students'=>$students,
                 'students_number'=>$students_total,
                 'date'=>$date,
-            ));
-    } 
+        ));
+    }
 
     /**
      * User login controller.
@@ -46,6 +38,14 @@ class HomeController {
      * @param Application $app Silex application
      */
     public function loginAction(Request $request, Application $app) {
+        /*$errormessage = '';
+        if(!empty($_POST))
+        {
+            if(!empty($_POST[]) && !empty($_POST[]))
+            {
+
+            }
+        }*/
         return $app['twig']->render('login.html.twig', array(
             'error'         => $app['security.last_error']($request),
             'last_username' => $app['session']->get('_security.last_username'),
@@ -61,6 +61,4 @@ class HomeController {
     public function testloginAction(Request $request, Application $app){
         return $app['twig']->render('testlogin.html.twig');
     }
-    
-    
 }
