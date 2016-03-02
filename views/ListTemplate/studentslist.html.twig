@@ -42,33 +42,19 @@
                             <td style="text-align: center; border: 1px solid darkgrey;">{{ etudiant.address }}</td>
                             <td style="text-align: center; border: 1px solid darkgrey;">
                                 <div class="btn-group">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" data-dismiss="modal" class="btn btn-warning btn-flat"><i class="fa fa-edit"></i>
-                                                </button>
-                                                <h4 class="modal-title" id="myModalLabel">
-                                                    Besoin de confirmation
-                                                </h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                Voulez-vous vraiment supprimer cet étudiant ?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                                                <a href="{{ path('delete_student', { 'id': etudiant.id_student }) }}" class="btn btn-danger">Confirmer</a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                            </td>
-                            <td style="text-align: center; border: 1px solid darkgrey;"><div class="btn-group">
-                                    <button type="button" class="btn btn-danger btn-flat"><i class="fa fa-trash"></i>
+                                    <button type="button" class="btn btn-warning btn-flat"><i class="fa fa-edit"></i>
                                     </button>
                                 </div>
+                            </td>
+                            <td style="text-align: center; border: 1px solid darkgrey;">
+                                <form action="modifstudent/delete/id" method="post" >
+                                    <div class="btn-group">
+                                        <button type="submit" class="btn btn-danger btn-flat">
+                                            <i class="fa fa-trash"></i>
+                                            <input type='hidden' name="id_student" value="{{etudiant.id_student}}">
+                                        </button>
+                                    </div>
+                                </form>
                             </td>
                         </tr>
                         {% endfor %}
