@@ -41,11 +41,13 @@ class ExamenController {
      //  FONCTION  AJOUT INDEX
      //  //  Récupère via l'url les examens
     public function addIndexAction(Request $request ,Application $app) {
+
         $classes = $app['dao.classNames']->findAll();
 
         return $app['twig']->render('FormTemplate/addexam.html.twig', array(
-             'classes' => $classes,
-         ));
+                'classNames' => $classes,
+            )
+        );
     }
     
     //  FONCTION AJOUT TRAITEMENT
