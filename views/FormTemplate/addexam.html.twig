@@ -23,6 +23,16 @@
                     <input style="border-radius: 3px; width: 15%" type="text" class="form-control" name="name" placeholder=""/>
                 </div>
 
+                <div class="form-group">
+                    <label for="#">Classe</label>
+                    {% for classes in classe %}
+                    <select>
+                        <option>
+                            {{ classes.class_name }}
+                        </option>
+                    </select>
+                </div>
+
                 <!-- Date range -->
                 <div class="form-group">
                     <label for="#">Date de l'examen</label>
