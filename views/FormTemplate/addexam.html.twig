@@ -26,9 +26,9 @@
                 <div class="form-group">
                     <label for="#">Classe</label>
                     <select class="form-control" id="sel2" name="id_class" style="border-radius: 3px; width: 30%">
-                        {% for classes in id_class %}
+                        {% for classe in classes %}
                         <option>
-                            {{ classes.class_name }}
+                            {{ classe.class_name }}
                         </option>
                         {% endfor %}
                     </select>

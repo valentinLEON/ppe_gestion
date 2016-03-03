@@ -52,8 +52,9 @@ class ExamenController {
           
         $name = $request->request->get('name'); 
         $date = $request->request->get('date');
-        $class = $request->request->get('id_class');
-        $id_class = $app['dao.classNames']->findAll();
+        $id_class = $request->request->get('id_class');
+
+        $classes = $app['dao.classNames']->findAll();
         $description = $request->request->get('description');
         
         $newExamen = new Examen();
@@ -74,7 +75,7 @@ class ExamenController {
         
         return $app['twig']->render('FormTemplate/addexam.html.twig', [
                 'name'              => $name,
-                'id_class'          => $id_class,
+                'classes'          => $classes,
                 'date'              => $date ,
                 'description'       => $description, 
              ]);
