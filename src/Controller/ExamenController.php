@@ -33,8 +33,12 @@ class ExamenController {
     // AFFICHE LISTE
     
      public function listAction(Request $request ,Application $app) {    
-  
-          return $app['twig']->render('ListTemplate/examlist.html.twig');
+
+         $students = $app['dao.student']->findStudent();
+
+          return $app['twig']->render('ListTemplate/examlist.html.twig', array(
+              'students' => $students,
+          ));
     }
      
     
