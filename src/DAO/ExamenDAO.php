@@ -13,6 +13,13 @@ use ppe_gestion\Domain\Examen;
 
 class ExamenDAO extends DAO
 {
+    private $classDAO;
+
+    public function setClassDAO(ClassNameDAO $classDAO)
+    {
+        $this->classDAO = $classDAO;
+    }
+
     /**
      * @param $id
      * @return mixed
@@ -84,6 +91,7 @@ class ExamenDAO extends DAO
             'examen_name'           => $_examen->getNameExamen(),
             'date'                  => $_examen->getDateExamen(),
             'description'           => $_examen->getDescriptionExamen(),
+            'id_class'              => $_examen->getClass(),
             'dt_create'             => $_examen->getDtCreate(),
             'dt_update'             => $_examen->getDtUpdate(),
         );
@@ -132,9 +140,17 @@ class ExamenDAO extends DAO
         $exam->setNameExamen($row['name_examen']);
         $exam->setNameExamen($row['date_examen']);
         $exam->setDescriptionExamen($row['description_examen']);
+        $exam->setClassname($row['id_class']);
 
         $exam->setDtCreate($row['dt_create']);
         $exam->setDtUpdate($row['dt_update']);
+
+        if(array_key_exists('id_class', $row))
+        {
+            $classID = $row['id_class'];
+            $class = $this->classDAO->findClassname($classID);
+            $exam->setClass($class);
+        }
 
         return $exam;
     }

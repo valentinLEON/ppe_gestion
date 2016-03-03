@@ -69,15 +69,15 @@ class Evaluation
     //endregion
 
     //region Getter et Setter de l'objet Etudiant
-    public function getIdStudent()
+    public function getStudent()
     {
-        return $this->id_student;
+        return $this->student;
     }
 
     // voir pour les clef etrangeres aussi
-    public function setIdStudent($student)
+    public function setIdStudent(Student $student)
     {
-        $this->id_student = $student;
+        $this->student = $student;
     }
     //endregion
 
@@ -87,7 +87,7 @@ class Evaluation
         return $this->id_discipline;
     }
    // voir pour les clef etrangeres aussi
-    public function setDiscipline($discipline)
+    public function setDiscipline(Discipline $discipline)
     {
         $this->id_discipline = $discipline;
     }
