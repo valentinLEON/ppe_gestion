@@ -101,6 +101,15 @@ $app['dao.examen'] = $app->share(function($app){
     return new ppe_gestion\DAO\ExamenDAO($app['db']);
 });
 
+
+/**
+ * Controller pour la route des parents
+ */
+$app['dao.parent'] = $app->share(function($app){
+    return new ppe_gestion\DAO\ParentDAO($app['db']);
+});
+
+
 /**
  * Controller pour la route des notes
  */
