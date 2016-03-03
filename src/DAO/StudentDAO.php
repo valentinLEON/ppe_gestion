@@ -172,12 +172,12 @@ class StudentDAO extends DAO
             $student->setClass($classname);
         }
 
-        if(array_key_exists('id_evaluation', $row))
+        /*if(array_key_exists('id_evaluation', $row))
         {
             $evaluationID = $row['id_evaluation'];
             $evaluation = $this->evaluationDAO->findAll();
             $student->setEvaluation($evaluation);
-        }
+        }*/
 
         return $student;
     }
