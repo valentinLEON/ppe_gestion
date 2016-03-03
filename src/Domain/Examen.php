@@ -17,6 +17,8 @@ class Examen
     public $date_examen;
     public $description_examen;
 
+    public $class;
+
     public $dt_create;
     public $dt_update;
 
@@ -31,6 +33,22 @@ class Examen
         $this->id_examen = $id_examen;
     }
     //endregion
+
+    /**
+     * @return mixed
+     */
+    public function getClass()
+    {
+        return $this->class;
+    }
+
+    /**
+     * @param mixed $classname
+     */
+    public function setClass($class)
+    {
+        $this->class = $class;
+    }
 
     //region Getter et Setter du nom de l'examen
     public function getNameExamen()

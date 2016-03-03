@@ -52,6 +52,7 @@ class ExamenController {
           
         $name = $request->request->get('name'); 
         $date = $request->request->get('date');
+        $id_class = $request->request->get('id_classe');
         $description = $request->request->get('description');
         
         $newExamen = new Examen();
@@ -71,6 +72,7 @@ class ExamenController {
         
         return $app['twig']->render('FormTemplate/addexam.html.twig', [
                 'name'              => $name,
+                'id_class'          => $id_class,
                 'date'              => $date ,
                 'description'       => $description, 
              ]);
