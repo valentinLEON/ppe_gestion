@@ -10,7 +10,7 @@
 
 
    <div class="box box-success">
-      <div class="box-header with-border">
+      {#<div class="box-header with-border">
          <h3 class="box-title">Moyenne de la classe</h3>
 
          <div class="box-tools pull-right">
@@ -23,11 +23,11 @@
          <div class="chart">
             <canvas id="barChart" style="height: 254px; width: 564px;" width="564" height="254"></canvas>
          </div>
-      </div>
+      </div>#}
       <!-- /.box-body -->
    </div>
 
-   <script>
+   {#<script>
       $(function (){
          //-------------
          //- BAR CHART -
@@ -70,6 +70,6 @@
          barChartOptions.datasetFill = false;
          barChart.Bar(barChartData, barChartOptions);
       });
-   </script>
+   </script>#}
  
 {% endblock %}
