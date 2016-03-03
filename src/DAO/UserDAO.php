@@ -158,6 +158,7 @@ class UserDAO extends DAO implements UserProviderInterface
             'dt_update'     => $user->getDtUpdate(), 
             'id_discipline' => $user->getIdDiscipline(), 
             'id_class'      => $user->getIdClassName(),
+            'id_parent'     => $user->getIdParent(),
         );
         
         //on modifie
@@ -200,6 +201,7 @@ class UserDAO extends DAO implements UserProviderInterface
         $user->setDtUpdate($row['dt_update']);
         $user->setIdDiscipline($row['id_discipline']);
         $user->setIdClassName($row['id_class']);
+        $user->setIdParent($row['id_parent']);
         
         return $user;
     }

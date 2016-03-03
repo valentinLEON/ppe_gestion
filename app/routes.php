@@ -12,6 +12,30 @@ $app->get('/', "ppe_gestion\Controller\HomeController::indexAction");
  */
 $app->get('/login', "ppe_gestion\Controller\HomeController::loginAction")->bind('login');
 
+
+/**                                                                PARENT
+ * route pour afficher le layout parent
+ */
+
+$app->get('/login', "ppe_gestion\Controller\ParenController::afficheLayoutAction")->bind('login');
+
+
+
+/**                                                              
+ * route pour afficher le profil parent
+ */
+
+$app->get('/login', "ppe_gestion\Controller\HomeController::afficheProfilParentAction")->bind('login');
+
+
+/**                                                              
+ * route pour afficher le profil de l'etudiant1
+ */
+
+$app->get('/login', "ppe_gestion\Controller\HomeController::afficheProfilEtudiant1Action")->bind('login');
+
+
+
 /** 
  *                                                       TESTS POUR LES ROUTES
  * route pour l'affichage de la liste des etudiants

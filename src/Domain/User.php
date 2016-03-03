@@ -40,6 +40,8 @@ class User implements UserInterface
     public $id_discipline; /*clé étrangère*/
     public $id_class; /*clé étrangère*/
     public $status;//
+    
+    public $id_parent;
 
     public $dt_create;
     public $dt_update;
@@ -222,5 +224,21 @@ class User implements UserInterface
     {
        // Nothing to do here;
     }
+    
+    
+        //region Getter et Setter de l'ID de l'utilisateur
+    public function getIdParent()
+    {
+        return $this->id_parent;
+    }
+
+    public function setIdParent($_id_parent)
+    {
+        $this->id_parent = $_id_parent;
+    }
+    //endregion
+
+    
+    
 
 }
