@@ -9,8 +9,34 @@
    <a href="addnote"><h3 class="box-title"><i class="fa fa-plus"></i>&nbsp; Ajouter une note</h3></a>
 
 
-   <div class="box box-success">
+   <div class="box">
+      <div class="box-body">
+         <table id="example1" class="table table-hover table-striped">
+            <thead>
+            <tr style="background-color: #3c8dbc">
+               <th style="text-align: center; border: 1px solid darkgrey;">Nom élève</th>
+               <th style="text-align: center; border: 1px solid darkgrey;">Classe </th>
+               <th style="text-align: center; border: 1px solid darkgrey;">Ajouter</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for etudiant in students %}
+               <tr>
+                  <td style="text-align: center; border: 1px solid darkgrey;">{{ etudiant.firstname }}</td>
+                  <td style="text-align: center; border: 1px solid darkgrey;">{{ etudiant.class_option }}</td>
+                  <td style="text-align: center; border: 1px solid darkgrey;">
+                     <div class="btn-group">
+                        <button type="button" class="btn btn-warning btn-flat"><i class="fa fa-edit"></i>
+                        </button>
+                     </div>
+                  </td>
 
+                  <td></td>
+               </tr>
+            {% endfor %}
+            </tbody>
+         </table>
+      </div>
    </div>
  
 {% endblock %}
