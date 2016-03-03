@@ -15,6 +15,12 @@ use ppe_gestion\Domain\Student;
 class StudentDAO extends DAO
 {
     private $classDAO;
+    private $evaluationDAO;
+
+    public function setEvaluationDAO($evaluationDAO)
+    {
+        $this->evaluationDAO = $evaluationDAO;
+    }
 
     /**
      * @return mixed
