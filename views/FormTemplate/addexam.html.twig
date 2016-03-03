@@ -25,13 +25,13 @@
 
                 <div class="form-group">
                     <label for="#">Classe</label>
-                    {% for classes in id_class %}
                     <select>
+                        {% for classes in id_class %}
                         <option>
                             {{ classes.class_name }}
                         </option>
+                        {% endfor %}
                     </select>
-                    {% endfor %}
                 </div>
 
                 <!-- Date range -->
