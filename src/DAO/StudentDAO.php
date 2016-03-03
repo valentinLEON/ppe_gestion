@@ -175,7 +175,7 @@ class StudentDAO extends DAO
         if(array_key_exists('id_evaluation', $row))
         {
             $evaluationID = $row['id_evaluation'];
-            $evaluation = $this->evaluationDAO->find($evaluationID);
+            $evaluation = $this->evaluationDAO->findAllByStudent($evaluationID);
             $student->setEvaluation($evaluation);
         }
 
