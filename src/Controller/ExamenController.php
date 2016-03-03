@@ -34,7 +34,7 @@ class ExamenController {
     
      public function listAction(Request $request ,Application $app) {    
 
-         $students = $app['dao.student']->findStudent();
+         $students = $app['dao.student']->findAll();
 
           return $app['twig']->render('ListTemplate/examlist.html.twig', array(
               'students' => $students,
