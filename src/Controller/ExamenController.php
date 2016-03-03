@@ -2,6 +2,7 @@
 
 namespace ppe_gestion\Controller;
 
+use ppe_gestion\Domain\Evaluation;
 use Silex\Application;
 
 use Symfony\Component\HttpFoundation\Request;
@@ -89,7 +90,7 @@ class ExamenController {
              ]);
     }
 
-    public function editUserIndexAction(Request $request, Application $app) {
+    public function editStudentIndexAction(Request $request, Application $app) {
 
         $id_student = $request->request->get('id_student');
         $disciplines = $app['dao.discipline']->findAll();
@@ -106,6 +107,49 @@ class ExamenController {
         ));
 
 
+    }
+
+    public function editStudentAction(Request $request, Application $app) {
+
+        //$classes = $app['dao.classNames']->findAll();
+        $disciplines = $app['dao.discipline']->findAll();
+        //$users = $app['dao.user']->findAll();
+
+        $id_evaluation = $request->request->get('id_user');
+        $grade_student = $request->request->get('username');
+        $judgment = $request->request->get('name');
+        $coef_discipline = $request->request->get('firstname');
+        $id_discipline = $request->request->get('id_discipline');
+        $id_student = $request->request->get('id_role');
+        $date_create = date('Y-m-d H:i:s');
+
+        $studentById=$app['dao.student']->findStudent($id_student);
+
+
+        $newEvaluation = new Evaluation();
+
+        $newEvaluation->setIdEvaluation($id_evaluation);
+        $newEvaluation->setGradeStudent($grade_student);
+        $newEvaluation->setCoefDiscipline($coef_discipline);
+        $newEvaluation->setJudgement($judgment);
+        $newEvaluation->setDiscipline($id_discipline);
+        $newEvaluation->setDtUpdate($date_create);
+        $newEvaluation->setIdStudent($id_student);
+
+        $app['dao.evaluation']->saveUser($newEvaluation);
+
+        $app['session']->getFlashBag()->add('success', 'La note est bien enregistrée ');
+
+        return $app['twig']->render('FormTemplate/addnote.html.twig', array(
+            'discipline'    =>$disciplines,
+            'grade'         =>$grade_student,
+            'id_discipline' =>$id_discipline,
+            'coef'          =>$coef_discipline,
+            'jugement'      => $judgment,
+            'id_evaluation' =>$id_evaluation,
+            'studentById'   =>$studentById,
+
+        ));
     }
 
     

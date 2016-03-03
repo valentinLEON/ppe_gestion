@@ -113,6 +113,7 @@ class StudentDAO extends DAO
             'dt_create'        => $student->getDtCreate(),
             'dt_update'        => $student->getDtUpdate(),
             'id_class'         => $student->getClass()->getIdClassName(),
+            'id_evaluation'     =>$student->getEvaluation()->getIdEvaluation(),
         );
 
         //on modifie

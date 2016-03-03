@@ -187,7 +187,8 @@ $app->post('/addexam', "ppe_gestion\Controller\ExamenController::addAction")->bi
 /**                        LISTE
  *                           
  * route pour l'affichage de la liste des examens */
-$app->get('/examlist',"ppe_gestion\Controller\ExamenController::listAction")->bind('examlist');
+$app->get('/examlist',"ppe_gestion\Controller\ExamenController::editStudentIndexAction")->bind('examlist');
+$app->get('/examlist/id',"ppe_gestion\Controller\ExamenController::editStudentAction")->bind('examlist_added');
 
 
 
