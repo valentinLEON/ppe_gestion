@@ -52,7 +52,7 @@ class ExamenController {
           
         $name = $request->request->get('name'); 
         $date = $request->request->get('date');
-        //$id_class = $request->request->get('id_class');
+        $class = $request->request->get('id_class');
         $id_class = $app['dao.classNames']->findAll();
         $description = $request->request->get('description');
         
@@ -61,6 +61,7 @@ class ExamenController {
         $newExamen->setNameExamen($name);
         $newExamen->setDateExamen($date);
         $newExamen->setDescriptionExamen($description);
+        $newExamen->setClass($id_class);
 
         $newExamen->setDtCreate(date('Y-m-d H:i:s'));
         $newExamen->setDtUpdate(date('Y-m-d H:i:s'));
