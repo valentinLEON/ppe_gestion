@@ -17,7 +17,7 @@ class StudentDAO extends DAO
     private $classDAO;
     private $evaluationDAO;
 
-    public function setEvaluationDAO($evaluationDAO)
+    public function setEvaluationDAO(EvaluationDAO $evaluationDAO)
     {
         $this->evaluationDAO = $evaluationDAO;
     }
@@ -33,7 +33,7 @@ class StudentDAO extends DAO
     /**
      * @param mixed $classDAO
      */
-    public function setClassDAO($classDAO)
+    public function setClassDAO(ClassNameDAO $classDAO)
     {
         $this->classDAO = $classDAO;
     }
