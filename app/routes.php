@@ -17,7 +17,7 @@ $app->get('/login', "ppe_gestion\Controller\HomeController::loginAction")->bind(
  * route pour afficher le layout parent
  */
 
-$app->get('/login', "ppe_gestion\Controller\ParenController::afficheLayoutAction")->bind('login');
+$app->get('/profilparent', "ppe_gestion\Controller\ParentController::afficheProfilParentAction")->bind('login');
 
 
 
@@ -25,7 +25,7 @@ $app->get('/login', "ppe_gestion\Controller\ParenController::afficheLayoutAction
  * route pour afficher le profil parent
  */
 
-$app->get('/login', "ppe_gestion\Controller\HomeController::afficheProfilParentAction")->bind('login');
+$app->get('/profilstudent', "ppe_gestion\Controller\ParentController::afficheProfilStudentAction")->bind('login');
 
 
 /**                                                              
