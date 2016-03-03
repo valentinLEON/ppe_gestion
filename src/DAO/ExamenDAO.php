@@ -140,7 +140,7 @@ class ExamenDAO extends DAO
         $exam->setNameExamen($row['name_examen']);
         $exam->setNameExamen($row['date_examen']);
         $exam->setDescriptionExamen($row['description_examen']);
-        $exam->setClassname($row['id_class']);
+        $exam->setClass($row['id_class']);
 
         $exam->setDtCreate($row['dt_create']);
         $exam->setDtUpdate($row['dt_update']);
