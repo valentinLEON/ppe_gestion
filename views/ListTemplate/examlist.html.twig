@@ -25,10 +25,14 @@
                   <td style="text-align: center; border: 1px solid darkgrey;">{{ etudiant.name~' '~etudiant.firstname }}</td>
                   <td style="text-align: center; border: 1px solid darkgrey;"> SIO </td>
                   <td style="text-align: center; border: 1px solid darkgrey;">
-                     <div class="btn-group">
-                        <button type="button" class="btn btn-warning btn-flat"><i class="fa fa-edit"></i>
-                        </button>
-                     </div>
+                     <form action="addnote/id" method="post" >
+                        <div class="btn-group">
+                           <button type="submit" class="btn btn-warning btn-flat">
+                              <i class="fa fa-plus"></i>
+                              <input type='hidden' name="id_student" value="{{etudiant.id_evaluation}}">
+                           </button>
+                        </div>
+                     </form>
                   </td>
 
                   <td></td>

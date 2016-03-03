@@ -88,7 +88,26 @@ class ExamenController {
                 'description'       => $description, 
              ]);
     }
-    
+
+    public function editUserIndexAction(Request $request, Application $app) {
+
+        $id_student = $request->request->get('id_student');
+        $disciplines = $app['dao.discipline']->findAll();
+
+        $studentById = $app['dao.student']->findStudent($id_student);
+
+        return $app['twig']->render('FormTemplate/addnote.html.twig', array(
+            //'classe'        =>$classes,
+            'discipline'      =>$disciplines,
+            //'user'          =>$users,
+            'id_student'      =>$id_student,
+            'studentById'     =>$studentById,
+
+        ));
+
+
+    }
+
     
     // STAT
     public function statAction(Request $request ,Application $app) {    

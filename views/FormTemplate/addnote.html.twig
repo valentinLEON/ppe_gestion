@@ -27,14 +27,14 @@
                         <input style="border-radius: 3px; width: 15%" type="text" class="form-control" name="coeff" placeholder="Ex : 1"/>
                     </div>
 
-                    <div class="form-group">
+                    {#<div class="form-group">
                       <label for="#">Etudiant</label>
                       <select class="form-control" id="sel2" name="id_student" style="border-radius: 3px; width: 30%">
                           {% for etudiant in students %}
                               <option value="{{ etudiant.id_student }}">{{ etudiant.student_name~' '~etudiant.student_firstname }}</option>
                           {% endfor %}
                       </select>
-                    </div>
+                    </div>#}
 
                     <div class="form-group">
                       <label for="#">Matière</label>
