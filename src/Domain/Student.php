@@ -22,6 +22,7 @@ class Student
     public $student_statut;
 
     public $class;
+    public $evaluation;
 
     public $dt_create;
     public $dt_update;
@@ -163,4 +164,20 @@ class Student
         $this->dt_update = $_dt_update;
     }
     //endregion
+
+    /**
+     * @return mixed
+     */
+    public function getEvaluation()
+    {
+        return $this->evaluation;
+    }
+
+    /**
+     * @param mixed $evaluation
+     */
+    public function setEvaluation($evaluation)
+    {
+        $this->evaluation = $evaluation;
+    }
 }

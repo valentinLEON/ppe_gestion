@@ -165,6 +165,13 @@ class StudentDAO extends DAO
             $student->setClass($classname);
         }
 
+        if(array_key_exists('id_evaluation', $row))
+        {
+            $evaluationID = $row['id_evaluation'];
+            $evaluation = $this->evaluationDAO->findEvaluation($evaluationID);
+            $student->setEvaluation($evaluation);
+        }
+
         return $student;
     }
 }
