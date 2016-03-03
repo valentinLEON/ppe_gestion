@@ -52,7 +52,7 @@ class ExamenController {
           
         $name = $request->request->get('name'); 
         $date = $request->request->get('date');
-        $id_class = $request->request->get('id_classe');
+        $id_class = $request->request->get('id_class');
         $description = $request->request->get('description');
         
         $newExamen = new Examen();

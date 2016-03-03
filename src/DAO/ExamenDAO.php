@@ -13,6 +13,13 @@ use ppe_gestion\Domain\Examen;
 
 class ExamenDAO extends DAO
 {
+    private $classDAO;
+
+    public function setClassDAO(ClassNameDAO $classDAO)
+    {
+        $this->classDAO = $classDAO;
+    }
+
     /**
      * @param $id
      * @return mixed
@@ -141,7 +148,7 @@ class ExamenDAO extends DAO
         if(array_key_exists('id_class', $row))
         {
             $classID = $row['id_class'];
-            $class = $this->classNameDAO->findClassname($classID);
+            $class = $this->classDAO->findClassname($classID);
             $exam->setClass($class);
         }
 
