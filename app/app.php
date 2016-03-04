@@ -25,23 +25,41 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.class_path' => __DIR__.'/../vendor/twig/twig/lib',
 ));
 
+//Service pour l'orm
 $app->register(new Silex\Provider\DoctrineServiceProvider());
+
+//Service pour le management des sessions
 $app->register(new Silex\Provider\SessionServiceProvider());
 
 //Service pour l'authentification
-$app->register(new Silex\Provider\SecurityServiceProvider(), array(
+/*$app->register(new Silex\Provider\SecurityServiceProvider(), array(
     'security.firewalls' => array(
+        'login' => array(
+            'pattern' => '^/login'
+        ),
         'secured' => array(
             'pattern' => '^/',
             'anonymous' => true,
-            'logout' => true,
-            'form' => array('login_path' => '/login', 'check_path' => '/login_check'),
+            //'remember_me' => array(),
+            'form' => array(
+                'login_path' => '/login',
+                'check_path' => '/login_check'),
+            'logout' => array(
+                'logout_path' => 'logout',
+            ),
             'users' => $app->share(function () use($app){
                 return new ppe_gestion\DAO\UserDAO($app['db']);
             }),
         ),
     ),
-));
+));*/
+
+/*$app['user.options'] = array(
+    'templates' => array(
+        'layout' => '@user/layout.twig',
+        'login' => '@user/login.twig',
+    )
+);*/
 
 // Provider pour générer des formulaires
 //$app->register(new FormServiceProvider());
