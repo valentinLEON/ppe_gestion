@@ -32,7 +32,7 @@ $app->register(new Silex\Provider\DoctrineServiceProvider());
 $app->register(new Silex\Provider\SessionServiceProvider());
 
 //Service pour l'authentification
-$app->register(new Silex\Provider\SecurityServiceProvider(), array(
+/*$app->register(new Silex\Provider\SecurityServiceProvider(), array(
     'security.firewalls' => array(
         /*'login' => array(
             'pattern' => '^/login'
@@ -40,7 +40,7 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
         'secured' => array(
             'pattern' => '^/',
             'anonymous' => true,
-            'remember_me' => array(),
+            //'remember_me' => array(),
             'form' => array(
                 'login_path' => '/login',
                 'check_path' => '/login_check'),
@@ -52,7 +52,7 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
             }),
         ),
     ),
-));
+));*/
 
 /*$app['user.options'] = array(
     'templates' => array(
