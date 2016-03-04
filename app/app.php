@@ -76,16 +76,14 @@ $app['dao.student'] = $app->share(function($app){
 $app['dao.examen'] = $app->share(function($app){
     return new ppe_gestion\DAO\ExamenDAO($app['db']);
 });
-<<<<<<< HEAD
 
-=======
 /**
  * Controller pour la route des parents
  */
 $app['dao.parent'] = $app->share(function($app){
     return new ppe_gestion\DAO\ParentDAO($app['db']);
 });
->>>>>>> origin/master
+
 /**
  * Controller pour la route des notes
  */
