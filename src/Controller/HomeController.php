@@ -6,7 +6,7 @@ use Silex\Application;
 use Silex\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class HomeController extends Controller
+class HomeController
 {
 
     /**
