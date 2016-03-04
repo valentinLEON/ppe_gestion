@@ -3,9 +3,11 @@
 namespace ppe_gestion\Controller;
 
 use Silex\Application;
+use Silex\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class HomeController {
+class HomeController extends Controller
+{
 
     /**
      * Home page controller.
@@ -38,7 +40,8 @@ class HomeController {
      * @param Application $app Silex application
      */
     public function loginAction(Request $request, Application $app) {
-        /*$errormessage = '';
+        /*session_start();
+        $errormessage = '';
         if(!empty($_POST))
         {
             if(!empty($_POST[]) && !empty($_POST[]))
@@ -46,6 +49,14 @@ class HomeController {
 
             }
         }*/
+        $authenticationUtils = $this->get('security.authentication_utils');
+
+        // get the login error if there is one
+        $error = $authenticationUtils->getLastAuthenticationError();
+
+        // last username entered by the user
+        $lastUsername = $authenticationUtils->getLastUsername();
+
         return $app['twig']->render('login.html.twig', array(
             'error'         => $app['security.last_error']($request),
             'last_username' => $app['session']->get('_security.last_username'),
