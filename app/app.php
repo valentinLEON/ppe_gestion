@@ -29,10 +29,10 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 $app->register(new Silex\Provider\DoctrineServiceProvider());
 
 //Service pour le management des sessions
-$app->register(new Silex\Provider\SessionServiceProvider());
+//$app->register(new Silex\Provider\SessionServiceProvider());
 
 //Service pour l'authentification
-$app->register(new Silex\Provider\SecurityServiceProvider(), array(
+/*$app->register(new Silex\Provider\SecurityServiceProvider(), array(
     'security.firewalls' => array(
         'secured' => array(
             'pattern' => '^/',
@@ -44,7 +44,7 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
             }),
         ),
     ),
-));
+));*/
 
 // Provider pour générer des formulaires
 //$app->register(new FormServiceProvider());
