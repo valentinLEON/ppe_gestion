@@ -38,10 +38,10 @@
         <p class="login-box-msg">Connectez-vous pour accéder aux services</p>
 
         {#{% if error %}
-        <div class="alert alert-danger">
-            <strong>Échec d'authentification !</strong> {{ error }}
-        </div>
-        {% endif %}#}
+ -        <div class="alert alert-danger">
+ -            <strong>Échec d'authentification !</strong> {{ error }}
+ -        </div>
+ -        {% endif %}#}
 
         <form role="form" method="post" action="{{ path('login_check') }}">
             <div class="form-group has-feedback">
@@ -49,7 +49,7 @@
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" name="_password" class="form-control" placeholder="Mot de passe  *" required>
+                <input type="password" name="_password" class="form-control" placeholder="Mot de passe *" required>
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="form-group">

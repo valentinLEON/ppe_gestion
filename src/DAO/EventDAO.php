@@ -65,6 +65,29 @@ class EventDAO extends DAO
         ));
     }
 
+    public function saveEvent(Event $event)
+    {
+        $eventInfo = array(
+            'title'      => $event->getTitle(),
+            'start'      => $event->getStart(),
+            'end'        => $event->getEnd(),
+            'dt_create'  => $event->getDtCreate(),
+            'dt_update'  => $event->getDtUpdate(),
+        );
+
+        //on modifie
+        if($event->getId()){
+            $this->getDb()->update('event', $eventInfo, array(
+                'id' => $event->getId()));
+        }
+        //on sauvegarde
+        else{
+            $this->getDb()->insert('event', $eventInfo);
+            $id = $this->getDb()->lastInsertId();
+            $event->setId($id);
+        }
+    }
+
     /**
      * @param $row
      * @return Event
