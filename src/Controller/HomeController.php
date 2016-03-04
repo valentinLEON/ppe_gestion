@@ -49,13 +49,13 @@ class HomeController extends Controller
 
             }
         }*/
-        $authenticationUtils = $this->get('security.authentication_utils');
+        //$authenticationUtils = $this->get('security.authentication_utils');
 
         // get the login error if there is one
-        $error = $authenticationUtils->getLastAuthenticationError();
+        //$error = $authenticationUtils->getLastAuthenticationError();
 
         // last username entered by the user
-        $lastUsername = $authenticationUtils->getLastUsername();
+        //$lastUsername = $authenticationUtils->getLastUsername();
 
         return $app['twig']->render('login.html.twig', array(
             'error'         => $app['security.last_error']($request),
