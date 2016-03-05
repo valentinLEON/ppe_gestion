@@ -8,10 +8,15 @@
 use Symfony\Component\Debug\ErrorHandler;
 use Symfony\Component\Debug\ExceptionHandler;
 use Silex\Application;
+
+use Silex\Application\UrlGeneratorServiceProvider;
+
 use Silex\Provider\FormServiceProvider;
 use ppe_gestion\DAO;
 use ppe_gestion\DAO\DisciplineDAO;
 use ppe_gestion\Domain;
+
+
 // Register global error and exception handlers
 ErrorHandler::register();
 ExceptionHandler::register();
@@ -27,6 +32,7 @@ $app->register(new Silex\Provider\DoctrineServiceProvider());
 
 // Provider pour la gestion de sessions
 $app->register(new Silex\Provider\SessionServiceProvider());
+
 
 //Service pour l'authentification
 $app->register(new Silex\Provider\SecurityServiceProvider(), array(
@@ -45,6 +51,7 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
 // Provider pour générer des formulaires
 //$app->register(new FormServiceProvider());
 //$app->register(new Silex\Provider\FormServiceProvider());
+//
 //  Provider pour le systeme de validation
 //$app->register(new Silex\Provider\ValidatorServiceProvider());
 /**
@@ -53,10 +60,13 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
  */
             
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
+
+
+
 // Provider pour gérer les differents languages
 $app->register(new Silex\Provider\TranslationServiceProvider());
 
-
+// utilisation du raccourci path
 
 
 //                                                        CONTROLLERS

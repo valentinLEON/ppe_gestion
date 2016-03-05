@@ -3,7 +3,7 @@
 require_once __DIR__.'/../vendor/autoload.php';
 
 
-$app = new Silex\Application();
+$app = new ppe_gestion\PPEgestionApp();
 
 require __DIR__.'/../app/config/dev.php';
 
