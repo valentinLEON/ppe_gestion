@@ -27,11 +27,17 @@ $app->get('/testroutes',"ppe_gestion\Controller\HomeController::testroutesAction
  * route pour l'affichage de la liste des etudiants
  */
 $app->get('/testlogin',"ppe_gestion\Controller\HomeController::testloginAction")->bind('testlogin');
+
+
 /*                                                           AdminController
 *                        TABLEAU DE BORD
 * route pour l'affichage de la liste des etudiants
 */
 $app->get('/admintab', "ppe_gestion\Controller\AdminController::indexAction")->bind('admintab');
+
+
+
+
 /**                                                          StudentController
  *
  *                                                               ETUDIANTS
@@ -62,6 +68,9 @@ $app->post('/addstudent', "ppe_gestion\Controller\StudentController::addAction")
 /* *                    STATISTIQUES
  * route pour l'affichage de la liste des etudiants*/
 $app->get('/studentstats',  "ppe_gestion\Controller\StudentController::studentStatIndex")->bind('studentstats');
+
+
+
 /**                                                                     UserController
  *                                               UTILISATEURS              **
  *
@@ -114,6 +123,8 @@ $app->get('/classeslist', "ppe_gestion\Controller\ClassNameController::listIndex
  */
 $app->get('/addclass', "ppe_gestion\Controller\ClassNameController::addIndexAction")->bind('addclass');
 $app->post('/addclass', "ppe_gestion\Controller\ClassNameController::addAction")->bind('class');
+
+
 /**                                                              DisciplineController
  *
  *                                                                  DISCIPLINES

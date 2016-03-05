@@ -15,12 +15,19 @@ use ppe_gestion\Domain;
 // Register global error and exception handlers
 ErrorHandler::register();
 ExceptionHandler::register();
+
+// Moteur de Templates
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../views',
     'twig.class_path' => __DIR__.'/../vendor/twig/twig/lib',
 ));
+
+// ORM 
 $app->register(new Silex\Provider\DoctrineServiceProvider());
+
+// Provider pour la gestion de sessions
 $app->register(new Silex\Provider\SessionServiceProvider());
+
 //Service pour l'authentification
 $app->register(new Silex\Provider\SecurityServiceProvider(), array(
     'security.firewalls' => array(
@@ -44,9 +51,14 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
  * Provider pour la génération des urls
  *
  */
+            
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 // Provider pour gérer les differents languages
 $app->register(new Silex\Provider\TranslationServiceProvider());
+
+
+
+
 //                                                        CONTROLLERS
 /**
  * controller pour la route des matières
@@ -78,11 +90,11 @@ $app['dao.examen'] = $app->share(function($app){
 });
 
 /**
- * Controller pour la route des parents
+ * Controller pour la route des parents a changer en acces pour les etudiants
  */
-$app['dao.parent'] = $app->share(function($app){
-    return new ppe_gestion\DAO\ParentDAO($app['db']);
-});
+//$app['dao.parent'] = $app->share(function($app){
+//    return new ppe_gestion\DAO\ParentDAO($app['db']);
+//});
 
 /**
  * Controller pour la route des notes
@@ -95,6 +107,8 @@ $app['dao.evaluation'] = $app->share(function($app){
 
     return $evaluationDAO;
 });
+
+
 /**
  * Controller pour la route des utilisateurs
  *
@@ -102,6 +116,10 @@ $app['dao.evaluation'] = $app->share(function($app){
 $app['dao.user'] = $app->share(function($app){
     return new ppe_gestion\DAO\UserDAO($app['db']);
 });
+
+
+
+
 //Monolog
 // $app->register(new Provider\MonologServiceProvider(), array(
 // 'monolog.logfile' => __DIR__ . '/../log/development.log',
