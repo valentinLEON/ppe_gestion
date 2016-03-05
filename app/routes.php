@@ -92,7 +92,7 @@ $app->match('/modifuser/edit', "ppe_gestion\Controller\UserController::editUserI
 $app->match('/modifuser/edit/id', "ppe_gestion\Controller\UserController::editUserAction")->bind('user_edited');
 /*  //                              AJOUT USER
  *  //* route pour l'affichage du formulaire d ajout d utilisateurs */
-$app->match('/adduser', "ppe_gestion\Controller\UserController::addIndexAction")->bind('user_add');
+$app->match('/adduser', "ppe_gestion\Controller\UserController::addIndexAction")->bind('adduser');
 //* route pour la soumission du formulaire d ajout d utilisateurs
 $app->post('/adduser/id', "ppe_gestion\Controller\UserController::addAction")->bind('user_added');
 
