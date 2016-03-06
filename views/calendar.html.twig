@@ -2,6 +2,16 @@
 
 {% extends "layout.html.twig" %}
 
+{% block css %}
+    <link rel="stylesheet" href="{{ app.request.basepath }}/themes/AdminLTE/plugins/fullcalendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="{{ app.request.basepath }}/themes/AdminLTE/plugins/fullcalendar/fullcalendar.print.css" media="print">
+{% endblock %} 
+
+{% block javascript %}
+     <script src="{{ app.request.basepath }}/themes/AdminLTE/plugins/fullcalendar/fullcalendar.min.js"></script>
+{% endblock %}
+    
+    
 {% block title %}
     Calendrier
 {% endblock %}
