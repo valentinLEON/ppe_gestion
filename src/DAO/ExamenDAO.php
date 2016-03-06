@@ -47,7 +47,7 @@ class ExamenDAO extends DAO
      */
     public function findAll()
     {
-        $sql = "SELECT * FROM examen ORDER BY name_examen";
+        $sql = "SELECT * FROM examen ORDER BY examen_name";
 
         $res = $this->getDb()->fetchAll($sql);
 
@@ -137,10 +137,9 @@ class ExamenDAO extends DAO
         $exam = new Examen();
         $exam->setIdExamen($row['id_examen']);
 
-        $exam->setNameExamen($row['name_examen']);
-        $exam->setNameExamen($row['date_examen']);
-        $exam->setDescriptionExamen($row['description_examen']);
-        //$exam->setClass($row['id_class']);
+        $exam->setNameExamen($row['examen_name']);
+        $exam->setNameExamen($row['date']);
+        $exam->setDescriptionExamen($row['description']);
 
         $exam->setDtCreate($row['dt_create']);
         $exam->setDtUpdate($row['dt_update']);
