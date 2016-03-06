@@ -43,7 +43,7 @@
  -        </div>
  -        {% endif %}#}
 
-        <form role="form" method="post" action="{{ path('login_check') }}">
+        <form method="post" id="log" action="{{ path('login_check') }}">
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" name="_username" placeholder="Identifiant ou Adresse email  * " required autofocus>
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -54,7 +54,7 @@
             </div>
             <div class="form-group">
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat"><span class="glyphicon glyphicon-log-in"></span>Connexion</button>
+                    <button type="submit" value="Submit" form="log" class="btn btn-primary btn-block btn-flat"><span class="glyphicon glyphicon-log-in"></span>Connexion</button>
                 </div>
             </div>
         </form>

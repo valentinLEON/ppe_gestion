@@ -46,6 +46,13 @@ class HomeController
             ));
     }
     
+        public function login_checkAction(Request $request, Application $app) {
+        return $app['twig']->render('login.html.twig', array(
+            'error'         => $app['security.last_error']($request),
+            'last_username' => $app['session']->get('_security.last_username'),
+            ));
+    }
+    
     //      TESTLOGIN
     public function testroutesAction(Application $app){
         return $app['twig']->render('testroutes.html.twig');

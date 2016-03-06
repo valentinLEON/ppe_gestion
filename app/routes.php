@@ -9,6 +9,8 @@ $app->get('/', "ppe_gestion\Controller\HomeController::indexAction");
  * route pour afficher le login
  */
 $app->get('/login', "ppe_gestion\Controller\HomeController::loginAction")->bind('login');
+
+$app->get('/login_check', "ppe_gestion\Controller\HomeController::login_checkAction")->bind('login_check');
 /**                                                                PARENT
  * route pour afficher le layout parent
  */
