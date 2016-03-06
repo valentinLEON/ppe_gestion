@@ -12,9 +12,12 @@
     <script>
         $(function() {
           $( "#datepicker" ).datepicker({
-
+            dateFormat : 'dd/mm/yy',
+            yearRange: '-100y:c+nn',
             changeMonth: true,
-            changeYear: true
+            changeYear: true,
+            dayNamesMin: [' Lun ', ' Mar ', ' Mer ', ' Jeu ', ' Ven ', ' Sam ', ' Dim ']
+          
           });
           
         });
