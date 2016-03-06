@@ -1,12 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Val
- * Date: 12/02/2016
- * Time: 12:30
- */
-
-
 
 namespace ppe_gestion\Domain;
 
@@ -19,31 +11,17 @@ class User implements UserInterface
     public $user_mail;
 
     public $name;
-
     public $firstname;
-
     public $description;
-
     public $password;
-    /**
-     * @var string
-     * type de hashage de l'utilisateur
-     */
     public $salt;
-
-    /**
-     * @var
-     * Rôle de l'utilisateur
-     */
     public $role;
-
     public $status;
-    
-    public $teacher;//clé étrangère du professeur
-    public $student;
-
+  
     public $dt_create;
     public $dt_update;
+    public $id_teacher;//clé étrangère du professeur
+    public $id_student;
 
 
     //region Getter et Setter de l'ID de l'utilisateur
@@ -202,24 +180,24 @@ class User implements UserInterface
     //region Getter et Setter des professeurs
     public function getTeacher()
     {
-        return $this->teacher;
+        return $this->id_teacher;
     }
 
-    public function setTeacher($_teacher)
+    public function setTeacher($_id_teacher)
     {
-        $this->teacher = $_teacher;
+        $this->id_teacher = $_id_teacher;
     }
     //endregion
 
     //region Getter et Setter des étudiants
     public function getStudent()
     {
-        return $this->student;
+        return $this->id_student;
     }
 
-    public function setStudent($_student)
+    public function setStudent($_id_student)
     {
-        $this->student = $_student;
+        $this->id_student = $_id_student;
     }
     //endregion
 

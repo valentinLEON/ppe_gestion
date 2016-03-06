@@ -16,13 +16,6 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ app.request.basepath }}/themes/AdminLTE/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="{{ app.request.basepath }}/themes/AdminLTE/plugins/select2/select2.min.css">
-    <!-- fullCalendar 2.2.5-->
-
-    <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
-          page. However, you can choose any other skin. Make sure you
-          apply the skin class to the body tag so the changes take effect.
-    -->
-    
     <link rel="stylesheet" href="{{ app.request.basepath }}/themes/AdminLTE/dist/css/skins/_all-skins.min.css">
     <link rel="stylesheet" href="{{ app.request.basepath }}/css/styles.css">
 
@@ -92,28 +85,22 @@ desired effect
                 <span class="sr-only">Toggle navigation</span>
             </a>
 
-            
-            
-            
             <!-- Navbar Right Menu -->
             <div class="navbar-custom-menu">
-                <ul class="nav navbar-nav"> 
-                    
-                    
-             <!-- search form (Optional) -->
-            <form  method="post" class="sidebar-form" style="height:30px; width:300px; margin-left:20px; padding:-2px; display:inline-block;"> 
-                <div class="input-group">
-                    <input type="text" name="recherche" class="form-control" style="height:30px;" placeholder="Recherche...">
-              <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat" style="height:30px;"><i class="fa fa-search"></i>
-                </button>
-              </span>
-                </div>
-           </form>
-            <!-- /.search form -->
-            
-            
            
+                <!-- search form (Optional) -->
+               <form  method="post" class="sidebar-form" style="height:30px; width:300px; margin-left:20px; padding:-2px; display:inline-block;"> 
+                   <div class="input-group">
+                       <input type="text" name="recherche" class="form-control" style="height:30px;" placeholder="Recherche...">
+                 <span class="input-group-btn">
+                   <button type="submit" name="search" id="search-btn" class="btn btn-flat" style="height:30px;"><i class="fa fa-search"></i>
+                   </button>
+                 </span>
+                   </div>
+              </form>
+               <!-- /.search form -->
+               <ul class="nav navbar-nav"> 
+                                 
                     <!-- User Account Menu -->
 
                     <li class="dropdown user user-menu">
@@ -130,11 +117,8 @@ desired effect
                            {#{% if app.user and is_granted('IS_AUTHENTICATED_FULLY') %}#}
                             <li class="user-header">
                                 <span class="glyphicon glyphicon-user">
-                                    Bienvenue toi !<br>Professeur de Mathématiques
+                                   Informations du Profil
                                 </span>
-                                <div style="margin:5px; display:inline-block;">
-                                    <a href="{{ path('logout') }}" class="btn btn-default btn-flat">Déconnexion</a>
-                                </div>
                             </li>
                             <!-- Menu Body -->
                             <!-- Menu Footer-->
@@ -143,7 +127,6 @@ desired effect
                                 <div  style="margin:5px; display:inline-block;">
                                     <a href="#" class="btn btn-default btn-flat">Profil</a>
                                 </div>
-                              
                                     <span class="glyphicon glyphicon-user">Non connecté</span>
                                     <span style="margin:5px; display:inline-block;">
                                         <a href="{{ path('login') }}" class="btn btn-default btn-flat">Se connecter</a>
@@ -255,7 +238,7 @@ desired effect
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <!-- Main Footer -->
+ </div>   <!-- Main Footer -->
     <footer class="main-footer" >
         <!-- To the right -->
 
@@ -264,7 +247,7 @@ desired effect
     </footer>
 
 
-</div>
+
 <!-- ./wrapper -->
 {% block javascript_end %}
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
