@@ -155,10 +155,10 @@ class UserDAO extends DAO implements UserProviderInterface
             'user_mail'     => $user->getUserMail(), 
             'description'   => $user->getDescription(), 
             'dt_create'     => $user->getDtCreate(), 
-            'dt_update'     => $user->getDtUpdate(), 
-            'id_discipline' => $user->getIdDiscipline(), 
-            'id_student'      => $user->getIdClassName(),
-            'id_teacher'     => $user->getIdTeacher(),
+            'dt_update'     => $user->getDtUpdate(),
+
+            'id_teacher'     => $user->getTeacher(),
+            'id_student'    => $user->getStudent(),
         );
         
         //on modifie
@@ -199,8 +199,9 @@ class UserDAO extends DAO implements UserProviderInterface
         $user->setUserMail($row['user_mail']);
         $user->setDtCreate($row['dt_create']);
         $user->setDtUpdate($row['dt_update']);
-        $user->setIdDiscipline($row['id_teacher']);
-    
+        $user->setTeacher($row['id_teacher']);
+        $user->setStudent($row['id_student']);
+
              
         return $user;
     }

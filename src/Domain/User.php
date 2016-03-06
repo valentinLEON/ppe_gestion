@@ -37,11 +37,10 @@ class User implements UserInterface
      */
     public $role;
 
-    public $id_discipline; /*clé étrangère*/
-    public $id_class; /*clé étrangère*/
-    public $status;//
+    public $status;
     
-    public $id_teacher;
+    public $teacher;//clé étrangère du professeur
+    public $student;
 
     public $dt_create;
     public $dt_update;
@@ -185,30 +184,6 @@ class User implements UserInterface
     }
     //endregion
 
-    //region Getter et Setter de la clé etrangère de l'ID discipline et de l'Id className
-    //id_discipline
-    public function getIdDiscipline()
-    {
-        return $this->id_discipline;
-    }
-
-    public function setIdDiscipline($_id_discipline)
-    {
-        $this->id_discipline = $_id_discipline;
-    }
-
-    //id_className
-    public function getIdClassName()
-    {
-        return $this->id_class;
-    }
-
-    public function setIdClassName($_id_class)
-    {
-        $this->id_class = $_id_class;
-    }
-    //endregion
-    
     public function getStatus()
     {
         return $this->status;
@@ -219,22 +194,32 @@ class User implements UserInterface
         $this->id_class = $_status;
     }
 
-
     public function eraseCredentials()
     {
        // Nothing to do here;
     }
-    
-    
-        //region Getter et Setter de l'ID de l'utilisateur
-    public function getIdTeacher()
+
+    //region Getter et Setter des professeurs
+    public function getTeacher()
     {
-        return $this->id_teacher;
+        return $this->teacher;
     }
 
-    public function setIdTeacher($_id_teacher)
+    public function setTeacher($_teacher)
     {
-        $this->id_teacher = $_id_teacher;
+        $this->teacher = $_teacher;
+    }
+    //endregion
+
+    //region Getter et Setter des étudiants
+    public function getStudent()
+    {
+        return $this->student;
+    }
+
+    public function setStudent($_student)
+    {
+        $this->student = $_student;
     }
     //endregion
 
