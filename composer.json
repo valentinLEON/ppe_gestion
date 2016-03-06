@@ -1,5 +1,5 @@
 {
-    "name": "vleon/project",
+    "name": "btssio/project",
     "description": "projet application gestion note",
     "require": {
         "silex/silex": "1.3.*",
