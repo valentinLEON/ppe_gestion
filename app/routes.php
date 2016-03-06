@@ -63,8 +63,8 @@ $app->get('/studentslist',"ppe_gestion\Controller\StudentController::listIndexAc
  *                                                                SUPPRESSION
  * route pour la suppression d'un étudiant par l'id
  */
-$app->match('/modifstudent/delete', "ppe_gestion\Controller\StudentController::deleteStudentIndexAction")->bind('student_delete');
-$app->post('/modifstudent/delete/id', "ppe_gestion\Controller\StudentController::deleteStudentAction")->bind('student_deleted');
+$app->match('/student_delete', "ppe_gestion\Controller\StudentController::deleteStudentIndexAction")->bind('student_delete');
+$app->post('/student_delete/id', "ppe_gestion\Controller\StudentController::deleteStudentAction")->bind('student_deleted');
 /**
  *                                                                AJOUT
  * route pour l'affichage du template de l'ajout des étudiants
@@ -91,8 +91,8 @@ $app->get('/userslist', "ppe_gestion\Controller\UserController::listUserIndexAct
 // liste des utilisateurs  renvoyant l'id selectionné à la fonction modifier
 $app->post('/userslist', "ppe_gestion\Controller\UserController::listUserAction")->bind('users');
 //                                SUPPRIME USER
-$app->match('/modifuser/delete', "ppe_gestion\Controller\UserController::deleteUserIndexAction")->bind('user_delete');
-$app->post('/modifuser/delete/id', "ppe_gestion\Controller\UserController::deleteUserAction")->bind('user_deleted');
+$app->match('/user_delete', "ppe_gestion\Controller\UserController::deleteUserIndexAction")->bind('user_delete');
+$app->post('/userdelete/id', "ppe_gestion\Controller\UserController::deleteUserAction")->bind('user_deleted');
 
 //                                 MODIFIE USER
 $app->match('/user_edit', "ppe_gestion\Controller\UserController::editUserIndexAction")->bind('user_edit');

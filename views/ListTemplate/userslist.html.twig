@@ -70,7 +70,7 @@
                                 <td class="mytdminus"> 
                                     {# formulaire de modification de l'utilisatateur via l'id_user  #} 
                                     
-                                    <form action="{{ path('modifuser', {'id_user':user.id_users }) }}" method="get" >   
+                                    <form action="{{ path('user_edit', {'id_user':user.id_users }) }}" method="get" >   
                                   
                                         <div class="btn-group">
                                             <button type="submit" class="btn btn-warning btn-flat">
@@ -84,7 +84,7 @@
                                 <td class="mytdminus"> 
                                     {# formulaire de suppression de l'utilisatateur via l'id_user #}
                                     
-                                    <form action="{{ path('delete', {'delete': artist.id}) }}" method="get" >  
+                                    <form action="{{ path('user_delete', {'delete': user.id_users}) }}" method="get" >  
                                   
                                         <div class="btn-group">
                                             <button type="submit" class="btn btn-danger btn-flat">
