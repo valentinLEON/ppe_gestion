@@ -7,25 +7,25 @@
     <link rel="icon" type="image/png" href="/vendor/almasaeed2010/adminlte/dist/img/iconsite.png" />
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="{{ app.request.getBaseURL() }}/themes/AdminLTE/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ app.request.basepath }}/themes/AdminLTE/plugins/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{ app.request.getBaseURL() }}/themes/AdminLTE/dist/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="{{ app.request.getBaseURL() }}/themes/AdminLTE/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="{{ app.request.basepath() }}/themes/AdminLTE/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="{{ app.request.basepath }}/themes/AdminLTE/plugins/select2/select2.min.css">
     <!-- fullCalendar 2.2.5-->
-    <link rel="stylesheet" href="{{ app.request.getBaseURL() }}/themes/AdminLTE/plugins/fullcalendar/fullcalendar.min.css">
-    <link rel="stylesheet" href="{{ app.request.getBaseURL() }}/themes/AdminLTE/plugins/fullcalendar/fullcalendar.print.css" media="print">
+    <link rel="stylesheet" href="{{ app.request.basepath }}/themes/AdminLTE/plugins/fullcalendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="{{ app.request.basepath }}/themes/AdminLTE/plugins/fullcalendar/fullcalendar.print.css" media="print">
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect.
     -->
-    <link rel="stylesheet" href="{{ app.request.getBaseURL() }}/dist/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="{{ app.request.getBaseURL() }}/themes/AdminLTE/dist/css/skins/_all-skins.min.css">
-    <link rel="stylesheet" href="{{ app.request.getBaseURL() }}/css/styles.css">
-    <link rel="stylesheet" href="{{ app.request.getBaseURL() }}/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="{{ app.request.basepath }}/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="{{ app.request.basepath }}/themes/AdminLTE/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="{{ app.request.basepath }}/css/styles.css">
+    <link rel="stylesheet" href="{{ app.request.basepath }}/dist/css/skins/_all-skins.min.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -48,7 +48,7 @@
     <script src="{{ app.request.BaseUrl() }}/themes/AdminLTE/plugins/datatables/dataTables.bootstrap.min.js"></script>
     <!-- fullCalendar 2.2.5 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
-    <script src="{{ app.request.getBaseUrl() }}/themes/AdminLTE/plugins/fullcalendar/fullcalendar.min.js"></script>
+    <script src="{{ app.request.basepath }}/themes/AdminLTE/plugins/fullcalendar/fullcalendar.min.js"></script>
 
     <!-- jQuery UI 1.11.4 -->
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
@@ -58,22 +58,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>#}
 
     <!-- jQuery 2.1.4 -->
-    <script src="{{ app.request.getBaseUrl() }}/themes/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <script src="{{ app.request.basepath }}/themes/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js"></script>
     <!-- Bootstrap 3.3.5 -->
-    <script src="{{ app.request.getBaseUrl() }}/themes/AdminLTE/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{ app.request.basepath }}/themes/AdminLTE/bootstrap/js/bootstrap.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
     <!-- Slimscroll -->
-    <script src="{{ app.request.getBaseUrl() }}/themes/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <script src="{{ app.request.basepath }}/themes/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>
     <!-- FastClick -->
-    <script src="{{ app.request.getBaseUrl() }}/themes/AdminLTE/plugins/fastclick/fastclick.min.js"></script>
+    <script src="{{ app.request.basepath }}/themes/AdminLTE/plugins/fastclick/fastclick.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="{{ app.request.getBaseUrl() }}/themes/AdminLTE/dist/js/app.min.js"></script>
+    <script src="{{ app.request.basepath }}/themes/AdminLTE/dist/js/app.min.js"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="{{ app.request.getBaseUrl() }}/themes/AdminLTE/dist/js/demo.js"></script>
+    <script src="{{ app.request.basepath }}/themes/AdminLTE/dist/js/demo.js"></script>
     <!-- fullCalendar 2.2.5 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
-    <script src="{{ app.request.getBaseUrl() }}/themes/AdminLTE/plugins/fullcalendar/fullcalendar.min.js"></script>
+    <script src="{{ app.request.basepath }}/themes/AdminLTE/plugins/fullcalendar/fullcalendar.min.js"></script>
 
     <script>
         $(function () {
@@ -211,7 +211,7 @@ desired effect
             <!-- Sidebar user panel (optional)
             <div class="user-panel">
                 <div class="pull-left image">
-                    <a href="./"><img src="{{ app.request.getBaseURL() }}/themes/AdminLTE/dist/img/avatar5.png" class="img-circle" style="width:70px; height:70px;" alt="User Image"></a>
+                    <a href="./"><img src="{{ app.request.basepath }}/themes/AdminLTE/dist/img/avatar5.png" class="img-circle" style="width:70px; height:70px;" alt="User Image"></a>
                 </div>
                 <div class="pull-left info">
                     <p style="margin-left:15px;">Maurice Dupont</p>
@@ -225,7 +225,7 @@ desired effect
                 <li class="treeview">
                     <a href=""><i class="fa fa-mortar-board"></i><span>Etudiants</span> <i class="fa fa-angle-left pull-right"></i></a>
                     <ul class="treeview-menu">
-                        <li><a href="studentslist"><i class="glyphicon glyphicon-th-list"></i>Liste des étudiants</a></li>
+                        <li><a href="{{ path('studentslist') }}"><i class="glyphicon glyphicon-th-list"></i>Liste des étudiants</a></li>
                         <li><a href="addstudent"><i class="fa fa-user-plus"></i>Ajouter un étudiant</a></li>
                         <li><a href="studenttab"><i class="glyphicon glyphicon-dashboard"></i>Gestion des étudiants</a></li>
                         <li><a href="studentstats"><i class="glyphicon glyphicon-stats"></i>Statistiques</a></li>

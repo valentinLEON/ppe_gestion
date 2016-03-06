@@ -22,7 +22,7 @@
                 <div class="icon">
                     <i class="fa fa-university"></i>
                 </div>
-                <a href="classeslist" class="small-box-footer" >Voir la liste des classes &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{ path('classeslist') }}" class="small-box-footer" >Voir la liste des classes &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
                 <!--<a href="addclass" class="small-box-footer" >Ajouter une classe &nbsp;<i class="fa fa-arrow-circle-right"></i></a>-->
             </div>
         </div>
@@ -38,7 +38,7 @@
                 <div class="icon">
                     <i class="fa fa-calendar"></i>
                 </div>
-                <a href="calendar" class="small-box-footer">Ouvrir le calendrier <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{ path('calendar') }}" class="small-box-footer">Ouvrir le calendrier <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         
@@ -54,43 +54,66 @@
                 <div class="icon">
                     <i class="fa fa-mortar-board"></i>
                 </div>
-                <a href="studentslist" class="small-box-footer">Voir la liste de vos étudiants &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{ path('studentslist') }}" class="small-box-footer">Voir la liste de vos étudiants &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
                 <!--<a href="addstudent" class="small-box-footer">Ajouter étudiant &nbsp;<i class="fa fa-arrow-circle-right"></i></a>-->
                 <!--<a href="addnote" class="small-box-footer">Ajouter une note &nbsp;<i class="fa fa-arrow-circle-right"></i></a>-->
             </div>
-        </div>  
-            
-    <section class="col-lg-6 connectedSortable">
-        <!-- quick email widget -->
-        <div class="box box-info">
-            <div class="box-header">
-                <i class="fa fa-envelope"></i>
-
-                <h3 class="box-title">Email</h3>
-                <!-- tools box -->
-
-                <!-- /. tools -->
-            </div>
-            <div class="box-body">
-                <form action="#" method="post">
-                    <div class="form-group">
-                        <input type="email" class="form-control" name="emailto" placeholder="Email to:">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="subject" placeholder="Subject">
-                    </div>
-                    <div>
-                        <textarea class="textarea" placeholder="Message" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                    </div>
-                </form>
-            </div>
-            <div class="box-footer clearfix">
-                <button type="button" class="pull-right btn btn-default" id="sendEmail">Send
-                    <i class="fa fa-arrow-circle-right"></i></button>
-            </div>
         </div>
 
+    <section class="col-lg-6 connectedSortable">
+        <!-- TO DO List -->
+        <div class="box box-primary">
+            <div class="box-header">
+                <i class="fa-sticky-note-o"></i>
 
+                <h3 class="box-title">Liste des examens récents</h3>
+
+                <div class="box-tools pull-right">
+                    <ul class="pagination pagination-sm inline">
+                        <li><a href="#">&laquo;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="example1" class="table table-hover table-striped">
+                    <thead>
+                    <tr style="background-color: #3c8dbc">
+                        <th style="text-align: center; border: 1px solid darkgrey;"><i class="fa fa-calendar"></i>Date</th>
+                        <th style="text-align: center; border: 1px solid darkgrey;">Descriptif</th>
+                        <th style="text-align: center; border: 1px solid darkgrey;">Moyenne</th>
+                        <th style="text-align: center; border: 1px solid darkgrey;">Ajouter note</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for exam in exams %}
+                        <tr>
+                            <td style="text-align: center; border: 1px solid darkgrey;" > 02/03/2015</td>
+                            <td style="text-align: center; border: 1px solid darkgrey;">{{ exam.examen_name }}</td>
+                            <td style="text-align: center; border: 1px solid darkgrey;"> 12/20</td>
+                            <td style="text-align: center; border: 1px solid darkgrey;">
+                                <form action="{{ path('addnote' , {'id':exam.id_examen} ) }}" method="post" >
+                                    <div class="btn-group">
+                                        <button type="submit" class="btn btn-success btn-flat">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer clearfix no-border">
+                <button type="button" href="examlist" class="btn btn-default pull-left"><i class="fa fa-arrow-circle-right"></i> Liste des examens</button>
+            </div>
+        </div>
     </section>
 
     <section class="col-lg-6 connectedSortable">

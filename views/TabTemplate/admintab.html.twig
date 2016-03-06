@@ -17,10 +17,10 @@
                 <div class="icon">
                     <i class="ion ion-person-add"></i>
                 </div>
-                    <a href="userslist" class="small-box-footer" >Liste des utilisateurs &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
-                    <a href="adduser" class="small-box-footer">Ajouter un utilisateur &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
-                    <a href="modifuser/delete" class="small-box-footer">Supprimer un utilisateur &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
-                    <a href="modifuser/edit" class="small-box-footer">Modifier un utilisateur &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="{{ path('userslist') }}" class="small-box-footer" >Liste des utilisateurs &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="{{ path('adduser') }}" class="small-box-footer">Ajouter un utilisateur &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="{{ path('user_delete') }}" class="small-box-footer">Supprimer un utilisateur &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="{{ path('user_edit') }}" class="small-box-footer">Modifier un utilisateur &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
                 </div>
         </div>
                     
@@ -36,10 +36,9 @@
                 <div class="icon">
                     <i class="fa fa-newspaper-o"></i>
                 </div>
-                    <a href="disciplineslist" class="small-box-footer">Liste des disciplines &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
-                    <a href="adddiscipline" class="small-box-footer">Ajouter une discipline &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
-                    <a href="modifdiscipline" class="small-box-footer">Modifer une discipline &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
-            </div>
+                    <a href="{{ path('disciplineslist') }}" class="small-box-footer">Liste des disciplines &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="{{ path('adddiscipline') }}" class="small-box-footer">Ajouter une discipline &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+                </div>
         </div>
                     
                     
@@ -54,8 +53,8 @@
                 <div class="icon">
                     <i class="fa fa-barcode"></i>
                 </div>
-                <a href="examlist" class="small-box-footer" >Liste des examens &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
-                <a href="addexam" class="small-box-footer" >Ajouter un examen &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{ path('examlist') }}" class="small-box-footer" >Liste des examens &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{ path('addexam') }}" class="small-box-footer" >Ajouter un examen &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
             <!-- ./col -->
@@ -69,8 +68,8 @@
                 <div class="icon">
                     <i class="fa fa-barcode"></i>
                 </div>
-                <a href="classeslist" class="small-box-footer" >Liste des classes &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
-                <a href="addclass" class="small-box-footer" >Ajouter une classe &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{ path('classeslist') }}" class="small-box-footer" >Liste des classes &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{ path('addclass') }}" class="small-box-footer" >Ajouter une classe &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
                         <!-- ./col -->
@@ -85,8 +84,8 @@
                 <div class="icon">
                     <i class="fa fa-calendar-o"></i>
                 </div>
-                    <a href="absenceslist" class="small-box-footer" >Liste des absences &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
-                <a href="addabsence" class="small-box-footer" >Ajouter une absence &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="{{ path('absenceslist') }}" class="small-box-footer" >Liste des absences &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{ path('addabsence') }}" class="small-box-footer" >Ajouter une absence &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
                                 <!-- ./col -->
@@ -101,27 +100,10 @@
                 <div class="icon">
                     <i class="fa fa-calendar-o"></i>
                 </div>
-                <a href="retardslist" class="small-box-footer" >Liste des retards &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
-                <a href="addretard" class="small-box-footer" >Ajout d'un retard &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{ path('retardslist') }}" class="small-box-footer" >Liste des retards &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{ path('addretard') }}" class="small-box-footer" >Ajout d'un retard &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
             </div>
-        </div>
-                    {#
-                      <!-- ./col -->
-        <div class="col-lg-4 col-xs-8">
-            <!-- small box -->
-            <div class="small-box bg-aqua-active" style="box-shadow: 3px 3px 3px #888888;">
-                <div class="inner">
-                    <h3>{{ date }}</h3>
-                    <p>Calendrier</p>
-                </div>
-                <div class="icon">
-                    <i class="fa fa-calendar"></i>
-                </div>
-                <a href="calendar" class="small-box-footer">Ouvrir le calendrier <i class="fa fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-                       #}
-        
+        </div>     
                     
         <div class="col-lg-4 col-xs-8">
             <!-- small box -->
@@ -134,30 +116,12 @@
                 <div class="icon">
                     <i class="fa fa-mortar-board"></i>
                 </div>
-                <a href="studentslist" class="small-box-footer">Liste des étudiants &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
-                <a href="addstudent" class="small-box-footer">Ajouter étudiant &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
-                <a href="addnote" class="small-box-footer">Ajouter une note &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
-            </div>
-        </div>  
-                    
-                       <div class="col-lg-4 col-xs-8">
-            <!-- small box -->
-            <div class="small-box bg-aqua-active" style="box-shadow: 3px 3px 3px #888888;">
-                <div class="inner">
-                 
-
-                    <p>Parent</p>
-                </div>
-                <div class="icon">
-                    <i class="fa fa-mortar-board"></i>
-                </div>
-                <a href="parent/profilparent" class="small-box-footer">Profil du parent &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
-                <a href="parent/profilstudent" class="small-box-footer">Profil de l'enfant &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
-
+                <a href="{{ path('studentslist') }}" class="small-box-footer">Liste des étudiants &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{ path('addstudent') }}" class="small-box-footer">Ajouter étudiant &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="{{ path('addnote') }}" class="small-box-footer">Ajouter une note &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>  
                     
                             
-    </div>
-    
+
 {% endblock %}

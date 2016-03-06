@@ -7,12 +7,12 @@
 {% block content %}
 
     <!-- Div pour afficher le nombre d'étudiants total -->
- 
+
     <div class="row">
         <div class="col-xs-12">
             <div class="box box-primary">
                 <div class="box-header">
-                    <a href="adddiscipline"><h3 class="box-title" ><i class="fa fa-plus"></i>&nbsp; Ajouter une discipline</h3></a>
+                    <a href="{{ path('adddiscipline') }}"><h3 class="box-title" ><i class="fa fa-plus"></i>&nbsp; Ajouter une discipline</h3></a>
                     <div class="box-tools">
                         <div class="input-group input-group-sm" style="width: 150px;">
                             <input type="text" name="table_search" class="form-control pull-right" placeholder="Recherche">

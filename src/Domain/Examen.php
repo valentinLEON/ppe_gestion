@@ -13,7 +13,7 @@ class Examen
 {
     public $id_examen;
 
-    public $name_examen;
+    public $examen_name;
     public $date_examen;
     public $description_examen;
 
@@ -51,14 +51,14 @@ class Examen
     }
 
     //region Getter et Setter du nom de l'examen
-    public function getNameExamen()
+    public function getExamenName()
     {
-        return $this->name_examen;
+        return $this->examen_name;
     }
 
-    public function setNameExamen($name_examen)
+    public function setExamenName($examen_name)
     {
-        $this->name_examen = $name_examen;
+        $this->examen_name = $examen_name;
     }
     //endregion
 

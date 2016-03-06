@@ -1,4 +1,3 @@
-
 <?php
 /**
  * Created by PhpStorm.
@@ -9,6 +8,9 @@
 use Symfony\Component\Debug\ErrorHandler;
 use Symfony\Component\Debug\ExceptionHandler;
 use Silex\Application;
+
+use Silex\Application\UrlGeneratorServiceProvider;
+
 use Silex\Provider\FormServiceProvider;
 use ppe_gestion\DAO;
 use ppe_gestion\DAO\DisciplineDAO;
@@ -19,14 +21,18 @@ use ppe_gestion\Domain;
 ErrorHandler::register();
 ExceptionHandler::register();
 
-
+// Moteur de Templates
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../views',
     'twig.class_path' => __DIR__.'/../vendor/twig/twig/lib',
 ));
 
+// ORM 
 $app->register(new Silex\Provider\DoctrineServiceProvider());
+
+// Provider pour la gestion de sessions
 $app->register(new Silex\Provider\SessionServiceProvider());
+
 
 //Service pour l'authentification
 $app->register(new Silex\Provider\SecurityServiceProvider(), array(
@@ -42,28 +48,25 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
         ),
     ),
 ));
-
 // Provider pour générer des formulaires
 //$app->register(new FormServiceProvider());
-
-
 //$app->register(new Silex\Provider\FormServiceProvider());
-
-//  Provider pour le systeme de validation 
+//
+//  Provider pour le systeme de validation
 //$app->register(new Silex\Provider\ValidatorServiceProvider());
-
-
-
 /**
  * Provider pour la génération des urls
  *
  */
+            
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
+
+
 
 // Provider pour gérer les differents languages
 $app->register(new Silex\Provider\TranslationServiceProvider());
 
-
+// utilisation du raccourci path
 
 
 //                                                        CONTROLLERS
@@ -73,16 +76,13 @@ $app->register(new Silex\Provider\TranslationServiceProvider());
 $app['dao.discipline'] = $app->share(function($app){
     return new DisciplineDAO($app['db']);
 });
-
 /**
  * Controller pour la route des classes
  *
  */
 $app['dao.classNames'] = $app->share(function($app){
     return new ppe_gestion\DAO\ClassNameDAO($app['db']);
-
 });
-
 /**
  * Controller pour la route des étudiants
  *
@@ -90,10 +90,8 @@ $app['dao.classNames'] = $app->share(function($app){
 $app['dao.student'] = $app->share(function($app){
     $studentDAO = new ppe_gestion\DAO\StudentDAO($app['db']);
     $studentDAO->setClassDAO($app['dao.classNames']);
-
     return $studentDAO;
 });
-
 /**
  * Controller pour la route des examens
  */
@@ -102,16 +100,24 @@ $app['dao.examen'] = $app->share(function($app){
 });
 
 /**
+ * Controller pour la route des parents a changer en acces pour les etudiants
+ */
+//$app['dao.parent'] = $app->share(function($app){
+//    return new ppe_gestion\DAO\ParentDAO($app['db']);
+//});
+
+/**
  * Controller pour la route des notes
  */
 $app['dao.evaluation'] = $app->share(function($app){
     $evaluationDAO = new ppe_gestion\DAO\EvaluationDAO($app['db']);
     $evaluationDAO->setStudentDAO($app['dao.student']);
     $evaluationDAO->setDisciplineDAO($app['dao.discipline']);
- 
-    
+
+
     return $evaluationDAO;
 });
+
 
 /**
  * Controller pour la route des utilisateurs
@@ -122,29 +128,27 @@ $app['dao.user'] = $app->share(function($app){
 });
 
 
+
+
 //Monolog
 // $app->register(new Provider\MonologServiceProvider(), array(
-    // 'monolog.logfile' => __DIR__ . '/../log/development.log',
-    // 'monolog.name'    => 'ppe_gestion'
+// 'monolog.logfile' => __DIR__ . '/../log/development.log',
+// 'monolog.name'    => 'ppe_gestion'
 // ));
-
 // Web Profiler
 // if ($app['debug']) {
-    // $app->register(new Provider\WebProfilerServiceProvider(), array(
-        // 'profiler.cache_dir' => __DIR__.'/../cache/profiler/',
-        // 'profiler.mount_prefix' => '/_profiler', // this is the default
-    // ));    
+// $app->register(new Provider\WebProfilerServiceProvider(), array(
+// 'profiler.cache_dir' => __DIR__.'/../cache/profiler/',
+// 'profiler.mount_prefix' => '/_profiler', // this is the default
+// ));
 // }
-
-
 // Register JSON data decoder for JSON requests
 // $app->before(function (Request $request) {
-    // if (0 === strpos($request->headers->get('Content-Type'), 'application/json')) {
-        // $data = json_decode($request->getContent(), true);
-        // $request->request->replace(is_array($data) ? $data : array());
-    // }
+// if (0 === strpos($request->headers->get('Content-Type'), 'application/json')) {
+// $data = json_decode($request->getContent(), true);
+// $request->request->replace(is_array($data) ? $data : array());
+// }
 // });
-
 /*$app->register(new Silex\Provider\SecurityServiceProvider(), array(
     'security.firewalls' => array(
         'foo' => array('pattern' => '^/login'), // Exemple d'une url accessible en mode non connecté
@@ -165,7 +169,7 @@ $app['dao.user'] = $app->share(function($app){
         array('^/foo$', ''), // Cette url est accessible en mode non connecté
     )
 ));*/
-            
-            
-            
+
+
+
 return $app;

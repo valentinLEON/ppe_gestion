@@ -3,7 +3,7 @@
 {% block title %}
   Liste des utilisateurs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <span style="font-size:14px;">
-      <a href="adduser"><i class="fa fa-plus"></i>&nbsp; Ajouter un utilisateur</a>
+      <a href="{{ path('adduser') }}"><i class="fa fa-plus"></i>&nbsp; Ajouter un utilisateur</a>
   </span>
 {% endblock %}
 
@@ -68,10 +68,10 @@
                                 <input type="hidden" value="{{ user.id_class }}" name="id_class"  >
                                 
                                 <td class="mytdminus"> 
-                                    {# formulaire de modification de l'utilisatateur via l'id_user 
+                                    {# formulaire de modification de l'utilisatateur via l'id_user  #} 
                                     
-                                 //   <form action="{{ path('modifuser', {'modifuser':user.id_users }) }}" method="get" >   #}  
-                                    <form action="modifuser/edit/id " method="post" >
+                                    <form action="{{ path('user_edit', {'id_user':user.id_users }) }}" method="get" >   
+                                  
                                         <div class="btn-group">
                                             <button type="submit" class="btn btn-warning btn-flat">
                                                 <i class="fa fa-edit"></i>
@@ -82,10 +82,10 @@
                                             
                                   </td>       
                                 <td class="mytdminus"> 
-                                    {# formulaire de suppression de l'utilisatateur via l'id_user 
+                                    {# formulaire de suppression de l'utilisatateur via l'id_user #}
                                     
-                                //    <form action="{{ path('delete', {'delete': artist.id}) }}" method="get" >  #}
-                                    <form action="modifuser/delete/id" method="post" >  
+                                    <form action="{{ path('user_delete', {'id_user': user.id_users}) }}" method="get" >  
+                                  
                                         <div class="btn-group">
                                             <button type="submit" class="btn btn-danger btn-flat">
                                                 <i class="fa fa-trash"></i>

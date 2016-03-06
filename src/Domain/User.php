@@ -41,7 +41,7 @@ class User implements UserInterface
     public $id_class; /*clé étrangère*/
     public $status;//
     
-    public $id_parent;
+    public $id_teacher;
 
     public $dt_create;
     public $dt_update;
@@ -227,14 +227,14 @@ class User implements UserInterface
     
     
         //region Getter et Setter de l'ID de l'utilisateur
-    public function getIdParent()
+    public function getIdTeacher()
     {
-        return $this->id_parent;
+        return $this->id_teacher;
     }
 
-    public function setIdParent($_id_parent)
+    public function setIdTeacher($_id_teacher)
     {
-        $this->id_parent = $_id_parent;
+        $this->id_teacher = $_id_teacher;
     }
     //endregion
 
