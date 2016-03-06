@@ -6,7 +6,7 @@
 
 {% block content %}
 
-   <a href="addnote"><h3 class="box-title"><i class="fa fa-plus"></i>&nbsp; Ajouter une note</h3></a>
+   <a href="{{ path('addnote') }}"><h3 class="box-title"><i class="fa fa-plus"></i>&nbsp; Ajouter une note</h3></a>
 
 
    <div class="box">
@@ -14,31 +14,33 @@
          <table id="example1" class="table table-hover table-striped">
             <thead>
             <tr style="background-color: #3c8dbc">
-               <th style="text-align: center; border: 1px solid darkgrey;">Nom élève</th>
-               <th style="text-align: center; border: 1px solid darkgrey;">Classe </th>
-               <th style="text-align: center; border: 1px solid darkgrey;">Ajouter</th>
+                <th style="text-align: center; border: 1px solid darkgrey;"><i class="fa fa-calendar"></i>Date</th>
+                <th style="text-align: center; border: 1px solid darkgrey;">Description</th>
+                <th style="text-align: center; border: 1px solid darkgrey;">Classe</th>
+                <th style="text-align: center; border: 1px solid darkgrey;">Ajouter</th>
             </tr>
             </thead>
-            <tbody>
-               {% for etudiant in students %}
-               <tr>
-                  <td style="text-align: center; border: 1px solid darkgrey;">{{ etudiant.name~' '~etudiant.firstname }}</td>
-                  <td style="text-align: center; border: 1px solid darkgrey;"> SIO </td>
-                  <td style="text-align: center; border: 1px solid darkgrey;">
-                     <form action="addnote/id" method="post" >
-                        <div class="btn-group">
-                           <button type="submit" class="btn btn-warning btn-flat">
-                              <i class="fa fa-plus"></i>
-                              {#<input type='hidden' name="id_evaluation" value="{{ etudiant}}">#}
-                           </button>
-                        </div>
-                     </form>
-                  </td>
+             <tbody>
+             {% for exam in examens %}
+                 <tr>
+                     <td style="text-align: center; border: 1px solid darkgrey;">{{ exam.date_examen }}</td>
+                     <td style="text-align: center; border: 1px solid darkgrey;">{{ exam.description_examen }}</td>
+                     <td style="text-align: center; border: 1px solid darkgrey;">{{ exam.class }}</td>
+                     <td style="text-align: center; border: 1px solid darkgrey;">
+                         
+                      <form action="{{ path('addnote') }}" method="post" >
+                             <div class="btn-group">
+                                 <button type="submit" class="btn btn-warning btn-flat">
+                                     <i class="fa fa-plus"></i>
+                                     <input type='hidden' name="id_evaluation" value="{{ exam.id_examen}}">
+                                 </button>
+                             </div>
+                         </form>
+                     </td>
 
-                  <td></td>
-               </tr>
-                  {% endfor %}
-            </tbody>
+                     <td></td>
+                 </tr>
+             {% endfor %}
          </table>
       </div>
    </div>

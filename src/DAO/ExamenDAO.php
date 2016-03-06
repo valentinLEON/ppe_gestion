@@ -47,7 +47,7 @@ class ExamenDAO extends DAO
      */
     public function findAll()
     {
-        $sql = "SELECT * FROM examen ORDER BY examen_name";
+        $sql = "SELECT * FROM examen ORDER BY id_examen";
 
         $res = $this->getDb()->fetchAll($sql);
 

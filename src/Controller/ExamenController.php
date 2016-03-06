@@ -35,10 +35,10 @@ class ExamenController {
     
      public function listAction(Request $request ,Application $app) {    
 
-         $students = $app['dao.student']->findAll();
+         $examens = $app['dao.examen']->findAll();
 
           return $app['twig']->render('ListTemplate/examlist.html.twig', array(
-              'students' => $students,
+              'examens' => $examens,
           ));
     }
      
@@ -90,7 +90,7 @@ class ExamenController {
              ]);
     }
 
-    public function editStudentIndexAction(Request $request, Application $app) {
+    public function editExamenIndexAction(Request $request, Application $app) {
 
         $id_student = $request->request->get('id_student');
         $disciplines = $app['dao.discipline']->findAll();
