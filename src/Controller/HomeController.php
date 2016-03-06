@@ -17,6 +17,7 @@ class HomeController
     public function indexAction(Application $app) {
         
         $classes = $app['dao.classNames']->findAll();
+        $exams = $app['dao.examen']->findAll();
         $classes_total = $app['dao.classNames']->countAll();
 
         $students = $app['dao.student']->findAll();
@@ -26,6 +27,7 @@ class HomeController
         return $app['twig']->render('index.html.twig', array(
 
                 'classes'=>$classes,
+                'exams'=>$exams,
                 'classes_number'=>$classes_total,
                 'students'=>$students,
                 'students_number'=>$students_total,

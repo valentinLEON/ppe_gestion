@@ -47,7 +47,7 @@ class ExamenDAO extends DAO
      */
     public function findAll()
     {
-        $sql = "SELECT * FROM examen ORDER BY name_examen";
+        $sql = "SELECT * FROM examen ORDER BY examen_name";
 
         $res = $this->getDb()->fetchAll($sql);
 
@@ -88,7 +88,7 @@ class ExamenDAO extends DAO
     public function saveExamen(Examen $_examen)
     {
         $exam = array(
-            'examen_name'           => $_examen->getNameExamen(),
+            'examen_name'           => $_examen->getExamenName(),
             'date'                  => $_examen->getDateExamen(),
             'description'           => $_examen->getDescriptionExamen(),
             'id_class'              => $_examen->getClass(),
@@ -137,21 +137,21 @@ class ExamenDAO extends DAO
         $exam = new Examen();
         $exam->setIdExamen($row['id_examen']);
 
-        $exam->setNameExamen($row['name_examen']);
-        $exam->setNameExamen($row['date_examen']);
-        $exam->setDescriptionExamen($row['description_examen']);
+        $exam->setExamenName($row['examen_name']);
+        $exam->setDateExamen($row['date']);
+        $exam->setDescriptionExamen($row['description']);
         //$exam->setClass($row['id_class']);
 
         $exam->setDtCreate($row['dt_create']);
         $exam->setDtUpdate($row['dt_update']);
 
-        if(array_key_exists('id_class', $row))
+     /*   if(array_key_exists('id_class', $row))
         {
             $classID = $row['id_class'];
             $class = $this->classDAO->findClassname($classID);
             $exam->setClass($class);
         }
-
+*/
         return $exam;
     }
 
