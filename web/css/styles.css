@@ -72,3 +72,8 @@
     -o-hyphens: auto;
     hyphens: auto;
 }
+
+.ui-datepicker {
+    background: white;
+    padding:2%;
+}

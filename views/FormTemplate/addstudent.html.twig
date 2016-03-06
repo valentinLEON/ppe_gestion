@@ -1,17 +1,23 @@
 {% extends "layout.html.twig" %}
 
-{% block javascript %}
-    <script>
-$(function() {
-        $( "#datepicker" ).datepicker({
-            dateFormat : 'dd/mm/yy',
-            changeMonth : true,
-            changeYear : true,
-            yearRange: '-100y:c+nn',
-            maxDate: '-1d'
-        });
-    });
+{% block jcss %}
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+{% endblock %}
 
+{% block javascript %}
+     
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <script>
+        $(function() {
+          $( "#datepicker" ).datepicker({
+
+            changeMonth: true,
+            changeYear: true
+          });
+          
+        });
     </script>
 {% endblock %}
 
@@ -50,15 +56,13 @@ $(function() {
                 </div>
 
             </div>
-            <div class="form-group" style="width:250px; background:white">
+            <div class="form-group" style="width:250px;">
                 <label for="#">Date de naissance <span style="color: red;">*</span></label>
-                <div class="input-group">
+                <div class="input-group" >
                     <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </div>
-                   
-                       <input class="form-control" type="text" id="datepicker">
-                   
+                   <input type="text" id="datepicker" class="form-control">
                 </div>
             </div>
             <div class="form-group">
