@@ -91,7 +91,7 @@ class ExamenDAO extends DAO
             'examen_name'           => $_examen->getExamenName(),
             'date'                  => $_examen->getDateExamen(),
             'description'           => $_examen->getDescriptionExamen(),
-            'id_class'              => $_examen->getClass(),
+            'id_class'              => $_examen->getClass()->getIdClassName(),
             'dt_create'             => $_examen->getDtCreate(),
             'dt_update'             => $_examen->getDtUpdate(),
         );
