@@ -5,12 +5,17 @@
  *
  *                              AFFICHAGE ACCUEIL        * */
 $app->get('/', "ppe_gestion\Controller\HomeController::indexAction");
+
+$app->get('/accueil', "ppe_gestion\Controller\HomeController::indexAction")->bind('accueil');
+
 /**                                                                LOGIN
  * route pour afficher le login
  */
 $app->get('/login', "ppe_gestion\Controller\HomeController::loginAction")->bind('login');
 
 $app->get('/login_check', "ppe_gestion\Controller\HomeController::login_checkAction")->bind('login_check');
+
+
 /**                                                                PARENT
  * route pour afficher le layout parent
  */
@@ -90,8 +95,8 @@ $app->match('/modifuser/delete', "ppe_gestion\Controller\UserController::deleteU
 $app->post('/modifuser/delete/id', "ppe_gestion\Controller\UserController::deleteUserAction")->bind('user_deleted');
 
 //                                 MODIFIE USER
-$app->match('/modifuser/edit', "ppe_gestion\Controller\UserController::editUserIndexAction")->bind('user_edit');
-$app->match('/modifuser/edit/id', "ppe_gestion\Controller\UserController::editUserAction")->bind('user_edited');
+$app->match('/user_edit', "ppe_gestion\Controller\UserController::editUserIndexAction")->bind('user_edit');
+$app->match('/edit/id', "ppe_gestion\Controller\UserController::editUserAction")->bind('user_edited');
 /*  //                              AJOUT USER
  *  //* route pour l'affichage du formulaire d ajout d utilisateurs */
 $app->match('/adduser', "ppe_gestion\Controller\UserController::addIndexAction")->bind('adduser');
@@ -134,12 +139,16 @@ $app->post('/addclass', "ppe_gestion\Controller\ClassNameController::addAction")
 $app->get('/disciplinetab',  "ppe_gestion\Controller\DisciplineController::tabDisciplineAction")->bind('disciplinetab');
 /**                   LISTE
  * route pour l'affichage de la liste des matières          */
-$app->get('/disciplineslist', "ppe_gestion\Controller\DisciplineController::listDisciplineIndexAction")->bind('list_disciplines');
+$app->get('/disciplineslist', "ppe_gestion\Controller\DisciplineController::listDisciplineIndexAction")->bind('disciplineslist');
 $app->post('/disciplineslist', "ppe_gestion\Controller\DisciplineController::listDisciplineAction")->bind('post_list_disciplines');
 /**                      AJOUT
  * route pour l'ajout des matières      */
 $app->get('/adddiscipline', "ppe_gestion\Controller\DisciplineController::addIndexAction" )->bind('adddiscipline');
-$app->post('adddiscipline', "ppe_gestion\Controller\DisciplineController::addAction")->bind('discipline');
+$app->post('adddiscipline', "ppe_gestion\Controller\DisciplineController::addAction")->bind('post_adddiscipline');
+/**                      MODIFICATION
+ * route pour la modification des matières      */
+$app->get('/discipline_edit', "ppe_gestion\Controller\DisciplineController::addIndexAction" )->bind('discipline_edit');
+$app->post('discipline_edited', "ppe_gestion\Controller\DisciplineController::addAction")->bind('discipline_edited');
 /**                                                           EvaluationController
  *
  *                                                                   NOTES

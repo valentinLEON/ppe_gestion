@@ -27,14 +27,16 @@
                      <td style="text-align: center; border: 1px solid darkgrey;"> Bts Blanc Math </td>
                      <td style="text-align: center; border: 1px solid darkgrey;"> SIO 2 </td>
                      <td style="text-align: center; border: 1px solid darkgrey;">
-                         <form action="{{ path('edit') {id:id_evalutaion} }}" method="post" >
+                         
+                      {#   <form action="{{ path('user_edit') }}" method="post" >
                              <div class="btn-group">
                                  <button type="submit" class="btn btn-warning btn-flat">
                                      <i class="fa fa-plus"></i>
-                                     {#<input type='hidden' name="id_evaluation" value="{{ etudiant}}">#}
+                                     <input type='hidden' name="id_evaluation" value="{{ students.id_evaluation}}">
                                  </button>
                              </div>
                          </form>
+                         #}        
                      </td>
 
                      <td></td>

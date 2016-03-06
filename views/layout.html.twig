@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>ClassroomManager</title>
-    <link rel="icon" type="image/png" href="/vendor/almasaeed2010/adminlte/dist/img/iconsite.png" />
+    <link rel="icon" type="image/png" href="{{ app.request.basepath }}/themes/AdminLTE/dist/img/iconsite.png" />
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="{{ app.request.basepath }}/themes/AdminLTE/plugins/bootstrap/css/bootstrap.min.css">
@@ -22,10 +22,10 @@
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect.
     -->
-    <link rel="stylesheet" href="{{ app.request.basepath }}/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="{{ app.request.basepath }}/themes/AdminLTE/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="{{ app.request.basepath }}/themes/AdminLTE/dist/css/skins/_all-skins.min.css">
     <link rel="stylesheet" href="{{ app.request.basepath }}/css/styles.css">
-    <link rel="stylesheet" href="{{ app.request.basepath }}/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="{{ app.request.basepath }}/themes/AdminLTE/dist/css/skins/_all-skins.min.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -119,7 +119,7 @@ desired effect
     <header class="main-header">
 
         <!-- Logo -->
-        <a href="/" class="logo">
+        <a href="{{ path('accueil') }}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>C</b>Mng</span>
             <!-- logo for regular state and mobile devices -->
