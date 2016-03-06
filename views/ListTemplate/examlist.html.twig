@@ -6,7 +6,7 @@
 
 {% block content %}
 
-   <a href="addnote"><h3 class="box-title"><i class="fa fa-plus"></i>&nbsp; Ajouter une note</h3></a>
+   <a href="{{ path'(addnote') }}"><h3 class="box-title"><i class="fa fa-plus"></i>&nbsp; Ajouter une note</h3></a>
 
 
    <div class="box">
@@ -27,7 +27,7 @@
                      <td style="text-align: center; border: 1px solid darkgrey;"> Bts Blanc Math </td>
                      <td style="text-align: center; border: 1px solid darkgrey;"> SIO 2 </td>
                      <td style="text-align: center; border: 1px solid darkgrey;">
-                         <form action="addnote/id" method="post" >
+                         <form action="{{ path('edit') {id:id_evalutaion} }}" method="post" >
                              <div class="btn-group">
                                  <button type="submit" class="btn btn-warning btn-flat">
                                      <i class="fa fa-plus"></i>
