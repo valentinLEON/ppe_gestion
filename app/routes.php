@@ -5,17 +5,12 @@
  *
  *                              AFFICHAGE ACCUEIL        * */
 $app->get('/', "ppe_gestion\Controller\HomeController::indexAction");
-
 $app->get('/accueil', "ppe_gestion\Controller\HomeController::indexAction")->bind('accueil');
-
 /**                                                                LOGIN
  * route pour afficher le login
  */
 $app->get('/login', "ppe_gestion\Controller\HomeController::loginAction")->bind('login');
-
 $app->get('/login_check', "ppe_gestion\Controller\HomeController::login_checkAction")->bind('login_check');
-
-
 /**                                                                PARENT
  * route pour afficher le layout parent
  */
@@ -34,17 +29,11 @@ $app->get('/testroutes',"ppe_gestion\Controller\HomeController::testroutesAction
  * route pour l'affichage de la liste des etudiants
  */
 $app->get('/testlogin',"ppe_gestion\Controller\HomeController::testloginAction")->bind('testlogin');
-
-
 /*                                                           AdminController
 *                        TABLEAU DE BORD
 * route pour l'affichage de la liste des etudiants
 */
 $app->get('/admintab', "ppe_gestion\Controller\AdminController::indexAction")->bind('admintab');
-
-
-
-
 /**                                                          StudentController
  *
  *                                                               ETUDIANTS
@@ -75,9 +64,6 @@ $app->post('/addstudent', "ppe_gestion\Controller\StudentController::addAction")
 /* *                    STATISTIQUES
  * route pour l'affichage de la liste des etudiants*/
 $app->get('/studentstats',  "ppe_gestion\Controller\StudentController::studentStatIndex")->bind('studentstats');
-
-
-
 /**                                                                     UserController
  *                                               UTILISATEURS              **
  *
@@ -92,8 +78,7 @@ $app->get('/userslist', "ppe_gestion\Controller\UserController::listUserIndexAct
 $app->post('/userslist', "ppe_gestion\Controller\UserController::listUserAction")->bind('users');
 //                                SUPPRIME USER
 $app->match('/user_delete', "ppe_gestion\Controller\UserController::deleteUserIndexAction")->bind('user_delete');
-$app->post('/userdelete/id', "ppe_gestion\Controller\UserController::deleteUserAction")->bind('user_deleted');
-
+$app->post('/user_delete/id', "ppe_gestion\Controller\UserController::deleteUserAction")->bind('user_deleted');
 //                                 MODIFIE USER
 $app->match('/user_edit', "ppe_gestion\Controller\UserController::editUserIndexAction")->bind('user_edit');
 $app->match('/edit/id', "ppe_gestion\Controller\UserController::editUserAction")->bind('user_edited');
@@ -102,7 +87,6 @@ $app->match('/edit/id', "ppe_gestion\Controller\UserController::editUserAction")
 $app->match('/adduser', "ppe_gestion\Controller\UserController::addIndexAction")->bind('adduser');
 //* route pour la soumission du formulaire d ajout d utilisateurs
 $app->post('/adduser/id', "ppe_gestion\Controller\UserController::addAction")->bind('user_added');
-
 /**
  *
  *                                                            CalendarController
@@ -130,8 +114,6 @@ $app->get('/classeslist', "ppe_gestion\Controller\ClassNameController::listIndex
  */
 $app->get('/addclass', "ppe_gestion\Controller\ClassNameController::addIndexAction")->bind('addclass');
 $app->post('/addclass', "ppe_gestion\Controller\ClassNameController::addAction")->bind('class');
-
-
 /**                                                              DisciplineController
  *
  *                                                                  DISCIPLINES

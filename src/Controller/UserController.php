@@ -76,17 +76,15 @@ class UserController {
     
 
     public function listUserAction(Request $request, $app) {
-       
-       $users = $app['dao.user']->findAll();   
                
         $classes = $app['dao.classNames']->findAll();
         $disciplines = $app['dao.discipline']->findAll();
-        $roles = $app['dao.user']->findAll();
         $users = $app['dao.user']->findAll();
         
-       $id_user = $request->request->get('id_user'); 
-       $id_class = $request->request->get('id_class');
-       $id_discipline = $request->request->get('id_discipline');
+        $id_user = $request->request->get('id_user'); 
+        $id_class = $request->request->get('id_class');
+        $id_discipline = $request->request->get('id_discipline');
+        $role = $request->request->get('role');
 
         $classe = $app['dao.classNames']->findClassname($id_class);            
         $discipline = $app['dao.discipline']->findDiscipline($id_discipline);
@@ -96,7 +94,7 @@ class UserController {
             
             'classes'        =>$classes,
             'disciplines'    =>$disciplines,
-            'roles'          =>$roles,
+            'role'          =>$role,
             'users'          =>$users,
             'id_class'       => $id_class,
             'id_discipline'  => $id_discipline,
@@ -175,6 +173,24 @@ class UserController {
         $app['dao.user']->saveUser($newUser); 
         
         $app['session']->getFlashBag()->add('success', 'Utilisateur bien enregistré');
+        
+          return $app['twig']->render('FormTemplate/adduser.html.twig'  , array(
+            
+           'classe'           =>    $classes,
+           'discipline'       =>    $discipline,
+           'user'             =>    $users,  
+
+           'userById'         =>    $userById, 
+            
+           'username'         =>    $username,
+           'name'             =>    $name,
+           'firstname'        =>    $firstname,
+           'description'      =>    $description,
+           'password'         =>    $password,
+           'role'             =>    $role,
+           'user_mail'        =>    $user_mail,
+           'id_discipline'    =>    $id_discipline,
+           'id_class'         =>    $id_class));
         
     }else{
  
@@ -310,8 +326,29 @@ class UserController {
     
     /**  *           Delete user controller.  */
     
-    public function deleteUserIndexAction(Application $app) { 
-          return $app->redirect($app['url_generator']->generate('userslist/modifuser/delete/id'));
+    public function deleteUserIndexAction(Request $request, Application $app) { 
+        $id_user = $request->request->get('id_user');
+        $newUser = new User();
+        
+        $newUser->setIdUsers($id_user);
+       
+        $app['dao.user']->deleteUser($id_user);
+
+        $app['session']->getFlashBag()->add('danger', 'Utilisateur supprimé !');
+            
+        $classes = $app['dao.classNames']->findAll();
+        $disciplines = $app['dao.discipline']->findAll();
+        $roles = $app['dao.user']->findAll();
+        $users = $app['dao.user']->findAll();
+
+
+       return $app['twig']->render('ListTemplate/userslist.html.twig', array(
+           'classe'        =>$classes,
+           'discipline'    =>$disciplines,
+           'role'          =>$roles,
+           'users'         =>$users,
+       ));
+     
     }
     
 // POST ACTION DE SUPPRESSION DE L UTILSATEUR
