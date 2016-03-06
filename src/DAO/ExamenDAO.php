@@ -67,7 +67,7 @@ class ExamenDAO extends DAO
      */
     public function countAll()
     {
-        $sql = "SELECT cou* FROM examen ORDER BY name_examen";
+        $sql = "SELECT cou* FROM examen ORDER BY examen_name";
 
         $res = $this->getDb()->fetchAll($sql);
 

@@ -92,9 +92,9 @@
                     <tbody>
                         {% for exam in exams %}
                         <tr>
-                            <td style="text-align: center; border: 1px solid darkgrey;" > 02/03/2015</td>
+                            <td style="text-align: center; border: 1px solid darkgrey;" >{{ exam.date }}</td>
                             <td style="text-align: center; border: 1px solid darkgrey;">{{ exam.examen_name }}</td>
-                            <td style="text-align: center; border: 1px solid darkgrey;"> 12/20</td>
+                            <td style="text-align: center; border: 1px solid darkgrey;">moyenne ?!</td>
                             <td style="text-align: center; border: 1px solid darkgrey;">
                                 <form action="{{ path('addnote' , {'id':exam.id_examen} ) }}" method="post" >
                                     <div class="btn-group">
@@ -110,9 +110,11 @@
                 </table>
             </div>
             <!-- /.box-body -->
+            <form action="{{ path('examlist') }}">
             <div class="box-footer clearfix no-border">
-                <button type="button" href="examlist" class="btn btn-default pull-left"><i class="fa fa-arrow-circle-right"></i> Liste des examens</button>
+                <button type="submit" class="btn btn-default pull-left"><i class="fa fa-arrow-circle-right"></i> Liste des examens</button>
             </div>
+            </form>
         </div>
     </section>
 

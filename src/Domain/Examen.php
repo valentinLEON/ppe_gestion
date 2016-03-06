@@ -65,12 +65,12 @@ class Examen
     //region Getter et Setter de la date de l'examen
     public function getDateExamen()
     {
-        return $this->date_examen;
+        return $this->date;
     }
 
-    public function setDateExamen($date_examen)
+    public function setDateExamen($date)
     {
-        $this->date_examen = $date_examen;
+        $this->date = $date;
     }
     //endregion
 
