@@ -22,12 +22,6 @@ class EvaluationController {
         
    
     }
-    
-    // INDEX
-     public function listIndexAction(Request $request ,Application $app)  {
-    
-      
-     }
      
      // AJOUT INDEX
     public function addIndexAction(Request $request ,Application $app) {
@@ -78,10 +72,10 @@ class EvaluationController {
         $app['session']->getFlashBag()->add('success', 'La note a été ajoutée avec succès !');
 
         return $app['twig']->render('ListTemplate/notelist.html.twig', array(
-
-                 'classNames'  => $classes,
-                 'matieres'    => $disciplines,
-                 'students'    => $students,
+                'classNames'    => $classes,
+                'matieres'      => $disciplines,
+                'students'      => $students,
+                'examens'       => $examen,
               )
          );
     }
@@ -105,6 +99,12 @@ class EvaluationController {
      public function listAction(Request $request ,Application $app) {    
   
          return $app['twig']->render('ListTemplate/notelist.html.twig');
+    }
+
+    // INDEX
+    public function listIndexAction(Request $request ,Application $app)  {
+
+
     }
     
 }
