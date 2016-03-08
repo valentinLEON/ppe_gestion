@@ -145,8 +145,8 @@ $app->get('/notelist', "ppe_gestion\Controller\EvaluationController::listAction"
  *                             AJOUT
  *  Route pour l'ajout des notes et commentaires
  */
-$app->get('/addnote',"ppe_gestion\Controller\EvaluationController::addIndexAction")->bind('examlist/note');
-$app->post('/addnote/id', "ppe_gestion\Controller\EvaluationController::addAction")->bind('addnote');
+$app->get('/examlist/note',"ppe_gestion\Controller\EvaluationController::addIndexAction")->bind('examlist/note');
+$app->post('examlist/note/id', "ppe_gestion\Controller\EvaluationController::addAction")->bind('addnote');
 /**                      STATISTIQUES
  *
  * route pour afficher les stats des notes
@@ -157,7 +157,7 @@ $app->get('/notestats',"ppe_gestion\Controller\EvaluationController::statAction"
  *                          AJOUT
  */
 $app->get('/addexam', "ppe_gestion\Controller\ExamenController::addIndexAction")->bind('exam');
-$app->post('/addexam', "ppe_gestion\Controller\ExamenController::addAction")->bind('addexam');
+$app->post('addexam', "ppe_gestion\Controller\ExamenController::addAction")->bind('addexam');
 /**                        LISTE
  *
  * route pour l'affichage de la liste des examens */
