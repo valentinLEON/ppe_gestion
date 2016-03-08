@@ -17,6 +17,7 @@
                 <thead>
                 <tr style="background-color: #3c8dbc">
                     <th style="text-align: center; border: 1px solid darkgrey;">Etudiant</th>
+                    <th style="text-align: center; border: 1px solid darkgrey;">Examen</th>
                     <th style="text-align: center; border: 1px solid darkgrey;">Classe</th>
                     <th style="text-align: center; border: 1px solid darkgrey;">Ajouter</th>
                 </tr>
@@ -27,6 +28,9 @@
                         <td style="text-align: center; border: 1px solid darkgrey;">{{ student.student_name~' '~student.student_firstname }}</td>
                         <td style="text-align: center; border: 1px solid darkgrey;">BTS Blanc SIO</td>
                         <td style="text-align: center; border: 1px solid darkgrey;">SIO 2</td>
+                        <td style="text-align: center; border: 1px solid darkgrey;">
+                            <input type="text" class="form-control" style=" width: 10px ;border-radius: 3px" id="#" placeholder="Ex : 10" name="note">
+                        </td>
                     </tr>
                 {% endfor %}
 
