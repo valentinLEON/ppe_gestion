@@ -96,9 +96,20 @@ class EvaluationController {
          
     // LISTE
     
-     public function listAction(Request $request ,Application $app) {    
-  
-         return $app['twig']->render('ListTemplate/notelist.html.twig');
+     public function listAction(Request $request ,Application $app) {
+
+         $classes = $app['dao.classNames']->findAll();
+         $discipline = $app['dao.discipline']->findAll();
+         $student = $app['dao.student']->findAll();
+         $examen = $app['dao.examen']->findAll();
+
+         return $app['twig']->render('ListTemplate/notelist.html.twig', array(
+                 'classNames' => $classes,
+                 'matieres' => $discipline,
+                 'students' => $student,
+                 'examens' => $examen,
+             )
+         );
     }
 
     // INDEX
