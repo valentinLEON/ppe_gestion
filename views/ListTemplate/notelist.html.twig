@@ -6,14 +6,45 @@
 
 {% block content %}
      
-    <a href="{{ path('addnote') }}"><h3 class="box-title" ><i class="fa fa-plus"></i>&nbsp; Ajouter une note - evaluation</h3></a>
+    <a href="{{ path('addnote') }}"><h3 class="box-title" ><i class="fa fa-plus"></i>&nbsp; Ajouter une note</h3></a>
     <!-- Div pour afficher le nombre d'étudiants total -->
     <div class="small-box bg-aqua">
-        Liste des Notes
+        Liste des Etudiants pour ajouter les notes
     </div>
-    
-    <div class="small-box bg-aqua">
-        Liste des Evalutations
+
+    <div class="box">
+        <div class="box-body">
+            <table id="example1" class="table table-hover table-striped">
+                <thead>
+                <tr style="background-color: #3c8dbc">
+                    <th style="text-align: center; border: 1px solid darkgrey;">Etudiant</th>
+                    <th style="text-align: center; border: 1px solid darkgrey;">Classe</th>
+                    <th style="text-align: center; border: 1px solid darkgrey;">Ajouter</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for student in students %}
+                    <tr>
+                        <td style="text-align: center; border: 1px solid darkgrey;">{{ student.student_name~' '~student.student_firstname }}</td>
+                        <td style="text-align: center; border: 1px solid darkgrey;">{{ examen.examen_name }}</td>
+                        <td style="text-align: center; border: 1px solid darkgrey;">SIO 2</td>
+                        <td style="text-align: center; border: 1px solid darkgrey;">
+
+                            <form action="#" method="post" >
+                                <div class="btn-group">
+                                    <button type="submit" class="btn btn-warning btn-flat">
+                                        <i class="fa fa-plus">Ajouter des notes</i>
+                                        <input type='hidden' name="id_evaluation">
+                                    </button>
+                                </div>
+                            </form>
+                        </td>
+
+                        <td></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
     </div>
 
 {% endblock %}

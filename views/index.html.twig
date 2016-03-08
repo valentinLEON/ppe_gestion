@@ -96,7 +96,7 @@
                             <td style="text-align: center; border: 1px solid darkgrey;">{{ exam.examen_name }}</td>
                             <td style="text-align: center; border: 1px solid darkgrey;">moyenne ?!</td>
                             <td style="text-align: center; border: 1px solid darkgrey;">
-                                <form action="{{ path('addnote' , {'id':exam.id_examen} ) }}" method="post" >
+                                <form action="{{ path('notelist' , {'id':exam.id_examen} ) }}" method="post" >
                                     <div class="btn-group">
                                         <button type="submit" class="btn btn-success btn-flat">
                                             <i class="fa fa-plus"></i>
