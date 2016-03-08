@@ -35,11 +35,13 @@ class EvaluationController {
         $classes = $app['dao.classNames']->findAll();
         $discipline = $app['dao.discipline']->findAll();
         $student = $app['dao.student']->findAll();
+        $examen = $app['dao.examen']->findAll();
 
-        return $app['twig']->render('FormTemplate/addnote.html.twig', array(
-            'classNames' => $classes,
-            'matieres' => $discipline,
-            'students' => $student
+        return $app['twig']->render('ListTemplate/notelist.html.twig', array(
+                'classNames' => $classes,
+                'matieres' => $discipline,
+                'students' => $student,
+                'examens' => $examen,
             )
        );
     }
@@ -52,6 +54,7 @@ class EvaluationController {
         $classes = $app['dao.classNames']->findAll();
         $disciplines = $app['dao.discipline']->findAll();
         $students = $app['dao.student']->findAll();
+        $examen = $app['dao.examen']->findAll();
 
         $id_student = $request->request->get('id_student');
         $id_discipline = $request->request->get('id_discipline');
@@ -74,7 +77,7 @@ class EvaluationController {
         $app['dao.evaluation']->saveGrade($newEvaluation);
         $app['session']->getFlashBag()->add('success', 'La note a été ajoutée avec succès !');
 
-        return $app['twig']->render('FormTemplate/addnote.html.twig', array(
+        return $app['twig']->render('ListTemplate/notelist.html.twig', array(
 
                  'classNames'  => $classes,
                  'matieres'    => $disciplines,

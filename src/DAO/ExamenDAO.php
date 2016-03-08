@@ -110,8 +110,6 @@ class ExamenDAO extends DAO
             $_examen->setIdExamen($_id_examen);
 
         }
-        
-        
     }
 
     /**
@@ -140,18 +138,16 @@ class ExamenDAO extends DAO
         $exam->setExamenName($row['examen_name']);
         $exam->setDateExamen($row['date']);
         $exam->setDescriptionExamen($row['description']);
-        //$exam->setClass($row['id_class']);
 
         $exam->setDtCreate($row['dt_create']);
         $exam->setDtUpdate($row['dt_update']);
 
-     /*   if(array_key_exists('id_class', $row))
+        if(array_key_exists('id_class', $row))
         {
             $classID = $row['id_class'];
             $class = $this->classDAO->findClassname($classID);
             $exam->setClass($class);
         }
-*/
         return $exam;
     }
 
