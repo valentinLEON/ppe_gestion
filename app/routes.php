@@ -145,8 +145,8 @@ $app->get('/notelist', "ppe_gestion\Controller\EvaluationController::listAction"
  *                             AJOUT
  *  Route pour l'ajout des notes et commentaires
  */
-$app->get('/notelist',"ppe_gestion\Controller\EvaluationController::addIndexAction")->bind('addnote');
-$app->post('/notelist/id', "ppe_gestion\Controller\EvaluationController::addAction")->bind('note');
+$app->get('/addnote',"ppe_gestion\Controller\EvaluationController::addIndexAction")->bind('note');
+$app->post('/addnote/id', "ppe_gestion\Controller\EvaluationController::addAction")->bind('addnote');
 /**                      STATISTIQUES
  *
  * route pour afficher les stats des notes
