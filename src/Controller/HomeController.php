@@ -5,6 +5,7 @@ namespace ppe_gestion\Controller;
 use Silex\Application;
 use Silex\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use ppe_gestion\Domain;
 
 class HomeController
 {
