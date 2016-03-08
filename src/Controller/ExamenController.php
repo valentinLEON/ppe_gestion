@@ -68,7 +68,7 @@ class ExamenController {
         
         $newExamen = new Examen();
 
-        $newExamen->setNameExamen($name);
+        $newExamen->setExamenName($name);
         $newExamen->setDateExamen($date);
         $newExamen->setDescriptionExamen($description);
         $newExamen->setClass($id_class);
