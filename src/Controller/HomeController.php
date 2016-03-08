@@ -22,7 +22,7 @@ class HomeController
 
         $students = $app['dao.student']->findAll();
         $students_total = $app['dao.student']->countAll();
-        $date = date("d/m/Y");
+        $date = date('d/m/Y');
 
         return $app['twig']->render('index.html.twig', array(
 
