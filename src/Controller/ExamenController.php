@@ -36,9 +36,11 @@ class ExamenController {
      public function listAction(Request $request ,Application $app) {    
 
          $students = $app['dao.examen']->findAll();
+         $date = date("d/m/Y");
 
           return $app['twig']->render('ListTemplate/examlist.html.twig', array(
               'examens' => $students,
+              'date' => $date,
           ));
     }
      
